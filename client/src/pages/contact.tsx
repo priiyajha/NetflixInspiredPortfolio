@@ -101,7 +101,7 @@ export default function ContactPage() {
 
             {/* Additional Contact Methods */}
             <motion.div
-              className="grid md:grid-cols-2 gap-6"
+              className="grid md:grid-cols-2 gap-6 mb-16"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0 }}
@@ -141,6 +141,83 @@ export default function ContactPage() {
                   </div>
                 </div>
               </motion.a>
+            </motion.div>
+          </motion.div>
+
+          {/* Looking for Something Specific Section */}
+          <motion.div
+            className="max-w-6xl mx-auto mt-20"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-12">
+              Looking for Something Specific?
+            </h2>
+            
+            {/* Service Cards */}
+            <motion.div
+              className="grid md:grid-cols-3 gap-8 mb-12"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.4 }}
+            >
+              {/* Full-stack Card */}
+              <motion.div
+                className="bg-gray-800 rounded-2xl p-8 border border-gray-700 shadow-inner transition-all duration-300 h-full"
+                whileHover={{ 
+                  scale: 1.05, 
+                  boxShadow: "0 20px 60px rgba(255, 255, 255, 0.1)"
+                }}
+              >
+                <h3 className="text-2xl font-bold text-white mb-4">🖥️ Full-stack</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  MERN stack development, real-time data flows, and scalable system design.
+                </p>
+              </motion.div>
+
+              {/* Vibe Coding Card */}
+              <motion.div
+                className="bg-gray-800 rounded-2xl p-8 border border-gray-700 shadow-inner transition-all duration-300 h-full"
+                whileHover={{ 
+                  scale: 1.05, 
+                  boxShadow: "0 20px 60px rgba(255, 255, 255, 0.1)"
+                }}
+              >
+                <h3 className="text-2xl font-bold text-white mb-4">🎨 Vibe Coding | Marketing</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  Creative frontend logic, marketing-friendly UX, and campaign-ready components.
+                </p>
+              </motion.div>
+
+              {/* AI Automation Card */}
+              <motion.div
+                className="bg-gray-800 rounded-2xl p-8 border border-gray-700 shadow-inner transition-all duration-300 h-full"
+                whileHover={{ 
+                  scale: 1.05, 
+                  boxShadow: "0 20px 60px rgba(255, 255, 255, 0.1)"
+                }}
+              >
+                <h3 className="text-2xl font-bold text-white mb-4">🤖 AI Automation</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  Workflow automation, GenAI integrations, and no-code tools to reduce manual effort.
+                </p>
+              </motion.div>
+            </motion.div>
+
+            {/* Response Bar */}
+            <motion.div
+              className="bg-red-900/20 border border-red-900 rounded-2xl p-6 md:p-8 text-center"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.6 }}
+            >
+              <h3 className="text-2xl font-bold text-white mb-4">⚡ To Collaborate or Hire</h3>
+              <p className="text-white leading-relaxed text-lg">
+                I respond to all professional inquiries within 24 hours. Thinking of{" "}
+                <span className="text-red-400 font-semibold">collaborating</span>? Ping me on{" "}
+                <span className="text-yellow-400 font-semibold">LinkedIn</span>, let's talk systems, vibes, and solutions.
+              </p>
             </motion.div>
           </motion.div>
         </motion.div>
