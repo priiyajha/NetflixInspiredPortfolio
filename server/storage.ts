@@ -83,13 +83,13 @@ export class MemStorage implements IStorage {
       },
       {
         id: "6",
-        title: "Portfolio Website",
-        description: "A modern portfolio website showcasing creative work with smooth animations and interactive elements. Built with React and styled with Tailwind CSS for optimal performance.",
-        image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
-        technologies: ["React", "Tailwind CSS", "Framer Motion"] as string[],
+        title: "Trip Advisor",
+        description: "A comprehensive travel planning platform that helps users explore destinations, discover attractions, and plan memorable trips. Features interactive maps, travel recommendations, and trip planning tools.",
+        image: "/attached_assets/Screenshot 2025-07-31 at 6.09.39 PM_1753965603764.png",
+        technologies: ["React.js", "Node.js", "Express.js", "Firebase", "PostgreSQL"] as string[],
         category: "web",
-        liveUrl: "https://example-portfolio.com",
-        githubUrl: "https://github.com/example/portfolio",
+        liveUrl: "https://example-tripadvisor.com",
+        githubUrl: "https://github.com/example/trip-advisor",
         featured: "false"
       },
       // Web Development Coming Soon placeholders
