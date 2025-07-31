@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Search, ChevronDown } from "lucide-react";
+import { Search, ChevronDown, Bell } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLocation, Link } from "wouter";
 
@@ -65,8 +65,8 @@ export default function Header() {
             <button className="p-2 hover:bg-white/10 rounded transition-all duration-200">
               <Search className="w-5 h-5" />
             </button>
-            <button className="p-2 hover:bg-white/10 rounded transition-all duration-200 text-lg">
-              🔔
+            <button className="p-2 hover:bg-white/10 rounded transition-all duration-200">
+              <Bell className="w-5 h-5" />
             </button>
             <div className="relative">
               <button className="flex items-center space-x-2 p-2 hover:bg-white/10 rounded transition-all duration-200">
