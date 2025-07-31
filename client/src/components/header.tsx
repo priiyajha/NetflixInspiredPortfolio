@@ -35,16 +35,17 @@ export default function Header() {
           {/* Left Navigation */}
           <nav className="flex items-center space-x-8">
             <div 
-              className="font-bold uppercase tracking-tight leading-none" 
+              className="font-bold tracking-tight leading-none transform -skew-y-1" 
               style={{ 
                 fontFamily: 'Bebas Neue, Arial Black, sans-serif',
                 fontSize: '2.5rem',
                 fontWeight: '900',
                 color: '#E50914',
-                letterSpacing: '-0.02em'
+                letterSpacing: '-0.02em',
+                textShadow: '2px 2px 0px rgba(0,0,0,0.3)'
               }}
             >
-              INBETABYPRIYA
+              InBetaByPriya
             </div>
             <ul className="hidden md:flex space-x-6">
               <li>
