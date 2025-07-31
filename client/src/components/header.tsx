@@ -34,7 +34,18 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Left Navigation */}
           <nav className="flex items-center space-x-8">
-            <div className="text-red-600 font-black text-2xl">InBetaByPriya</div>
+            <div 
+              className="font-bold uppercase tracking-tight leading-none" 
+              style={{ 
+                fontFamily: 'Bebas Neue, Arial Black, sans-serif',
+                fontSize: '2.5rem',
+                fontWeight: '900',
+                color: '#E50914',
+                letterSpacing: '-0.02em'
+              }}
+            >
+              INBETABYPRIYA
+            </div>
             <ul className="hidden md:flex space-x-6">
               <li>
                 <Link href="/">
