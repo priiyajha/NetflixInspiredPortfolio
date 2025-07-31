@@ -63,7 +63,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
           />
         </video>
         {/* Dark gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/50 to-background/30"></div>
       </div>
 
       {/* Hero Content */}
@@ -93,7 +93,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
           </motion.h2>
           
           <motion.p
-            className="text-lg md:text-xl text-netflix-light-gray mb-8 max-w-2xl"
+            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}

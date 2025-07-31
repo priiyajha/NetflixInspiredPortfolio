@@ -61,7 +61,7 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <Header />
       <div className="pt-20 px-4 md:px-12 py-16">
         <motion.div
@@ -80,7 +80,7 @@ export default function ContactPage() {
           </motion.h1>
           
           <motion.p
-            className="text-lg text-netflix-light-gray mb-12 text-center max-w-2xl mx-auto"
+            className="text-lg text-muted-foreground mb-12 text-center max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -101,7 +101,7 @@ export default function ContactPage() {
                 href={method.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-6 bg-netflix-dark-gray rounded-lg hover:bg-netflix-light-gray/10 transition-all duration-300 transform hover:scale-105"
+                className="group p-6 bg-card border border-border rounded-lg hover:bg-muted/50 transition-all duration-300 transform hover:scale-105"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
@@ -111,7 +111,7 @@ export default function ContactPage() {
                   <method.icon className={`w-8 h-8 ${method.color} group-hover:scale-110 transition-transform duration-300`} />
                   <div>
                     <h3 className="text-xl font-semibold mb-1">{method.label}</h3>
-                    <p className="text-netflix-light-gray group-hover:text-white transition-colors duration-300">
+                    <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                       {method.value}
                     </p>
                   </div>
