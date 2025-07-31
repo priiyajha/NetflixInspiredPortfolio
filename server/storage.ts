@@ -109,6 +109,18 @@ export class MemStorage implements IStorage {
         liveUrl: "",
         githubUrl: "",
         featured: "false"
+      },
+      {
+        id: "10",
+        title: "AI StayWise",
+        description: "An intelligent accommodation platform that provides personalized lodging recommendations based on user preferences, budget, and travel patterns. Features AI-powered price predictions, local insights, and smart booking assistance for optimal travel experiences.",
+        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["React & Next.js", "Node.js & Express", "PostgreSQL"] as string[],
+        category: "web",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "false"
       }
     ];
 
