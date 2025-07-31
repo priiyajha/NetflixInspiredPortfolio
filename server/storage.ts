@@ -26,26 +26,26 @@ export class MemStorage implements IStorage {
       // Featured Projects - Keep only 2 real ones
       {
         id: "1",
-        title: "E-commerce Platform",
-        description: "A modern e-commerce platform built with React and Node.js, featuring real-time inventory management, secure payment processing, and responsive design. This platform handles thousands of daily transactions and provides an intuitive shopping experience.",
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        title: "Coming Soon",
+        description: "An innovative project is in development that will showcase cutting-edge web technologies and modern development practices. This upcoming release will demonstrate advanced features and seamless user experiences.",
+        image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
-        technologies: ["React", "Node.js", "MongoDB", "Stripe", "Redis"] as string[],
+        technologies: ["Coming Soon"] as string[],
         category: "featured",
-        liveUrl: "https://example-ecommerce.com",
-        githubUrl: "https://github.com/example/ecommerce",
+        liveUrl: "",
+        githubUrl: "",
         featured: "true"
       },
       {
         id: "2",
-        title: "Analytics Dashboard",
-        description: "A comprehensive analytics dashboard with real-time data visualization, built using Vue.js and Python. Features include interactive charts, data filtering, and automated reporting for business intelligence.",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        title: "Coming Soon",
+        description: "A groundbreaking application is being crafted with the latest technologies and frameworks. Stay tuned for this exciting release that will push the boundaries of modern web development and user experience design.",
+        image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
-        technologies: ["Vue.js", "Python", "PostgreSQL", "D3.js", "Docker"] as string[],
+        technologies: ["Coming Soon"] as string[],
         category: "featured",
-        liveUrl: "https://example-analytics.com",
-        githubUrl: "https://github.com/example/analytics",
+        liveUrl: "",
+        githubUrl: "",
         featured: "true"
       },
       // Featured Coming Soon placeholders
