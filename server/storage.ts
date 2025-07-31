@@ -21,8 +21,9 @@ export class MemStorage implements IStorage {
   }
 
   private initializeData() {
-    // Initialize with sample portfolio data
+    // Initialize with sample portfolio data (only 2 real projects per category)
     const sampleProjects: Project[] = [
+      // Featured Projects - Keep only 2 real ones
       {
         id: "1",
         title: "E-commerce Platform",
@@ -45,28 +46,30 @@ export class MemStorage implements IStorage {
         githubUrl: "https://github.com/example/analytics",
         featured: "true"
       },
+      // Featured Coming Soon placeholders
       {
         id: "3",
-        title: "Mobile App Design",
-        description: "A sleek mobile application interface designed in Figma and developed with React Native. The app focuses on user experience with smooth animations and intuitive navigation patterns.",
-        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
-        technologies: ["React Native", "Figma", "Expo", "TypeScript"] as string[],
+        title: "Coming Soon",
+        description: "An exciting new project in development. Stay tuned for updates on this innovative solution that will push the boundaries of modern web development.",
+        image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        technologies: ["Coming Soon"] as string[],
         category: "featured",
-        liveUrl: "https://example-mobile.com",
-        githubUrl: "https://github.com/example/mobile-app",
+        liveUrl: "",
+        githubUrl: "",
         featured: "true"
       },
       {
         id: "4",
-        title: "AI Web Application",
-        description: "An AI-powered web application that leverages machine learning for intelligent data processing. Built with Python and TensorFlow, featuring natural language processing and predictive analytics.",
-        image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
-        technologies: ["Python", "TensorFlow", "Flask", "OpenAI API"] as string[],
+        title: "Coming Soon",
+        description: "Another groundbreaking project is currently in the works. This will showcase cutting-edge technology and innovative problem-solving approaches.",
+        image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        technologies: ["Coming Soon"] as string[],
         category: "featured",
-        liveUrl: "https://example-ai.com",
-        githubUrl: "https://github.com/example/ai-app",
+        liveUrl: "",
+        githubUrl: "",
         featured: "true"
       },
+      // Web Development - Keep only 2 real ones
       {
         id: "5",
         title: "Corporate Website",
@@ -89,26 +92,27 @@ export class MemStorage implements IStorage {
         githubUrl: "https://github.com/example/portfolio",
         featured: "false"
       },
+      // Web Development Coming Soon placeholders
       {
         id: "7",
-        title: "Blog Platform",
-        description: "A content management system for bloggers with rich text editing, media management, and social sharing capabilities. Built with Next.js and integrated with headless CMS.",
-        image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
-        technologies: ["Next.js", "Sanity CMS", "GraphQL"] as string[],
+        title: "Coming Soon",
+        description: "A revolutionary web application is being crafted with the latest technologies. This project will demonstrate advanced web development techniques and user experience design.",
+        image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        technologies: ["Coming Soon"] as string[],
         category: "web",
-        liveUrl: "https://example-blog.com",
-        githubUrl: "https://github.com/example/blog-platform",
+        liveUrl: "",
+        githubUrl: "",
         featured: "false"
       },
       {
         id: "8",
-        title: "Booking System",
-        description: "A comprehensive booking system for restaurants and events with real-time availability, payment processing, and notification system. Built with Angular and Express.js.",
-        image: "https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
-        technologies: ["Angular", "Express.js", "MySQL", "Socket.io"] as string[],
+        title: "Coming Soon",
+        description: "An innovative web solution is in development that will showcase modern frameworks and best practices in web development. Exciting features are being implemented.",
+        image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        technologies: ["Coming Soon"] as string[],
         category: "web",
-        liveUrl: "https://example-booking.com",
-        githubUrl: "https://github.com/example/booking-system",
+        liveUrl: "",
+        githubUrl: "",
         featured: "false"
       }
     ];
