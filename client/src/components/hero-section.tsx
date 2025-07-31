@@ -51,7 +51,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          className="absolute inset-0 w-full h-full object-cover opacity-75"
         >
           <source src={backgroundVideo} type="video/mp4" />
           {/* Fallback background image if video fails to load */}
@@ -63,7 +63,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
           />
         </video>
         {/* Dark gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/30"></div>
       </div>
 
       {/* Hero Content */}
