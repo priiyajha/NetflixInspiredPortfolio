@@ -29,12 +29,12 @@ export default function Home() {
       <ProjectsSection onProjectClick={setSelectedProjectId} />
       
       {/* Footer Section */}
-      <footer className="bg-black/95 border-t border-gray-800 mt-20">
-        <div className="max-w-7xl mx-auto px-4 md:px-12 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <footer className="bg-black/95 border-t border-gray-800 mt-20 w-full">
+        <div className="w-full px-4 md:px-8 lg:px-12 py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 max-w-none w-full">
             
             {/* Contact Column */}
-            <div className="space-y-4">
+            <div className="space-y-4 flex-1">
               <h3 className="text-xl font-semibold text-white mb-6">Contact</h3>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors">
@@ -53,7 +53,7 @@ export default function Home() {
             </div>
 
             {/* Services Column */}
-            <div className="space-y-4">
+            <div className="space-y-4 flex-1">
               <h3 className="text-xl font-semibold text-white mb-6">Services</h3>
               <div className="space-y-3">
                 <div className="text-gray-300 text-sm hover:text-white transition-colors cursor-default">Web Development</div>
@@ -64,7 +64,7 @@ export default function Home() {
             </div>
 
             {/* Technologies Column */}
-            <div className="space-y-4">
+            <div className="space-y-4 flex-1">
               <h3 className="text-xl font-semibold text-white mb-6">Technologies</h3>
               <div className="space-y-3">
                 <div className="text-gray-300 text-sm hover:text-white transition-colors cursor-default">HTML/CSS</div>
@@ -76,7 +76,7 @@ export default function Home() {
             </div>
 
             {/* Social Column */}
-            <div className="space-y-4">
+            <div className="space-y-4 flex-1">
               <h3 className="text-xl font-semibold text-white mb-6">Social</h3>
               <div className="space-y-3">
                 <a 
@@ -102,7 +102,7 @@ export default function Home() {
           </div>
 
           {/* Bottom Border */}
-          <div className="border-t border-gray-800 mt-12 pt-8">
+          <div className="border-t border-gray-800 mt-12 pt-8 w-full">
             <div className="text-center text-gray-400 text-sm">
               © 2024 Priya Jha. All rights reserved.
             </div>
