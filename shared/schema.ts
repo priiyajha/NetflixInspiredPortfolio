@@ -8,6 +8,7 @@ export const projects = pgTable("projects", {
   title: text("title").notNull(),
   description: text("description").notNull(),
   image: text("image").notNull(),
+  video: text("video"),
   technologies: json("technologies").$type<string[]>().notNull(),
   category: text("category").notNull(),
   liveUrl: text("live_url"),

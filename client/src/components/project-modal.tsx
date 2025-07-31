@@ -59,11 +59,22 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                   </Button>
                 </div>
 
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-64 object-cover rounded-lg mb-6"
-                />
+                {project.video ? (
+                  <video
+                    src={project.video}
+                    className="w-full h-64 object-cover rounded-lg mb-6"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                ) : (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-64 object-cover rounded-lg mb-6"
+                  />
+                )}
 
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
