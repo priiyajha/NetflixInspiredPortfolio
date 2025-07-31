@@ -1,139 +1,147 @@
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Twitter, Download } from "lucide-react";
+import { Linkedin, Github, Mail } from "lucide-react";
 import Header from "../components/header";
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
 
 export default function ContactPage() {
-  const { toast } = useToast();
-
-  const handleDownloadResume = async () => {
-    try {
-      const response = await fetch("/api/download-resume");
-      const data = await response.json();
-      
-      if (response.ok) {
-        toast({
-          title: "Resume Download",
-          description: "Resume download initiated successfully",
-        });
-      } else {
-        throw new Error(data.message);
-      }
-    } catch (error) {
-      toast({
-        title: "Download Failed",
-        description: "Unable to download resume. Please try again.",
-        variant: "destructive",
-      });
-    }
-  };
-
-  const contactMethods = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "priya@inbetabypriya.com",
-      href: "mailto:priya@inbetabypriya.com",
-      color: "text-red-400"
-    },
-    {
-      icon: Github,
-      label: "GitHub",
-      value: "@priya-jha",
-      href: "https://github.com/priya-jha",
-      color: "text-gray-400"
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      value: "Priya Jha",
-      href: "https://linkedin.com/in/priya-jha",
-      color: "text-blue-400"
-    },
-    {
-      icon: Twitter,
-      label: "Twitter",
-      value: "@inbetabypriya",
-      href: "https://twitter.com/inbetabypriya",
-      color: "text-blue-300"
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
       <Header />
-      <div className="pt-20 px-4 md:px-12 py-16">
+      
+      {/* Header Section */}
+      <div className="pt-32 px-4 md:px-12 pb-16">
         <motion.div
-          className="max-w-4xl mx-auto"
+          className="max-w-6xl mx-auto"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+          {/* Title */}
           <motion.h1
-            className="text-4xl md:text-6xl font-bold mb-8 text-center"
+            className="text-5xl md:text-7xl font-black mb-8 text-center text-white"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Let's Connect
+            Get in Touch
           </motion.h1>
           
-          <motion.p
-            className="text-lg text-muted-foreground mb-12 text-center max-w-2xl mx-auto"
+          {/* Subheading - Two lines */}
+          <motion.div
+            className="text-xl md:text-2xl text-gray-300 mb-12 text-center max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Ready to collaborate on your next project or discuss exciting opportunities? 
-            I'm always open to connecting with fellow developers, entrepreneurs, and visionaries.
-          </motion.p>
+            <p className="mb-2">Ready to streamline your workflows?</p>
+            <p>Let's connect and turn chaos into clarity.</p>
+          </motion.div>
 
+          {/* Status Indicators */}
           <motion.div
-            className="grid md:grid-cols-2 gap-8 mb-12"
+            className="flex flex-col items-center space-y-4 mb-16"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            {contactMethods.map((method, index) => (
+            <div className="flex items-center space-x-3">
+              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              <span className="text-lg text-gray-300">Available for new projects</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+              <span className="text-lg text-gray-300">Usually responds within 24 hours</span>
+            </div>
+          </motion.div>
+
+          {/* Connect With Me Section */}
+          <motion.div
+            className="max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            <h2 className="text-3xl font-bold mb-8 text-center">Connect With Me</h2>
+            
+            {/* LinkedIn Profile Card */}
+            <motion.div
+              className="bg-gray-800 rounded-2xl p-8 mb-8 border border-gray-700 hover:border-gray-600 transition-all duration-300"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.2 }}
+            >
+              <div className="flex items-start space-x-6">
+                {/* Profile Avatar Placeholder */}
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                  <Linkedin className="w-8 h-8 text-white" />
+                </div>
+                
+                <div className="flex-1">
+                  <div className="flex items-center space-x-3 mb-2">
+                    <h3 className="text-2xl font-bold text-white">LinkedIn</h3>
+                    <span className="px-3 py-1 bg-blue-600 text-white text-sm rounded-full">Professional</span>
+                  </div>
+                  
+                  <p className="text-xl text-gray-300 mb-2">Priya Jha</p>
+                  <p className="text-gray-400 text-sm mb-6">
+                    Connect with me professionally and explore my journey.
+                  </p>
+                  
+                  <a
+                    href="https://linkedin.com/in/priya-jha"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button className="bg-white text-black hover:bg-gray-200 px-6 py-3 font-bold transition-all duration-300 hover:shadow-lg hover:shadow-white/20">
+                      Connect Now
+                    </Button>
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Additional Contact Methods */}
+            <motion.div
+              className="grid md:grid-cols-2 gap-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+            >
+              {/* GitHub Card */}
               <motion.a
-                key={method.label}
-                href={method.href}
+                href="https://github.com/priya-jha"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-6 bg-card border border-border rounded-lg hover:bg-muted/50 transition-all duration-300 transform hover:scale-105"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
-                whileHover={{ y: -5 }}
+                className="group bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-300"
+                whileHover={{ scale: 1.02 }}
               >
                 <div className="flex items-center space-x-4">
-                  <method.icon className={`w-8 h-8 ${method.color} group-hover:scale-110 transition-transform duration-300`} />
+                  <div className="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center group-hover:bg-gray-600 transition-colors duration-300">
+                    <Github className="w-6 h-6 text-white" />
+                  </div>
                   <div>
-                    <h3 className="text-xl font-semibold mb-1">{method.label}</h3>
-                    <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                      {method.value}
-                    </p>
+                    <h4 className="text-lg font-semibold text-white">GitHub</h4>
+                    <p className="text-gray-400 text-sm">@priya-jha</p>
                   </div>
                 </div>
               </motion.a>
-            ))}
-          </motion.div>
 
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-          >
-            <Button
-              onClick={handleDownloadResume}
-              className="bg-netflix-red hover:bg-red-700 text-white px-8 py-4 rounded font-semibold text-lg transition-colors duration-200 flex items-center justify-center gap-2 mx-auto"
-              size="lg"
-            >
-              <Download className="w-5 h-5" />
-              Download Resume
-            </Button>
+              {/* Email Card */}
+              <motion.a
+                href="mailto:priya@inbetabypriya.com"
+                className="group bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-300"
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center group-hover:bg-red-500 transition-colors duration-300">
+                    <Mail className="w-6 h-6 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-white">Email</h4>
+                    <p className="text-gray-400 text-sm">priya@inbetabypriya.com</p>
+                  </div>
+                </div>
+              </motion.a>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

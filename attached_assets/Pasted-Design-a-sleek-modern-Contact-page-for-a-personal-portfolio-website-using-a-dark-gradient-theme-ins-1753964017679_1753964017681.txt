@@ -1,0 +1,110 @@
+Design a sleek, modern Contact page for a personal portfolio website using a dark gradient theme inspired by Netflix UI aesthetics.
+
+🔝 Fixed Top Navigation Bar
+Left: Brand text/logo — PRIYA JHA
+
+Center: Navigation links — Home | Projects | Contact
+
+Right: Notification bell with red badge, search icon, and profile avatar placeholder
+
+📩 Header Section
+Title (large, bold white text): Get in Touch
+
+Subheading (slightly smaller font, spans two full-width lines):
+Ready to streamline your workflows? Let’s connect and turn chaos into clarity.
+
+Two bullet-style status indicators (stacked vertically):
+
+📩 Available for new projects
+
+🟢 Usually responds within 24 hours
+
+🧑‍💼 Section: Connect With Me
+Single rounded profile card:
+
+Platform: LinkedIn
+
+Name: Priya Jha
+
+Subtext (smaller font, reduced size):
+Connect with me professionally and explore my journey.
+
+Status Badge: Professional (blue tag)
+
+CTA Button: Connect Now — white accent button with bold hover effect (glow or invert)
+
+🎯 Section: Looking for Something Specific?
+Header (centered, bold white): Looking for Something Specific?
+
+🧩 Three Equal-Width Cards (Horizontal Layout)
+All cards must have:
+
+Consistent height and spacing
+
+Rounded corners
+
+Light inner shadows
+
+Font: Modern sans-serif (Inter or Helvetica Neue)
+
+Hover effects:
+
+Slight zoom in
+
+Radiant box-shadow with white base that softly blends into the dark background
+
+➤ Card 1
+Title: 🖥️ Full-stack
+
+Subtext: MERN stack development, real-time data flows, and scalable system design.
+
+➤ Card 2
+Title: 🎨 Vibe Coding | Marketing
+
+Subtext: Creative frontend logic, marketing-friendly UX, and campaign-ready components.
+
+➤ Card 3
+Title: 🤖 AI Automation
+
+Subtext: Workflow automation, GenAI integrations, and no-code tools to reduce manual effort.
+
+⚡ Response Bar (Full-Width Below Cards)
+Header (bold, centered): ⚡ To Collaborate or Hire
+
+Subtext:
+I respond to all professional inquiries within 24 hours. Thinking of collaborating? Ping me on LinkedIn, let’s talk systems, vibes, and solutions.
+
+Styling:
+
+Background color: #6c1a1a at 20% opacity
+
+Border: #6c1a1a at 100% opacity
+
+Padding: 16–24px all sides
+
+Text color: White
+
+Highlight key words:
+
+Collaborating in #ff4d4d
+
+LinkedIn in #ffd700
+
+🛠️ Global Styling Notes
+Background: Minimal black-to-dark-gray gradient
+
+Fonts: Clean, modern sans-serif (Inter / Helvetica Neue)
+
+Cards: Rounded corners, subtle inner shadows
+
+Buttons: White accent with strong hover states (e.g., glow or invert)
+
+Hover Interactions: Smooth transitions with zoom + soft box-shadow
+
+Layout & Spacing: Inspired by futuristic dashboards — aligned, responsive, and well-padded
+
+Vertical alignment: Match all sections top to bottom
+
+Footer spacing: Add margin-bottom for breathing room
+
+❌ Remove the bottom-right 🧪 Test Contact floating button entirely
