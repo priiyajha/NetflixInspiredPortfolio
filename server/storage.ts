@@ -89,13 +89,13 @@ export class MemStorage implements IStorage {
       {
         id: "6",
         title: "Trip Planner",
-        description: "A comprehensive travel planning platform that helps users explore destinations, discover attractions, and plan memorable trips. Features interactive maps, travel recommendations, and trip planning tools.",
+        description: "Trip Planner is a smart, collaborative travel planning platform that brings everything, destination discovery, personalized recommendations, real-time weather, transport options, and group itinerary planning, into one seamless web experience. With modern UI/UX and powerful backend integration, users can explore cities by category or season, manage bookings, and plan trips interactively, while admins maintain full control over content and insights through a dedicated dashboard.",
         image: "/attached_assets/trip-planner.png",
-        video: null,
+        video: "/attached_assets/20250731_1654_Neon Code Symphony_simple_compose_01k1g3kq5af70vc1a2b12hvja6_1753961284060.mp4",
         technologies: ["React.js", "Node.js", "Express.js", "Firebase", "PostgreSQL"] as string[],
         category: "web",
-        liveUrl: "https://example-tripplanner.com",
-        githubUrl: "https://github.com/example/trip-planner",
+        liveUrl: "https://trip-planner-nu-one.vercel.app/",
+        githubUrl: "https://github.com/priiyajha/Your-Tour-Partner",
         featured: "false"
       },
       // Web Development Coming Soon placeholders
