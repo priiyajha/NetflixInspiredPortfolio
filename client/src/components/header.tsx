@@ -54,14 +54,6 @@ export default function Header() {
                   Projects
                 </button>
               </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection("contact")}
-                  className="hover:text-netflix-light-gray transition-colors duration-200"
-                >
-                  Contact
-                </button>
-              </li>
             </ul>
           </nav>
 

@@ -2,8 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import Header from "../components/header";
 import HeroSection from "../components/hero-section";
 import ProjectsSection from "../components/projects-section";
-import AboutSection from "../components/about-section";
-import Footer from "../components/footer";
 import ProjectModal from "../components/project-modal";
 import { Profile } from "../../../shared/schema";
 import { useState } from "react";
@@ -28,8 +26,6 @@ export default function Home() {
       <Header />
       <HeroSection profile={profile} />
       <ProjectsSection onProjectClick={setSelectedProjectId} />
-      <AboutSection profile={profile} />
-      <Footer profile={profile} />
       <ProjectModal 
         projectId={selectedProjectId} 
         onClose={() => setSelectedProjectId(null)} 
