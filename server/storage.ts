@@ -73,6 +73,18 @@ export class MemStorage implements IStorage {
         githubUrl: "",
         featured: "true"
       },
+      {
+        id: "8",
+        title: "AI Interview Platform",
+        description: "An intelligent interview platform that conducts automated technical and behavioral interviews using advanced AI. Features real-time code evaluation, sentiment analysis, and detailed candidate assessments with personalized feedback.",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["React", "Python", "OpenAI", "WebRTC", "TensorFlow", "Node.js"] as string[],
+        category: "featured",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true"
+      },
       // Web Development - Keep only 2 real ones
       {
         id: "5",
