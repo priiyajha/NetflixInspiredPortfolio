@@ -56,7 +56,7 @@ export class MemStorage implements IStorage {
         description: "Farmfolio is an intelligent crop recommendation system that personalizes suggestions based on user inputs like geography, soil type, budget, area, and cultivation goals. Trained on curated datasets, it not only identifies the most suitable crops but also offers issue-specific fertilizer recommendations (e.g., for pests or soil fertility). The app integrates real-time weather and news updates through an interactive chatbot, enhanced with a personality agent to keep conversations engaging and a translator agent that uses NLP to detect and respond in the user's native language, even when typed phonetically in English. Built to unify diverse farming needs in one accessible platform.",
         image: "/attached_assets/ChatGPT Image Jul 31, 2025, 02_55_14 PM_1753965385040.png",
         video: "/attached_assets/1753954183383590_1753966280383.mp4",
-        technologies: ["HTML/CSS", "JavaScript"] as string[],
+        technologies: ["HTML/CSS", "JavaScript", "BotPress"] as string[],
         category: "web",
         liveUrl: "https://farmfolio-lilac.vercel.app/",
         githubUrl: "https://github.com/priiyajha/Farmfolio",
