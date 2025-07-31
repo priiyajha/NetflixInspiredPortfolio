@@ -35,14 +35,13 @@ export default function Header() {
           {/* Left Navigation */}
           <nav className="flex items-center space-x-8">
             <div 
-              className="font-bold tracking-tight leading-none transform -skew-y-1" 
+              className="font-bold tracking-tight leading-none" 
               style={{ 
                 fontFamily: 'Bebas Neue, Arial Black, sans-serif',
                 fontSize: '2.5rem',
                 fontWeight: '900',
                 color: '#E50914',
-                letterSpacing: '-0.02em',
-                textShadow: '2px 2px 0px rgba(0,0,0,0.3)'
+                letterSpacing: '-0.02em'
               }}
             >
               InBetaByPriya
