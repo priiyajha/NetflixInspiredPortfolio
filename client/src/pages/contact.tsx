@@ -127,7 +127,7 @@ export default function ContactPage() {
 
               {/* Email Card */}
               <motion.a
-                href="mailto:priya@inbetabypriya.com"
+                href="mailto:jhapriiyaa2104@gmail.com"
                 className="group bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-300"
                 whileHover={{ scale: 1.02 }}
               >
@@ -137,7 +137,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-white">Email</h4>
-                    <p className="text-gray-400 text-sm">priya@inbetabypriya.com</p>
+                    <p className="text-gray-400 text-sm">jhapriiyaa2104@gmail.com</p>
                   </div>
                 </div>
               </motion.a>
