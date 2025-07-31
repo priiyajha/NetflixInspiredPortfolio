@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Linkedin, Github, Mail } from "lucide-react";
+import { Linkedin, Github, Mail, ArrowRight } from "lucide-react";
 import Header from "../components/header";
 import { Button } from "@/components/ui/button";
 
@@ -19,6 +19,7 @@ export default function ContactPage() {
           {/* Title */}
           <motion.h1
             className="text-5xl md:text-7xl font-black mb-8 text-center text-white"
+            style={{ textShadow: '0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.6)' }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -90,8 +91,9 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Button className="bg-white text-black hover:bg-gray-200 px-6 py-3 font-bold transition-all duration-300 hover:shadow-lg hover:shadow-white/20">
-                      Connect Now
+                    <Button className="bg-white text-black hover:bg-gray-200 px-6 py-3 font-bold transition-all duration-300 hover:shadow-lg hover:shadow-white/20 flex items-center space-x-2">
+                      <span>Connect Now</span>
+                      <ArrowRight className="w-4 h-4" />
                     </Button>
                   </a>
                 </div>
@@ -163,10 +165,10 @@ export default function ContactPage() {
             >
               {/* Full-stack Card */}
               <motion.div
-                className="bg-gray-800 rounded-2xl p-8 border border-gray-700 shadow-inner transition-all duration-300 h-full"
+                className="bg-gray-800 rounded-2xl p-8 border border-gray-700 shadow-inner transition-all duration-300 h-full text-center"
                 whileHover={{ 
                   scale: 1.05, 
-                  boxShadow: "0 20px 60px rgba(255, 255, 255, 0.1)"
+                  boxShadow: "0 20px 60px rgba(255, 255, 255, 0.3), 0 0 80px rgba(255, 255, 255, 0.2)"
                 }}
               >
                 <h3 className="text-2xl font-bold text-white mb-4">🖥️ Full-stack</h3>
@@ -177,10 +179,10 @@ export default function ContactPage() {
 
               {/* Vibe Coding Card */}
               <motion.div
-                className="bg-gray-800 rounded-2xl p-8 border border-gray-700 shadow-inner transition-all duration-300 h-full"
+                className="bg-gray-800 rounded-2xl p-8 border border-gray-700 shadow-inner transition-all duration-300 h-full text-center"
                 whileHover={{ 
                   scale: 1.05, 
-                  boxShadow: "0 20px 60px rgba(255, 255, 255, 0.1)"
+                  boxShadow: "0 20px 60px rgba(255, 255, 255, 0.3), 0 0 80px rgba(255, 255, 255, 0.2)"
                 }}
               >
                 <h3 className="text-2xl font-bold text-white mb-4">🎨 Vibe Coding | Marketing</h3>
@@ -191,10 +193,10 @@ export default function ContactPage() {
 
               {/* AI Automation Card */}
               <motion.div
-                className="bg-gray-800 rounded-2xl p-8 border border-gray-700 shadow-inner transition-all duration-300 h-full"
+                className="bg-gray-800 rounded-2xl p-8 border border-gray-700 shadow-inner transition-all duration-300 h-full text-center"
                 whileHover={{ 
                   scale: 1.05, 
-                  boxShadow: "0 20px 60px rgba(255, 255, 255, 0.1)"
+                  boxShadow: "0 20px 60px rgba(255, 255, 255, 0.3), 0 0 80px rgba(255, 255, 255, 0.2)"
                 }}
               >
                 <h3 className="text-2xl font-bold text-white mb-4">🤖 AI Automation</h3>
