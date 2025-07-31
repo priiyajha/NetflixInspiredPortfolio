@@ -64,19 +64,25 @@ export default function HeroSection({ profile }: HeroSectionProps) {
       >
         <div className="max-w-3xl">
           <motion.h1
-            className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+            className="text-5xl md:text-6xl font-bold mb-4 leading-tight text-gray-100"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            {profile?.title || "Full Stack"}<br />
-            <span className="netflix-red">
-              {profile?.subtitle || "Development"}
-            </span>
+            Priya Jha
           </motion.h1>
           
+          <motion.h2
+            className="text-2xl md:text-3xl font-medium mb-6 text-gray-100"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            Full-Stack & Vibe Coding | Marketing
+          </motion.h2>
+          
           <motion.p
-            className="text-xl md:text-2xl text-netflix-light-gray mb-8 max-w-2xl"
+            className="text-lg md:text-xl text-netflix-light-gray mb-8 max-w-2xl"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
