@@ -26,15 +26,14 @@ export default function ContactPage() {
             Get in Touch
           </motion.h1>
           
-          {/* Subheading - Two lines */}
+          {/* Subheading - Single line */}
           <motion.div
             className="text-xl md:text-2xl text-gray-300 mb-12 text-center max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <p className="mb-2">Ready to streamline your workflows?</p>
-            <p>Let's connect and turn chaos into clarity.</p>
+            <p>Ready to streamline your workflows? Let's connect and turn chaos into clarity.</p>
           </motion.div>
 
           {/* Status Indicators */}
@@ -45,11 +44,11 @@ export default function ContactPage() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <div className="flex items-center space-x-3">
-              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              <span className="text-lg">📩</span>
               <span className="text-lg text-gray-300">Available for new projects</span>
             </div>
             <div className="flex items-center space-x-3">
-              <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
               <span className="text-lg text-gray-300">Usually responds within 24 hours</span>
             </div>
           </motion.div>
