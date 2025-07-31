@@ -72,13 +72,13 @@ export class MemStorage implements IStorage {
       // Web Development - Keep only 2 real ones
       {
         id: "5",
-        title: "Corporate Website",
-        description: "A professional corporate website with responsive design and modern web standards. Features include content management, SEO optimization, and performance monitoring.",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
-        technologies: ["HTML5", "CSS3", "JavaScript", "WordPress"] as string[],
+        title: "FarmFolio",
+        description: "A comprehensive crop recommendation system designed to help farmers make informed decisions about their agricultural practices. Features intelligent recommendations and user-friendly interface.",
+        image: "/attached_assets/ChatGPT Image Jul 31, 2025, 02_55_14 PM_1753965385040.png",
+        technologies: ["HTML", "CSS", "JavaScript", "BotPress"] as string[],
         category: "web",
-        liveUrl: "https://example-corporate.com",
-        githubUrl: "https://github.com/example/corporate-site",
+        liveUrl: "https://example-farmfolio.com",
+        githubUrl: "https://github.com/example/farmfolio",
         featured: "false"
       },
       {
