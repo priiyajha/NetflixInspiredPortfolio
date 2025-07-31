@@ -29,12 +29,12 @@ export default function Home() {
       <ProjectsSection onProjectClick={setSelectedProjectId} />
       
       {/* Footer Section */}
-      <footer className="bg-black/95 border-t border-gray-800 mt-20 w-full">
-        <div className="w-full px-4 md:px-8 lg:px-12 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 max-w-none w-full">
+      <footer className="bg-black/95 border-t border-gray-800 mt-20 w-screen">
+        <div className="w-screen px-6 md:px-12 lg:px-16 xl:px-20 py-16">
+          <div className="w-full flex flex-col lg:flex-row lg:justify-between lg:items-start gap-8 lg:gap-0">
             
             {/* Contact Column */}
-            <div className="space-y-4 flex-1">
+            <div className="space-y-4 flex-1 lg:flex-[1] lg:max-w-[25%]">
               <h3 className="text-xl font-semibold text-white mb-6">Contact</h3>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors">
@@ -53,7 +53,7 @@ export default function Home() {
             </div>
 
             {/* Services Column */}
-            <div className="space-y-4 flex-1">
+            <div className="space-y-4 flex-1 lg:flex-[1] lg:max-w-[25%]">
               <h3 className="text-xl font-semibold text-white mb-6">Services</h3>
               <div className="space-y-3">
                 <div className="text-gray-300 text-sm hover:text-white transition-colors cursor-default">Web Development</div>
@@ -64,7 +64,7 @@ export default function Home() {
             </div>
 
             {/* Technologies Column */}
-            <div className="space-y-4 flex-1">
+            <div className="space-y-4 flex-1 lg:flex-[1] lg:max-w-[25%]">
               <h3 className="text-xl font-semibold text-white mb-6">Technologies</h3>
               <div className="space-y-3">
                 <div className="text-gray-300 text-sm hover:text-white transition-colors cursor-default">HTML/CSS</div>
@@ -76,7 +76,7 @@ export default function Home() {
             </div>
 
             {/* Social Column */}
-            <div className="space-y-4 flex-1">
+            <div className="space-y-4 flex-1 lg:flex-[1] lg:max-w-[25%]">
               <h3 className="text-xl font-semibold text-white mb-6">Social</h3>
               <div className="space-y-3">
                 <a 
