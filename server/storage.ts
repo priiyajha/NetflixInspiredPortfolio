@@ -83,13 +83,13 @@ export class MemStorage implements IStorage {
       },
       {
         id: "6",
-        title: "Trip Advisor",
+        title: "Trip Planner",
         description: "A comprehensive travel planning platform that helps users explore destinations, discover attractions, and plan memorable trips. Features interactive maps, travel recommendations, and trip planning tools.",
-        image: "/attached_assets/Screenshot 2025-07-31 at 6.09.39 PM_1753965603764.png",
+        image: "/attached_assets/Screenshot 2025-07-31 at 6.09.39 PM_1753965802376.png",
         technologies: ["React.js", "Node.js", "Express.js", "Firebase", "PostgreSQL"] as string[],
         category: "web",
-        liveUrl: "https://example-tripadvisor.com",
-        githubUrl: "https://github.com/example/trip-advisor",
+        liveUrl: "https://example-tripplanner.com",
+        githubUrl: "https://github.com/example/trip-planner",
         featured: "false"
       },
       // Web Development Coming Soon placeholders
