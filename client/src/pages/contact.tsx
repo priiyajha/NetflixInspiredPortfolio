@@ -87,7 +87,7 @@ export default function ContactPage() {
                   </p>
                   
                   <a
-                    href="https://linkedin.com/in/priya-jha"
+                    href="https://www.linkedin.com/in/priiyajhaa/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -108,7 +108,7 @@ export default function ContactPage() {
             >
               {/* GitHub Card */}
               <motion.a
-                href="https://github.com/priya-jha"
+                href="https://github.com/priiyajha"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-gray-600 transition-all duration-300"
@@ -120,7 +120,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-lg font-semibold text-white">GitHub</h4>
-                    <p className="text-gray-400 text-sm">@priya-jha</p>
+                    <p className="text-gray-400 text-sm">@priiyajha</p>
                   </div>
                 </div>
               </motion.a>
