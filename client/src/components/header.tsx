@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
-import { Search, ChevronDown, Sun, Moon } from "lucide-react";
+import { Search, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLocation, Link } from "wouter";
-import { useTheme } from "../contexts/theme-context";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [location] = useLocation();
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,21 +62,14 @@ export default function Header() {
 
           {/* Right Icons */}
           <div className="flex items-center space-x-4">
-            <button className="p-2 hover:bg-white/10 dark:hover:bg-white/10 hover:bg-black/10 rounded transition-all duration-200">
+            <button className="p-2 hover:bg-white/10 rounded transition-all duration-200">
               <Search className="w-5 h-5" />
             </button>
-            <button 
-              onClick={toggleTheme}
-              className="p-2 hover:bg-white/10 dark:hover:bg-white/10 hover:bg-black/10 rounded transition-all duration-200"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-            </button>
-            <button className="p-2 hover:bg-white/10 dark:hover:bg-white/10 hover:bg-black/10 rounded transition-all duration-200 text-lg">
+            <button className="p-2 hover:bg-white/10 rounded transition-all duration-200 text-lg">
               🔔
             </button>
             <div className="relative">
-              <button className="flex items-center space-x-2 p-2 hover:bg-white/10 dark:hover:bg-white/10 hover:bg-black/10 rounded transition-all duration-200">
+              <button className="flex items-center space-x-2 p-2 hover:bg-white/10 rounded transition-all duration-200">
                 <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded"></div>
                 <ChevronDown className="w-4 h-4" />
               </button>
