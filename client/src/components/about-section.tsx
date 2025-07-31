@@ -45,7 +45,7 @@ export default function AboutSection({ profile }: AboutSectionProps) {
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold mb-6">About Me</h2>
+            <h2 className="text-4xl font-bold mb-6">About Priya</h2>
             <p className="text-lg text-netflix-light-gray mb-6">
               {profile.bio}
             </p>

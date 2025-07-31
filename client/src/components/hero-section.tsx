@@ -91,22 +91,22 @@ export default function HeroSection({ profile }: HeroSectionProps) {
             transition={{ duration: 0.8, delay: 1.1 }}
           >
             <Button
-              onClick={handleDownloadResume}
-              className="bg-white text-black px-8 py-4 rounded font-semibold text-lg hover:bg-netflix-light-gray transition-colors duration-200 flex items-center justify-center gap-2"
-              size="lg"
-            >
-              <Download className="w-5 h-5" />
-              Download Resume
-            </Button>
-            
-            <Button
               onClick={scrollToProjects}
-              variant="secondary"
-              className="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded font-semibold text-lg hover:bg-white/30 transition-all duration-200 flex items-center justify-center gap-2"
+              className="bg-white text-black px-8 py-4 rounded font-semibold text-lg hover:bg-netflix-light-gray transition-colors duration-200 flex items-center justify-center gap-2"
               size="lg"
             >
               <Play className="w-5 h-5" />
               View Projects
+            </Button>
+            
+            <Button
+              onClick={handleDownloadResume}
+              variant="secondary"
+              className="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded font-semibold text-lg hover:bg-white/30 transition-all duration-200 flex items-center justify-center gap-2"
+              size="lg"
+            >
+              <Download className="w-5 h-5" />
+              Download Resume
             </Button>
           </motion.div>
         </div>

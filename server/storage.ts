@@ -119,11 +119,11 @@ export class MemStorage implements IStorage {
 
     this.profileData = {
       id: "1",
-      name: "Full Stack Developer",
-      title: "Full Stack",
-      subtitle: "Development",
-      bio: "I'm a passionate full-stack developer with over 5 years of experience creating modern web applications. I specialize in React, Node.js, and cloud technologies, with a strong focus on user experience and performance optimization.",
-      mission: "My mission is to build digital experiences that make a positive impact on people's lives through clean code, innovative solutions, and attention to detail.",
+      name: "Priya Jha",
+      title: "Priya",
+      subtitle: "Jha",
+      bio: "Priya codes like she's curating a vibe, part full-stack dev, part automation whisperer, part marketing nerd. With the MERN stack at her fingertips and GenAI in her toolkit, she turns messy workflows into seamless systems. Beyond code, she leads with clarity, from TEDx stages to NSS teams, blending tech, voice, and vision. Quick to learn, faster to build, and always rewriting the rules, in beta, by choice.",
+      mission: "Transforming complex workflows into elegant solutions through the perfect blend of technology, automation, and strategic thinking.",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800",
       email: "contact@portfolio.com",
       phone: "+1 (234) 567-8900",

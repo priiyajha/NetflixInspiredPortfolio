@@ -36,7 +36,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           {/* Left Navigation */}
           <nav className="flex items-center space-x-8">
-            <div className="text-netflix-red font-bold text-2xl">PORTFOLIO</div>
+            <div className="text-netflix-red font-bold text-2xl">PRIYA JHA</div>
             <ul className="hidden md:flex space-x-6">
               <li>
                 <button
