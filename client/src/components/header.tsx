@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Search, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLocation, Link } from "wouter";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,20 +41,25 @@ export default function Header() {
             <div className="text-netflix-red font-bold text-2xl">InBetaByPriya</div>
             <ul className="hidden md:flex space-x-6">
               <li>
-                <button
-                  onClick={() => scrollToSection("home")}
-                  className="hover:text-netflix-light-gray transition-colors duration-200"
-                >
-                  Home
-                </button>
+                <Link href="/">
+                  <button className="hover:text-netflix-light-gray transition-colors duration-200">
+                    Home
+                  </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection("projects")}
-                  className="hover:text-netflix-light-gray transition-colors duration-200"
-                >
-                  Projects
-                </button>
+                <Link href="/projects">
+                  <button className="hover:text-netflix-light-gray transition-colors duration-200">
+                    Projects
+                  </button>
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact">
+                  <button className="hover:text-netflix-light-gray transition-colors duration-200">
+                    Contact
+                  </button>
+                </Link>
               </li>
             </ul>
           </nav>
