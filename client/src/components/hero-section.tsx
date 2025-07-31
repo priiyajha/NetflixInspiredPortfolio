@@ -3,6 +3,7 @@ import { Download, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Profile } from "@shared/schema";
+import backgroundVideo from "@assets/20250731_1654_Neon Code Symphony_simple_compose_01k1g3kq5af70vc1a2b12hvja6_1753961284060.mp4";
 
 interface HeroSectionProps {
   profile?: Profile;
@@ -42,17 +43,27 @@ export default function HeroSection({ profile }: HeroSectionProps) {
   };
 
   return (
-    <section id="home" className="relative h-screen flex items-end">
-      {/* Background Video/Image */}
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat">
-        <div 
-          className="w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
-          }}
+    <section id="home" className="relative h-screen flex items-end overflow-hidden">
+      {/* Background Video */}
+      <div className="absolute inset-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
         >
-          <div className="absolute inset-0 bg-black/50"></div>
-        </div>
+          <source src={backgroundVideo} type="video/mp4" />
+          {/* Fallback background image if video fails to load */}
+          <div 
+            className="w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: "url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
+            }}
+          />
+        </video>
+        {/* Dark gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30"></div>
       </div>
 
       {/* Hero Content */}
