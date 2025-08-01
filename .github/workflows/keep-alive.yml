@@ -1,0 +1,27 @@
+name: Keep Render Service Alive
+
+on:
+  schedule:
+    # Ping every 14 minutes (cron expression: minute hour day month day-of-week)
+    - cron: '*/14 * * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Ping Render Service
+      run: |
+        echo "Pinging Render service..."
+        RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" ${{ secrets.RENDER_SERVICE_URL }}/api/health)
+        
+        if [ $RESPONSE -eq 200 ]; then
+          echo "✅ Service is alive (HTTP $RESPONSE)"
+        else
+          echo "❌ Service ping failed (HTTP $RESPONSE)"
+          exit 1
+        fi
+      
+    - name: Log timestamp
+      run: echo "Last ping at $(date -u)"
