@@ -68,14 +68,14 @@ export default function HeroSection({ profile }: HeroSectionProps) {
 
       {/* Hero Content */}
       <motion.div
-        className="relative z-10 px-4 md:px-12 pb-32"
+        className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 pb-16 sm:pb-24 md:pb-32"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5 }}
       >
-        <div className="max-w-3xl">
+        <div className="max-w-4xl">
           <motion.h1
-            className="text-5xl md:text-6xl font-black mb-4 leading-tight text-white drop-shadow-lg"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 leading-tight text-white drop-shadow-lg"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
@@ -84,7 +84,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
           </motion.h1>
           
           <motion.h2
-            className="text-2xl md:text-3xl font-bold mb-6 text-white drop-shadow-lg"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6 text-white drop-shadow-lg"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -93,7 +93,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
           </motion.h2>
           
           <motion.p
-            className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl drop-shadow-md"
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl drop-shadow-md leading-relaxed"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.9 }}
@@ -102,27 +102,27 @@ export default function HeroSection({ profile }: HeroSectionProps) {
           </motion.p>
           
           <motion.div
-            className="flex flex-col sm:flex-row gap-4"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.1 }}
           >
             <Button
               onClick={scrollToProjects}
-              className="bg-white text-black px-8 py-4 rounded font-semibold text-lg hover:bg-netflix-light-gray transition-colors duration-200 flex items-center justify-center gap-2"
+              className="bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded font-semibold text-base sm:text-lg hover:bg-netflix-light-gray transition-colors duration-200 flex items-center justify-center gap-2"
               size="lg"
             >
-              <Play className="w-5 h-5" />
+              <Play className="w-4 h-4 sm:w-5 sm:h-5" />
               View Projects
             </Button>
             
             <Button
               onClick={handleDownloadResume}
               variant="secondary"
-              className="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded font-semibold text-lg hover:bg-white/30 transition-all duration-200 flex items-center justify-center gap-2"
+              className="bg-white/20 backdrop-blur-sm text-white px-6 sm:px-8 py-3 sm:py-4 rounded font-semibold text-base sm:text-lg hover:bg-white/30 transition-all duration-200 flex items-center justify-center gap-2"
               size="lg"
             >
-              <Download className="w-5 h-5" />
+              <Download className="w-4 h-4 sm:w-5 sm:h-5" />
               Download Resume
             </Button>
           </motion.div>

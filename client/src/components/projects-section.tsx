@@ -26,15 +26,15 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="px-4 md:px-12 mb-6">
-          <h2 className="text-3xl font-bold">
+        <div className="px-4 sm:px-6 md:px-12 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
             Featured Projects
           </h2>
         </div>
         
         {featuredLoading ? (
-          <div className="px-4 md:px-12">
-            <div className="text-netflix-light-gray">Loading featured projects...</div>
+          <div className="px-4 sm:px-6 md:px-12">
+            <div className="text-netflix-light-gray text-sm sm:text-base">Loading featured projects...</div>
           </div>
         ) : (
           <ProjectCarousel projects={featuredProjects} onProjectClick={onProjectClick} />
@@ -49,15 +49,15 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         transition={{ duration: 0.8, delay: 0.2 }}
         viewport={{ once: true }}
       >
-        <div className="px-4 md:px-12 mb-6">
-          <h2 className="text-3xl font-bold">
+        <div className="px-4 sm:px-6 md:px-12 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
             Web Development
           </h2>
         </div>
         
         {webLoading ? (
-          <div className="px-4 md:px-12">
-            <div className="text-netflix-light-gray">Loading web projects...</div>
+          <div className="px-4 sm:px-6 md:px-12">
+            <div className="text-netflix-light-gray text-sm sm:text-base">Loading web projects...</div>
           </div>
         ) : (
           <ProjectCarousel projects={webProjects} onProjectClick={onProjectClick} />

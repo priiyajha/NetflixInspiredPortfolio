@@ -26,43 +26,43 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
   return (
     <AnimatePresence>
       <motion.div
-        className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+        className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={handleBackdropClick}
       >
         <motion.div
-          className="bg-netflix-dark rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+          className="bg-netflix-dark rounded-lg max-w-4xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
           transition={{ duration: 0.3 }}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="p-6">
+          <div className="p-4 sm:p-6">
             {isLoading ? (
-              <div className="text-center py-8">
-                <div className="text-white text-xl">Loading project details...</div>
+              <div className="text-center py-6 sm:py-8">
+                <div className="text-white text-lg sm:text-xl">Loading project details...</div>
               </div>
             ) : project ? (
               <>
-                <div className="flex justify-between items-start mb-6">
-                  <h2 className="text-3xl font-bold">{project.title}</h2>
+                <div className="flex justify-between items-start mb-4 sm:mb-6">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold pr-4">{project.title}</h2>
                   <Button
                     variant="ghost"
                     size="icon"
                     onClick={onClose}
-                    className="text-netflix-light-gray hover:text-white"
+                    className="text-netflix-light-gray hover:text-white flex-shrink-0"
                   >
-                    <X className="w-6 h-6" />
+                    <X className="w-5 h-5 sm:w-6 sm:h-6" />
                   </Button>
                 </div>
 
                 {project.video ? (
                   <video
                     src={project.video}
-                    className="w-full h-64 object-cover rounded-lg mb-6"
+                    className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-lg mb-4 sm:mb-6"
                     autoPlay
                     loop
                     muted
@@ -72,7 +72,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-64 object-cover rounded-lg mb-6"
+                    className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-lg mb-4 sm:mb-6"
                   />
                 )}
 

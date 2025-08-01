@@ -90,4 +90,39 @@
   .header-gradient {
     background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.8) 50%, transparent 100%);
   }
+
+  /* Responsive Typography */
+  .text-responsive-sm {
+    @apply text-xs sm:text-sm md:text-base;
+  }
+  
+  .text-responsive-base {
+    @apply text-sm sm:text-base md:text-lg;
+  }
+  
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl md:text-2xl;
+  }
+  
+  .text-responsive-xl {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+  }
+  
+  .text-responsive-2xl {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+  }
+
+  /* Responsive Spacing */
+  .px-responsive {
+    @apply px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20;
+  }
+  
+  .py-responsive {
+    @apply py-4 sm:py-6 md:py-8 lg:py-12;
+  }
+
+  /* Mobile-first containers */
+  .container-responsive {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
 }

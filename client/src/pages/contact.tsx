@@ -9,7 +9,7 @@ export default function ContactPage() {
       <Header />
       
       {/* Header Section */}
-      <div className="pt-32 px-4 md:px-12 pb-16">
+      <div className="pt-24 sm:pt-28 md:pt-32 px-4 sm:px-6 md:px-12 pb-12 sm:pb-16">
         <motion.div
           className="max-w-6xl mx-auto"
           initial={{ opacity: 0, y: 50 }}
@@ -18,7 +18,7 @@ export default function ContactPage() {
         >
           {/* Title */}
           <motion.h1
-            className="text-5xl md:text-7xl font-black mb-8 text-center text-white"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 sm:mb-8 text-center text-white"
             style={{ textShadow: '0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.6)' }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -29,7 +29,7 @@ export default function ContactPage() {
           
           {/* Subheading - Single line */}
           <motion.div
-            className="text-xl md:text-2xl text-gray-300 mb-12 text-center max-w-4xl mx-auto"
+            className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 sm:mb-12 text-center max-w-4xl mx-auto px-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -39,18 +39,18 @@ export default function ContactPage() {
 
           {/* Status Indicators */}
           <motion.div
-            className="flex flex-col items-center space-y-4 mb-16"
+            className="flex flex-col items-center space-y-3 sm:space-y-4 mb-12 sm:mb-16"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <div className="flex items-center space-x-3">
-              <span className="text-lg">📩</span>
-              <span className="text-lg text-gray-300">Available for new projects</span>
+              <span className="text-base sm:text-lg">📩</span>
+              <span className="text-base sm:text-lg text-gray-300">Available for new projects</span>
             </div>
             <div className="flex items-center space-x-3">
               <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              <span className="text-lg text-gray-300">Usually responds within 24 hours</span>
+              <span className="text-base sm:text-lg text-gray-300">Usually responds within 24 hours</span>
             </div>
           </motion.div>
 

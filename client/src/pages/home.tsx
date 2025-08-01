@@ -17,7 +17,7 @@ export default function Home() {
   if (profileLoading) {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+        <div className="text-white text-lg sm:text-xl">Loading...</div>
       </div>
     );
   }
@@ -29,23 +29,23 @@ export default function Home() {
       <ProjectsSection onProjectClick={setSelectedProjectId} />
       
       {/* Footer Section */}
-      <footer className="bg-black/95 border-t border-gray-800 mt-20 w-screen">
-        <div className="w-screen px-6 md:px-12 lg:px-16 xl:px-20 py-16">
-          <div className="w-full flex flex-col lg:flex-row lg:justify-between lg:items-start gap-8 lg:gap-0">
+      <footer className="bg-black/95 border-t border-gray-800 mt-12 sm:mt-16 md:mt-20 w-screen">
+        <div className="w-screen px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 py-12 sm:py-14 md:py-16">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
             
             {/* Contact Column */}
-            <div className="space-y-4 flex-1 lg:flex-[1] lg:max-w-[25%]">
-              <h3 className="text-xl font-semibold text-white mb-6">Contact</h3>
+            <div className="space-y-4">
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Contact</h3>
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors">
-                  <Mail className="w-4 h-4" />
-                  <a href="mailto:jhapriiyaa2104@gmail.com" className="text-sm">
+                  <Mail className="w-4 h-4 flex-shrink-0" />
+                  <a href="mailto:jhapriiyaa2104@gmail.com" className="text-xs sm:text-sm break-all">
                     jhapriiyaa2104@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors">
-                  <Phone className="w-4 h-4" />
-                  <a href="tel:+919610373967" className="text-sm">
+                  <Phone className="w-4 h-4 flex-shrink-0" />
+                  <a href="tel:+919610373967" className="text-xs sm:text-sm">
                     +91 - 9610373967
                   </a>
                 </div>
@@ -53,31 +53,31 @@ export default function Home() {
             </div>
 
             {/* Services Column */}
-            <div className="space-y-4 flex-1 lg:flex-[1] lg:max-w-[25%]">
-              <h3 className="text-xl font-semibold text-white mb-6">Services</h3>
+            <div className="space-y-4">
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Services</h3>
               <div className="space-y-3">
-                <div className="text-gray-300 text-sm hover:text-white transition-colors cursor-default">Web Development</div>
-                <div className="text-gray-300 text-sm hover:text-white transition-colors cursor-default">Vibe Coding</div>
-                <div className="text-gray-300 text-sm hover:text-white transition-colors cursor-default">Vibe Marketing</div>
-                <div className="text-gray-300 text-sm hover:text-white transition-colors cursor-default">Gen AI</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Web Development</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Vibe Coding</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Vibe Marketing</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Gen AI</div>
               </div>
             </div>
 
             {/* Technologies Column */}
-            <div className="space-y-4 flex-1 lg:flex-[1] lg:max-w-[25%]">
-              <h3 className="text-xl font-semibold text-white mb-6">Technologies</h3>
+            <div className="space-y-4">
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Technologies</h3>
               <div className="space-y-3">
-                <div className="text-gray-300 text-sm hover:text-white transition-colors cursor-default">HTML/CSS</div>
-                <div className="text-gray-300 text-sm hover:text-white transition-colors cursor-default">JavaScript</div>
-                <div className="text-gray-300 text-sm hover:text-white transition-colors cursor-default">React & Next.js</div>
-                <div className="text-gray-300 text-sm hover:text-white transition-colors cursor-default">Node.js & Express</div>
-                <div className="text-gray-300 text-sm hover:text-white transition-colors cursor-default">MongoDB & PostgreSQL</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">HTML/CSS</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">JavaScript</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">React & Next.js</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Node.js & Express</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">MongoDB & PostgreSQL</div>
               </div>
             </div>
 
             {/* Social Column */}
-            <div className="space-y-4 flex-1 lg:flex-[1] lg:max-w-[25%]">
-              <h3 className="text-xl font-semibold text-white mb-6">Social</h3>
+            <div className="space-y-4">
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Social</h3>
               <div className="space-y-3">
                 <a 
                   href="https://github.com/priiyajha" 
@@ -85,8 +85,8 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors"
                 >
-                  <Github className="w-4 h-4" />
-                  <span className="text-sm">GitHub</span>
+                  <Github className="w-4 h-4 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm">GitHub</span>
                 </a>
                 <a 
                   href="https://www.linkedin.com/in/priiyajhaa/" 
@@ -94,16 +94,16 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors"
                 >
-                  <Linkedin className="w-4 h-4" />
-                  <span className="text-sm">LinkedIn</span>
+                  <Linkedin className="w-4 h-4 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm">LinkedIn</span>
                 </a>
               </div>
             </div>
           </div>
 
           {/* Bottom Border */}
-          <div className="border-t border-gray-800 mt-12 pt-8 w-full">
-            <div className="text-center text-gray-400 text-sm">
+          <div className="border-t border-gray-800 mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 w-full">
+            <div className="text-center text-gray-400 text-xs sm:text-sm">
               © 2024 Priya Jha. All rights reserved.
             </div>
           </div>
