@@ -167,6 +167,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "2017-2019"
                             : project.title === "DigiPay"
                             ? "2019-2021"
+                            : project.title === "Inventrax"
+                            ? "2022"
                             : "2025"}
                         </span>
                         <span className="px-3 py-1 rounded-full border border-white text-white text-sm">
@@ -191,7 +193,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           : project.title === "DigiPay"
                           ? "Scaled from first marketing hire to $80M revenue and 28-person team in 19 months."
                           : project.title === "Inventrax"
-                          ? "Comprehensive SEO platform optimizing website performance through advanced analytics and strategy."
+                          ? "Drove 600% organic traffic growth for warehouse automation SaaS in 4 months through strategic SEO."
                           : "Complex processes now run seamlessly."
                         }
                       </h2>
@@ -205,7 +207,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           : project.title === "DigiPay"
                           ? "B2B fintech marketing was chaos: scattered installs, broken attribution flows, and buried growth insights that had to be cleaned and restructured just to land a single merchant. Multiple marketers were manually coordinating campaigns every day to meet tight revenue deadlines. I joined as the first marketing hire and built a comprehensive growth solution using CleverTap, AppsFlyer, and mobile analytics that processes unstructured user data and generates clean, system-ready campaigns in minutes. Today, we scaled from $4M to $80M revenue with complete accuracy and zero growth stress. What used to be a daily bottleneck became a seamless acquisition machine that generated 30K B2B installs and 500K merchant downloads."
                           : project.title === "Inventrax"
-                          ? "SEO optimization was chaos: scattered tools, broken keyword strategies, and buried ranking insights that had to be cleaned and restructured just to improve a single page. Multiple marketers were manually analyzing search data every day to meet tight traffic deadlines. I built a comprehensive solution using SEMrush, Ahrefs, and analytics that processes unstructured SEO data and generates clean, system-ready optimizations in minutes. Today, one specialist manages entire website optimization with complete accuracy and zero ranking stress. What used to be a daily bottleneck is now a seamless organic growth machine."
+                          ? "Warehouse automation SaaS traffic was chaos: scattered content, broken keyword strategies, and buried ranking insights that had to be cleaned and restructured just to land a single lead. Multiple marketers were manually analyzing search data every day to meet tight traffic deadlines. I joined as a consultant and built a comprehensive growth solution using SEMrush, Ahrefs, and programmatic SEO that processes unstructured search data and generates clean, system-ready optimizations in minutes. Today, we achieved 600% traffic growth with complete accuracy and zero ranking stress. What used to be a daily bottleneck became a seamless organic lead machine that cracked top 2 positions for 3 high-value keywords."
                           : project.description
                         }
                       </p>
@@ -241,7 +243,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "DigiPay"
                             ? "Drive B2B installs, scale revenue, build top-tier marketing org"
                             : project.title === "Inventrax"
-                            ? "Optimize website performance and drive organic traffic through comprehensive SEO strategy"
+                            ? "Boost organic traffic, rank for Northstar keywords, generate high-quality B2B leads"
                             : "Manual data processing under tight deadlines"
                           }
                         </p>
@@ -258,7 +260,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "DigiPay"
                             ? "Head of Marketing (Full Time)"
                             : project.title === "Inventrax"
-                            ? "SEO Specialist"
+                            ? "Consultant (Freelance)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
@@ -274,7 +276,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "$180K revenue in 2 years, 40+ clients (60% overseas), 10+ media features, top 5 agency recognition"
                               : project.title === "DigiPay"
                               ? "$4M to $80M revenue, 30K B2B app installs, 500K merchant downloads, built team from 1 to 28"
-                              : "Successfully implemented SEO strategy with improved organic visibility and traffic growth"}
+                              : "600% traffic growth, ranked top 1-2 for 3 keywords, lead volume surge"}
                           </p>
                         </div>
                       )}
@@ -308,7 +310,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "2017 – Dec 2019"
                               : project.title === "DigiPay"
                               ? "Dec 2019 – Sep 2021"
-                              : "2024 – Present"}
+                              : "2022"}
                           </p>
                         </div>
                       )}

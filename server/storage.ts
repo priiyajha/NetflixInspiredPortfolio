@@ -114,7 +114,7 @@ export class MemStorage implements IStorage {
       {
         id: "4",
         title: "Inventrax",
-        description: "A comprehensive SEO and content marketing platform that optimizes website performance through advanced keyword research, backlink analysis, and search console integration. Features automated SEO audits, content strategy recommendations, and performance tracking for digital marketing success.",
+        description: "Drove a 600% organic traffic jump for a warehouse automation SaaS in 4 months as a marketing consultant. Cracked the top 2 spots for three high-value keywords and turned traffic into leads with CRO and smart automation. Growth hacking, done right.",
         image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: "/attached_assets/20250731_1654_Neon Code Symphony_simple_compose_01k1g3kq5af70vc1a2b12hvja6_1753961284060.mp4",
         technologies: ["SEMrush", "Backlinko.io", "Ahrefs", "Google Analytics", "Google Search Console"],
@@ -122,23 +122,23 @@ export class MemStorage implements IStorage {
         liveUrl: "",
         githubUrl: "",
         featured: "true",
-        status: "coming-soon",
+        status: "completed",
         features: [
-          "Advanced keyword research and analysis with SEMrush",
-          "Content strategy optimization with Backlinko.io methodology",
-          "Comprehensive backlink analysis and strategy with Ahrefs",
-          "Website performance tracking with Google Analytics",
-          "Search visibility monitoring with Google Search Console",
-          "Automated SEO audits and recommendations",
-          "Content gap analysis and optimization",
-          "Competitor research and benchmarking"
+          "Advanced keyword research and ranking strategy with SEMrush",
+          "Content strategy optimization using Backlinko.io methodology",
+          "Comprehensive backlink analysis and acquisition with Ahrefs",
+          "Traffic performance tracking and analysis with Google Analytics",
+          "Search visibility and ranking monitoring with Google Search Console",
+          "Programmatic SEO implementation for scale",
+          "Conversion rate optimization and lead generation",
+          "Email automation and lead nurturing systems"
         ],
-        skills: ["SEO", "content marketing", "keyword research", "link building", "analytics", "technical SEO"],
-        goal: "Optimize website performance and drive organic traffic through comprehensive SEO strategy",
-        kpis: ["Organic traffic", "keyword rankings", "backlink quality", "content engagement", "search visibility"],
-        results: "Successfully implemented SEO strategy with improved organic visibility and traffic growth",
-        engagementType: "SEO Specialist",
-        period: "2024 – Present"
+        skills: ["Programmatic SEO", "CRO", "lead magnets", "email automation", "blog marketing"],
+        goal: "Boost organic traffic, rank for Northstar keywords, generate high-quality B2B leads",
+        kpis: ["Organic traffic growth", "keyword ranking", "lead volume", "conversion rates"],
+        results: "600% traffic growth, ranked top 1-2 for 3 keywords, lead volume surge",
+        engagementType: "Consultant (Freelance)",
+        period: "2022"
       },
       {
         id: "11",
