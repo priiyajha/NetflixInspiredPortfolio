@@ -25,7 +25,7 @@ export default function SearchPage() {
 
   // Filter and sort projects based on search query
   useEffect(() => {
-    if (!searchQuery || !projects.length) {
+    if (!searchQuery || !projects?.length) {
       setFilteredProjects([]);
       return;
     }
@@ -57,7 +57,7 @@ export default function SearchPage() {
     });
 
     setFilteredProjects(sortedMatches);
-  }, [searchQuery, projects]);
+  }, [searchQuery, projects?.length]);
 
   const handleProjectClick = (projectId: string) => {
     setSelectedProjectId(projectId);

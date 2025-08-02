@@ -2,13 +2,11 @@ import { useState, useEffect } from "react";
 import { Search, ChevronDown, Bell, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, Link } from "wouter";
-import SearchBar from "./search-bar";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,7 +82,7 @@ export default function Header() {
               <div className="hidden md:flex items-center space-x-4">
                 <button 
                   className="p-2 hover:bg-white/10 rounded transition-all duration-200"
-                  onClick={() => setSearchOpen(true)}
+                  onClick={() => setLocation("/netflix-search")}
                 >
                   <Search className="w-5 h-5" />
                 </button>
@@ -135,7 +133,7 @@ export default function Header() {
                   <button 
                     className="p-3 hover:bg-white/10 rounded transition-all duration-200"
                     onClick={() => {
-                      setSearchOpen(true);
+                      setLocation("/netflix-search");
                       setMobileMenuOpen(false);
                     }}
                   >
@@ -154,15 +152,6 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Search Bar */}
-      <SearchBar
-        isOpen={searchOpen}
-        onClose={() => setSearchOpen(false)}
-        onSearch={(query) => {
-          console.log('Searching for:', query);
-        }}
-      />
     </>
   );
 }
