@@ -29,7 +29,7 @@ export default function NetflixSearchPage() {
     searchInputRef.current?.focus();
   }, []);
 
-  // Filter projects when search query changes
+  // Filter projects when search query changes or projects load
   useEffect(() => {
     if (!searchQuery.trim()) {
       setFilteredProjects([]);
@@ -65,7 +65,7 @@ export default function NetflixSearchPage() {
     });
 
     setFilteredProjects(sortedMatches);
-  }, [searchQuery, projects?.length]);
+  }, [searchQuery, projects]);
 
   const handleClearSearch = () => {
     setSearchQuery("");
@@ -114,7 +114,14 @@ export default function NetflixSearchPage() {
                   type="text"
                   placeholder="titles, people, genres"
                   value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    // Update URL to reflect current search
+                    const newUrl = e.target.value.trim() 
+                      ? `/netflix-search?q=${encodeURIComponent(e.target.value.trim())}`
+                      : '/netflix-search';
+                    window.history.replaceState({}, '', newUrl);
+                  }}
                   className="bg-transparent text-white placeholder-gray-400 outline-none text-sm w-64"
                 />
                 {searchQuery && (
