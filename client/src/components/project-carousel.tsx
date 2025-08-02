@@ -92,11 +92,19 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-all duration-300"></div>
                 )}
                 
-                {/* Future project indicator */}
-                {!hasLiveUrl && (
+                {/* Status indicator */}
+                {project.status === "coming-soon" && (
                   <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
                     <div className="inline-flex items-center text-xs text-white bg-blue-600/80 px-2 py-1 rounded backdrop-blur-sm">
                       Coming Soon
+                    </div>
+                  </div>
+                )}
+                
+                {project.status === "live" && hasLiveUrl && (
+                  <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
+                    <div className="inline-flex items-center text-xs text-white bg-green-600/80 px-2 py-1 rounded backdrop-blur-sm">
+                      Live
                     </div>
                   </div>
                 )}
@@ -105,9 +113,49 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1 sm:mb-2 transition-all duration-300 group-hover:text-white group-hover:drop-shadow-lg">
                     {project.title}
                   </h3>
-                  <p className="text-netflix-light-gray text-xs sm:text-sm transition-all duration-300 group-hover:text-gray-200">
+                  <p className="text-netflix-light-gray text-xs sm:text-sm transition-all duration-300 group-hover:text-gray-200 mb-1 sm:mb-2">
                     {project.technologies.join(", ")}
                   </p>
+                  
+                  {/* Features preview for Coming Soon projects */}
+                  {project.status === "coming-soon" && project.features && project.features.length > 0 && (
+                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <p className="text-netflix-light-gray text-xs font-medium mb-1">Key Features:</p>
+                      <ul className="text-netflix-light-gray text-xs space-y-0.5">
+                        {project.features.slice(0, 3).map((feature, idx) => (
+                          <li key={idx} className="flex items-start">
+                            <span className="text-blue-400 mr-1 mt-0.5">•</span>
+                            <span className="leading-tight">{feature}</span>
+                          </li>
+                        ))}
+                        {project.features.length > 3 && (
+                          <li className="text-blue-400 text-xs">
+                            + {project.features.length - 3} more features
+                          </li>
+                        )}
+                      </ul>
+                    </div>
+                  )}
+                  
+                  {/* Features preview for Live projects */}
+                  {project.status === "live" && project.features && project.features.length > 0 && hasLiveUrl && (
+                    <div className="opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      <p className="text-netflix-light-gray text-xs font-medium mb-1">Features:</p>
+                      <ul className="text-netflix-light-gray text-xs space-y-0.5">
+                        {project.features.slice(0, 2).map((feature, idx) => (
+                          <li key={idx} className="flex items-start">
+                            <span className="text-green-400 mr-1 mt-0.5">•</span>
+                            <span className="leading-tight">{feature}</span>
+                          </li>
+                        ))}
+                        {project.features.length > 2 && (
+                          <li className="text-green-400 text-xs">
+                            + {project.features.length - 2} more features
+                          </li>
+                        )}
+                      </ul>
+                    </div>
+                  )}
                   
                   {/* Hover indicator for clickable projects */}
                   {hasLiveUrl && (

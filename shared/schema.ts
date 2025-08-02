@@ -14,6 +14,8 @@ export const projects = pgTable("projects", {
   liveUrl: text("live_url"),
   githubUrl: text("github_url"),
   featured: text("featured").default("false"),
+  status: text("status").default("live"), // "live", "coming-soon", "in-development"
+  features: json("features").$type<string[]>(), // Key features list
 });
 
 export const profile = pgTable("profile", {

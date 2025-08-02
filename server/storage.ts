@@ -34,7 +34,18 @@ export class MemStorage implements IStorage {
         category: "featured",
         liveUrl: "https://trip-planner-nu-one.vercel.app/",
         githubUrl: "https://github.com/priiyajha/Your-Tour-Partner",
-        featured: "true"
+        featured: "true",
+        status: "live",
+        features: [
+          "Destination discovery with category-based exploration",
+          "Personalized recommendations based on preferences",
+          "Real-time weather integration and forecasts",
+          "Comprehensive transport options comparison",
+          "Collaborative group itinerary planning",
+          "Interactive booking management system",
+          "Season-specific city exploration guides",
+          "Admin dashboard with content and analytics control"
+        ]
       },
       {
         id: "2",
@@ -46,11 +57,22 @@ export class MemStorage implements IStorage {
         category: "featured",
         liveUrl: "",
         githubUrl: "",
-        featured: "true"
+        featured: "true",
+        status: "coming-soon",
+        features: [
+          "Real-time code evaluation and syntax checking",
+          "AI-powered sentiment analysis during interviews", 
+          "Automated technical question generation",
+          "Detailed candidate assessment reports",
+          "Behavioral interview simulation",
+          "Performance analytics and insights",
+          "Integration with popular coding platforms",
+          "Customizable interview templates"
+        ]
       },
       {
         id: "3",
-        title: "AI StayWise - Coming Soon",
+        title: "AI StayWise",
         description: "An intelligent accommodation platform that provides personalized lodging recommendations based on user preferences, budget, and travel patterns. Features AI-powered price predictions, local insights, and smart booking assistance for optimal travel experiences.",
         image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
@@ -58,7 +80,18 @@ export class MemStorage implements IStorage {
         category: "featured",
         liveUrl: "",
         githubUrl: "",
-        featured: "true"
+        featured: "true",
+        status: "coming-soon",
+        features: [
+          "AI-powered accommodation recommendations",
+          "Smart price prediction algorithms",
+          "Local insights and neighborhood analysis",
+          "Budget optimization suggestions",
+          "Travel pattern recognition",
+          "Real-time availability tracking",
+          "User preference learning system",
+          "Integrated booking assistance"
+        ]
       },
 
       // Web Development - Keep only 2 real ones
@@ -72,7 +105,18 @@ export class MemStorage implements IStorage {
         category: "web",
         liveUrl: "https://farmfolio-lilac.vercel.app/",
         githubUrl: "https://github.com/priiyajha/Farmfolio",
-        featured: "false"
+        featured: "false",
+        status: "live",
+        features: [
+          "Personalized crop recommendations based on geography and soil",
+          "Issue-specific fertilizer recommendations for pests and fertility",
+          "Real-time weather integration for farming decisions",
+          "Interactive chatbot with personality agent",
+          "Multi-language NLP translator for native language support",
+          "Curated dataset training for accurate suggestions",
+          "Budget and area optimization analysis",
+          "Unified platform for diverse farming needs"
+        ]
       },
       {
         id: "6",
@@ -84,22 +128,21 @@ export class MemStorage implements IStorage {
         category: "web",
         liveUrl: "https://trip-planner-nu-one.vercel.app/",
         githubUrl: "https://github.com/priiyajha/Your-Tour-Partner",
-        featured: "false"
+        featured: "false",
+        status: "live",
+        features: [
+          "Destination discovery with category-based exploration",
+          "Personalized recommendations based on preferences",
+          "Real-time weather integration and forecasts",
+          "Comprehensive transport options comparison",
+          "Collaborative group itinerary planning",
+          "Interactive booking management system",
+          "Season-specific city exploration guides",
+          "Admin dashboard with content and analytics control"
+        ]
       },
       {
         id: "7",
-        title: "AI Interview Platform",
-        description: "An intelligent interview platform that conducts automated technical and behavioral interviews using advanced AI. Features real-time code evaluation, sentiment analysis, and detailed candidate assessments with personalized feedback.",
-        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
-        video: null,
-        technologies: ["React & Next.js", "Node.js & Express", "MongoDB"],
-        category: "web",
-        liveUrl: "",
-        githubUrl: "",
-        featured: "false"
-      },
-      {
-        id: "8",
         title: "AI Mind Journal",
         description: "A mindful journaling application powered by AI that provides personalized insights, mood tracking, and mental health recommendations. Features secure data encryption and intelligent pattern recognition for emotional well-being.",
         image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
@@ -108,7 +151,18 @@ export class MemStorage implements IStorage {
         category: "web",
         liveUrl: "",
         githubUrl: "",
-        featured: "false"
+        featured: "false",
+        status: "coming-soon",
+        features: [
+          "AI-powered personalized insights from journal entries",
+          "Advanced mood tracking and pattern recognition",
+          "Mental health recommendations and resources",
+          "Secure end-to-end data encryption",
+          "Intelligent emotional pattern analysis",
+          "Personalized wellness suggestions",
+          "Privacy-focused data handling",
+          "Daily reflection prompts and guidance"
+        ]
       },
       {
         id: "9",
@@ -120,11 +174,22 @@ export class MemStorage implements IStorage {
         category: "web",
         liveUrl: "",
         githubUrl: "",
-        featured: "false"
+        featured: "false",
+        status: "coming-soon",
+        features: [
+          "AI-powered personalized workout plan creation",
+          "Real-time form analysis and correction",
+          "Progress tracking with intelligent insights",
+          "Exercise recognition through computer vision",
+          "Adaptive training recommendations",
+          "Real-time coaching and feedback",
+          "Fitness goal optimization",
+          "Social fitness community integration"
+        ]
       },
       {
         id: "10",
-        title: "AI StayWise - Coming Soon",
+        title: "AI StayWise",
         description: "An intelligent accommodation platform that provides personalized lodging recommendations based on user preferences, budget, and travel patterns. Features AI-powered price predictions, local insights, and smart booking assistance for optimal travel experiences.",
         image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
@@ -132,7 +197,18 @@ export class MemStorage implements IStorage {
         category: "web",
         liveUrl: "",
         githubUrl: "",
-        featured: "false"
+        featured: "false",
+        status: "coming-soon",
+        features: [
+          "AI-powered accommodation recommendations",
+          "Smart price prediction algorithms",
+          "Local insights and neighborhood analysis",
+          "Budget optimization suggestions",
+          "Travel pattern recognition",
+          "Real-time availability tracking",
+          "User preference learning system",
+          "Integrated booking assistance"
+        ]
       }
     ];
 
@@ -192,11 +268,13 @@ export class MemStorage implements IStorage {
       description: insertProject.description,
       image: insertProject.image,
       video: insertProject.video || null,
-      technologies: [...insertProject.technologies],
+      technologies: insertProject.technologies as string[],
       category: insertProject.category,
       liveUrl: insertProject.liveUrl || null,
       githubUrl: insertProject.githubUrl || null,
-      featured: insertProject.featured || null
+      featured: insertProject.featured || null,
+      status: insertProject.status || "live",
+      features: insertProject.features ? [...insertProject.features] : null
     };
     this.projects.set(id, project);
     return project;
