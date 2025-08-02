@@ -154,13 +154,26 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         Add to List
                       </Button>
 
-                      {/* Like Icon */}
+                      {/* Share Button */}
                       <Button
                         variant="ghost"
                         size="icon"
                         className="text-white hover:bg-white/20 rounded-full border-2 border-white/70"
+                        onClick={() => {
+                          const projectUrl = `${window.location.origin}?project=${project.id}`;
+                          if (navigator.share) {
+                            navigator.share({
+                              title: project.title,
+                              text: `Check out this project: ${project.title}`,
+                              url: projectUrl
+                            });
+                          } else {
+                            navigator.clipboard.writeText(projectUrl);
+                            // Could add toast notification here
+                          }
+                        }}
                       >
-                        <ThumbsUp className="w-5 h-5" />
+                        <Share className="w-5 h-5" />
                       </Button>
                     </div>
                   </div>

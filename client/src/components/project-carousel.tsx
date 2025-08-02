@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Share, Check, Copy } from "lucide-react";
 import { Project } from "@shared/schema";
 
 interface ProjectCarouselProps {
@@ -12,6 +12,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
+  const [showShareMenu, setShowShareMenu] = useState<string | null>(null);
+  const [copiedProject, setCopiedProject] = useState<string | null>(null);
 
   const checkScrollability = () => {
     const container = scrollRef.current;
@@ -56,6 +58,59 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
       window.removeEventListener('resize', handleResize);
     };
   }, [projects]);
+
+  // Close share menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = () => {
+      setShowShareMenu(null);
+    };
+
+    if (showShareMenu) {
+      document.addEventListener('click', handleClickOutside);
+      return () => document.removeEventListener('click', handleClickOutside);
+    }
+  }, [showShareMenu]);
+
+  const handleShare = (project: Project, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setShowShareMenu(showShareMenu === project.id ? null : project.id);
+  };
+
+  const copyProjectLink = async (project: Project, e: React.MouseEvent) => {
+    e.stopPropagation();
+    const projectUrl = `${window.location.origin}?project=${project.id}`;
+    try {
+      await navigator.clipboard.writeText(projectUrl);
+      setCopiedProject(project.id);
+      setTimeout(() => setCopiedProject(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+  };
+
+  const shareOnSocial = (platform: string, project: Project, e: React.MouseEvent) => {
+    e.stopPropagation();
+    const projectUrl = encodeURIComponent(`${window.location.origin}?project=${project.id}`);
+    const text = encodeURIComponent(`Check out this project: ${project.title}`);
+    
+    let shareUrl = '';
+    switch (platform) {
+      case 'twitter':
+        shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${projectUrl}`;
+        break;
+      case 'linkedin':
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${projectUrl}`;
+        break;
+      case 'facebook':
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${projectUrl}`;
+        break;
+    }
+    
+    if (shareUrl) {
+      window.open(shareUrl, '_blank', 'width=600,height=400');
+    }
+    setShowShareMenu(null);
+  };
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     const slider = scrollRef.current;
@@ -162,6 +217,60 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-all duration-300"></div>
                 )}
                 
+                {/* Share Button */}
+                <div className="absolute top-3 right-3 z-20">
+                  <button
+                    onClick={(e) => handleShare(project, e)}
+                    className="bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm"
+                    aria-label="Share project"
+                  >
+                    <Share className="w-4 h-4" />
+                  </button>
+                  
+                  {/* Share Menu */}
+                  {showShareMenu === project.id && (
+                    <div className="absolute top-12 right-0 bg-black/90 backdrop-blur-sm rounded-lg p-4 min-w-[200px] z-30">
+                      <div className="space-y-2">
+                        <button
+                          onClick={(e) => copyProjectLink(project, e)}
+                          className="flex items-center space-x-2 w-full text-left text-white hover:text-red-400 transition-colors"
+                        >
+                          {copiedProject === project.id ? (
+                            <Check className="w-4 h-4 text-green-400" />
+                          ) : (
+                            <Copy className="w-4 h-4" />
+                          )}
+                          <span className="text-sm">
+                            {copiedProject === project.id ? 'Copied!' : 'Copy Link'}
+                          </span>
+                        </button>
+                        
+                        <hr className="border-gray-600" />
+                        
+                        <button
+                          onClick={(e) => shareOnSocial('twitter', project, e)}
+                          className="flex items-center space-x-2 w-full text-left text-white hover:text-red-400 transition-colors"
+                        >
+                          <span className="text-sm">Share on Twitter</span>
+                        </button>
+                        
+                        <button
+                          onClick={(e) => shareOnSocial('linkedin', project, e)}
+                          className="flex items-center space-x-2 w-full text-left text-white hover:text-red-400 transition-colors"
+                        >
+                          <span className="text-sm">Share on LinkedIn</span>
+                        </button>
+                        
+                        <button
+                          onClick={(e) => shareOnSocial('facebook', project, e)}
+                          className="flex items-center space-x-2 w-full text-left text-white hover:text-red-400 transition-colors"
+                        >
+                          <span className="text-sm">Share on Facebook</span>
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </div>
 
                 
                 <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 transition-all duration-300 group-hover:bottom-4 sm:group-hover:bottom-6">
