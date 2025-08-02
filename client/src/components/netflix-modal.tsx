@@ -85,9 +85,9 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
                     variant="ghost"
                     size="icon"
                     onClick={onClose}
-                    className="absolute top-4 right-4 text-white hover:bg-white/20 rounded-full"
+                    className="absolute top-4 right-4 text-white bg-black/70 hover:bg-black/90 rounded-full w-10 h-10 flex items-center justify-center backdrop-blur-sm"
                   >
-                    <X className="w-6 h-6" />
+                    <X className="w-5 h-5" />
                   </Button>
 
                   {/* Volume Control */}
