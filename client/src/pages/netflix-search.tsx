@@ -190,14 +190,14 @@ export default function NetflixSearchPage() {
                     <h2 className="text-white text-xl font-semibold mb-4">
                       More Results ({filteredProjects.length - 1})
                     </h2>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                       {filteredProjects.slice(1).map((project) => (
                         <div
                           key={project.id}
                           className="group cursor-pointer transition-all duration-200 ease-in-out hover:scale-105"
                           onClick={() => handleProjectClick(project.id)}
                         >
-                          <div className="relative aspect-[16/9] rounded-md overflow-hidden bg-gray-800">
+                          <div className="relative aspect-[16/9] rounded-lg overflow-hidden bg-gray-800">
                             <img
                               src={project.image}
                               alt={project.title}
@@ -206,11 +206,11 @@ export default function NetflixSearchPage() {
                             
                             {/* Hover Overlay */}
                             <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
-                              <div className="text-center p-2">
-                                <h3 className="text-white font-semibold text-xs mb-1 line-clamp-2">{project.title}</h3>
+                              <div className="text-center p-3">
+                                <h3 className="text-white font-semibold text-sm mb-2 line-clamp-2">{project.title}</h3>
                                 <div className="flex flex-wrap gap-1 justify-center">
-                                  {project.technologies.slice(0, 2).map((tech, i) => (
-                                    <span key={i} className="bg-gray-700 text-white text-[10px] px-1 py-0.5 rounded">
+                                  {project.technologies.slice(0, 3).map((tech, i) => (
+                                    <span key={i} className="bg-gray-700 text-white text-xs px-2 py-1 rounded">
                                       {tech}
                                     </span>
                                   ))}
@@ -220,7 +220,7 @@ export default function NetflixSearchPage() {
                           </div>
                           
                           {/* Project Title */}
-                          <h3 className="text-white font-medium mt-2 text-xs line-clamp-2">
+                          <h3 className="text-white font-medium mt-2 text-sm line-clamp-2">
                             {project.title}
                           </h3>
                         </div>
