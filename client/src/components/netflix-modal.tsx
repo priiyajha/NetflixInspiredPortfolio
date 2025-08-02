@@ -173,6 +173,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "2023"
                             : project.title === "Codiste"
                             ? "2024"
+                            : project.title === "ZO Labs"
+                            ? "2024"
                             : "2025"}
                         </span>
                         <span className="px-3 py-1 rounded-full border border-white text-white text-sm">
@@ -188,6 +190,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "E-commerce Brand"
                             : project.title === "Codiste"
                             ? "Marketing Agency"
+                            : project.title === "ZO Labs"
+                            ? "MarTech Platform"
                             : "Web Application"}
                         </span>
                       </div>
@@ -206,6 +210,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           ? "Turbocharged FDX into million-dollar D2C brand, scaling from $10K to $120K/month in 6 months."
                           : project.title === "Codiste"
                           ? "Fractional CMO who 4x'd marketing output and 2.5x'd sales response rates through team building and automation."
+                          : project.title === "ZO Labs"
+                          ? "Comprehensive marketing automation platform with multi-platform social engagement and app marketing integration."
                           : "Complex processes now run seamlessly."
                         }
                       </h2>
@@ -224,6 +230,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           ? "European D2C sports marketing was chaos: scattered campaigns, broken customer journeys, and buried conversion insights that had to be cleaned and restructured just to process a single sale. Multiple marketers were manually coordinating channels every day to meet tight revenue deadlines. I joined as a consultant and built a comprehensive growth solution using Shopify, Google Ads, and automation that processes unstructured customer data and generates clean, system-ready campaigns in minutes. Today, we scaled from $10K to $120K monthly with complete accuracy and zero campaign stress. What used to be a daily bottleneck became a seamless million-dollar revenue machine with $500K+ ad spend and 2.5x AOV growth."
                           : project.title === "Codiste"
                           ? "Marketing and sales operations were chaos: scattered teams, broken processes, and buried optimization insights that had to be cleaned and restructured just to generate a single qualified lead. Multiple team members were manually executing campaigns every day to meet tight output deadlines. I joined as Fractional CMO and built a comprehensive solution using Apollo, LeadDino, and automation that processes unstructured marketing data and generates clean, system-ready campaigns in minutes. Today, we achieved 4x team output and 2.5x sales response with complete accuracy and zero process stress. What used to be a daily bottleneck became a seamless high-output marketing machine with full-stack automation and AI integration."
+                          : project.title === "ZO Labs"
+                          ? "Marketing automation was chaos: scattered platforms, broken integrations, and buried engagement insights that had to be cleaned and restructured just to execute a single campaign. Multiple marketers were manually coordinating channels every day to meet tight engagement deadlines. I built a comprehensive solution using HubSpot, ActiveCampaign, and social automation that processes unstructured marketing data and generates clean, system-ready campaigns in minutes. Today, one specialist manages entire marketing ecosystem with complete accuracy and zero coordination stress. What used to be a daily bottleneck is now a seamless multi-platform engagement machine."
                           : project.description
                         }
                       </p>
@@ -264,6 +272,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "10x sales, optimize for scale, automate funnel, drive international growth"
                             : project.title === "Codiste"
                             ? "Build a high-output marketing org, automate lead gen, optimize funnel"
+                            : project.title === "ZO Labs"
+                            ? "Build comprehensive marketing automation ecosystem with multi-platform social engagement"
                             : "Manual data processing under tight deadlines"
                           }
                         </p>
@@ -285,12 +295,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Consultant (Freelance)"
                             : project.title === "Codiste"
                             ? "Fractional CMO (Consulting)"
+                            : project.title === "ZO Labs"
+                            ? "Marketing Automation Specialist"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
 
                       {/* Results - For Business Projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
@@ -304,7 +316,9 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "600% traffic growth, ranked top 1-2 for 3 keywords, lead volume surge"
                               : project.title === "FDX Sports"
                               ? "$10K to $120K/month sales, $500K+ ad spend, AOV up 2.5x"
-                              : "4x team output, 2.5x sales response, full-stack process automation"}
+                              : project.title === "Codiste"
+                              ? "4x team output, 2.5x sales response, full-stack process automation"
+                              : "Successfully implemented integrated marketing automation platform with multi-channel engagement"}
                           </p>
                         </div>
                       )}
@@ -328,7 +342,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       </div>
 
                       {/* Period - For Business Projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Period:</h4>
                           <p className="text-gray-400">
@@ -342,7 +356,9 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "2022"
                               : project.title === "FDX Sports"
                               ? "2023"
-                              : "2024"}
+                              : project.title === "Codiste"
+                              ? "2024"
+                              : "2024 – Present"}
                           </p>
                         </div>
                       )}
