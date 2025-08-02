@@ -213,6 +213,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 description: "Project link has been copied to clipboard.",
                               });
                             } catch (fallbackError) {
+                              console.error('Final fallback failed:', fallbackError);
                               toast({
                                 title: "Share failed",
                                 description: "Unable to share or copy the link. Please copy the URL manually.",

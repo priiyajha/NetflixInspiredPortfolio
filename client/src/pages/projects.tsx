@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "../components/header";
 import ProjectsSection from "../components/projects-section";
-import ProjectModal from "../components/project-modal";
+import NetflixModal from "../components/netflix-modal";
 
 export default function ProjectsPage() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
@@ -19,7 +19,7 @@ export default function ProjectsPage() {
         </div>
         <ProjectsSection onProjectClick={setSelectedProjectId} />
       </div>
-      <ProjectModal 
+      <NetflixModal 
         projectId={selectedProjectId} 
         onClose={() => setSelectedProjectId(null)} 
       />
