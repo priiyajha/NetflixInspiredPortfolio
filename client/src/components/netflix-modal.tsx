@@ -174,7 +174,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "Codiste"
                             ? "2024"
                             : project.title === "ZO Labs"
-                            ? "2024"
+                            ? "2024-2025"
                             : "2025"}
                         </span>
                         <span className="px-3 py-1 rounded-full border border-white text-white text-sm">
@@ -191,7 +191,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "Codiste"
                             ? "Marketing Agency"
                             : project.title === "ZO Labs"
-                            ? "MarTech Platform"
+                            ? "AI Startup"
                             : "Web Application"}
                         </span>
                       </div>
@@ -211,7 +211,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           : project.title === "Codiste"
                           ? "Fractional CMO who 4x'd marketing output and 2.5x'd sales response rates through team building and automation."
                           : project.title === "ZO Labs"
-                          ? "Comprehensive marketing automation platform with multi-platform social engagement and app marketing integration."
+                          ? "Head of Growth who scaled ZO Labs from stealth to 180K installs and built 100K+ community with 10K+ AI agents."
                           : "Complex processes now run seamlessly."
                         }
                       </h2>
@@ -231,7 +231,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           : project.title === "Codiste"
                           ? "Marketing and sales operations were chaos: scattered teams, broken processes, and buried optimization insights that had to be cleaned and restructured just to generate a single qualified lead. Multiple team members were manually executing campaigns every day to meet tight output deadlines. I joined as Fractional CMO and built a comprehensive solution using Apollo, LeadDino, and automation that processes unstructured marketing data and generates clean, system-ready campaigns in minutes. Today, we achieved 4x team output and 2.5x sales response with complete accuracy and zero process stress. What used to be a daily bottleneck became a seamless high-output marketing machine with full-stack automation and AI integration."
                           : project.title === "ZO Labs"
-                          ? "Marketing automation was chaos: scattered platforms, broken integrations, and buried engagement insights that had to be cleaned and restructured just to execute a single campaign. Multiple marketers were manually coordinating channels every day to meet tight engagement deadlines. I built a comprehensive solution using HubSpot, ActiveCampaign, and social automation that processes unstructured marketing data and generates clean, system-ready campaigns in minutes. Today, one specialist manages entire marketing ecosystem with complete accuracy and zero coordination stress. What used to be a daily bottleneck is now a seamless multi-platform engagement machine."
+                          ? "AI startup growth was chaos: scattered user acquisition, broken community engagement, and buried partnership insights that had to be cleaned and restructured just to land a single install. Multiple growth marketers were manually coordinating campaigns every day to meet tight scaling deadlines. I joined as Head of Growth and built a comprehensive solution using HubSpot, ActiveCampaign, and AI automation that processes unstructured growth data and generates clean, system-ready campaigns in minutes. Today, we scaled from stealth to 180K installs with complete accuracy and zero growth stress. What used to be a daily bottleneck became a seamless AI-powered growth machine that shipped 10K+ agents and secured 120+ partnerships."
                           : project.description
                         }
                       </p>
@@ -273,7 +273,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "Codiste"
                             ? "Build a high-output marketing org, automate lead gen, optimize funnel"
                             : project.title === "ZO Labs"
-                            ? "Build comprehensive marketing automation ecosystem with multi-platform social engagement"
+                            ? "Scale installs, community, and organic traffic, land strategic partnerships"
                             : "Manual data processing under tight deadlines"
                           }
                         </p>
@@ -296,7 +296,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "Codiste"
                             ? "Fractional CMO (Consulting)"
                             : project.title === "ZO Labs"
-                            ? "Marketing Automation Specialist"
+                            ? "Head of Growth (Full Time)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
@@ -318,7 +318,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "$10K to $120K/month sales, $500K+ ad spend, AOV up 2.5x"
                               : project.title === "Codiste"
                               ? "4x team output, 2.5x sales response, full-stack process automation"
-                              : "Successfully implemented integrated marketing automation platform with multi-channel engagement"}
+                              : "180K installs, 100K+ community, 10K+ agents, 120+ partnerships, 50+ IRL events"}
                           </p>
                         </div>
                       )}
@@ -358,7 +358,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "2023"
                               : project.title === "Codiste"
                               ? "2024"
-                              : "2024 – Present"}
+                              : "Jan 2024 – Aug 2025"}
                           </p>
                         </div>
                       )}

@@ -201,7 +201,7 @@ export class MemStorage implements IStorage {
       {
         id: "13",
         title: "ZO Labs",
-        description: "A comprehensive marketing automation and social media platform leveraging HubSpot for CRM, ActiveCampaign for email automation, Firebase Studio for analytics, and multi-platform social engagement across Discord, Twitter, LinkedIn, Telegram, and Instagram. Features app marketing with AppsFlyer, AppRadar, and WebEngage.",
+        description: "As Head of Growth, took ZO Labs from stealth to 180K installs, built a 100K+ community, and shipped 10,000+ AI agent landing pages. Ran AI-led marketing sprints, bagged 120+ partnerships, and put ZO on the global stage. All hustle, zero fluff.",
         image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
         technologies: ["HubSpot", "ActiveCampaign", "Firebase Studio", "AppsFlyer", "AppRadar", "WebEngage", "Discord", "Twitter", "LinkedIn", "Telegram", "Instagram"],
@@ -209,23 +209,23 @@ export class MemStorage implements IStorage {
         liveUrl: "",
         githubUrl: "",
         featured: "true",
-        status: "coming-soon",
+        status: "completed",
         features: [
-          "Advanced CRM and lead management with HubSpot",
-          "Email automation and campaign management with ActiveCampaign",
-          "Analytics and user tracking with Firebase Studio",
-          "App marketing attribution and optimization with AppsFlyer",
-          "App store optimization and monitoring with AppRadar",
-          "User engagement and retention with WebEngage",
-          "Multi-platform social media management and automation",
-          "Cross-channel marketing campaign coordination"
+          "Strategic growth planning and execution with HubSpot CRM",
+          "AI-led marketing sprint campaigns with ActiveCampaign",
+          "Advanced analytics and growth tracking with Firebase Studio",
+          "App install optimization and attribution with AppsFlyer",
+          "App store presence and monitoring with AppRadar",
+          "User engagement and retention optimization with WebEngage",
+          "Multi-platform community building across social channels",
+          "Strategic partnership development and management"
         ],
-        skills: ["Marketing automation", "CRM management", "social media marketing", "app marketing", "email marketing", "analytics", "multi-platform engagement"],
-        goal: "Build comprehensive marketing automation ecosystem with multi-platform social engagement",
-        kpis: ["Lead generation", "engagement rates", "app installs", "conversion rates", "social reach"],
-        results: "Successfully implemented integrated marketing automation platform with multi-channel engagement",
-        engagementType: "Marketing Automation Specialist",
-        period: "2024 – Present"
+        skills: ["Growth marketing", "product management", "AI automation", "community building", "partnerships"],
+        goal: "Scale installs, community, and organic traffic, land strategic partnerships",
+        kpis: ["App installs", "community growth", "landing pages shipped", "partnerships closed"],
+        results: "180K installs, 100K+ community, 10K+ agents, 120+ partnerships, 50+ IRL events",
+        engagementType: "Head of Growth (Full Time)",
+        period: "Jan 2024 – Aug 2025"
       },
       {
         id: "14",
