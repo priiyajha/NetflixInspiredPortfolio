@@ -150,33 +150,34 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
               <div className="px-8 py-12 bg-[#141414]">
                 {/* Container with max width and centering */}
                 <div className="w-full max-w-[1280px] mx-auto">
-                  {/* Status Tags and Title */}
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="text-green-400 font-medium text-sm">
-                      {project.status === "live" ? "Live in production" : "In Development"}
-                    </span>
-                    <span className="text-gray-400 text-sm">2025</span>
-                    <span className="px-3 py-1 rounded-full border border-white text-white text-sm">
-                      Web Application
-                    </span>
-                  </div>
-
-                  {/* Main Title */}
-                  <h2 className="text-2xl md:text-3xl font-semibold text-white mb-8 leading-tight">
-                    {project.title === "Trip Planner" 
-                      ? "What used to take hours of research and coordination now happens in minutes with zero stress."
-                      : project.title === "AI Interview Platform"
-                      ? "What used to take days of evaluation and assessment now happens in minutes with complete accuracy."
-                      : project.title === "AI StayWise"
-                      ? "What used to take hours of comparison and booking now happens in minutes with perfect matches."
-                      : "What used to be complex now runs seamlessly."
-                    }
-                  </h2>
-
                   {/* Two Column Layout with Blue Neon Line Separator */}
                   <div className="flex flex-col lg:flex-row">
-                    {/* Left Column - Detailed Description (2/3 width) */}
+                    {/* Left Column - All Content (2/3 width) */}
                     <div className="w-full lg:w-2/3 pr-0 lg:pr-6">
+                      {/* Status Tags */}
+                      <div className="flex items-center gap-3 mb-6">
+                        <span className="text-green-400 font-medium text-sm">
+                          {project.status === "live" ? "Live in production" : "In Development"}
+                        </span>
+                        <span className="text-gray-400 text-sm">2025</span>
+                        <span className="px-3 py-1 rounded-full border border-white text-white text-sm">
+                          Web Application
+                        </span>
+                      </div>
+
+                      {/* Main Title */}
+                      <h2 className="text-2xl md:text-3xl font-semibold text-white mb-8 leading-tight">
+                        {project.title === "Trip Planner" 
+                          ? "What used to take hours of research and coordination now happens in minutes with zero stress."
+                          : project.title === "AI Interview Platform"
+                          ? "What used to take days of evaluation and assessment now happens in minutes with complete accuracy."
+                          : project.title === "AI StayWise"
+                          ? "What used to take hours of comparison and booking now happens in minutes with perfect matches."
+                          : "What used to be complex now runs seamlessly."
+                        }
+                      </h2>
+
+                      {/* Detailed Description */}
                       <p className="text-gray-300 text-base leading-relaxed">
                         {project.title === "Trip Planner" 
                           ? "Travel planning was chaos: scattered research, broken booking flows, and buried recommendations that had to be cleaned and restructured just to process a single trip. Multiple team members were manually coordinating bookings every day to meet tight deadlines. I built a comprehensive solution using React and PostgreSQL that parses unstructured travel data and generates clean, system-ready itineraries in minutes. Today, one person processes dozens of bookings in under 20 minutes with complete accuracy and zero planning stress. What used to be a daily bottleneck is now a seamless flow."
