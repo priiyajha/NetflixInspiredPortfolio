@@ -53,7 +53,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
       >
         {projects.map((project, index) => {
           const hasLiveUrl = project.liveUrl && project.liveUrl.length > 0;
-          const isClickable = hasLiveUrl || project.status === "coming-soon";
+          const isClickable = hasLiveUrl || project.status === "coming-soon" || project.status === "completed";
           
           return (
             <motion.div
