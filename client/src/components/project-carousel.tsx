@@ -104,7 +104,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   </p>
                   
                   {/* Hover indicator for clickable projects */}
-                  {hasLiveUrl && (
+                  {isClickable && (
                     <div className="mt-1 sm:mt-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                       <div className="inline-flex items-center text-xs text-white bg-red-600/80 px-2 py-1 rounded backdrop-blur-sm">
                         Click to view details
