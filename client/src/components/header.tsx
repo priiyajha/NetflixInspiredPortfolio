@@ -27,6 +27,19 @@ export default function Header() {
     }
   }, [searchOpen]);
 
+  // Auto-search with debounce
+  useEffect(() => {
+    if (!searchQuery.trim()) return;
+
+    const timeoutId = setTimeout(() => {
+      setLocation(`/netflix-search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchOpen(false);
+      setSearchQuery("");
+    }, 1500); // 1.5 second delay after user stops typing
+
+    return () => clearTimeout(timeoutId);
+  }, [searchQuery, setLocation]);
+
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
