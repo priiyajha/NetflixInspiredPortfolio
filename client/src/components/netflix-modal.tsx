@@ -168,12 +168,12 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
                       {/* Main Title */}
                       <h2 className="text-2xl md:text-3xl font-semibold text-white mb-8 leading-tight">
                         {project.title === "Trip Planner" 
-                          ? "What used to take hours of research and coordination now happens in minutes with zero stress."
+                          ? "Hours of travel planning now happens in minutes with zero stress."
                           : project.title === "AI Interview Platform"
-                          ? "What used to take days of evaluation and assessment now happens in minutes with complete accuracy."
+                          ? "Days of interview evaluation now completes in minutes with accuracy."
                           : project.title === "AI StayWise"
-                          ? "What used to take hours of comparison and booking now happens in minutes with perfect matches."
-                          : "What used to be complex now runs seamlessly."
+                          ? "Hours of accommodation research now happens in minutes perfectly."
+                          : "Complex processes now run seamlessly."
                         }
                       </h2>
 
