@@ -176,6 +176,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Growth Agency"
                             : project.title === "DigiPay"
                             ? "Fintech Startup"
+                            : project.title === "Inventrax"
+                            ? "SEO Platform"
                             : "Web Application"}
                         </span>
                       </div>
@@ -188,6 +190,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           ? "Co-founded a top 5 Andhra Pradesh growth agency with 40+ global clients and $180K revenue in 2 years."
                           : project.title === "DigiPay"
                           ? "Scaled from first marketing hire to $80M revenue and 28-person team in 19 months."
+                          : project.title === "Inventrax"
+                          ? "Comprehensive SEO platform optimizing website performance through advanced analytics and strategy."
                           : "Complex processes now run seamlessly."
                         }
                       </h2>
@@ -200,6 +204,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           ? "Regional marketing was fragmented: scattered agencies, broken client relationships, and buried growth insights that had to be cleaned and restructured just to land a single marquee client. Multiple founders were manually pitching prospects every day to meet tight revenue deadlines. I co-founded a comprehensive growth solution using Google Ads, Meta Ads, and team building that processes unstructured market data and generates clean, system-ready campaigns in minutes. Today, we built a top 5 agency with 40+ clients across continents with complete accuracy and zero pitch stress. What used to be a daily hustle became a seamless acquisition machine that generated $180K revenue and industry recognition."
                           : project.title === "DigiPay"
                           ? "B2B fintech marketing was chaos: scattered installs, broken attribution flows, and buried growth insights that had to be cleaned and restructured just to land a single merchant. Multiple marketers were manually coordinating campaigns every day to meet tight revenue deadlines. I joined as the first marketing hire and built a comprehensive growth solution using CleverTap, AppsFlyer, and mobile analytics that processes unstructured user data and generates clean, system-ready campaigns in minutes. Today, we scaled from $4M to $80M revenue with complete accuracy and zero growth stress. What used to be a daily bottleneck became a seamless acquisition machine that generated 30K B2B installs and 500K merchant downloads."
+                          : project.title === "Inventrax"
+                          ? "SEO optimization was chaos: scattered tools, broken keyword strategies, and buried ranking insights that had to be cleaned and restructured just to improve a single page. Multiple marketers were manually analyzing search data every day to meet tight traffic deadlines. I built a comprehensive solution using SEMrush, Ahrefs, and analytics that processes unstructured SEO data and generates clean, system-ready optimizations in minutes. Today, one specialist manages entire website optimization with complete accuracy and zero ranking stress. What used to be a daily bottleneck is now a seamless organic growth machine."
                           : project.description
                         }
                       </p>
@@ -234,6 +240,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Land marquee clients, drive high revenue growth, build a leading regional agency"
                             : project.title === "DigiPay"
                             ? "Drive B2B installs, scale revenue, build top-tier marketing org"
+                            : project.title === "Inventrax"
+                            ? "Optimize website performance and drive organic traffic through comprehensive SEO strategy"
                             : "Manual data processing under tight deadlines"
                           }
                         </p>
@@ -249,12 +257,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Co-founder, Head of Growth (Full Time)"
                             : project.title === "DigiPay"
                             ? "Head of Marketing (Full Time)"
+                            : project.title === "Inventrax"
+                            ? "SEO Specialist"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
 
                       {/* Results - For Business Projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
@@ -262,7 +272,9 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "2.5M INR sales in 15 months, 200+ daily orders in 3 months, successful exit"
                               : project.title === "Millionth Mile Marketing"
                               ? "$180K revenue in 2 years, 40+ clients (60% overseas), 10+ media features, top 5 agency recognition"
-                              : "$4M to $80M revenue, 30K B2B app installs, 500K merchant downloads, built team from 1 to 28"}
+                              : project.title === "DigiPay"
+                              ? "$4M to $80M revenue, 30K B2B app installs, 500K merchant downloads, built team from 1 to 28"
+                              : "Successfully implemented SEO strategy with improved organic visibility and traffic growth"}
                           </p>
                         </div>
                       )}
@@ -286,7 +298,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       </div>
 
                       {/* Period - For Business Projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Period:</h4>
                           <p className="text-gray-400">
@@ -294,7 +306,9 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "May 2014 – Dec 2015"
                               : project.title === "Millionth Mile Marketing"
                               ? "2017 – Dec 2019"
-                              : "Dec 2019 – Sep 2021"}
+                              : project.title === "DigiPay"
+                              ? "Dec 2019 – Sep 2021"
+                              : "2024 – Present"}
                           </p>
                         </div>
                       )}
