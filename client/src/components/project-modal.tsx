@@ -59,6 +59,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                   </Button>
                 </div>
 
+                {/* Video/Image Container - Ready for video integration with autoplay loop */}
                 {project.video ? (
                   <video
                     src={project.video}
@@ -101,7 +102,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                   <div>
                     <h3 className="text-xl font-semibold mb-4">Project Links</h3>
                     <div className="space-y-3">
-                      {project.liveUrl && (
+                      {project.liveUrl ? (
                         <Button
                           asChild
                           className="w-full bg-netflix-red hover:bg-red-700 transition-colors"
@@ -116,9 +117,17 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                             View Live Project
                           </a>
                         </Button>
+                      ) : (
+                        <Button
+                          disabled
+                          className="w-full bg-netflix-red/50 cursor-not-allowed"
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          View Live Project
+                        </Button>
                       )}
                       
-                      {project.githubUrl && (
+                      {project.githubUrl ? (
                         <Button
                           asChild
                           variant="secondary"
@@ -134,14 +143,15 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                             View Source Code
                           </a>
                         </Button>
-                      )}
-                      
-                      {!project.liveUrl && !project.githubUrl && (
-                        <div className="bg-netflix-light-gray/10 border border-netflix-light-gray/20 rounded-lg p-4">
-                          <p className="text-netflix-light-gray text-sm text-center">
-                            Project links will be available soon
-                          </p>
-                        </div>
+                      ) : (
+                        <Button
+                          disabled
+                          variant="secondary"
+                          className="w-full bg-white/5 cursor-not-allowed"
+                        >
+                          <Github className="w-4 h-4 mr-2" />
+                          View Source Code
+                        </Button>
                       )}
                     </div>
                   </div>
