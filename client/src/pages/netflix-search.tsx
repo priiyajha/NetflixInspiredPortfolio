@@ -65,7 +65,7 @@ export default function NetflixSearchPage() {
     });
 
     setFilteredProjects(sortedMatches);
-  }, [searchQuery, projects]);
+  }, [searchQuery, projects?.length]);
 
   const handleClearSearch = () => {
     setSearchQuery("");

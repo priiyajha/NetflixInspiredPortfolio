@@ -29,7 +29,7 @@ export default function Home() {
       <ProjectsSection onProjectClick={setSelectedProjectId} />
       
       {/* Footer Section */}
-      <footer className="bg-black/95 border-t border-gray-800 mt-12 sm:mt-16 md:mt-20 w-screen">
+      <footer id="footer" className="bg-black/95 border-t border-gray-800 mt-12 sm:mt-16 md:mt-20 w-screen">
         <div className="w-screen px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 py-12 sm:py-14 md:py-16">
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
             

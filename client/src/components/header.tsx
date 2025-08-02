@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Search, ChevronDown, Bell, Menu, X } from "lucide-react";
+import { Search, ChevronDown, Bell, Menu, X, User, HelpCircle, Settings, UserCog } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, Link } from "wouter";
 
@@ -8,8 +8,10 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const [location, setLocation] = useLocation();
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const profileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +20,18 @@ export default function Header() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close profile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (profileMenuRef.current && !profileMenuRef.current.contains(event.target as Node)) {
+        setProfileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // Auto-focus search input when search opens
@@ -58,6 +72,27 @@ export default function Header() {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
     setMobileMenuOpen(false);
+  };
+
+  const handleProfileMenuClick = (action: string) => {
+    setProfileMenuOpen(false);
+    // Navigate to home page and scroll to footer for all actions
+    if (location !== "/") {
+      setLocation("/");
+      // Wait for navigation then scroll to footer
+      setTimeout(() => {
+        const footerElement = document.getElementById("footer");
+        if (footerElement) {
+          footerElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    } else {
+      // Already on home page, just scroll to footer
+      const footerElement = document.getElementById("footer");
+      if (footerElement) {
+        footerElement.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
   };
 
   return (
@@ -159,11 +194,72 @@ export default function Header() {
                 <button className="p-2 hover:bg-white/10 rounded transition-all duration-200">
                   <Bell className="w-5 h-5" />
                 </button>
-                <div className="relative">
-                  <button className="flex items-center space-x-2 p-2 hover:bg-white/10 rounded transition-all duration-200">
+                <div className="relative" ref={profileMenuRef}>
+                  <button 
+                    onClick={() => setProfileMenuOpen(!profileMenuOpen)}
+                    className="flex items-center space-x-2 p-2 hover:bg-white/10 rounded transition-all duration-200"
+                  >
                     <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded"></div>
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${profileMenuOpen ? 'rotate-180' : ''}`} />
                   </button>
+                  
+                  {/* Profile Dropdown Menu */}
+                  <AnimatePresence>
+                    {profileMenuOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute right-0 top-full mt-2 w-64 bg-black/95 backdrop-blur-sm border border-gray-700 rounded-md shadow-2xl overflow-hidden z-50"
+                      >
+                        {/* Profile Section */}
+                        <div className="px-4 py-3 border-b border-gray-700">
+                          <div className="flex items-center space-x-3">
+                            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded"></div>
+                            <div>
+                              <p className="text-white font-medium text-sm">Priya</p>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Menu Items */}
+                        <div className="py-2">
+                          <button
+                            onClick={() => handleProfileMenuClick('manage-profiles')}
+                            className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
+                          >
+                            <UserCog className="w-5 h-5" />
+                            <span className="text-sm">Manage Profiles</span>
+                          </button>
+                          
+                          <button
+                            onClick={() => handleProfileMenuClick('transfer-profile')}
+                            className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
+                          >
+                            <User className="w-5 h-5" />
+                            <span className="text-sm">Transfer Profile</span>
+                          </button>
+                          
+                          <button
+                            onClick={() => handleProfileMenuClick('account')}
+                            className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
+                          >
+                            <Settings className="w-5 h-5" />
+                            <span className="text-sm">Account</span>
+                          </button>
+                          
+                          <button
+                            onClick={() => handleProfileMenuClick('help-centre')}
+                            className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
+                          >
+                            <HelpCircle className="w-5 h-5" />
+                            <span className="text-sm">Help Centre</span>
+                          </button>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               </div>
               
