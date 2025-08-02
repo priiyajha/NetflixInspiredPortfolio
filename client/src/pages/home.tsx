@@ -39,8 +39,8 @@ export default function Home() {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors">
                   <Mail className="w-4 h-4 flex-shrink-0" />
-                  <a href="mailto:jhapriiyaa2104@gmail.com" className="text-xs sm:text-sm break-all">
-                    jhapriiyaa2104@gmail.com
+                  <a href="mailto:farooq.chisty@gmail.com" className="text-xs sm:text-sm break-all">
+                    farooq.chisty@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors">
@@ -80,7 +80,7 @@ export default function Home() {
               <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Social</h3>
               <div className="space-y-3">
                 <a 
-                  href="https://github.com/priiyajha" 
+                  href="https://github.com/farooqchisty" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors"
@@ -89,7 +89,7 @@ export default function Home() {
                   <span className="text-xs sm:text-sm">GitHub</span>
                 </a>
                 <a 
-                  href="https://www.linkedin.com/in/priiyajhaa/" 
+                  href="https://www.linkedin.com/in/farooqchisty/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors"
@@ -104,7 +104,7 @@ export default function Home() {
           {/* Bottom Border */}
           <div className="border-t border-gray-800 mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 w-full">
             <div className="text-center text-gray-400 text-xs sm:text-sm">
-              © 2024 Priya Jha. All rights reserved.
+              © 2024 Farooq Chisty. All rights reserved.
             </div>
           </div>
         </div>
