@@ -1,5 +1,6 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Project } from "@shared/schema";
 
 interface ProjectCarouselProps {
@@ -9,6 +10,52 @@ interface ProjectCarouselProps {
 
 export default function ProjectCarousel({ projects, onProjectClick }: ProjectCarouselProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const checkScrollability = () => {
+    const container = scrollRef.current;
+    if (!container) return;
+    
+    setCanScrollLeft(container.scrollLeft > 0);
+    setCanScrollRight(
+      container.scrollLeft < container.scrollWidth - container.clientWidth
+    );
+  };
+
+  const scrollLeft = () => {
+    const container = scrollRef.current;
+    if (!container) return;
+    
+    const cardWidth = 320; // Approximate card width + gap
+    container.scrollBy({ left: -cardWidth * 2, behavior: 'smooth' });
+  };
+
+  const scrollRight = () => {
+    const container = scrollRef.current;
+    if (!container) return;
+    
+    const cardWidth = 320; // Approximate card width + gap
+    container.scrollBy({ left: cardWidth * 2, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    checkScrollability();
+    
+    const handleScroll = () => checkScrollability();
+    const handleResize = () => checkScrollability();
+    
+    container.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      container.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [projects]);
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     const slider = scrollRef.current;
@@ -45,7 +92,29 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
   }
 
   return (
-    <div className="relative">
+    <div className="relative group">
+      {/* Left Arrow */}
+      {canScrollLeft && (
+        <button
+          onClick={scrollLeft}
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm"
+          aria-label="Scroll left"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+      )}
+
+      {/* Right Arrow */}
+      {canScrollRight && (
+        <button
+          onClick={scrollRight}
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm"
+          aria-label="Scroll right"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+      )}
+
       <div
         ref={scrollRef}
         className="flex space-x-3 sm:space-x-4 overflow-x-auto scrollbar-hide px-4 sm:px-6 md:px-12 pb-4 cursor-grab active:cursor-grabbing"
