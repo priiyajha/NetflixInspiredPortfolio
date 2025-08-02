@@ -22,6 +22,7 @@ export default function ProjectsPage() {
       <NetflixModal 
         projectId={selectedProjectId} 
         onClose={() => setSelectedProjectId(null)} 
+        onProjectSwitch={setSelectedProjectId}
       />
     </div>
   );
