@@ -180,6 +180,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Fintech Startup"
                             : project.title === "Inventrax"
                             ? "SEO Platform"
+                            : project.title === "FDX Sports"
+                            ? "E-commerce Brand"
                             : "Web Application"}
                         </span>
                       </div>
@@ -194,6 +196,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           ? "Scaled from first marketing hire to $80M revenue and 28-person team in 19 months."
                           : project.title === "Inventrax"
                           ? "Drove 600% organic traffic growth for warehouse automation SaaS in 4 months through strategic SEO."
+                          : project.title === "FDX Sports"
+                          ? "Comprehensive e-commerce sports brand with multi-channel marketing automation and optimization."
                           : "Complex processes now run seamlessly."
                         }
                       </h2>
@@ -208,6 +212,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           ? "B2B fintech marketing was chaos: scattered installs, broken attribution flows, and buried growth insights that had to be cleaned and restructured just to land a single merchant. Multiple marketers were manually coordinating campaigns every day to meet tight revenue deadlines. I joined as the first marketing hire and built a comprehensive growth solution using CleverTap, AppsFlyer, and mobile analytics that processes unstructured user data and generates clean, system-ready campaigns in minutes. Today, we scaled from $4M to $80M revenue with complete accuracy and zero growth stress. What used to be a daily bottleneck became a seamless acquisition machine that generated 30K B2B installs and 500K merchant downloads."
                           : project.title === "Inventrax"
                           ? "Warehouse automation SaaS traffic was chaos: scattered content, broken keyword strategies, and buried ranking insights that had to be cleaned and restructured just to land a single lead. Multiple marketers were manually analyzing search data every day to meet tight traffic deadlines. I joined as a consultant and built a comprehensive growth solution using SEMrush, Ahrefs, and programmatic SEO that processes unstructured search data and generates clean, system-ready optimizations in minutes. Today, we achieved 600% traffic growth with complete accuracy and zero ranking stress. What used to be a daily bottleneck became a seamless organic lead machine that cracked top 2 positions for 3 high-value keywords."
+                          : project.title === "FDX Sports"
+                          ? "E-commerce sports marketing was chaos: scattered campaigns, broken customer journeys, and buried conversion insights that had to be cleaned and restructured just to process a single sale. Multiple marketers were manually coordinating channels every day to meet tight revenue deadlines. I built a comprehensive solution using Shopify, Google Ads, and marketing automation that processes unstructured customer data and generates clean, system-ready campaigns in minutes. Today, one specialist manages entire e-commerce optimization with complete accuracy and zero campaign stress. What used to be a daily bottleneck is now a seamless revenue machine."
                           : project.description
                         }
                       </p>
@@ -244,6 +250,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Drive B2B installs, scale revenue, build top-tier marketing org"
                             : project.title === "Inventrax"
                             ? "Boost organic traffic, rank for Northstar keywords, generate high-quality B2B leads"
+                            : project.title === "FDX Sports"
+                            ? "Build comprehensive e-commerce sports brand with multi-channel marketing automation"
                             : "Manual data processing under tight deadlines"
                           }
                         </p>
@@ -261,12 +269,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Head of Marketing (Full Time)"
                             : project.title === "Inventrax"
                             ? "Consultant (Freelance)"
+                            : project.title === "FDX Sports"
+                            ? "E-commerce Specialist"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
 
                       {/* Results - For Business Projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
@@ -276,7 +286,9 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "$180K revenue in 2 years, 40+ clients (60% overseas), 10+ media features, top 5 agency recognition"
                               : project.title === "DigiPay"
                               ? "$4M to $80M revenue, 30K B2B app installs, 500K merchant downloads, built team from 1 to 28"
-                              : "600% traffic growth, ranked top 1-2 for 3 keywords, lead volume surge"}
+                              : project.title === "Inventrax"
+                              ? "600% traffic growth, ranked top 1-2 for 3 keywords, lead volume surge"
+                              : "Successfully implemented e-commerce platform with integrated marketing automation"}
                           </p>
                         </div>
                       )}
@@ -300,7 +312,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       </div>
 
                       {/* Period - For Business Projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Period:</h4>
                           <p className="text-gray-400">
@@ -310,7 +322,9 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "2017 – Dec 2019"
                               : project.title === "DigiPay"
                               ? "Dec 2019 – Sep 2021"
-                              : "2022"}
+                              : project.title === "Inventrax"
+                              ? "2022"
+                              : "2024 – Present"}
                           </p>
                         </div>
                       )}
