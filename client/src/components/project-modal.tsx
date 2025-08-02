@@ -47,18 +47,8 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
               </div>
             ) : project ? (
               <>
-                <div className="flex justify-between items-start mb-4 sm:mb-6 relative">
+                <div className="flex justify-between items-start mb-4 sm:mb-6">
                   <h2 className="text-xl sm:text-2xl md:text-3xl font-bold pr-4">{project.title}</h2>
-                  
-                  {/* Coming Soon tag for top right corner */}
-                  {project.status === "coming-soon" && (
-                    <div className="absolute top-0 right-12 sm:right-16">
-                      <div className="inline-flex items-center text-sm font-medium text-white bg-blue-600 px-3 py-1 rounded-full">
-                        Coming Soon
-                      </div>
-                    </div>
-                  )}
-                  
                   <Button
                     variant="ghost"
                     size="icon"
