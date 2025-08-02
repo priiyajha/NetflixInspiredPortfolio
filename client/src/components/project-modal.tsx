@@ -120,7 +120,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                       ) : (
                         <Button
                           disabled
-                          className="w-full bg-netflix-red/50 cursor-not-allowed"
+                          className="w-full bg-netflix-red hover:bg-netflix-red cursor-not-allowed opacity-50"
                         >
                           <ExternalLink className="w-4 h-4 mr-2" />
                           View Live Project
@@ -147,7 +147,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                         <Button
                           disabled
                           variant="secondary"
-                          className="w-full bg-white/5 cursor-not-allowed"
+                          className="w-full bg-white/10 hover:bg-white/10 cursor-not-allowed opacity-50"
                         >
                           <Github className="w-4 h-4 mr-2" />
                           View Source Code
