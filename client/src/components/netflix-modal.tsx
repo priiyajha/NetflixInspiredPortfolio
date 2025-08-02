@@ -169,10 +169,10 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
                   }
                 </h2>
 
-                {/* Two Column Layout */}
-                <div className="flex flex-col lg:flex-row gap-12">
+                {/* Two Column Layout with Blue Neon Line Separator */}
+                <div className="flex flex-col lg:flex-row gap-0">
                   {/* Left Column - Detailed Description */}
-                  <div className="flex-[2]">
+                  <div className="flex-[2] pr-8">
                     <p className="text-gray-300 text-base leading-relaxed">
                       {project.title === "Trip Planner" 
                         ? "Travel planning was chaos: scattered research, broken booking flows, and buried recommendations that had to be cleaned and restructured just to process a single trip. Multiple team members were manually coordinating bookings every day to meet tight deadlines. I built a comprehensive solution using React and PostgreSQL that parses unstructured travel data and generates clean, system-ready itineraries in minutes. Today, one person processes dozens of bookings in under 20 minutes with complete accuracy and zero planning stress. What used to be a daily bottleneck is now a seamless flow."
@@ -185,8 +185,11 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
                     </p>
                   </div>
 
+                  {/* Blue Neon Line Separator */}
+                  <div className="hidden lg:block w-px bg-gradient-to-b from-transparent via-cyan-400 to-transparent opacity-60 shadow-[0_0_8px_rgba(34,211,238,0.5)]"></div>
+
                   {/* Right Column - Project Details */}
-                  <div className="flex-[1] space-y-6">
+                  <div className="flex-[1] pl-8 lg:pl-8 mt-8 lg:mt-0 space-y-6">
                     {/* Cast */}
                     <div>
                       <h4 className="text-gray-400 text-sm font-medium mb-2">Cast:</h4>
