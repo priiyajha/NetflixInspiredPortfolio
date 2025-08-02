@@ -99,9 +99,25 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1 sm:mb-2 transition-all duration-300 group-hover:text-white group-hover:drop-shadow-lg">
                     {project.title}
                   </h3>
-                  <p className="text-netflix-light-gray text-xs sm:text-sm transition-all duration-300 group-hover:text-gray-200">
-                    {project.technologies.join(", ")}
-                  </p>
+                  
+                  {/* Show different content for Cazpro business project */}
+                  {project.title === "Cazpro" ? (
+                    <div className="space-y-1">
+                      <p className="text-netflix-light-gray text-xs sm:text-sm transition-all duration-300 group-hover:text-gray-200">
+                        D2C Marketing • Performance Marketing • SEO
+                      </p>
+                      <p className="text-green-400 text-xs sm:text-sm font-medium transition-all duration-300 group-hover:text-green-300">
+                        2.5M INR Sales • 200+ Daily Orders • Successful Exit
+                      </p>
+                      <p className="text-gray-400 text-xs transition-all duration-300 group-hover:text-gray-300">
+                        May 2014 – Dec 2015 • Founder
+                      </p>
+                    </div>
+                  ) : (
+                    <p className="text-netflix-light-gray text-xs sm:text-sm transition-all duration-300 group-hover:text-gray-200">
+                      {project.technologies.join(", ")}
+                    </p>
+                  )}
                   
                   {/* Hover indicator for clickable projects */}
                   {isClickable && (
