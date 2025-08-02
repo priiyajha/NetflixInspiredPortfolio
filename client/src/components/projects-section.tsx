@@ -12,9 +12,25 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
     queryKey: ["/api/projects/featured"],
   });
 
+  const { data: fulltimeProjects = [], isLoading: fulltimeLoading } = useQuery<Project[]>({
+    queryKey: ["/api/projects/category/fulltime"],
+  });
+
+  const { data: sidehustleProjects = [], isLoading: sidehustleLoading } = useQuery<Project[]>({
+    queryKey: ["/api/projects/category/sidehustle"],
+  });
+
+  const { data: consultingProjects = [], isLoading: consultingLoading } = useQuery<Project[]>({
+    queryKey: ["/api/projects/category/consulting"],
+  });
+
+  const { data: keynoteProjects = [], isLoading: keynoteLoading } = useQuery<Project[]>({
+    queryKey: ["/api/projects/category/keynote"],
+  });
+
   return (
     <section id="projects" className="py-16">
-      {/* Featured Projects */}
+      {/* Founded Startups */}
       <motion.div
         className="mb-16"
         initial={{ opacity: 0, y: 50 }}
@@ -34,6 +50,98 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
           </div>
         ) : (
           <ProjectCarousel projects={featuredProjects} onProjectClick={onProjectClick} />
+        )}
+      </motion.div>
+
+      {/* Full-time Gigs */}
+      <motion.div
+        className="mb-16"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <div className="px-4 sm:px-6 md:px-12 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+            Full-time Gigs
+          </h2>
+        </div>
+        
+        {fulltimeLoading ? (
+          <div className="px-4 sm:px-6 md:px-12">
+            <div className="text-netflix-light-gray text-sm sm:text-base">Loading full-time projects...</div>
+          </div>
+        ) : (
+          <ProjectCarousel projects={fulltimeProjects} onProjectClick={onProjectClick} />
+        )}
+      </motion.div>
+
+      {/* Side Hustles */}
+      <motion.div
+        className="mb-16"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <div className="px-4 sm:px-6 md:px-12 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+            Side Hustles
+          </h2>
+        </div>
+        
+        {sidehustleLoading ? (
+          <div className="px-4 sm:px-6 md:px-12">
+            <div className="text-netflix-light-gray text-sm sm:text-base">Loading side hustles...</div>
+          </div>
+        ) : (
+          <ProjectCarousel projects={sidehustleProjects} onProjectClick={onProjectClick} />
+        )}
+      </motion.div>
+
+      {/* Consulting/Fractional CMO */}
+      <motion.div
+        className="mb-16"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <div className="px-4 sm:px-6 md:px-12 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+            Consulting/Fractional CMO
+          </h2>
+        </div>
+        
+        {consultingLoading ? (
+          <div className="px-4 sm:px-6 md:px-12">
+            <div className="text-netflix-light-gray text-sm sm:text-base">Loading consulting projects...</div>
+          </div>
+        ) : (
+          <ProjectCarousel projects={consultingProjects} onProjectClick={onProjectClick} />
+        )}
+      </motion.div>
+
+      {/* Keynotes */}
+      <motion.div
+        className="mb-16"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <div className="px-4 sm:px-6 md:px-12 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+            Keynotes
+          </h2>
+        </div>
+        
+        {keynoteLoading ? (
+          <div className="px-4 sm:px-6 md:px-12">
+            <div className="text-netflix-light-gray text-sm sm:text-base">Loading keynotes...</div>
+          </div>
+        ) : (
+          <ProjectCarousel projects={keynoteProjects} onProjectClick={onProjectClick} />
         )}
       </motion.div>
     </section>
