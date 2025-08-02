@@ -190,8 +190,8 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
                       </p>
                     </div>
 
-                    {/* Vertical Neon Blue Separator */}
-                    <div className="hidden lg:block w-px bg-[#00f0ff] mx-6 shadow-[0_0_6px_#00f0ff]"></div>
+                    {/* Vertical Navy Blue Separator */}
+                    <div className="hidden lg:block w-px bg-navy-700 mx-6 opacity-50" style={{backgroundColor: '#1e3a8a'}}></div>
 
                     {/* Right Column - Project Details (1/3 width) */}
                     <div className="w-full lg:w-1/3 pl-0 lg:pl-0 mt-8 lg:mt-0 space-y-6">
