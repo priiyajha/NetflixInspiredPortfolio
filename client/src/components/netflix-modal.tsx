@@ -146,39 +146,47 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
 
               {/* Content Section */}
               <div className="p-8">
-                {/* Description */}
-                <div className="mb-8">
-                  <p className="text-white text-lg leading-relaxed max-w-4xl">
-                    {project.description}
-                  </p>
-                </div>
+                {/* Two Column Layout: Description & About */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                  {/* Left Column - Description */}
+                  <div>
+                    <h3 className="text-white text-xl font-semibold mb-4">Description</h3>
+                    <p className="text-gray-300 text-base leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
 
-                {/* About Section */}
-                <div className="mb-8">
-                  <h3 className="text-white text-xl font-semibold mb-4">
-                    About {project.title}
-                  </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-                    <div>
-                      <span className="text-gray-400 font-semibold">Director: </span>
-                      <span className="text-gray-300">Priya Jha</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400 font-semibold">Cast: </span>
-                      <span className="text-gray-300">Priya Jha, Open Source Community</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400 font-semibold">Challenge: </span>
-                      <span className="text-gray-300">
-                        {project.title === "Trip Planner" 
-                          ? "Building a comprehensive travel platform with real-time data integration"
-                          : "Creating an intelligent AI-powered solution for modern problems"
-                        }
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400 font-semibold">Role: </span>
-                      <span className="text-gray-300">Solo Full-Stack Developer</span>
+                  {/* Right Column - About Project */}
+                  <div>
+                    <h3 className="text-white text-xl font-semibold mb-4">
+                      About {project.title}
+                    </h3>
+                    <div className="space-y-3 text-sm">
+                      <div>
+                        <span className="text-gray-400 font-semibold">Director: </span>
+                        <span className="text-gray-300">Priya Jha</span>
+                      </div>
+                      <div>
+                        <span className="text-gray-400 font-semibold">Cast: </span>
+                        <span className="text-gray-300">Priya Jha, Open Source Community</span>
+                      </div>
+                      <div>
+                        <span className="text-gray-400 font-semibold">Role: </span>
+                        <span className="text-gray-300">Solo Full-Stack Developer</span>
+                      </div>
+                      <div>
+                        <span className="text-gray-400 font-semibold">Challenge: </span>
+                        <span className="text-gray-300">
+                          {project.title === "Trip Planner" 
+                            ? "Building a comprehensive travel platform with real-time data integration"
+                            : project.title === "AI Interview Platform"
+                            ? "Creating an intelligent interview system with real-time AI evaluation"
+                            : project.title === "AI StayWise"
+                            ? "Developing smart accommodation recommendations with AI-powered insights"
+                            : "Creating an intelligent AI-powered solution for modern problems"
+                          }
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
