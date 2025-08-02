@@ -475,8 +475,8 @@ export class MemStorage implements IStorage {
       bio: "Farooq codes like he's curating a vibe, part full-stack dev, part automation whisperer, part marketing nerd. With the MERN stack at his fingertips and GenAI in his toolkit, he turns messy workflows into seamless systems. Beyond code, he leads with clarity, from TEDx stages to NSS teams, blending tech, voice, and vision. Quick to learn, faster to build, and always rewriting the rules, in beta, by choice.",
       mission: "Transforming complex workflows into elegant solutions through the perfect blend of technology, automation, and strategic thinking.",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800",
-      email: "farooq.chisty@gmail.com",
-      phone: "+91 - 9610373967",
+      email: "farooqsheik52543@gmail.com",
+      phone: "+91-9878167456",
       location: "New Delhi, India",
       resumeUrl: "/resume.pdf",
       skills: {
@@ -484,7 +484,7 @@ export class MemStorage implements IStorage {
         backend: ["Node.js", "Python", "PostgreSQL", "AWS"]
       },
       social: {
-        linkedin: "https://www.linkedin.com/in/farooqchisty/",
+        linkedin: "https://linkedin.com/in/farooqchisty",
         github: "https://github.com/farooqchisty",
         twitter: "https://twitter.com/farooqchisty"
       }

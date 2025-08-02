@@ -39,14 +39,14 @@ export default function Home() {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors">
                   <Mail className="w-4 h-4 flex-shrink-0" />
-                  <a href="mailto:farooq.chisty@gmail.com" className="text-xs sm:text-sm break-all">
-                    farooq.chisty@gmail.com
+                  <a href="mailto:farooqsheik52543@gmail.com" className="text-xs sm:text-sm break-all">
+                    farooqsheik52543@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors">
                   <Phone className="w-4 h-4 flex-shrink-0" />
-                  <a href="tel:+919610373967" className="text-xs sm:text-sm">
-                    +91 - 9610373967
+                  <a href="tel:+919878167456" className="text-xs sm:text-sm">
+                    +91-9878167456
                   </a>
                 </div>
               </div>
@@ -89,7 +89,7 @@ export default function Home() {
                   <span className="text-xs sm:text-sm">GitHub</span>
                 </a>
                 <a 
-                  href="https://www.linkedin.com/in/farooqchisty/" 
+                  href="https://linkedin.com/in/farooqchisty" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors"
