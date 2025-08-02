@@ -147,9 +147,9 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
               {/* Content Section */}
               <div className="p-8">
                 {/* Two Column Layout: Description & About */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div className="flex flex-col md:flex-row gap-8 mb-8">
                   {/* Left Column - Description */}
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-white text-xl font-semibold mb-4">Description</h3>
                     <p className="text-gray-300 text-base leading-relaxed">
                       {project.description}
@@ -157,7 +157,7 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
                   </div>
 
                   {/* Right Column - About Project */}
-                  <div>
+                  <div className="flex-1">
                     <h3 className="text-white text-xl font-semibold mb-4">
                       About {project.title}
                     </h3>
