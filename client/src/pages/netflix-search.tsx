@@ -75,24 +75,26 @@ export default function NetflixSearchPage() {
       {/* Fixed Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 z-40 bg-[#141414] px-4 py-3">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
-          {/* Logo */}
-          <div 
-            className="text-2xl font-black cursor-pointer"
-            style={{
-              fontFamily: 'Bebas Neue, sans-serif',
-              color: '#E50914',
-              letterSpacing: '-0.02em'
-            }}
-            onClick={() => setLocation("/")}
-          >
-            InBetaByPriya
-          </div>
+          {/* Logo and Navigation Links */}
+          <div className="flex items-center space-x-8">
+            <div 
+              className="text-2xl font-black cursor-pointer"
+              style={{
+                fontFamily: 'Bebas Neue, sans-serif',
+                color: '#E50914',
+                letterSpacing: '-0.02em'
+              }}
+              onClick={() => setLocation("/")}
+            >
+              InBetaByPriya
+            </div>
 
-          {/* Navigation Links */}
-          <div className="hidden md:flex space-x-6 text-sm text-white">
-            <button onClick={() => setLocation("/")} className="hover:text-gray-300 transition-colors">Home</button>
-            <button onClick={() => setLocation("/projects")} className="hover:text-gray-300 transition-colors">Projects</button>
-            <button onClick={() => setLocation("/contact")} className="hover:text-gray-300 transition-colors">Contact</button>
+            {/* Navigation Links */}
+            <div className="hidden md:flex space-x-6 text-sm text-white">
+              <button onClick={() => setLocation("/")} className="hover:text-gray-300 transition-colors">Home</button>
+              <button onClick={() => setLocation("/projects")} className="hover:text-gray-300 transition-colors">Projects</button>
+              <button onClick={() => setLocation("/contact")} className="hover:text-gray-300 transition-colors">Contact</button>
+            </div>
           </div>
 
           {/* Search Bar */}
