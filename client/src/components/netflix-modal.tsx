@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { Project } from "@shared/schema";
 import { Button } from "./ui/button";
-import { X, Play, Plus, Volume2, VolumeX, ThumbsUp, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, Play, Plus, Volume2, VolumeX, ThumbsUp, ChevronLeft, ChevronRight, Share } from "lucide-react";
 
 interface NetflixModalProps {
   projectId: string | null;
@@ -152,6 +152,15 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       >
                         <Plus className="w-5 h-5 mr-2" />
                         Add to List
+                      </Button>
+
+                      {/* Like Icon */}
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="text-white hover:bg-white/20 rounded-full border-2 border-white/70"
+                      >
+                        <ThumbsUp className="w-5 h-5" />
                       </Button>
 
                       {/* Share Button */}
