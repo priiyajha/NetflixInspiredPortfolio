@@ -247,7 +247,7 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
                       <div>
                         <h4 className="font-medium text-white mb-3">Technologies:</h4>
                         <div className="flex flex-wrap gap-2">
-                          {project.technologies.slice(0, 4).map((tech) => (
+                          {project.technologies.slice(0, 8).map((tech) => (
                             <span 
                               key={tech}
                               className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
@@ -260,6 +260,14 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
                           ))}
                         </div>
                       </div>
+
+                      {/* Period - Only for Cazpro */}
+                      {project.title === "Cazpro" && (
+                        <div>
+                          <h4 className="font-medium text-white mb-2">Period:</h4>
+                          <p className="text-gray-400">May 2014 – Dec 2015</p>
+                        </div>
+                      )}
                     </div>
                   </div>
 
