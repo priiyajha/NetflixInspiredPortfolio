@@ -169,6 +169,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "2019-2021"
                             : project.title === "Inventrax"
                             ? "2022"
+                            : project.title === "FDX Sports"
+                            ? "2023"
                             : "2025"}
                         </span>
                         <span className="px-3 py-1 rounded-full border border-white text-white text-sm">
@@ -197,7 +199,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           : project.title === "Inventrax"
                           ? "Drove 600% organic traffic growth for warehouse automation SaaS in 4 months through strategic SEO."
                           : project.title === "FDX Sports"
-                          ? "Comprehensive e-commerce sports brand with multi-channel marketing automation and optimization."
+                          ? "Turbocharged FDX into million-dollar D2C brand, scaling from $10K to $120K/month in 6 months."
                           : "Complex processes now run seamlessly."
                         }
                       </h2>
@@ -213,7 +215,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           : project.title === "Inventrax"
                           ? "Warehouse automation SaaS traffic was chaos: scattered content, broken keyword strategies, and buried ranking insights that had to be cleaned and restructured just to land a single lead. Multiple marketers were manually analyzing search data every day to meet tight traffic deadlines. I joined as a consultant and built a comprehensive growth solution using SEMrush, Ahrefs, and programmatic SEO that processes unstructured search data and generates clean, system-ready optimizations in minutes. Today, we achieved 600% traffic growth with complete accuracy and zero ranking stress. What used to be a daily bottleneck became a seamless organic lead machine that cracked top 2 positions for 3 high-value keywords."
                           : project.title === "FDX Sports"
-                          ? "E-commerce sports marketing was chaos: scattered campaigns, broken customer journeys, and buried conversion insights that had to be cleaned and restructured just to process a single sale. Multiple marketers were manually coordinating channels every day to meet tight revenue deadlines. I built a comprehensive solution using Shopify, Google Ads, and marketing automation that processes unstructured customer data and generates clean, system-ready campaigns in minutes. Today, one specialist manages entire e-commerce optimization with complete accuracy and zero campaign stress. What used to be a daily bottleneck is now a seamless revenue machine."
+                          ? "European D2C sports marketing was chaos: scattered campaigns, broken customer journeys, and buried conversion insights that had to be cleaned and restructured just to process a single sale. Multiple marketers were manually coordinating channels every day to meet tight revenue deadlines. I joined as a consultant and built a comprehensive growth solution using Shopify, Google Ads, and automation that processes unstructured customer data and generates clean, system-ready campaigns in minutes. Today, we scaled from $10K to $120K monthly with complete accuracy and zero campaign stress. What used to be a daily bottleneck became a seamless million-dollar revenue machine with $500K+ ad spend and 2.5x AOV growth."
                           : project.description
                         }
                       </p>
@@ -251,7 +253,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "Inventrax"
                             ? "Boost organic traffic, rank for Northstar keywords, generate high-quality B2B leads"
                             : project.title === "FDX Sports"
-                            ? "Build comprehensive e-commerce sports brand with multi-channel marketing automation"
+                            ? "10x sales, optimize for scale, automate funnel, drive international growth"
                             : "Manual data processing under tight deadlines"
                           }
                         </p>
@@ -270,7 +272,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "Inventrax"
                             ? "Consultant (Freelance)"
                             : project.title === "FDX Sports"
-                            ? "E-commerce Specialist"
+                            ? "Consultant (Freelance)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
@@ -288,7 +290,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "$4M to $80M revenue, 30K B2B app installs, 500K merchant downloads, built team from 1 to 28"
                               : project.title === "Inventrax"
                               ? "600% traffic growth, ranked top 1-2 for 3 keywords, lead volume surge"
-                              : "Successfully implemented e-commerce platform with integrated marketing automation"}
+                              : "$10K to $120K/month sales, $500K+ ad spend, AOV up 2.5x"}
                           </p>
                         </div>
                       )}
@@ -324,7 +326,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Dec 2019 – Sep 2021"
                               : project.title === "Inventrax"
                               ? "2022"
-                              : "2024 – Present"}
+                              : "2023"}
                           </p>
                         </div>
                       )}

@@ -143,7 +143,7 @@ export class MemStorage implements IStorage {
       {
         id: "11",
         title: "FDX Sports",
-        description: "A comprehensive e-commerce sports brand leveraging Shopify infrastructure with performance marketing through Google Ads and Meta Ads. Features email automation with Klaviyo and SMS marketing through SMSBump for customer retention and conversion optimization.",
+        description: "Turbocharged FDX into a million-dollar D2C brand in Europe. Drove sales from $10K to $120K/month in 6 months, spent half a million on ads, reworked CRO and email automation, and 2.5x'd average cart value. Did not just play the game, rewrote the playbook.",
         image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
         technologies: ["Shopify", "Google Ads", "Meta Ads", "Klaviyo", "SMSBump"],
@@ -151,23 +151,23 @@ export class MemStorage implements IStorage {
         liveUrl: "",
         githubUrl: "",
         featured: "true",
-        status: "coming-soon",
+        status: "completed",
         features: [
-          "E-commerce platform development with Shopify",
-          "Performance marketing campaigns with Google Ads",
-          "Social media advertising optimization with Meta Ads",
-          "Email marketing automation and segmentation with Klaviyo",
-          "SMS marketing campaigns and automation with SMSBump",
-          "Customer journey optimization and retention",
-          "Conversion rate optimization across channels",
-          "Multi-channel marketing attribution and analytics"
+          "High-performance Shopify store optimization and scaling",
+          "Strategic Google Ads campaigns with $500K+ spend management",
+          "Meta Ads performance marketing and international expansion",
+          "Advanced email automation and segmentation with Klaviyo",
+          "SMS marketing campaigns and retention with SMSBump",
+          "Conversion rate optimization and funnel building",
+          "User-generated content strategy and implementation",
+          "International D2C growth and scaling operations"
         ],
-        skills: ["E-commerce", "performance marketing", "email marketing", "SMS marketing", "conversion optimization", "customer retention"],
-        goal: "Build comprehensive e-commerce sports brand with multi-channel marketing automation",
-        kpis: ["Revenue growth", "customer acquisition cost", "lifetime value", "conversion rates", "retention rates"],
-        results: "Successfully implemented e-commerce platform with integrated marketing automation",
-        engagementType: "E-commerce Specialist",
-        period: "2024 – Present"
+        skills: ["Performance marketing", "CRO", "funnel building", "D2C marketing", "UGC", "email/SMS automation"],
+        goal: "10x sales, optimize for scale, automate funnel, drive international growth",
+        kpis: ["Monthly sales", "ROAS", "AOV", "cart conversion rate", "organic growth"],
+        results: "$10K to $120K/month sales, $500K+ ad spend, AOV up 2.5x",
+        engagementType: "Consultant (Freelance)",
+        period: "2023"
       },
       {
         id: "12",
