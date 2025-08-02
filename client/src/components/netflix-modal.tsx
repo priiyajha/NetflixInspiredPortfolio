@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { Project } from "@shared/schema";
 import { Button } from "./ui/button";
-import { X, Play, Plus, Volume2, VolumeX, ThumbsUp } from "lucide-react";
+import { X, Play, Plus, Volume2, VolumeX, ThumbsUp, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface NetflixModalProps {
   projectId: string | null;
@@ -13,6 +13,7 @@ interface NetflixModalProps {
 
 export default function NetflixModal({ projectId, onClose, onProjectSwitch }: NetflixModalProps) {
   const [isMuted, setIsMuted] = useState(true);
+  const imageScrollRef = useRef<HTMLDivElement>(null);
 
   const { data: project, isLoading } = useQuery<Project>({
     queryKey: ["/api/projects", projectId],
@@ -32,6 +33,26 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
     if (onProjectSwitch) {
       onProjectSwitch(newProjectId);
     }
+  };
+
+  // Sample images for the scroller - in a real app, these would come from the project data
+  const projectImages = [
+    project?.image || "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+    "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+    "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+    "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+    "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450"
+  ];
+
+  const scrollImages = (direction: 'left' | 'right') => {
+    const container = imageScrollRef.current;
+    if (!container) return;
+    
+    const scrollAmount = 200;
+    container.scrollBy({ 
+      left: direction === 'left' ? -scrollAmount : scrollAmount, 
+      behavior: 'smooth' 
+    });
   };
 
   if (!projectId) return null;
@@ -235,6 +256,48 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           : project.description
                         }
                       </p>
+
+                      {/* Image Scroller Section */}
+                      <div className="mt-8">
+                        <h3 className="text-lg font-semibold text-white mb-4">Project Gallery</h3>
+                        <div className="relative group">
+                          {/* Left Arrow */}
+                          <button
+                            onClick={() => scrollImages('left')}
+                            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm"
+                            aria-label="Scroll left"
+                          >
+                            <ChevronLeft className="w-4 h-4" />
+                          </button>
+
+                          {/* Right Arrow */}
+                          <button
+                            onClick={() => scrollImages('right')}
+                            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm"
+                            aria-label="Scroll right"
+                          >
+                            <ChevronRight className="w-4 h-4" />
+                          </button>
+
+                          {/* Scrollable Images Container */}
+                          <div
+                            ref={imageScrollRef}
+                            className="flex space-x-3 overflow-x-auto scrollbar-hide pb-2"
+                            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                          >
+                            {projectImages.map((image, index) => (
+                              <div key={index} className="flex-none">
+                                <img
+                                  src={image}
+                                  alt={`${project?.title} screenshot ${index + 1}`}
+                                  className="w-32 h-20 object-cover rounded-md hover:scale-105 transition-transform duration-200 cursor-pointer"
+                                  draggable={false}
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
                     {/* Vertical Navy Blue Separator */}
