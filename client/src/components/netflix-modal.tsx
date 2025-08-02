@@ -8,11 +8,11 @@ import { X, Play, Plus, Volume2, VolumeX, ThumbsUp } from "lucide-react";
 interface NetflixModalProps {
   projectId: string | null;
   onClose: () => void;
+  onProjectSwitch?: (projectId: string) => void;
 }
 
-export default function NetflixModal({ projectId, onClose }: NetflixModalProps) {
+export default function NetflixModal({ projectId, onClose, onProjectSwitch }: NetflixModalProps) {
   const [isMuted, setIsMuted] = useState(true);
-  const [selectedProject, setSelectedProject] = useState<string | null>(null);
 
   const { data: project, isLoading } = useQuery<Project>({
     queryKey: ["/api/projects", projectId],
@@ -29,9 +29,9 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
     .slice(0, 6);
 
   const handleProjectClick = (newProjectId: string) => {
-    setSelectedProject(newProjectId);
-    // This will cause the modal to show the new project
-    // You might want to call onClose and reopen with new ID from parent
+    if (onProjectSwitch) {
+      onProjectSwitch(newProjectId);
+    }
   };
 
   if (!projectId) return null;

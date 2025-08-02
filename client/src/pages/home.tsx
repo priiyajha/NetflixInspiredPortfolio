@@ -112,7 +112,8 @@ export default function Home() {
 
       <NetflixModal 
         projectId={selectedProjectId} 
-        onClose={() => setSelectedProjectId(null)} 
+        onClose={() => setSelectedProjectId(null)}
+        onProjectSwitch={(projectId) => setSelectedProjectId(projectId)}
       />
     </div>
   );
