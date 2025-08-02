@@ -24,7 +24,7 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
       >
         <div className="px-4 sm:px-6 md:px-12 mb-6">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-            Featured Projects
+            Founded Startups
           </h2>
         </div>
         
