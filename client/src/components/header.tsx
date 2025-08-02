@@ -119,7 +119,7 @@ export default function Header() {
                   letterSpacing: '-0.02em'
                 }}
               >
-                InBetaByFarooq
+                Farooq Chisty
               </div>
               <ul className="flex space-x-3 sm:space-x-4 md:space-x-6">
                 <li>
