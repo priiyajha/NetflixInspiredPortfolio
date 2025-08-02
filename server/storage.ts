@@ -93,6 +93,167 @@ export class MemStorage implements IStorage {
           "Integrated booking assistance"
         ]
       },
+      {
+        id: "4",
+        title: "Smart Finance Tracker",
+        description: "An AI-powered personal finance management platform that automatically categorizes expenses, predicts spending patterns, and provides intelligent budgeting recommendations. Features real-time market analysis and investment insights.",
+        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: "/attached_assets/20250731_1654_Neon Code Symphony_simple_compose_01k1g3kq5af70vc1a2b12hvja6_1753961284060.mp4",
+        technologies: ["React & Next.js", "Node.js & Express", "PostgreSQL"],
+        category: "featured",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true",
+        status: "coming-soon",
+        features: [
+          "Automated expense categorization and tracking",
+          "AI-powered spending pattern prediction",
+          "Intelligent budgeting recommendations",
+          "Real-time market analysis integration",
+          "Investment portfolio insights",
+          "Bill reminder and payment automation",
+          "Financial goal tracking and progress",
+          "Secure bank account integration"
+        ]
+      },
+      {
+        id: "11",
+        title: "AI Code Review Assistant",
+        description: "An intelligent code review platform that automatically analyzes pull requests, identifies security vulnerabilities, suggests optimizations, and ensures coding standards compliance across multiple programming languages.",
+        image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["React & Next.js", "Node.js & Express", "MongoDB"],
+        category: "featured",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true",
+        status: "coming-soon",
+        features: [
+          "Automated pull request analysis",
+          "Security vulnerability detection",
+          "Code optimization suggestions",
+          "Multi-language support and standards",
+          "Performance bottleneck identification",
+          "Best practices enforcement",
+          "Team collaboration features",
+          "CI/CD pipeline integration"
+        ]
+      },
+      {
+        id: "12",
+        title: "Smart Learning Platform",
+        description: "An adaptive e-learning platform that personalizes course content based on learning patterns, provides AI tutoring, and creates custom study schedules for optimal knowledge retention and skill development.",
+        image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["React & Next.js", "Node.js & Express", "PostgreSQL"],
+        category: "featured",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true",
+        status: "coming-soon",
+        features: [
+          "Personalized learning path generation",
+          "AI-powered tutoring assistance",
+          "Adaptive content difficulty adjustment",
+          "Custom study schedule optimization",
+          "Progress tracking and analytics",
+          "Interactive skill assessments",
+          "Peer collaboration features",
+          "Knowledge retention monitoring"
+        ]
+      },
+      {
+        id: "13",
+        title: "AI Content Generator",
+        description: "A comprehensive content creation platform that generates high-quality blog posts, social media content, and marketing copy using advanced AI. Features SEO optimization and brand voice customization.",
+        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["React & Next.js", "Node.js & Express", "MongoDB"],
+        category: "featured",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true",
+        status: "coming-soon",
+        features: [
+          "AI-powered blog post generation",
+          "Social media content creation",
+          "SEO-optimized marketing copy",
+          "Brand voice customization",
+          "Content calendar management",
+          "Multi-platform publishing",
+          "Performance analytics tracking",
+          "Content variation testing"
+        ]
+      },
+      {
+        id: "14",
+        title: "Smart Home Automation",
+        description: "An intelligent IoT platform that automates home devices, learns user preferences, optimizes energy consumption, and provides predictive maintenance alerts for a seamless smart home experience.",
+        image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d11?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["React & Next.js", "Node.js & Express", "PostgreSQL"],
+        category: "featured",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true",
+        status: "coming-soon",
+        features: [
+          "Automated device control and scheduling",
+          "User preference learning algorithms",
+          "Energy consumption optimization",
+          "Predictive maintenance alerts",
+          "Voice command integration",
+          "Security system monitoring",
+          "Weather-based automation",
+          "Remote access and control"
+        ]
+      },
+      {
+        id: "15",
+        title: "AI Health Monitor",
+        description: "A comprehensive health tracking platform that monitors vital signs, predicts health risks, provides personalized wellness recommendations, and connects users with healthcare professionals when needed.",
+        image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["React & Next.js", "Node.js & Express", "PostgreSQL"],
+        category: "featured",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true",
+        status: "coming-soon",
+        features: [
+          "Real-time vital signs monitoring",
+          "Health risk prediction algorithms",
+          "Personalized wellness recommendations",
+          "Healthcare professional connections",
+          "Medication reminder system",
+          "Emergency alert notifications",
+          "Health trend analysis",
+          "Wearable device integration"
+        ]
+      },
+      {
+        id: "16",
+        title: "AI Recipe Optimizer",
+        description: "An intelligent cooking platform that creates personalized recipes based on dietary preferences, available ingredients, and nutritional goals. Features meal planning and grocery list automation.",
+        image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["React & Next.js", "Node.js & Express", "MongoDB"],
+        category: "featured",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true",
+        status: "coming-soon",
+        features: [
+          "Personalized recipe recommendations",
+          "Ingredient-based recipe generation",
+          "Nutritional goal optimization",
+          "Dietary restriction accommodation",
+          "Automated meal planning",
+          "Smart grocery list generation",
+          "Cooking time estimation",
+          "Recipe difficulty adjustment"
+        ]
+      },
 
       // Web Development - Keep only 2 real ones
       {
