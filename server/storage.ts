@@ -172,7 +172,7 @@ export class MemStorage implements IStorage {
       {
         id: "12",
         title: "Codiste",
-        description: "A comprehensive lead generation and business intelligence platform leveraging Apollo for contact discovery, LeadDino for lead qualification, Phantom Buster for automation, and analytics through Ahrefs and Google Analytics. Features Notion integration for streamlined workflow management and data organization.",
+        description: "Fractional CMO who built, trained, and turbocharged the marketing and outbound sales teams. 4x'd marketing output, 2.5x'd sales response rates, and baked AI and programmatic SEO into their DNA. Set up every process from social to cold DMs, always optimizing for impact.",
         image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
         technologies: ["Apollo", "LeadDino", "Phantom Buster", "Ahrefs", "Google Analytics", "Notion"],
@@ -180,23 +180,23 @@ export class MemStorage implements IStorage {
         liveUrl: "",
         githubUrl: "",
         featured: "true",
-        status: "coming-soon",
+        status: "completed",
         features: [
-          "Advanced contact discovery and enrichment with Apollo",
-          "Lead qualification and scoring with LeadDino",
-          "Automated outreach and engagement with Phantom Buster",
-          "SEO and competitive analysis with Ahrefs",
-          "Traffic and conversion tracking with Google Analytics",
-          "Workflow management and data organization with Notion",
-          "Lead pipeline optimization and automation",
-          "Business intelligence and reporting dashboards"
+          "Advanced contact discovery and team training with Apollo",
+          "Lead qualification and sales process optimization with LeadDino",
+          "Automated outreach and engagement scaling with Phantom Buster",
+          "Programmatic SEO and competitive intelligence with Ahrefs",
+          "Team performance tracking and optimization with Google Analytics",
+          "Process documentation and workflow management with Notion",
+          "Full-stack marketing and sales automation",
+          "AI integration and programmatic marketing implementation"
         ],
-        skills: ["Lead generation", "sales automation", "data analysis", "workflow optimization", "competitive intelligence", "CRM management"],
-        goal: "Streamline lead generation process and optimize sales pipeline through automation and data-driven insights",
-        kpis: ["Lead quality", "conversion rates", "pipeline velocity", "data accuracy", "workflow efficiency"],
-        results: "Successfully implemented automated lead generation system with improved qualification and conversion rates",
-        engagementType: "Lead Generation Specialist",
-        period: "2024 – Present"
+        skills: ["Social", "organic", "B2B", "programmatic SEO", "copywriting", "analytics", "process optimization"],
+        goal: "Build a high-output marketing org, automate lead gen, optimize funnel",
+        kpis: ["Team output", "sales response rate", "lead volume", "organic traffic"],
+        results: "4x team output, 2.5x sales response, full-stack process automation",
+        engagementType: "Fractional CMO (Consulting)",
+        period: "2024"
       },
       {
         id: "13",

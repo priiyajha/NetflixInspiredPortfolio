@@ -187,7 +187,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "FDX Sports"
                             ? "E-commerce Brand"
                             : project.title === "Codiste"
-                            ? "Lead Gen Platform"
+                            ? "Marketing Agency"
                             : "Web Application"}
                         </span>
                       </div>
@@ -205,7 +205,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           : project.title === "FDX Sports"
                           ? "Turbocharged FDX into million-dollar D2C brand, scaling from $10K to $120K/month in 6 months."
                           : project.title === "Codiste"
-                          ? "Comprehensive lead generation platform with automated workflows and business intelligence integration."
+                          ? "Fractional CMO who 4x'd marketing output and 2.5x'd sales response rates through team building and automation."
                           : "Complex processes now run seamlessly."
                         }
                       </h2>
@@ -223,7 +223,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           : project.title === "FDX Sports"
                           ? "European D2C sports marketing was chaos: scattered campaigns, broken customer journeys, and buried conversion insights that had to be cleaned and restructured just to process a single sale. Multiple marketers were manually coordinating channels every day to meet tight revenue deadlines. I joined as a consultant and built a comprehensive growth solution using Shopify, Google Ads, and automation that processes unstructured customer data and generates clean, system-ready campaigns in minutes. Today, we scaled from $10K to $120K monthly with complete accuracy and zero campaign stress. What used to be a daily bottleneck became a seamless million-dollar revenue machine with $500K+ ad spend and 2.5x AOV growth."
                           : project.title === "Codiste"
-                          ? "Lead generation was chaos: scattered contact data, broken qualification processes, and buried pipeline insights that had to be cleaned and restructured just to close a single deal. Multiple sales reps were manually prospecting leads every day to meet tight quota deadlines. I built a comprehensive solution using Apollo, LeadDino, and automation that processes unstructured prospect data and generates clean, system-ready leads in minutes. Today, one specialist manages entire lead pipeline with complete accuracy and zero prospecting stress. What used to be a daily bottleneck is now a seamless conversion machine."
+                          ? "Marketing and sales operations were chaos: scattered teams, broken processes, and buried optimization insights that had to be cleaned and restructured just to generate a single qualified lead. Multiple team members were manually executing campaigns every day to meet tight output deadlines. I joined as Fractional CMO and built a comprehensive solution using Apollo, LeadDino, and automation that processes unstructured marketing data and generates clean, system-ready campaigns in minutes. Today, we achieved 4x team output and 2.5x sales response with complete accuracy and zero process stress. What used to be a daily bottleneck became a seamless high-output marketing machine with full-stack automation and AI integration."
                           : project.description
                         }
                       </p>
@@ -263,7 +263,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "FDX Sports"
                             ? "10x sales, optimize for scale, automate funnel, drive international growth"
                             : project.title === "Codiste"
-                            ? "Streamline lead generation process and optimize sales pipeline through automation and data-driven insights"
+                            ? "Build a high-output marketing org, automate lead gen, optimize funnel"
                             : "Manual data processing under tight deadlines"
                           }
                         </p>
@@ -284,7 +284,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "FDX Sports"
                             ? "Consultant (Freelance)"
                             : project.title === "Codiste"
-                            ? "Lead Generation Specialist"
+                            ? "Fractional CMO (Consulting)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
@@ -304,7 +304,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "600% traffic growth, ranked top 1-2 for 3 keywords, lead volume surge"
                               : project.title === "FDX Sports"
                               ? "$10K to $120K/month sales, $500K+ ad spend, AOV up 2.5x"
-                              : "Successfully implemented automated lead generation system with improved qualification and conversion rates"}
+                              : "4x team output, 2.5x sales response, full-stack process automation"}
                           </p>
                         </div>
                       )}
@@ -342,7 +342,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "2022"
                               : project.title === "FDX Sports"
                               ? "2023"
-                              : "2024 – Present"}
+                              : "2024"}
                           </p>
                         </div>
                       )}
