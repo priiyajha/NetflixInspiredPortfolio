@@ -469,24 +469,24 @@ export class MemStorage implements IStorage {
 
     this.profileData = {
       id: "1",
-      name: "Priya Jha",
-      title: "Priya",
-      subtitle: "Jha",
-      bio: "Priya codes like she's curating a vibe, part full-stack dev, part automation whisperer, part marketing nerd. With the MERN stack at her fingertips and GenAI in her toolkit, she turns messy workflows into seamless systems. Beyond code, she leads with clarity, from TEDx stages to NSS teams, blending tech, voice, and vision. Quick to learn, faster to build, and always rewriting the rules, in beta, by choice.",
+      name: "Farooq Chisty",
+      title: "Farooq",
+      subtitle: "Chisty",
+      bio: "Farooq codes like he's curating a vibe, part full-stack dev, part automation whisperer, part marketing nerd. With the MERN stack at his fingertips and GenAI in his toolkit, he turns messy workflows into seamless systems. Beyond code, he leads with clarity, from TEDx stages to NSS teams, blending tech, voice, and vision. Quick to learn, faster to build, and always rewriting the rules, in beta, by choice.",
       mission: "Transforming complex workflows into elegant solutions through the perfect blend of technology, automation, and strategic thinking.",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800",
-      email: "contact@portfolio.com",
-      phone: "+1 (234) 567-8900",
-      location: "San Francisco, CA",
+      email: "farooq.chisty@gmail.com",
+      phone: "+91 - 9610373967",
+      location: "New Delhi, India",
       resumeUrl: "/resume.pdf",
       skills: {
         frontend: ["React.js", "Vue.js", "TypeScript", "Tailwind CSS"],
         backend: ["Node.js", "Python", "PostgreSQL", "AWS"]
       },
       social: {
-        linkedin: "https://linkedin.com/in/example",
-        github: "https://github.com/example",
-        twitter: "https://twitter.com/example"
+        linkedin: "https://www.linkedin.com/in/farooqchisty/",
+        github: "https://github.com/farooqchisty",
+        twitter: "https://twitter.com/farooqchisty"
       }
     };
   }

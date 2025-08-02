@@ -1,8 +1,8 @@
-# Portfolio Application
+# Portfolio Application - Farooq Chisty
 
 ## Overview
 
-This is a modern portfolio application built with a React frontend and Express backend, showcasing projects and professional information in a Netflix-inspired dark theme. The application uses a monorepo structure with shared schemas and TypeScript throughout.
+This is a modern portfolio application built with a React frontend and Express backend, showcasing Farooq Chisty's projects and professional information in a Netflix-inspired dark theme. The application uses a monorepo structure with shared schemas and TypeScript throughout.
 
 ## User Preferences
 
