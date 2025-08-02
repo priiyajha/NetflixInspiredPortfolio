@@ -245,7 +245,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       {/* Director */}
                       <div>
                         <h4 className="font-medium text-white mb-2">Director:</h4>
-                        <p className="text-gray-400">Priya Jha</p>
+                        <p className="text-gray-400">Farooq Chisty</p>
                       </div>
 
                       {/* Cast */}
