@@ -164,12 +164,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           {project.title === "Cazpro" 
                             ? "2014-2015" 
                             : project.title === "Millionth Mile Marketing"
-                            ? "2023-Present"
+                            ? "2017-2019"
                             : "2025"}
                         </span>
                         <span className="px-3 py-1 rounded-full border border-white text-white text-sm">
-                          {project.title === "Cazpro" || project.title === "Millionth Mile Marketing" 
-                            ? "Marketing Agency" 
+                          {project.title === "Cazpro" 
+                            ? "D2C Business"
+                            : project.title === "Millionth Mile Marketing" 
+                            ? "Growth Agency" 
                             : "Web Application"}
                         </span>
                       </div>
@@ -179,7 +181,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         {project.title === "Cazpro" 
                           ? "Built and scaled a leading college merch brand from zero to 2.5M INR in 15 months."
                           : project.title === "Millionth Mile Marketing"
-                          ? "Comprehensive digital marketing agency scaling businesses through strategic campaigns and automation."
+                          ? "Co-founded a top 5 Andhra Pradesh growth agency with 40+ global clients and $180K revenue in 2 years."
                           : project.title === "AI StayWise"
                           ? "Hours of accommodation research now happens in minutes perfectly."
                           : "Complex processes now run seamlessly."
@@ -191,7 +193,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         {project.title === "Cazpro" 
                           ? "College merchandise was fragmented: scattered suppliers, broken brand positioning, and buried customer insights that had to be cleaned and restructured just to process a single campaign. Multiple brand managers were manually coordinating marketing efforts every day to meet tight sales deadlines. I built a comprehensive D2C solution using Shopify and performance marketing that processes unstructured customer data and generates clean, system-ready campaigns in minutes. Today, we achieved 200+ daily orders in under 3 months with complete accuracy and zero marketing stress. What used to be a daily bottleneck became a seamless high-velocity sales machine that generated 2.5M INR and a successful exit."
                           : project.title === "Millionth Mile Marketing"
-                          ? "Digital marketing was chaos: scattered campaigns, broken attribution flows, and buried performance insights that had to be cleaned and restructured just to process a single client. Multiple marketers were manually optimizing ads every day to meet tight ROI deadlines. I built a comprehensive solution using Google Ads, Meta Ads, and marketing automation that processes unstructured campaign data and generates clean, system-ready optimizations in minutes. Today, one strategist manages multiple client campaigns with improved ROI and zero performance stress. What used to be a daily bottleneck is now a seamless acquisition machine."
+                          ? "Regional marketing was fragmented: scattered agencies, broken client relationships, and buried growth insights that had to be cleaned and restructured just to land a single marquee client. Multiple founders were manually pitching prospects every day to meet tight revenue deadlines. I co-founded a comprehensive growth solution using Google Ads, Meta Ads, and team building that processes unstructured market data and generates clean, system-ready campaigns in minutes. Today, we built a top 5 agency with 40+ clients across continents with complete accuracy and zero pitch stress. What used to be a daily hustle became a seamless acquisition machine that generated $180K revenue and industry recognition."
                           : project.title === "AI StayWise"
                           ? "Accommodation booking was chaos: scattered listings, broken recommendation flows, and buried pricing insights that had to be cleaned and restructured just to process a single stay. Multiple team members were manually comparing options every day to meet tight travel deadlines. I built a comprehensive solution using AI and React that parses unstructured accommodation data and generates clean, system-ready recommendations in minutes. Today, one person processes dozens of bookings in under 20 minutes with complete accuracy and zero search stress. What used to be a daily bottleneck is now a seamless flow."
                           : project.description
@@ -225,7 +227,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           {project.title === "Cazpro"
                             ? "Build and scale a leading college-focused merch brand, drive high-velocity sales, achieve profitable exit"
                             : project.title === "Millionth Mile Marketing"
-                            ? "Drive customer acquisition and retention through integrated digital marketing strategies"
+                            ? "Land marquee clients, drive high revenue growth, build a leading regional agency"
                             : project.title === "AI StayWise"
                             ? "Manual accommodation research under booking deadlines"
                             : "Manual data processing under tight deadlines"
@@ -240,7 +242,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           {project.title === "Cazpro" 
                             ? "Founder (Full Time)" 
                             : project.title === "Millionth Mile Marketing"
-                            ? "Marketing Strategist"
+                            ? "Co-founder, Head of Growth (Full Time)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
@@ -252,7 +254,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           <p className="text-gray-400">
                             {project.title === "Cazpro" 
                               ? "2.5M INR sales in 15 months, 200+ daily orders in 3 months, successful exit"
-                              : "Successfully scaled multiple client campaigns with improved ROI and customer acquisition"}
+                              : "$180K revenue in 2 years, 40+ clients (60% overseas), 10+ media features, top 5 agency recognition"}
                           </p>
                         </div>
                       )}
@@ -282,7 +284,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           <p className="text-gray-400">
                             {project.title === "Cazpro" 
                               ? "May 2014 – Dec 2015"
-                              : "2023 – Present"}
+                              : "2017 – Dec 2019"}
                           </p>
                         </div>
                       )}

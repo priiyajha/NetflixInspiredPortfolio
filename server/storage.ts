@@ -56,7 +56,7 @@ export class MemStorage implements IStorage {
       {
         id: "2",
         title: "Millionth Mile Marketing",
-        description: "A comprehensive digital marketing agency focused on scaling businesses through strategic performance marketing, SEO optimization, and data-driven campaigns. Specialized in Google Ads, Meta advertising, content marketing, and marketing automation to drive customer acquisition and retention.",
+        description: "Co-founded a growth agency that became an Andhra Pradesh top 5, racking up 40+ global clients, 2 years, $180K revenue, and 25 teammates. Built teams, scaled campaigns, won awards, and hustled for brands from Vizag to Europe. Brought a bold attitude to every pitch.",
         image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
         technologies: ["Google Ads", "Meta Ads", "SEMrush", "Ahrefs", "Mailchimp", "HubSpot", "WordPress"],
@@ -66,21 +66,21 @@ export class MemStorage implements IStorage {
         featured: "true",
         status: "completed",
         features: [
-          "Strategic Google Ads campaign management",
-          "Meta Ads optimization and scaling", 
-          "Advanced SEO research with SEMrush",
-          "Comprehensive backlink analysis with Ahrefs",
-          "Email marketing automation with Mailchimp",
-          "CRM integration and lead nurturing with HubSpot",
-          "Content marketing strategy and execution",
-          "Performance analytics and ROI optimization"
+          "Strategic Google Ads campaign management and optimization",
+          "Meta Ads scaling and performance marketing", 
+          "Advanced SEO research and keyword strategy with SEMrush",
+          "Comprehensive backlink analysis and content strategy with Ahrefs",
+          "Email marketing automation and segmentation with Mailchimp",
+          "CRM integration and lead nurturing workflows with HubSpot",
+          "WordPress-based landing page and website development",
+          "Performance analytics, reporting and growth optimization"
         ],
-        skills: ["PPC advertising", "social media marketing", "SEO", "content marketing", "email marketing", "CRM", "analytics"],
-        goal: "Drive customer acquisition and retention through integrated digital marketing strategies",
-        kpis: ["Ad spend ROI", "lead generation rate", "conversion rate", "organic traffic growth", "email engagement"],
-        results: "Successfully scaled multiple client campaigns with improved ROI and customer acquisition",
-        engagementType: "Marketing Strategist",
-        period: "2023 – Present"
+        skills: ["Growth marketing", "B2B sales", "team building", "media buying", "analytics", "design thinking"],
+        goal: "Land marquee clients, drive high revenue growth, build a leading regional agency",
+        kpis: ["Client acquisition", "revenue", "ad spend managed", "team size", "media features"],
+        results: "$180K revenue in 2 years, 40+ clients (60% overseas), 10+ media features, top 5 agency recognition",
+        engagementType: "Co-founder, Head of Growth (Full Time)",
+        period: "2017 – Dec 2019"
       },
       {
         id: "3",
