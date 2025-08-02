@@ -29,6 +29,10 @@ export default function NetflixSearchPage() {
       return;
     }
 
+    if (!projects || projects.length === 0) {
+      return;
+    }
+
     const query = searchQuery.toLowerCase();
     const matches = projects.filter(project => {
       const title = project.title.toLowerCase();
@@ -54,7 +58,7 @@ export default function NetflixSearchPage() {
     });
 
     setFilteredProjects(sortedMatches);
-  }, [searchQuery, projects]);
+  }, [searchQuery, projects?.length]);
 
   const handleClearSearch = () => {
     setSearchQuery("");
@@ -88,9 +92,6 @@ export default function NetflixSearchPage() {
           <div className="hidden md:flex space-x-6 text-sm text-white">
             <button onClick={() => setLocation("/")} className="hover:text-gray-300 transition-colors">Home</button>
             <button onClick={() => setLocation("/projects")} className="hover:text-gray-300 transition-colors">Projects</button>
-            <button className="hover:text-gray-300 transition-colors">Featured</button>
-            <button className="hover:text-gray-300 transition-colors">New & Popular</button>
-            <button className="hover:text-gray-300 transition-colors">My List</button>
             <button onClick={() => setLocation("/contact")} className="hover:text-gray-300 transition-colors">Contact</button>
           </div>
 
