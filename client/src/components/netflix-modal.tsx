@@ -146,47 +146,84 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
 
               {/* Content Section */}
               <div className="p-8">
-                {/* Two Column Layout: Description & About */}
-                <div className="flex flex-col md:flex-row gap-8 mb-8">
-                  {/* Left Column - Description */}
-                  <div className="flex-1">
-                    <h3 className="text-white text-xl font-semibold mb-4">Description</h3>
+                {/* Status Tags and Title */}
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="bg-green-600 text-white text-xs font-medium px-3 py-1 rounded">
+                    {project.status === "live" ? "Live in production" : "Coming Soon"}
+                  </span>
+                  <span className="text-gray-300 text-sm">2024</span>
+                  <span className="border border-gray-400 text-gray-300 text-xs px-2 py-1 rounded">
+                    Web Application
+                  </span>
+                </div>
+
+                {/* Main Description */}
+                <h2 className="text-white text-2xl font-bold mb-6">
+                  {project.title === "Trip Planner" 
+                    ? "What used to take hours now happens in minutes."
+                    : project.title === "AI Interview Platform"
+                    ? "What used to take days now completes in hours."
+                    : project.title === "AI StayWise"
+                    ? "What used to be guesswork now runs on intelligence."
+                    : "What used to be complex now runs seamlessly."
+                  }
+                </h2>
+
+                {/* Two Column Layout */}
+                <div className="flex flex-col lg:flex-row gap-12">
+                  {/* Left Column - Detailed Description */}
+                  <div className="flex-[2]">
                     <p className="text-gray-300 text-base leading-relaxed">
-                      {project.description}
+                      {project.title === "Trip Planner" 
+                        ? "Travel planning was chaos: scattered research, broken booking flows, and buried recommendations that had to be cleaned and restructured just to process a single trip. Multiple team members were manually coordinating bookings every day to meet tight deadlines. I built a comprehensive solution using React and PostgreSQL that parses unstructured travel data and generates clean, system-ready itineraries in minutes. Today, one person processes dozens of bookings in under 20 minutes with complete accuracy and zero planning stress. What used to be a daily bottleneck is now a seamless flow."
+                        : project.title === "AI Interview Platform"
+                        ? "Interview processes were chaos: scattered evaluations, broken assessment flows, and buried candidate insights that had to be cleaned and restructured just to process a single hire. Multiple team members were manually reviewing interviews every day to meet tight hiring deadlines. I built a comprehensive solution using AI and React that parses unstructured interview data and generates clean, system-ready assessments in minutes. Today, one person processes dozens of interviews in under 20 minutes with complete accuracy and zero evaluation stress. What used to be a daily bottleneck is now a seamless flow."
+                        : project.title === "AI StayWise"
+                        ? "Accommodation booking was chaos: scattered listings, broken recommendation flows, and buried pricing insights that had to be cleaned and restructured just to process a single stay. Multiple team members were manually comparing options every day to meet tight travel deadlines. I built a comprehensive solution using AI and React that parses unstructured accommodation data and generates clean, system-ready recommendations in minutes. Today, one person processes dozens of bookings in under 20 minutes with complete accuracy and zero search stress. What used to be a daily bottleneck is now a seamless flow."
+                        : project.description
+                      }
                     </p>
                   </div>
 
-                  {/* Right Column - About Project */}
-                  <div className="flex-1">
-                    <h3 className="text-white text-xl font-semibold mb-4">
-                      About {project.title}
-                    </h3>
-                    <div className="space-y-3 text-sm">
-                      <div>
-                        <span className="text-gray-400 font-semibold">Director: </span>
-                        <span className="text-gray-300">Priya Jha</span>
+                  {/* Right Column - Project Details */}
+                  <div className="flex-[1] space-y-6">
+                    {/* Cast */}
+                    <div>
+                      <h4 className="text-gray-400 text-sm font-medium mb-2">Cast:</h4>
+                      <p className="text-white text-sm">Priya Jha</p>
+                    </div>
+
+                    {/* Technologies */}
+                    <div>
+                      <h4 className="text-gray-400 text-sm font-medium mb-3">Technologies:</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.slice(0, 2).map((tech) => (
+                          <span 
+                            key={tech}
+                            className="border border-gray-500 text-gray-300 text-xs px-3 py-1 rounded-full"
+                          >
+                            {tech === "React & Next.js" ? "React" : 
+                             tech === "Node.js & Express" ? "Node.js" :
+                             tech === "PostgreSQL" ? "PostgreSQL" :
+                             tech === "MongoDB" ? "MongoDB" : tech}
+                          </span>
+                        ))}
                       </div>
-                      <div>
-                        <span className="text-gray-400 font-semibold">Cast: </span>
-                        <span className="text-gray-300">Priya Jha, Open Source Community</span>
-                      </div>
-                      <div>
-                        <span className="text-gray-400 font-semibold">Role: </span>
-                        <span className="text-gray-300">Solo Full-Stack Developer</span>
-                      </div>
-                      <div>
-                        <span className="text-gray-400 font-semibold">Challenge: </span>
-                        <span className="text-gray-300">
-                          {project.title === "Trip Planner" 
-                            ? "Building a comprehensive travel platform with real-time data integration"
-                            : project.title === "AI Interview Platform"
-                            ? "Creating an intelligent interview system with real-time AI evaluation"
-                            : project.title === "AI StayWise"
-                            ? "Developing smart accommodation recommendations with AI-powered insights"
-                            : "Creating an intelligent AI-powered solution for modern problems"
-                          }
-                        </span>
-                      </div>
+                    </div>
+
+                    {/* The Challenge */}
+                    <div>
+                      <h4 className="text-gray-400 text-sm font-medium mb-2">The Challenge:</h4>
+                      <p className="text-white text-sm">
+                        {project.title === "Trip Planner"
+                          ? "Manual travel planning to create comprehensive itineraries under tight deadlines. Every. Single. Trip."
+                          : project.title === "AI Interview Platform"
+                          ? "Manual interview evaluation to create comprehensive assessments under tight hiring deadlines. Every. Single. Candidate."
+                          : project.title === "AI StayWise"
+                          ? "Manual accommodation research to create personalized recommendations under tight booking deadlines. Every. Single. Stay."
+                          : "Manual data processing to create system-ready outputs under tight deadlines. Every. Single. Day."
+                        }
+                      </p>
                     </div>
                   </div>
                 </div>
