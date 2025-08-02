@@ -12,6 +12,13 @@ export default function NetflixSearchPage() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
+  // Get search query from URL params
+  useEffect(() => {
+    const urlParams = new URLSearchParams(location.split('?')[1] || '');
+    const query = urlParams.get('q') || '';
+    setSearchQuery(query);
+  }, [location]);
+
   // Fetch all projects
   const { data: projects = [] } = useQuery<Project[]>({
     queryKey: ['/api/projects'],
