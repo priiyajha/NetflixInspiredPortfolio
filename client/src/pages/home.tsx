@@ -5,7 +5,8 @@ import ProjectsSection from "../components/projects-section";
 import NetflixModal from "../components/netflix-modal";
 import { Profile } from "../../../shared/schema";
 import { useState } from "react";
-import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Linkedin, Mail, Phone } from "lucide-react";
+import { FaTwitter } from "react-icons/fa";
 
 export default function Home() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
@@ -80,13 +81,13 @@ export default function Home() {
               <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Social</h3>
               <div className="space-y-3">
                 <a 
-                  href="https://github.com/farooqchisty" 
+                  href="https://x.com/farooqsheik" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors"
                 >
-                  <Github className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-xs sm:text-sm">GitHub</span>
+                  <FaTwitter className="w-4 h-4 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm">Twitter</span>
                 </a>
                 <a 
                   href="https://linkedin.com/in/farooqchisty" 
