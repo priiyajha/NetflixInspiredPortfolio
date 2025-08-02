@@ -161,10 +161,16 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                            project.status === "completed" ? "Successfully Exited" : "In Development"}
                         </span>
                         <span className="text-gray-400 text-sm">
-                          {project.title === "Cazpro" ? "2014-2015" : "2025"}
+                          {project.title === "Cazpro" 
+                            ? "2014-2015" 
+                            : project.title === "Millionth Mile Marketing"
+                            ? "2023-Present"
+                            : "2025"}
                         </span>
                         <span className="px-3 py-1 rounded-full border border-white text-white text-sm">
-                          {project.title === "Cazpro" ? "D2C Business" : "Web Application"}
+                          {project.title === "Cazpro" || project.title === "Millionth Mile Marketing" 
+                            ? "Marketing Agency" 
+                            : "Web Application"}
                         </span>
                       </div>
 
@@ -172,8 +178,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       <h2 className="text-2xl md:text-3xl font-semibold text-white mb-8 leading-tight">
                         {project.title === "Cazpro" 
                           ? "Built and scaled a leading college merch brand from zero to 2.5M INR in 15 months."
-                          : project.title === "AI Interview Platform"
-                          ? "Days of interview evaluation now completes in minutes with accuracy."
+                          : project.title === "Millionth Mile Marketing"
+                          ? "Comprehensive digital marketing agency scaling businesses through strategic campaigns and automation."
                           : project.title === "AI StayWise"
                           ? "Hours of accommodation research now happens in minutes perfectly."
                           : "Complex processes now run seamlessly."
@@ -184,8 +190,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       <p className="text-gray-300 text-base leading-relaxed">
                         {project.title === "Cazpro" 
                           ? "College merchandise was fragmented: scattered suppliers, broken brand positioning, and buried customer insights that had to be cleaned and restructured just to process a single campaign. Multiple brand managers were manually coordinating marketing efforts every day to meet tight sales deadlines. I built a comprehensive D2C solution using Shopify and performance marketing that processes unstructured customer data and generates clean, system-ready campaigns in minutes. Today, we achieved 200+ daily orders in under 3 months with complete accuracy and zero marketing stress. What used to be a daily bottleneck became a seamless high-velocity sales machine that generated 2.5M INR and a successful exit."
-                          : project.title === "AI Interview Platform"
-                          ? "Interview processes were chaos: scattered evaluations, broken assessment flows, and buried candidate insights that had to be cleaned and restructured just to process a single hire. Multiple team members were manually reviewing interviews every day to meet tight hiring deadlines. I built a comprehensive solution using AI and React that parses unstructured interview data and generates clean, system-ready assessments in minutes. Today, one person processes dozens of interviews in under 20 minutes with complete accuracy and zero evaluation stress. What used to be a daily bottleneck is now a seamless flow."
+                          : project.title === "Millionth Mile Marketing"
+                          ? "Digital marketing was chaos: scattered campaigns, broken attribution flows, and buried performance insights that had to be cleaned and restructured just to process a single client. Multiple marketers were manually optimizing ads every day to meet tight ROI deadlines. I built a comprehensive solution using Google Ads, Meta Ads, and marketing automation that processes unstructured campaign data and generates clean, system-ready optimizations in minutes. Today, one strategist manages multiple client campaigns with improved ROI and zero performance stress. What used to be a daily bottleneck is now a seamless acquisition machine."
                           : project.title === "AI StayWise"
                           ? "Accommodation booking was chaos: scattered listings, broken recommendation flows, and buried pricing insights that had to be cleaned and restructured just to process a single stay. Multiple team members were manually comparing options every day to meet tight travel deadlines. I built a comprehensive solution using AI and React that parses unstructured accommodation data and generates clean, system-ready recommendations in minutes. Today, one person processes dozens of bookings in under 20 minutes with complete accuracy and zero search stress. What used to be a daily bottleneck is now a seamless flow."
                           : project.description
@@ -213,13 +219,13 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       {/* Challenge */}
                       <div>
                         <h4 className="font-medium text-white mb-2">
-                          {project.title === "Cazpro" ? "Goal:" : "Challenge:"}
+                          {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing") ? "Goal:" : "Challenge:"}
                         </h4>
                         <p className="text-gray-400">
                           {project.title === "Cazpro"
                             ? "Build and scale a leading college-focused merch brand, drive high-velocity sales, achieve profitable exit"
-                            : project.title === "AI Interview Platform"
-                            ? "Manual interview evaluation under hiring deadlines"
+                            : project.title === "Millionth Mile Marketing"
+                            ? "Drive customer acquisition and retention through integrated digital marketing strategies"
                             : project.title === "AI StayWise"
                             ? "Manual accommodation research under booking deadlines"
                             : "Manual data processing under tight deadlines"
@@ -231,15 +237,23 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       <div>
                         <h4 className="font-medium text-white mb-2">Role:</h4>
                         <p className="text-gray-400">
-                          {project.title === "Cazpro" ? "Founder (Full Time)" : "Solo Builder + Marketer"}
+                          {project.title === "Cazpro" 
+                            ? "Founder (Full Time)" 
+                            : project.title === "Millionth Mile Marketing"
+                            ? "Marketing Strategist"
+                            : "Solo Builder + Marketer"}
                         </p>
                       </div>
 
-                      {/* Results - Only for Cazpro */}
-                      {project.title === "Cazpro" && (
+                      {/* Results - For Business Projects */}
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
-                          <p className="text-gray-400">2.5M INR sales in 15 months, 200+ daily orders in 3 months, successful exit</p>
+                          <p className="text-gray-400">
+                            {project.title === "Cazpro" 
+                              ? "2.5M INR sales in 15 months, 200+ daily orders in 3 months, successful exit"
+                              : "Successfully scaled multiple client campaigns with improved ROI and customer acquisition"}
+                          </p>
                         </div>
                       )}
 
@@ -261,11 +275,15 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         </div>
                       </div>
 
-                      {/* Period - Only for Cazpro */}
-                      {project.title === "Cazpro" && (
+                      {/* Period - For Business Projects */}
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Period:</h4>
-                          <p className="text-gray-400">May 2014 – Dec 2015</p>
+                          <p className="text-gray-400">
+                            {project.title === "Cazpro" 
+                              ? "May 2014 – Dec 2015"
+                              : "2023 – Present"}
+                          </p>
                         </div>
                       )}
                     </div>
