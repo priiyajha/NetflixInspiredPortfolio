@@ -165,13 +165,17 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "2014-2015" 
                             : project.title === "Millionth Mile Marketing"
                             ? "2017-2019"
+                            : project.title === "DigiPay"
+                            ? "2019-2021"
                             : "2025"}
                         </span>
                         <span className="px-3 py-1 rounded-full border border-white text-white text-sm">
                           {project.title === "Cazpro" 
                             ? "D2C Business"
                             : project.title === "Millionth Mile Marketing" 
-                            ? "Growth Agency" 
+                            ? "Growth Agency"
+                            : project.title === "DigiPay"
+                            ? "Fintech Startup"
                             : "Web Application"}
                         </span>
                       </div>
@@ -183,7 +187,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           : project.title === "Millionth Mile Marketing"
                           ? "Co-founded a top 5 Andhra Pradesh growth agency with 40+ global clients and $180K revenue in 2 years."
                           : project.title === "DigiPay"
-                          ? "Advanced payment analytics platform driving conversion optimization and user growth."
+                          ? "Scaled from first marketing hire to $80M revenue and 28-person team in 19 months."
                           : "Complex processes now run seamlessly."
                         }
                       </h2>
@@ -195,7 +199,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           : project.title === "Millionth Mile Marketing"
                           ? "Regional marketing was fragmented: scattered agencies, broken client relationships, and buried growth insights that had to be cleaned and restructured just to land a single marquee client. Multiple founders were manually pitching prospects every day to meet tight revenue deadlines. I co-founded a comprehensive growth solution using Google Ads, Meta Ads, and team building that processes unstructured market data and generates clean, system-ready campaigns in minutes. Today, we built a top 5 agency with 40+ clients across continents with complete accuracy and zero pitch stress. What used to be a daily hustle became a seamless acquisition machine that generated $180K revenue and industry recognition."
                           : project.title === "DigiPay"
-                          ? "Payment analytics was chaos: scattered tracking tools, broken attribution flows, and buried conversion insights that had to be cleaned and restructured just to process a single campaign. Multiple analysts were manually piecing together user journeys every day to meet tight optimization deadlines. I built a comprehensive solution using CleverTap, AppsFlyer, and mobile analytics that processes unstructured user data and generates clean, system-ready insights in minutes. Today, one growth analyst optimizes entire payment funnels with complete accuracy and zero data stress. What used to be a daily bottleneck is now a seamless conversion machine."
+                          ? "B2B fintech marketing was chaos: scattered installs, broken attribution flows, and buried growth insights that had to be cleaned and restructured just to land a single merchant. Multiple marketers were manually coordinating campaigns every day to meet tight revenue deadlines. I joined as the first marketing hire and built a comprehensive growth solution using CleverTap, AppsFlyer, and mobile analytics that processes unstructured user data and generates clean, system-ready campaigns in minutes. Today, we scaled from $4M to $80M revenue with complete accuracy and zero growth stress. What used to be a daily bottleneck became a seamless acquisition machine that generated 30K B2B installs and 500K merchant downloads."
                           : project.description
                         }
                       </p>
@@ -229,7 +233,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "Millionth Mile Marketing"
                             ? "Land marquee clients, drive high revenue growth, build a leading regional agency"
                             : project.title === "DigiPay"
-                            ? "Optimize payment conversion rates and drive user acquisition through data-driven insights"
+                            ? "Drive B2B installs, scale revenue, build top-tier marketing org"
                             : "Manual data processing under tight deadlines"
                           }
                         </p>
@@ -244,7 +248,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "Millionth Mile Marketing"
                             ? "Co-founder, Head of Growth (Full Time)"
                             : project.title === "DigiPay"
-                            ? "Growth Analyst"
+                            ? "Head of Marketing (Full Time)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
@@ -258,7 +262,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "2.5M INR sales in 15 months, 200+ daily orders in 3 months, successful exit"
                               : project.title === "Millionth Mile Marketing"
                               ? "$180K revenue in 2 years, 40+ clients (60% overseas), 10+ media features, top 5 agency recognition"
-                              : "Successfully implemented analytics stack for payment optimization and user growth"}
+                              : "$4M to $80M revenue, 30K B2B app installs, 500K merchant downloads, built team from 1 to 28"}
                           </p>
                         </div>
                       )}
@@ -290,7 +294,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "May 2014 – Dec 2015"
                               : project.title === "Millionth Mile Marketing"
                               ? "2017 – Dec 2019"
-                              : "2024 – Present"}
+                              : "Dec 2019 – Sep 2021"}
                           </p>
                         </div>
                       )}

@@ -85,7 +85,7 @@ export class MemStorage implements IStorage {
       {
         id: "3",
         title: "DigiPay",
-        description: "A comprehensive digital payment analytics platform that tracks user behavior, optimizes payment flows, and drives conversion through advanced mobile analytics. Features real-time attribution tracking, user segmentation, and growth optimization for fintech applications.",
+        description: "Joined as first marketing hire, scaled the team to 28, and helped take revenue from $4M to $80M in 19 months. Drove growth with everything from guerrilla tactics to field ops. Orchestrated viral B2B installs and led the brand through major funding rounds.",
         image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
         technologies: ["CleverTap", "AppsFlyer", "Amplitude", "Google Firebase", "Google Analytics", "SEMrush", "Branch.io"],
@@ -93,23 +93,23 @@ export class MemStorage implements IStorage {
         liveUrl: "",
         githubUrl: "",
         featured: "true",
-        status: "coming-soon",
+        status: "completed",
         features: [
-          "Advanced user behavior tracking with CleverTap",
-          "Mobile attribution and campaign analysis with AppsFlyer",
+          "Advanced user behavior tracking and segmentation with CleverTap",
+          "Mobile attribution and campaign optimization with AppsFlyer",
           "Product analytics and user journey mapping with Amplitude",
-          "Real-time database and authentication with Google Firebase",
-          "Comprehensive web analytics with Google Analytics",
-          "SEO optimization and keyword tracking with SEMrush",
-          "Deep linking and attribution with Branch.io",
-          "Conversion optimization and A/B testing"
+          "Real-time database and mobile authentication with Google Firebase",
+          "Comprehensive web and app analytics with Google Analytics",
+          "SEO optimization and content strategy with SEMrush",
+          "Deep linking and viral attribution with Branch.io",
+          "Performance marketing and B2B conversion optimization"
         ],
-        skills: ["Mobile analytics", "growth hacking", "conversion optimization", "user acquisition", "data analysis", "fintech"],
-        goal: "Optimize payment conversion rates and drive user acquisition through data-driven insights",
-        kpis: ["Conversion rate", "user acquisition cost", "retention rate", "payment success rate", "funnel optimization"],
-        results: "Successfully implemented analytics stack for payment optimization and user growth",
-        engagementType: "Growth Analyst",
-        period: "2024 – Present"
+        skills: ["B2B marketing", "field ops", "performance marketing", "attribution", "mobile marketing", "onboarding", "analytics"],
+        goal: "Drive B2B installs, scale revenue, build top-tier marketing org",
+        kpis: ["App downloads", "revenue growth", "team size", "lead volume", "merchant activation"],
+        results: "$4M to $80M revenue, 30K B2B app installs, 500K merchant downloads, built team from 1 to 28",
+        engagementType: "Head of Marketing (Full Time)",
+        period: "Dec 2019 – Sep 2021"
       },
       {
         id: "4",
