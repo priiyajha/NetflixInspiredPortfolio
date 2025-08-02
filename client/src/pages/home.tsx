@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import Header from "../components/header";
 import HeroSection from "../components/hero-section";
 import ProjectsSection from "../components/projects-section";
-import ProjectModal from "../components/project-modal";
+import NetflixModal from "../components/netflix-modal";
 import { Profile } from "../../../shared/schema";
 import { useState } from "react";
 import { Github, Linkedin, Mail, Phone } from "lucide-react";
@@ -110,7 +110,7 @@ export default function Home() {
         </div>
       </footer>
 
-      <ProjectModal 
+      <NetflixModal 
         projectId={selectedProjectId} 
         onClose={() => setSelectedProjectId(null)} 
       />
