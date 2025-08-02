@@ -33,8 +33,7 @@ export default function Header() {
 
     const timeoutId = setTimeout(() => {
       setLocation(`/netflix-search?q=${encodeURIComponent(searchQuery.trim())}`);
-      setSearchOpen(false);
-      setSearchQuery("");
+      // Keep search open and query intact
     }, 1500); // 1.5 second delay after user stops typing
 
     return () => clearTimeout(timeoutId);
@@ -44,8 +43,7 @@ export default function Header() {
     e.preventDefault();
     if (searchQuery.trim()) {
       setLocation(`/netflix-search?q=${encodeURIComponent(searchQuery.trim())}`);
-      setSearchOpen(false);
-      setSearchQuery("");
+      // Keep search open and query intact
     }
   };
 
