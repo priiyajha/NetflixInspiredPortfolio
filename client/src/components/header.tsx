@@ -1,14 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Search, ChevronDown, Bell, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, Link } from "wouter";
-import SearchOverlay from "./search-overlay";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const [location, setLocation] = useLocation();
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +19,27 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Auto-focus search input when search opens
+  useEffect(() => {
+    if (searchOpen && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [searchOpen]);
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      setLocation(`/netflix-search?q=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchOpen(false);
+      setSearchQuery("");
+    }
+  };
+
+  const handleSearchClose = () => {
+    setSearchOpen(false);
+    setSearchQuery("");
+  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -82,12 +104,47 @@ export default function Header() {
             <div className="flex items-center">
               {/* Desktop/Tablet Icons */}
               <div className="hidden md:flex items-center space-x-4">
-                <button 
-                  className="p-2 hover:bg-white/10 rounded transition-all duration-200"
-                  onClick={() => setSearchOpen(true)}
-                >
-                  <Search className="w-5 h-5" />
-                </button>
+                {/* Embedded Search Bar */}
+                <AnimatePresence>
+                  {searchOpen ? (
+                    <motion.form
+                      onSubmit={handleSearchSubmit}
+                      className="flex items-center"
+                      initial={{ width: 0, opacity: 0 }}
+                      animate={{ width: "auto", opacity: 1 }}
+                      exit={{ width: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="flex items-center bg-black border border-white/30 rounded px-3 py-2">
+                        <Search className="w-4 h-4 text-gray-400 mr-2" />
+                        <input
+                          ref={searchInputRef}
+                          type="text"
+                          placeholder="titles, people, genres"
+                          value={searchQuery}
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                          className="bg-transparent text-white placeholder-gray-400 outline-none text-sm w-48"
+                          onBlur={() => !searchQuery && setSearchOpen(false)}
+                        />
+                        <button
+                          type="button"
+                          onClick={handleSearchClose}
+                          className="ml-2 text-gray-400 hover:text-white transition-colors"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </motion.form>
+                  ) : (
+                    <button 
+                      className="p-2 hover:bg-white/10 rounded transition-all duration-200"
+                      onClick={() => setSearchOpen(true)}
+                    >
+                      <Search className="w-5 h-5" />
+                    </button>
+                  )}
+                </AnimatePresence>
+                
                 <button className="p-2 hover:bg-white/10 rounded transition-all duration-200">
                   <Bell className="w-5 h-5" />
                 </button>
@@ -135,7 +192,7 @@ export default function Header() {
                   <button 
                     className="p-3 hover:bg-white/10 rounded transition-all duration-200"
                     onClick={() => {
-                      setSearchOpen(true);
+                      setLocation("/netflix-search");
                       setMobileMenuOpen(false);
                     }}
                   >
@@ -154,12 +211,6 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Search Overlay */}
-      <SearchOverlay
-        isOpen={searchOpen}
-        onClose={() => setSearchOpen(false)}
-      />
     </>
   );
 }
