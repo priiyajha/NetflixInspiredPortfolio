@@ -14,8 +14,14 @@ export const projects = pgTable("projects", {
   liveUrl: text("live_url"),
   githubUrl: text("github_url"),
   featured: text("featured").default("false"),
-  status: text("status").default("live"), // "live", "coming-soon", "in-development"
+  status: text("status").default("live"), // "live", "coming-soon", "in-development", "completed"
   features: json("features").$type<string[]>(), // Key features list
+  skills: json("skills").$type<string[]>(), // Skills used in the project
+  goal: text("goal"), // Project goal/objective
+  kpis: json("kpis").$type<string[]>(), // Key performance indicators
+  results: text("results"), // Achieved results
+  engagementType: text("engagement_type"), // Type of engagement (e.g., "Founder (Full Time)")
+  period: text("period"), // Time period of the project
 });
 
 export const profile = pgTable("profile", {

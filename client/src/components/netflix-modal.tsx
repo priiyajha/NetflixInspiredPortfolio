@@ -157,18 +157,21 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
                       {/* Status Tags */}
                       <div className="flex items-center gap-3 mb-6">
                         <span className="text-green-400 font-medium text-sm">
-                          {project.status === "live" ? "Live in production" : "In Development"}
+                          {project.status === "live" ? "Live in production" : 
+                           project.status === "completed" ? "Successfully Exited" : "In Development"}
                         </span>
-                        <span className="text-gray-400 text-sm">2025</span>
+                        <span className="text-gray-400 text-sm">
+                          {project.title === "Cazpro" ? "2014-2015" : "2025"}
+                        </span>
                         <span className="px-3 py-1 rounded-full border border-white text-white text-sm">
-                          Web Application
+                          {project.title === "Cazpro" ? "D2C Business" : "Web Application"}
                         </span>
                       </div>
 
                       {/* Main Title */}
                       <h2 className="text-2xl md:text-3xl font-semibold text-white mb-8 leading-tight">
-                        {project.title === "Trip Planner" 
-                          ? "Hours of travel planning now happens in minutes with zero stress."
+                        {project.title === "Cazpro" 
+                          ? "Built and scaled a leading college merch brand from zero to 2.5M INR in 15 months."
                           : project.title === "AI Interview Platform"
                           ? "Days of interview evaluation now completes in minutes with accuracy."
                           : project.title === "AI StayWise"
@@ -179,8 +182,8 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
 
                       {/* Detailed Description */}
                       <p className="text-gray-300 text-base leading-relaxed">
-                        {project.title === "Trip Planner" 
-                          ? "Travel planning was chaos: scattered research, broken booking flows, and buried recommendations that had to be cleaned and restructured just to process a single trip. Multiple team members were manually coordinating bookings every day to meet tight deadlines. I built a comprehensive solution using React and PostgreSQL that parses unstructured travel data and generates clean, system-ready itineraries in minutes. Today, one person processes dozens of bookings in under 20 minutes with complete accuracy and zero planning stress. What used to be a daily bottleneck is now a seamless flow."
+                        {project.title === "Cazpro" 
+                          ? "College merchandise was fragmented: scattered suppliers, broken brand positioning, and buried customer insights that had to be cleaned and restructured just to process a single campaign. Multiple brand managers were manually coordinating marketing efforts every day to meet tight sales deadlines. I built a comprehensive D2C solution using Shopify and performance marketing that processes unstructured customer data and generates clean, system-ready campaigns in minutes. Today, we achieved 200+ daily orders in under 3 months with complete accuracy and zero marketing stress. What used to be a daily bottleneck became a seamless high-velocity sales machine that generated 2.5M INR and a successful exit."
                           : project.title === "AI Interview Platform"
                           ? "Interview processes were chaos: scattered evaluations, broken assessment flows, and buried candidate insights that had to be cleaned and restructured just to process a single hire. Multiple team members were manually reviewing interviews every day to meet tight hiring deadlines. I built a comprehensive solution using AI and React that parses unstructured interview data and generates clean, system-ready assessments in minutes. Today, one person processes dozens of interviews in under 20 minutes with complete accuracy and zero evaluation stress. What used to be a daily bottleneck is now a seamless flow."
                           : project.title === "AI StayWise"
@@ -209,10 +212,12 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
 
                       {/* Challenge */}
                       <div>
-                        <h4 className="font-medium text-white mb-2">Challenge:</h4>
+                        <h4 className="font-medium text-white mb-2">
+                          {project.title === "Cazpro" ? "Goal:" : "Challenge:"}
+                        </h4>
                         <p className="text-gray-400">
-                          {project.title === "Trip Planner"
-                            ? "Manual travel planning under tight deadlines"
+                          {project.title === "Cazpro"
+                            ? "Build and scale a leading college-focused merch brand, drive high-velocity sales, achieve profitable exit"
                             : project.title === "AI Interview Platform"
                             ? "Manual interview evaluation under hiring deadlines"
                             : project.title === "AI StayWise"
@@ -225,8 +230,18 @@ export default function NetflixModal({ projectId, onClose }: NetflixModalProps) 
                       {/* Role */}
                       <div>
                         <h4 className="font-medium text-white mb-2">Role:</h4>
-                        <p className="text-gray-400">Solo Builder + Marketer</p>
+                        <p className="text-gray-400">
+                          {project.title === "Cazpro" ? "Founder (Full Time)" : "Solo Builder + Marketer"}
+                        </p>
                       </div>
+
+                      {/* Results - Only for Cazpro */}
+                      {project.title === "Cazpro" && (
+                        <div>
+                          <h4 className="font-medium text-white mb-2">Results:</h4>
+                          <p className="text-gray-400">2.5M INR sales in 15 months, 200+ daily orders in 3 months, successful exit</p>
+                        </div>
+                      )}
 
                       {/* Technologies */}
                       <div>

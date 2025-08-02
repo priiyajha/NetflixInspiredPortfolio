@@ -26,26 +26,32 @@ export class MemStorage implements IStorage {
       // Featured Projects - Keep only 2 real ones
       {
         id: "1",
-        title: "Trip Planner",
-        description: "Trip Planner is a smart, collaborative travel planning platform that brings everything, destination discovery, personalized recommendations, real-time weather, transport options, and group itinerary planning, into one seamless web experience. With modern UI/UX and powerful backend integration, users can explore cities by category or season, manage bookings, and plan trips interactively, while admins maintain full control over content and insights through a dedicated dashboard.",
+        title: "Cazpro",
+        description: "Built and scaled a leading college-focused merchandise brand from ground up as founder. Achieved 2.5M INR sales in 15 months and 200+ daily orders in 3 months through strategic D2C marketing, performance marketing campaigns, and data-driven analytics. Successfully executed profitable exit after establishing strong market presence in the college merch space.",
         image: "/attached_assets/trip-planner.png",
         video: "/attached_assets/20250731_1725_Seasons Through Travelers' Eyes_simple_compose_01k1g5c80efe0s652h0fdr7mjz_1753966935310.mp4",
-        technologies: ["React & Next.js", "Node.js & Express", "PostgreSQL"],
+        technologies: ["Shopify", "PHP", "HTML", "SEMrush", "Google Ads", "Meta Ads", "Klaviyo", "MailChimp"],
         category: "featured",
-        liveUrl: "https://trip-planner-nu-one.vercel.app/",
-        githubUrl: "https://github.com/priiyajha/Your-Tour-Partner",
+        liveUrl: "",
+        githubUrl: "",
         featured: "true",
-        status: "live",
+        status: "completed",
         features: [
-          "Destination discovery with category-based exploration",
-          "Personalized recommendations based on preferences",
-          "Real-time weather integration and forecasts",
-          "Comprehensive transport options comparison",
-          "Collaborative group itinerary planning",
-          "Interactive booking management system",
-          "Season-specific city exploration guides",
-          "Admin dashboard with content and analytics control"
-        ]
+          "D2C marketing strategy and execution",
+          "Social media brand building and engagement",
+          "Performance marketing with Google and Meta Ads",
+          "B2C customer acquisition and retention",
+          "SEO optimization for organic growth",
+          "Email marketing campaigns with Klaviyo and MailChimp",
+          "Analytics and data-driven decision making",
+          "High-velocity sales operations and scaling"
+        ],
+        skills: ["D2C marketing", "social media", "performance marketing", "B2C", "SEO", "email marketing", "analytics"],
+        goal: "Build and scale a leading college-focused merch brand, drive high-velocity sales, achieve profitable exit",
+        kpis: ["Monthly sales", "order volume", "organic growth rate", "website traffic", "campaign ROI"],
+        results: "2.5M INR sales in 15 months, 200+ daily orders in 3 months, successful exit",
+        engagementType: "Founder (Full Time)",
+        period: "May 2014 – Dec 2015"
       },
       {
         id: "2",
@@ -68,7 +74,13 @@ export class MemStorage implements IStorage {
           "Performance analytics and insights",
           "Integration with popular coding platforms",
           "Customizable interview templates"
-        ]
+        ],
+        skills: null,
+        goal: null,
+        kpis: null,
+        results: null,
+        engagementType: null,
+        period: null
       },
       {
         id: "3",
@@ -91,7 +103,13 @@ export class MemStorage implements IStorage {
           "Real-time availability tracking",
           "User preference learning system",
           "Integrated booking assistance"
-        ]
+        ],
+        skills: null,
+        goal: null,
+        kpis: null,
+        results: null,
+        engagementType: null,
+        period: null
       },
       {
         id: "4",
@@ -114,7 +132,13 @@ export class MemStorage implements IStorage {
           "Bill reminder and payment automation",
           "Financial goal tracking and progress",
           "Secure bank account integration"
-        ]
+        ],
+        skills: null,
+        goal: null,
+        kpis: null,
+        results: null,
+        engagementType: null,
+        period: null
       },
       {
         id: "11",
@@ -137,7 +161,13 @@ export class MemStorage implements IStorage {
           "Best practices enforcement",
           "Team collaboration features",
           "CI/CD pipeline integration"
-        ]
+        ],
+        skills: null,
+        goal: null,
+        kpis: null,
+        results: null,
+        engagementType: null,
+        period: null
       },
       {
         id: "12",
@@ -160,7 +190,13 @@ export class MemStorage implements IStorage {
           "Interactive skill assessments",
           "Peer collaboration features",
           "Knowledge retention monitoring"
-        ]
+        ],
+        skills: null,
+        goal: null,
+        kpis: null,
+        results: null,
+        engagementType: null,
+        period: null
       },
       {
         id: "13",
@@ -183,7 +219,13 @@ export class MemStorage implements IStorage {
           "Multi-platform publishing",
           "Performance analytics tracking",
           "Content variation testing"
-        ]
+        ],
+        skills: null,
+        goal: null,
+        kpis: null,
+        results: null,
+        engagementType: null,
+        period: null
       },
       {
         id: "14",
@@ -206,7 +248,13 @@ export class MemStorage implements IStorage {
           "Security system monitoring",
           "Weather-based automation",
           "Remote access and control"
-        ]
+        ],
+        skills: null,
+        goal: null,
+        kpis: null,
+        results: null,
+        engagementType: null,
+        period: null
       },
       {
         id: "15",
@@ -229,7 +277,13 @@ export class MemStorage implements IStorage {
           "Emergency alert notifications",
           "Health trend analysis",
           "Wearable device integration"
-        ]
+        ],
+        skills: null,
+        goal: null,
+        kpis: null,
+        results: null,
+        engagementType: null,
+        period: null
       },
       {
         id: "16",
@@ -252,7 +306,13 @@ export class MemStorage implements IStorage {
           "Smart grocery list generation",
           "Cooking time estimation",
           "Recipe difficulty adjustment"
-        ]
+        ],
+        skills: null,
+        goal: null,
+        kpis: null,
+        results: null,
+        engagementType: null,
+        period: null
       },
 
       // Web Development - Keep only 2 real ones
@@ -277,7 +337,13 @@ export class MemStorage implements IStorage {
           "Curated dataset training for accurate suggestions",
           "Budget and area optimization analysis",
           "Unified platform for diverse farming needs"
-        ]
+        ],
+        skills: null,
+        goal: null,
+        kpis: null,
+        results: null,
+        engagementType: null,
+        period: null
       },
       {
         id: "6",
@@ -300,7 +366,13 @@ export class MemStorage implements IStorage {
           "Interactive booking management system",
           "Season-specific city exploration guides",
           "Admin dashboard with content and analytics control"
-        ]
+        ],
+        skills: null,
+        goal: null,
+        kpis: null,
+        results: null,
+        engagementType: null,
+        period: null
       },
       {
         id: "7",
@@ -323,7 +395,13 @@ export class MemStorage implements IStorage {
           "Personalized wellness suggestions",
           "Privacy-focused data handling",
           "Daily reflection prompts and guidance"
-        ]
+        ],
+        skills: null,
+        goal: null,
+        kpis: null,
+        results: null,
+        engagementType: null,
+        period: null
       },
       {
         id: "9",
@@ -346,7 +424,13 @@ export class MemStorage implements IStorage {
           "Real-time coaching and feedback",
           "Fitness goal optimization",
           "Social fitness community integration"
-        ]
+        ],
+        skills: null,
+        goal: null,
+        kpis: null,
+        results: null,
+        engagementType: null,
+        period: null
       },
       {
         id: "10",
@@ -369,7 +453,13 @@ export class MemStorage implements IStorage {
           "Real-time availability tracking",
           "User preference learning system",
           "Integrated booking assistance"
-        ]
+        ],
+        skills: null,
+        goal: null,
+        kpis: null,
+        results: null,
+        engagementType: null,
+        period: null
       }
     ];
 
@@ -435,7 +525,13 @@ export class MemStorage implements IStorage {
       githubUrl: insertProject.githubUrl || null,
       featured: insertProject.featured || null,
       status: insertProject.status || "live",
-      features: insertProject.features ? [...insertProject.features] : null
+      features: insertProject.features ? [...insertProject.features] : null,
+      skills: insertProject.skills ? [...insertProject.skills] : null,
+      goal: insertProject.goal || null,
+      kpis: insertProject.kpis ? [...insertProject.kpis] : null,
+      results: insertProject.results || null,
+      engagementType: insertProject.engagementType || null,
+      period: insertProject.period || null
     };
     this.projects.set(id, project);
     return project;
