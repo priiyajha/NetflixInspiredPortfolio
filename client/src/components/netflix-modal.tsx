@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { Project } from "@shared/schema";
 import { Button } from "./ui/button";
+import { useToast } from "@/hooks/use-toast";
 import { X, Play, Plus, Volume2, VolumeX, ThumbsUp, ChevronLeft, ChevronRight, Share } from "lucide-react";
 
 interface NetflixModalProps {
@@ -14,6 +15,7 @@ interface NetflixModalProps {
 export default function NetflixModal({ projectId, onClose, onProjectSwitch }: NetflixModalProps) {
   const [isMuted, setIsMuted] = useState(true);
   const imageScrollRef = useRef<HTMLDivElement>(null);
+  const { toast } = useToast();
 
   const { data: project, isLoading } = useQuery<Project>({
     queryKey: ["/api/projects", projectId],
@@ -168,17 +170,55 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         variant="ghost"
                         size="icon"
                         className="text-white hover:bg-white/20 rounded-full border-2 border-white/70"
-                        onClick={() => {
-                          const projectUrl = `${window.location.origin}?project=${project.id}`;
-                          if (navigator.share) {
-                            navigator.share({
-                              title: project.title,
-                              text: `Check out this project: ${project.title}`,
-                              url: projectUrl
-                            });
-                          } else {
-                            navigator.clipboard.writeText(projectUrl);
-                            // Could add toast notification here
+                        onClick={async () => {
+                          try {
+                            const projectUrl = `${window.location.origin}?project=${project.id}`;
+                            
+                            if (navigator.share) {
+                              await navigator.share({
+                                title: project.title,
+                                text: `Check out this project: ${project.title}`,
+                                url: projectUrl
+                              });
+                              toast({
+                                title: "Shared successfully!",
+                                description: "Project link has been shared.",
+                              });
+                            } else {
+                              // Fallback to clipboard
+                              await navigator.clipboard.writeText(projectUrl);
+                              toast({
+                                title: "Link copied to clipboard!",
+                                description: "You can now paste the project link anywhere.",
+                              });
+                            }
+                          } catch (error) {
+                            console.error('Share failed:', error);
+                            // Final fallback - create a temporary text element and copy
+                            try {
+                              const projectUrl = `${window.location.origin}?project=${project.id}`;
+                              const textArea = document.createElement('textarea');
+                              textArea.value = projectUrl;
+                              textArea.style.position = 'fixed';
+                              textArea.style.left = '-999999px';
+                              textArea.style.top = '-999999px';
+                              document.body.appendChild(textArea);
+                              textArea.focus();
+                              textArea.select();
+                              document.execCommand('copy');
+                              textArea.remove();
+                              
+                              toast({
+                                title: "Link copied!",
+                                description: "Project link has been copied to clipboard.",
+                              });
+                            } catch (fallbackError) {
+                              toast({
+                                title: "Share failed",
+                                description: "Unable to share or copy the link. Please copy the URL manually.",
+                                variant: "destructive",
+                              });
+                            }
                           }
                         }}
                       >
