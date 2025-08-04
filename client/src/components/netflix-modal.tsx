@@ -557,7 +557,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           <h4 className="font-medium text-white mb-2">Goal:</h4>
                           <p className="text-gray-400">
                             {project.title === "Cazpro"
-                              ? "Build profitable D2C college merch business, achieve market leadership, scale operations"
+                              ? "Build and scale a leading college-focused merch brand, drive high-velocity sales, achieve profitable exit"
                               : project.title === "Millionth Mile Marketing"
                               ? "Land marquee clients, drive high revenue growth, build a leading regional agency"
                               : project.title === "DigiPay"
