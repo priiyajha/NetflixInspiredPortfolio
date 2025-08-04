@@ -341,11 +341,11 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           : project.title === "ZO Labs"
                           ? "As Head of Growth, took ZO Labs from stealth to 180K installs, built a 100K+ community, and shipped 10,000+ AI agent landing pages. Ran AI-led marketing sprints, bagged 120+ partnerships, and put ZO on the global stage. All hustle, zero fluff."
                           : project.title === "Zentrades"
-                          ? "B2B inbound marketing was chaos: scattered MQLs, broken attribution flows, and buried conversion insights that had to be cleaned and restructured just to land a single qualified demo. Multiple marketers were manually analyzing traffic data every day to meet tight lead deadlines. I joined as a consultant and built a comprehensive solution using programmatic SEO, Google Analytics, and CRM automation that processes unstructured lead data and generates clean, system-ready campaigns in minutes. Today, we scaled MQLs from 9 to 60 monthly with complete accuracy and zero funnel stress. What used to be a daily bottleneck became a seamless lead generation machine that delivered 125% traffic growth and 5000+ landing pages."
+                          ? "Dropped into Zentrades as a marketing consultant, rewired their inbound engine, and took MQLs from single digits to 60 a month in 4 months. Engineered a 125% traffic spike, built 5000+ SEO-rich landing pages, and turned a good CRM into a qualified lead machine."
                           : project.title === "InboxBites"
-                          ? "Newsletter management was chaos: scattered information, broken summarization flows, and buried knowledge insights that had to be cleaned and restructured just to process a single actionable takeaway. Multiple professionals were manually reading newsletters every day to meet tight learning deadlines. I solo-built a comprehensive solution using Replit Cloud Code, Gmail API, and AI automation that processes unstructured newsletter data and generates clean, system-ready knowledge bites in minutes. Today, we transformed newsletter chaos into 50-word insights with complete accuracy and zero reading stress. What used to be a daily information bottleneck became a seamless knowledge consumption machine that delivered 200+ waitlisters and 60% solo-coded MVP."
+                          ? "Solo-built InboxBites, a microSaaS AI agent for Gmail, transforming newsletter chaos into snackable, swipeable, 50-word knowledge bites. Architected 60%+ of the code, GTM, UI/UX, and product strategy in 6 weeks. Already has 200+ waitlisters—built for hustlers who hate inbox overload."
                           : project.title === "Solgames"
-                          ? "GameFi development was chaos: scattered Web2 developers, broken Web3 onboarding flows, and buried tokenization insights that had to be cleaned and restructured just to build a single playable game. Multiple dev teams were manually learning blockchain protocols every day to meet tight hackathon deadlines. I co-built a comprehensive solution using Solana, Web3 tools, and community automation that processes unstructured gaming data and generates clean, system-ready GameFi applications in minutes. Today, we scaled from concept to $150K seed with complete accuracy and zero development stress. What used to be a daily blockchain bottleneck became a seamless GameFi ecosystem that delivered 3K developers and Solana hackathon victory."
+                          ? "Co-built Soulgames, a GameFi dev toolkit, into a Solana hackathon winner and landed $150K in seed. Rallied a 3K-strong dev/gamer community, ran hackathons with 1K+ participants, and delivered a live MVP in 3 months. Paused by market chaos, but left a mark."
                           : project.title === "Martian Wallet"
                           ? "Web3 wallet marketing was chaos: scattered user acquisition, broken DApp integration flows, and buried transaction insights that had to be cleaned and restructured just to land a single active user. Multiple marketing teams were manually coordinating campaigns every day to meet tight growth deadlines. I joined as Head of Marketing and built a comprehensive solution using Aptos/Sui ecosystem, Chrome extensions, and analytics automation that processes unstructured Web3 data and generates clean, system-ready growth campaigns in minutes. Today, we scaled from 1.2B to 2B+ transaction volume with complete accuracy and zero acquisition stress. What used to be a daily user bottleneck became a seamless Web3 growth machine that delivered 1M+ installs and 50+ partnerships."
                           : project.description
@@ -400,8 +400,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
 
                     {/* Right Column - Project Details (1/3 width) */}
                     <div className="w-full lg:w-1/3 pl-0 lg:pl-0 mt-8 lg:mt-0 space-y-6">
-                      {/* Tech Stacks - For Cazpro, Millionth Mile Marketing, DigiPay, Inventrax, FDX Sports, and Codiste */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste") && (
+                      {/* Tech Stacks - For Cazpro, Millionth Mile Marketing, DigiPay, Inventrax, FDX Sports, Codiste, and ZO Labs */}
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs") && (
                         <div>
                           <h4 className="font-medium text-white mb-3">
                             {project.title === "Cazpro" ? "Tech Stacks:" : "Tech Stack:"}
@@ -452,8 +452,17 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                   {tech}
                                 </span>
                               ))
-                            ) : (
+                            ) : project.title === "Codiste" ? (
                               ["Apollo", "LeadDino", "Phantom Buster", "Ahrefs", "Google Analytics", "Notion"].map((tech) => (
+                                <span 
+                                  key={tech}
+                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
+                                >
+                                  {tech}
+                                </span>
+                              ))
+                            ) : (
+                              ["HubSpot", "ActiveCampaign", "Firebase Studio", "AppsFlyer", "AppRadar", "WebEngage", "Discord", "Twitter"].slice(0, 8).map((tech) => (
                                 <span 
                                   key={tech}
                                   className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
@@ -466,8 +475,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         </div>
                       )}
 
-                      {/* Skills - For Cazpro, Millionth Mile Marketing, DigiPay, Inventrax, FDX Sports, and Codiste */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste") && (
+                      {/* Skills - For all projects with custom structure */}
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Skills:</h4>
                           <p className="text-gray-400">
@@ -481,14 +490,24 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Programmatic SEO, CRO, lead magnets, email automation, blog marketing"
                               : project.title === "FDX Sports"
                               ? "Performance marketing, CRO, funnel building, D2C marketing, UGC, email/SMS automation"
-                              : "Social, organic, B2B, programmatic SEO, copywriting, analytics, process optimization"
+                              : project.title === "Codiste"
+                              ? "Social, organic, B2B, programmatic SEO, copywriting, analytics, process optimization"
+                              : project.title === "ZO Labs"
+                              ? "Growth marketing, product management, AI automation, community building, partnerships"
+                              : project.title === "Zentrades"
+                              ? "Technical SEO, inbound marketing, funnel building, marketing analytics, team leadership"
+                              : project.title === "InboxBites"
+                              ? "Product management, coding, AI/ML logic, UI/UX, GTM, content processing"
+                              : project.title === "Solgames"
+                              ? "Growth marketing, community building, Web3 strategy, hackathon ops, program management"
+                              : "Web3 marketing, community ops, DApp growth, partnerships, content, BD"
                             }
                           </p>
                         </div>
                       )}
 
-                      {/* Goal - For Cazpro, Millionth Mile Marketing, DigiPay, Inventrax, FDX Sports, and Codiste */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste") && (
+                      {/* Goal - For all projects with custom structure */}
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Goal:</h4>
                           <p className="text-gray-400">
@@ -502,14 +521,24 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Boost organic traffic, rank for Northstar keywords, generate high-quality B2B leads"
                               : project.title === "FDX Sports"
                               ? "10x sales, optimize for scale, automate funnel, drive international growth"
-                              : "Build a high-output marketing org, automate lead gen, optimize funnel"
+                              : project.title === "Codiste"
+                              ? "Build a high-output marketing org, automate lead gen, optimize funnel"
+                              : project.title === "ZO Labs"
+                              ? "Scale installs, community, and organic traffic, land strategic partnerships"
+                              : project.title === "Zentrades" 
+                              ? "Scale high-quality B2B leads, boost organic traffic, optimize funnel stages"
+                              : project.title === "InboxBites"
+                              ? "Turn newsletters into actionable micro-insights, deliver value via PWA"
+                              : project.title === "Solgames"
+                              ? "Enable Web2-to-Web3 game transition, build dev/gamer ecosystem, MVP + community"
+                              : "Grow user base, launch DApp, increase transaction volume, build global partnerships"
                             }
                           </p>
                         </div>
                       )}
 
                       {/* Director - For non-custom structured projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste") && (
+                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Director:</h4>
                           <p className="text-gray-400">Farooq Chisty</p>
@@ -517,7 +546,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Cast - For non-custom structured projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste") && (
+                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Cast:</h4>
                           <p className="text-gray-400">Solo Builder Team</p>
@@ -527,7 +556,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
 
 
                       {/* KPIs - For custom structured projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">KPIs:</h4>
                           <p className="text-gray-400">
@@ -541,14 +570,24 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Organic traffic growth, keyword ranking, lead volume, conversion rates"
                               : project.title === "FDX Sports"
                               ? "Monthly sales, ROAS, AOV, cart conversion rate, organic growth"
-                              : "Team output, sales response rate, lead volume, organic traffic"
+                              : project.title === "Codiste"
+                              ? "Team output, sales response rate, lead volume, organic traffic"
+                              : project.title === "ZO Labs"
+                              ? "App installs, community growth, landing pages shipped, partnerships closed"
+                              : project.title === "Zentrades"
+                              ? "MQLs/month, traffic growth, MQL-to-demo ratio, landing pages shipped"
+                              : project.title === "InboxBites"
+                              ? "Waitlist signups, engagement rate, feature completion, MVP timeline"
+                              : project.title === "Solgames"
+                              ? "Community size, hackathon apps, MVP delivery, funding raised"
+                              : "User acquisition, transaction volume, partnership deals, DApp engagement"
                             }
                           </p>
                         </div>
                       )}
 
                       {/* Results - For custom structured projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
@@ -562,7 +601,17 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "600% traffic growth, ranked top 1-2 for 3 keywords, lead volume surge"
                               : project.title === "FDX Sports"
                               ? "$10K to $120K/month sales, $500K+ ad spend, AOV up 2.5x"
-                              : "4x team output, 2.5x sales response, full-stack process automation"
+                              : project.title === "Codiste"
+                              ? "4x team output, 2.5x sales response, full-stack process automation"
+                              : project.title === "ZO Labs"
+                              ? "180K installs, 100K+ community, 10K+ agents, 120+ partnerships, 50+ IRL events"
+                              : project.title === "Zentrades"
+                              ? "MQLs 9→60/month, 125% traffic growth, 3x demo conversion, 5000+ landing pages"
+                              : project.title === "InboxBites"
+                              ? "MVP built in 6 weeks, 200+ waitlisters, 60% solo-coded, live waitlist"
+                              : project.title === "Solgames"
+                              ? "3K devs/gamers, $150K seed, Solana hackathon top 10, 1K+ hackathon apps"
+                              : "50K+ users, 10K+ transactions, 20+ partnerships, global adoption across 30+ countries"
                             }
                           </p>
                         </div>
@@ -571,7 +620,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       {/* Engagement Type for custom structured projects, Role for others */}
                       <div>
                         <h4 className="font-medium text-white mb-2">
-                          {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste") ? "Engagement Type:" : "Role:"}
+                          {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") ? "Engagement Type:" : "Role:"}
                         </h4>
                         <p className="text-gray-400">
                           {project.title === "Cazpro" 
@@ -601,7 +650,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       </div>
 
                       {/* Period - For custom structured projects */}
-                      {(project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste") && (
+                      {(project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Period:</h4>
                           <p className="text-gray-400">
@@ -613,6 +662,16 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "2022"
                               : project.title === "FDX Sports"
                               ? "2023"
+                              : project.title === "Codiste"
+                              ? "2024"
+                              : project.title === "ZO Labs"
+                              ? "Dec 2023 – Aug 2024"
+                              : project.title === "Zentrades"
+                              ? "2023"
+                              : project.title === "InboxBites"
+                              ? "2024"
+                              : project.title === "Solgames"
+                              ? "Nov 2022 – May 2023"
                               : "2024"
                             }
                           </p>
@@ -620,7 +679,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Results - For non-custom structured projects */}
-                      {(project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") && (
+                      {(project.title === "Martian Wallet") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
@@ -642,7 +701,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Technologies - For non-custom structured projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste") && (
+                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet") && (
                         <div>
                           <h4 className="font-medium text-white mb-3">Technologies:</h4>
                           <div className="flex flex-wrap gap-2">
