@@ -265,6 +265,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "2024"
                             : project.title === "Solgames"
                             ? "2022-2023"
+                            : project.title === "Martian Wallet"
+                            ? "2023-2024"
                             : "2025"}
                         </span>
                         <span className="px-3 py-1 rounded-full border border-white text-white text-sm">
@@ -288,6 +290,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "MicroSaaS/AI"
                             : project.title === "Solgames"
                             ? "GameFi/Web3"
+                            : project.title === "Martian Wallet"
+                            ? "Web3/DApp"
                             : "Web Application"}
                         </span>
                       </div>
@@ -314,6 +318,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           ? "Solo-built InboxBites, a microSaaS AI agent for Gmail, transforming newsletter chaos into snackable, swipeable, 50-word knowledge bites."
                           : project.title === "Solgames"
                           ? "Co-built Soulgames, a GameFi dev toolkit, into a Solana hackathon winner and landed $150K in seed with 3K-strong dev/gamer community."
+                          : project.title === "Martian Wallet"
+                          ? "Headed marketing at Martian Wallet, scaling installs by 50%, landing 400K+ new users, and doubling DApp transaction volumes from $1.2B to $2B."
                           : "Complex processes now run seamlessly."
                         }
                       </h2>
@@ -340,6 +346,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           ? "Newsletter management was chaos: scattered information, broken summarization flows, and buried knowledge insights that had to be cleaned and restructured just to process a single actionable takeaway. Multiple professionals were manually reading newsletters every day to meet tight learning deadlines. I solo-built a comprehensive solution using Replit Cloud Code, Gmail API, and AI automation that processes unstructured newsletter data and generates clean, system-ready knowledge bites in minutes. Today, we transformed newsletter chaos into 50-word insights with complete accuracy and zero reading stress. What used to be a daily information bottleneck became a seamless knowledge consumption machine that delivered 200+ waitlisters and 60% solo-coded MVP."
                           : project.title === "Solgames"
                           ? "GameFi development was chaos: scattered Web2 developers, broken Web3 onboarding flows, and buried tokenization insights that had to be cleaned and restructured just to build a single playable game. Multiple dev teams were manually learning blockchain protocols every day to meet tight hackathon deadlines. I co-built a comprehensive solution using Solana, Web3 tools, and community automation that processes unstructured gaming data and generates clean, system-ready GameFi applications in minutes. Today, we scaled from concept to $150K seed with complete accuracy and zero development stress. What used to be a daily blockchain bottleneck became a seamless GameFi ecosystem that delivered 3K developers and Solana hackathon victory."
+                          : project.title === "Martian Wallet"
+                          ? "Web3 wallet marketing was chaos: scattered user acquisition, broken DApp integration flows, and buried transaction insights that had to be cleaned and restructured just to land a single active user. Multiple marketing teams were manually coordinating campaigns every day to meet tight growth deadlines. I joined as Head of Marketing and built a comprehensive solution using Aptos/Sui ecosystem, Chrome extensions, and analytics automation that processes unstructured Web3 data and generates clean, system-ready growth campaigns in minutes. Today, we scaled from 1.2B to 2B+ transaction volume with complete accuracy and zero acquisition stress. What used to be a daily user bottleneck became a seamless Web3 growth machine that delivered 1M+ installs and 50+ partnerships."
                           : project.description
                         }
                       </p>
@@ -430,6 +438,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Turn newsletters into actionable micro-insights, deliver value via PWA"
                             : project.title === "Solgames"
                             ? "Enable Web2-to-Web3 game transition, build dev/gamer ecosystem, MVP + community"
+                            : project.title === "Martian Wallet"
+                            ? "Grow user base, launch DApp, increase transaction volume, build global partnerships"
                             : "Manual data processing under tight deadlines"
                           }
                         </p>
@@ -459,12 +469,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Founder (Side Hustle/MicroSaaS)"
                             : project.title === "Solgames"
                             ? "Head of Growth, Co-founder"
+                            : project.title === "Martian Wallet"
+                            ? "Head of Marketing (Full Time)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
 
                       {/* Results - For Business Projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
@@ -486,6 +498,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "MVP built in 6 weeks, 200+ waitlisters, 60% solo-coded, live waitlist"
                               : project.title === "Solgames"
                               ? "3K devs/gamers, $150K seed, Solana hackathon top 10, 1K+ hackathon apps"
+                              : project.title === "Martian Wallet"
+                              ? "1M+ installs, $2B+ volume, 400K new users, 50+ partnerships, $1M DApp daily"
                               : "180K installs, 100K+ community, 10K+ agents, 120+ partnerships, 50+ IRL events"}
                           </p>
                         </div>
@@ -510,7 +524,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       </div>
 
                       {/* Period - For Business Projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Period:</h4>
                           <p className="text-gray-400">
@@ -532,6 +546,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "2024"
                               : project.title === "Solgames"
                               ? "Nov 2022 – May 2023"
+                              : project.title === "Martian Wallet"
+                              ? "May 2023 – Jan 2024"
                               : "Jan 2024 – Aug 2025"}
                           </p>
                         </div>

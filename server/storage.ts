@@ -314,6 +314,35 @@ export class MemStorage implements IStorage {
         engagementType: "Head of Growth, Co-founder",
         period: "Nov 2022 – May 2023"
       },
+      {
+        id: "17",
+        title: "Martian Wallet",
+        description: "Headed marketing at Martian Wallet, scaling installs by 50%, landing 400K+ new users, and doubling DApp transaction volumes from $1.2B to $2B. Launched a DApp that hit $1M daily volume in a month, forged 50+ partnerships, and kept the Web3 world buzzing.",
+        image: "https://images.unsplash.com/photo-1559445368-28a7e73131b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["Aptos/Sui ecosystem", "DApp platform", "Chrome extension", "Discord", "Google Analytics"],
+        category: "featured",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true",
+        status: "completed",
+        features: [
+          "Aptos/Sui blockchain ecosystem integration and optimization",
+          "DApp platform development and user experience enhancement",
+          "Chrome extension deployment and user acquisition campaigns",
+          "Discord community building and engagement automation",
+          "Google Analytics implementation for Web3 user tracking",
+          "Partnership development and business development operations",
+          "Transaction volume optimization and growth strategies",
+          "Multi-chain wallet functionality and security protocols"
+        ],
+        skills: ["Web3 marketing", "community ops", "DApp growth", "partnerships", "content", "BD"],
+        goal: "Grow user base, launch DApp, increase transaction volume, build global partnerships",
+        kpis: ["Installs", "active users", "partnerships", "transaction volume", "community growth"],
+        results: "1M+ installs, $2B+ volume, 400K new users, 50+ partnerships, $1M DApp daily",
+        engagementType: "Head of Marketing (Full Time)",
+        period: "May 2023 – Jan 2024"
+      },
 
       // Web Development - Keep only 2 real ones
       {
