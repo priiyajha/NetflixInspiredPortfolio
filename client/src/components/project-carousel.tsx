@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Share, Check, Copy } from "lucide-react";
+import { ChevronLeft, ChevronRight, Share, Check, Copy, Play, Plus, ThumbsUp, ChevronDown } from "lucide-react";
 import { Project } from "@shared/schema";
 
 interface ProjectCarouselProps {
@@ -45,6 +45,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
   const [copiedProject, setCopiedProject] = useState<string | null>(null);
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+  const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
 
   const checkScrollability = () => {
     const container = scrollRef.current;
@@ -259,6 +260,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 {/* Video background for hover state */}
                 {hoveredProject === project.id && project.video && (
                   <motion.video
+                    ref={(el) => { videoRefs.current[project.id] = el; }}
                     src={project.video}
                     autoPlay
                     loop
@@ -369,16 +371,54 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                         {getProjectTitleDescription(project)}
                       </p>
                       
-                      {/* Action buttons like Netflix */}
-                      <div className="flex items-center space-x-2">
-                        <button className="bg-white text-black px-4 py-1 rounded-sm text-sm font-semibold hover:bg-gray-200 transition-colors">
-                          ▶ Play
-                        </button>
-                        <button className="border border-gray-400 text-white p-1 rounded-full hover:border-white transition-colors">
-                          <div className="w-4 h-4 border border-white rounded-full"></div>
-                        </button>
-                        <button className="border border-gray-400 text-white p-1 rounded-full hover:border-white transition-colors">
-                          👍
+                      {/* Netflix-style Action buttons */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-2">
+                          {/* Play Button - Restarts Video */}
+                          <button 
+                            className="bg-white text-black p-2 rounded-full hover:bg-gray-200 transition-colors"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              const video = videoRefs.current[project.id];
+                              if (video) {
+                                video.currentTime = 0;
+                                video.play();
+                              }
+                            }}
+                            title="Restart video"
+                          >
+                            <Play className="w-4 h-4 fill-current" />
+                          </button>
+                          
+                          {/* Add Button - Dummy for now */}
+                          <button 
+                            className="border-2 border-gray-400 text-white p-2 rounded-full hover:border-white hover:bg-white/10 transition-colors"
+                            onClick={(e) => e.stopPropagation()}
+                            title="Add to list"
+                          >
+                            <Plus className="w-4 h-4" />
+                          </button>
+                          
+                          {/* Like Button - Dummy for now */}
+                          <button 
+                            className="border-2 border-gray-400 text-white p-2 rounded-full hover:border-white hover:bg-white/10 transition-colors"
+                            onClick={(e) => e.stopPropagation()}
+                            title="Like"
+                          >
+                            <ThumbsUp className="w-4 h-4" />
+                          </button>
+                        </div>
+                        
+                        {/* Downward Arrow - Opens Card Details */}
+                        <button 
+                          className="border-2 border-gray-400 text-white p-2 rounded-full hover:border-white hover:bg-white/10 transition-colors"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onProjectClick(project.id);
+                          }}
+                          title="More info"
+                        >
+                          <ChevronDown className="w-4 h-4" />
                         </button>
                       </div>
                     </motion.div>
