@@ -119,7 +119,7 @@ class MemStorage implements IStorage {
         description: "Joined Codiste as Technical Lead to scale development operations and optimize team productivity. Implemented automation systems, refined development workflows, and established quality standards that improved delivery speed and code quality across multiple client projects.",
         image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
-        technologies: ["React & Next.js", "Node.js & Express", "PostgreSQL"],
+        technologies: ["Apollo", "LeadDino", "Phantom Buster", "Ahrefs", "Google Analytics", "Notion"],
         category: "fulltime",
         liveUrl: "https://codiste.com",
         githubUrl: "",
