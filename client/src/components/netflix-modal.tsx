@@ -400,8 +400,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
 
                     {/* Right Column - Project Details (1/3 width) */}
                     <div className="w-full lg:w-1/3 pl-0 lg:pl-0 mt-8 lg:mt-0 space-y-6">
-                      {/* Tech Stacks - For Cazpro, Millionth Mile Marketing, DigiPay, and Inventrax */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax") && (
+                      {/* Tech Stacks - For Cazpro, Millionth Mile Marketing, DigiPay, Inventrax, and FDX Sports */}
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports") && (
                         <div>
                           <h4 className="font-medium text-white mb-3">
                             {project.title === "Cazpro" ? "Tech Stacks:" : "Tech Stack:"}
@@ -434,8 +434,17 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                   {tech}
                                 </span>
                               ))
-                            ) : (
+                            ) : project.title === "Inventrax" ? (
                               ["SEMrush", "Backlinko.io", "Ahrefs", "Google Analytics", "Google Search Console"].map((tech) => (
+                                <span 
+                                  key={tech}
+                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
+                                >
+                                  {tech}
+                                </span>
+                              ))
+                            ) : (
+                              ["Shopify", "Google Ads", "Meta Ads", "Klaviyo", "SMSBump"].map((tech) => (
                                 <span 
                                   key={tech}
                                   className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
@@ -448,8 +457,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         </div>
                       )}
 
-                      {/* Skills - For Cazpro, Millionth Mile Marketing, DigiPay, and Inventrax */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax") && (
+                      {/* Skills - For Cazpro, Millionth Mile Marketing, DigiPay, Inventrax, and FDX Sports */}
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Skills:</h4>
                           <p className="text-gray-400">
@@ -459,14 +468,16 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Growth marketing, B2B sales, team building, media buying, analytics, design thinking"
                               : project.title === "DigiPay"
                               ? "B2B marketing, field ops, performance marketing, attribution, mobile marketing, onboarding, analytics"
-                              : "Programmatic SEO, CRO, lead magnets, email automation, blog marketing"
+                              : project.title === "Inventrax"
+                              ? "Programmatic SEO, CRO, lead magnets, email automation, blog marketing"
+                              : "Performance marketing, CRO, funnel building, D2C marketing, UGC, email/SMS automation"
                             }
                           </p>
                         </div>
                       )}
 
-                      {/* Goal - For Cazpro, Millionth Mile Marketing, DigiPay, and Inventrax */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax") && (
+                      {/* Goal - For Cazpro, Millionth Mile Marketing, DigiPay, Inventrax, and FDX Sports */}
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Goal:</h4>
                           <p className="text-gray-400">
@@ -476,14 +487,16 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Land marquee clients, drive high revenue growth, build a leading regional agency"
                               : project.title === "DigiPay"
                               ? "Drive B2B installs, scale revenue, build top-tier marketing org"
-                              : "Boost organic traffic, rank for Northstar keywords, generate high-quality B2B leads"
+                              : project.title === "Inventrax"
+                              ? "Boost organic traffic, rank for Northstar keywords, generate high-quality B2B leads"
+                              : "10x sales, optimize for scale, automate funnel, drive international growth"
                             }
                           </p>
                         </div>
                       )}
 
                       {/* Director - For non-custom structured projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax") && (
+                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Director:</h4>
                           <p className="text-gray-400">Farooq Chisty</p>
@@ -491,7 +504,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Cast - For non-custom structured projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax") && (
+                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Cast:</h4>
                           <p className="text-gray-400">Solo Builder Team</p>
@@ -501,7 +514,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
 
 
                       {/* KPIs - For custom structured projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">KPIs:</h4>
                           <p className="text-gray-400">
@@ -511,14 +524,16 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Client acquisition, revenue, ad spend managed, team size, media features"
                               : project.title === "DigiPay"
                               ? "App downloads, revenue growth, team size, lead volume, merchant activation"
-                              : "Organic traffic growth, keyword ranking, lead volume, conversion rates"
+                              : project.title === "Inventrax"
+                              ? "Organic traffic growth, keyword ranking, lead volume, conversion rates"
+                              : "Monthly sales, ROAS, AOV, cart conversion rate, organic growth"
                             }
                           </p>
                         </div>
                       )}
 
                       {/* Results - For custom structured projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
@@ -528,7 +543,9 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "$180K revenue in 2 years, 40+ clients (60% overseas), 10+ media features, top 5 agency recognition"
                               : project.title === "DigiPay"
                               ? "$4M to $80M revenue, 30K B2B app installs, 500K merchant downloads, built team from 1 to 28"
-                              : "600% traffic growth, ranked top 1-2 for 3 keywords, lead volume surge"
+                              : project.title === "Inventrax"
+                              ? "600% traffic growth, ranked top 1-2 for 3 keywords, lead volume surge"
+                              : "$10K to $120K/month sales, $500K+ ad spend, AOV up 2.5x"
                             }
                           </p>
                         </div>
@@ -537,7 +554,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       {/* Engagement Type for custom structured projects, Role for others */}
                       <div>
                         <h4 className="font-medium text-white mb-2">
-                          {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax") ? "Engagement Type:" : "Role:"}
+                          {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports") ? "Engagement Type:" : "Role:"}
                         </h4>
                         <p className="text-gray-400">
                           {project.title === "Cazpro" 
@@ -567,7 +584,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       </div>
 
                       {/* Period - For custom structured projects */}
-                      {(project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax") && (
+                      {(project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Period:</h4>
                           <p className="text-gray-400">
@@ -575,14 +592,16 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "2017 – Dec 2019"
                               : project.title === "DigiPay"
                               ? "Dec 2019 – Sep 2021"
-                              : "2022"
+                              : project.title === "Inventrax"
+                              ? "2022"
+                              : "2023"
                             }
                           </p>
                         </div>
                       )}
 
                       {/* Results - For non-custom structured projects */}
-                      {(project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") && (
+                      {(project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
@@ -604,7 +623,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Technologies - For non-custom structured projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax") && (
+                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports") && (
                         <div>
                           <h4 className="font-medium text-white mb-3">Technologies:</h4>
                           <div className="flex flex-wrap gap-2">
