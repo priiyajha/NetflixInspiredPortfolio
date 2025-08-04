@@ -214,7 +214,14 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
           return (
             <motion.div
               key={project.id}
-              className={`flex-none w-64 sm:w-72 md:w-80 lg:w-96 ${isClickable ? 'cursor-pointer' : 'cursor-default'} relative`}
+              className={`flex-none ${isClickable ? 'cursor-pointer' : 'cursor-default'} relative ${
+                hoveredProject === project.id 
+                  ? 'w-80 sm:w-80 md:w-80 lg:w-80' 
+                  : 'w-64 sm:w-72 md:w-80 lg:w-96'
+              }`}
+              style={{
+                transition: 'width 0.6s ease-in-out'
+              }}
               onClick={() => isClickable && onProjectClick(project.id)}
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -247,13 +254,16 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 className={`relative rounded-lg overflow-hidden transition-all duration-300 ease-out ${
                   isClickable 
                     ? hoveredProject === project.id 
-                      ? 'shadow-2xl shadow-black/50 scale-110 z-20' 
+                      ? 'shadow-2xl shadow-black/50 z-20' 
                       : 'hover:shadow-lg hover:shadow-black/30'
                     : ''
                 }`}
+                style={{
+                  transformOrigin: 'center center'
+                }}
                 animate={{
-                  scale: hoveredProject === project.id ? 1.1 : 1,
-                  y: hoveredProject === project.id ? -10 : 0,
+                  scale: hoveredProject === project.id ? 1.15 : 1,
+                  y: hoveredProject === project.id ? -15 : 0,
                 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
               >
@@ -279,7 +289,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   alt={project.title}
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
-                      ? 'opacity-0 h-64 sm:h-72 md:h-80' 
+                      ? 'opacity-0 h-80 sm:h-80 md:h-80' 
                       : 'opacity-100 h-40 sm:h-44 md:h-48 lg:h-52'
                   }`}
                   draggable={false}
