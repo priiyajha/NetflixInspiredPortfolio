@@ -498,38 +498,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         </div>
                       )}
 
-                      {/* Goal */}
-                      <div>
-                        <h4 className="font-medium text-white mb-2">
-                          {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing") ? "Goal:" : "Challenge:"}
-                        </h4>
-                        <p className="text-gray-400">
-                          {project.title === "Cazpro"
-                            ? "Build and scale a leading college-focused merch brand, drive high-velocity sales, achieve profitable exit"
-                            : project.title === "Millionth Mile Marketing"
-                            ? "Land marquee clients, drive high revenue growth, build a leading regional agency"
-                            : project.title === "DigiPay"
-                            ? "Drive B2B installs, scale revenue, build top-tier marketing org"
-                            : project.title === "Inventrax"
-                            ? "Boost organic traffic, rank for Northstar keywords, generate high-quality B2B leads"
-                            : project.title === "FDX Sports"
-                            ? "10x sales, optimize for scale, automate funnel, drive international growth"
-                            : project.title === "Codiste"
-                            ? "Build a high-output marketing org, automate lead gen, optimize funnel"
-                            : project.title === "ZO Labs"
-                            ? "Scale installs, community, and organic traffic, land strategic partnerships"
-                            : project.title === "Zentrades"
-                            ? "Scale high-quality B2B leads, boost organic traffic, optimize funnel stages"
-                            : project.title === "InboxBites"
-                            ? "Turn newsletters into actionable micro-insights, deliver value via PWA"
-                            : project.title === "Solgames"
-                            ? "Enable Web2-to-Web3 game transition, build dev/gamer ecosystem, MVP + community"
-                            : project.title === "Martian Wallet"
-                            ? "Grow user base, launch DApp, increase transaction volume, build global partnerships"
-                            : "Manual data processing under tight deadlines"
-                          }
-                        </p>
-                      </div>
+
 
                       {/* KPIs - For custom structured projects */}
                       {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax") && (
