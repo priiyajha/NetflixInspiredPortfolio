@@ -400,8 +400,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
 
                     {/* Right Column - Project Details (1/3 width) */}
                     <div className="w-full lg:w-1/3 pl-0 lg:pl-0 mt-8 lg:mt-0 space-y-6">
-                      {/* Tech Stacks - For Cazpro, Millionth Mile Marketing, DigiPay, Inventrax, FDX Sports, Codiste, and ZO Labs */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs") && (
+                      {/* Tech Stacks - For Cazpro, Millionth Mile Marketing, DigiPay, Inventrax, FDX Sports, Codiste, ZO Labs, Zentrades, InboxBites, Solgames, and Martian Wallet */}
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") && (
                         <div>
                           <h4 className="font-medium text-white mb-3">
                             {project.title === "Cazpro" ? "Tech Stacks:" : "Tech Stack:"}
@@ -461,8 +461,44 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                   {tech}
                                 </span>
                               ))
+                            ) : project.title === "ZO Labs" ? (
+                              ["HubSpot", "ActiveCampaign", "Firebase Studio", "AppsFlyer", "AppRadar", "WebEngage", "Discord", "Twitter"].map((tech) => (
+                                <span 
+                                  key={tech}
+                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
+                                >
+                                  {tech}
+                                </span>
+                              ))
+                            ) : project.title === "Zentrades" ? (
+                              ["Programmatic SEO", "Google Analytics", "CRM", "Marketing Attribution"].map((tech) => (
+                                <span 
+                                  key={tech}
+                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
+                                >
+                                  {tech}
+                                </span>
+                              ))
+                            ) : project.title === "InboxBites" ? (
+                              ["Repl.it Cloud Code", "Gmail API", "PWA", "JavaScript"].map((tech) => (
+                                <span 
+                                  key={tech}
+                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
+                                >
+                                  {tech}
+                                </span>
+                              ))
+                            ) : project.title === "Solgames" ? (
+                              ["Solana", "Web3 Tools", "Discord", "Telegram"].map((tech) => (
+                                <span 
+                                  key={tech}
+                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
+                                >
+                                  {tech}
+                                </span>
+                              ))
                             ) : (
-                              ["HubSpot", "ActiveCampaign", "Firebase Studio", "AppsFlyer", "AppRadar", "WebEngage", "Discord", "Twitter"].slice(0, 8).map((tech) => (
+                              ["Aptos/Sui Ecosystem", "DApp Platform", "Chrome Extension", "Discord", "Google Analytics"].map((tech) => (
                                 <span 
                                   key={tech}
                                   className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
@@ -531,6 +567,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Turn newsletters into actionable micro-insights, deliver value via PWA"
                               : project.title === "Solgames"
                               ? "Enable Web2-to-Web3 game transition, build dev/gamer ecosystem, MVP + community"
+                              : project.title === "Martian Wallet"
+                              ? "Grow user base, launch DApp, increase transaction volume, build global partnerships"
                               : "Grow user base, launch DApp, increase transaction volume, build global partnerships"
                             }
                           </p>
@@ -580,6 +618,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Waitlist signups, engagement rate, feature completion, MVP timeline"
                               : project.title === "Solgames"
                               ? "Community size, hackathon apps, MVP delivery, funding raised"
+                              : project.title === "Martian Wallet"
+                              ? "Installs, active users, partnerships, transaction volume, community growth"
                               : "User acquisition, transaction volume, partnership deals, DApp engagement"
                             }
                           </p>
@@ -611,6 +651,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "MVP built in 6 weeks, 200+ waitlisters, 60% solo-coded, live waitlist"
                               : project.title === "Solgames"
                               ? "3K devs/gamers, $150K seed, Solana hackathon top 10, 1K+ hackathon apps"
+                              : project.title === "Martian Wallet"
+                              ? "1M+ installs, $2B+ volume, 400K new users, 50+ partnerships, $1M DApp daily"
                               : "50K+ users, 10K+ transactions, 20+ partnerships, global adoption across 30+ countries"
                             }
                           </p>
@@ -672,6 +714,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "2024"
                               : project.title === "Solgames"
                               ? "Nov 2022 – May 2023"
+                              : project.title === "Martian Wallet"
+                              ? "May 2023 – Jan 2024"
                               : "2024"
                             }
                           </p>
@@ -679,7 +723,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Results - For non-custom structured projects */}
-                      {(project.title === "Martian Wallet") && (
+                      {(false) && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
@@ -701,7 +745,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Technologies - For non-custom structured projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet") && (
+                      {(false) && (
                         <div>
                           <h4 className="font-medium text-white mb-3">Technologies:</h4>
                           <div className="flex flex-wrap gap-2">
