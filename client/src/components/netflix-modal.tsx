@@ -68,8 +68,9 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
   if (!projectId) return null;
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       <motion.div
+        key="netflix-modal-backdrop"
         className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -77,6 +78,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
         onClick={onClose}
       >
         <motion.div
+          key="netflix-modal-content"
           className="bg-[#141414] rounded-lg max-w-5xl w-full max-h-[95vh] overflow-y-auto relative"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -834,6 +836,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
       {/* Image Modal */}
       {selectedImage && (
         <motion.div
+          key="image-modal-backdrop"
           className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[60] flex items-center justify-center p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -841,6 +844,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
           onClick={() => setSelectedImage(null)}
         >
           <motion.div
+            key="image-modal-content"
             className="relative max-w-4xl max-h-[90vh] w-full h-full flex items-center justify-center"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

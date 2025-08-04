@@ -1,10 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "../components/header";
 import ProjectsSection from "../components/projects-section";
 import NetflixModal from "../components/netflix-modal";
 
 export default function ProjectsPage() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  
+  // Check for project parameter in URL on component mount
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectParam = urlParams.get('project');
+    if (projectParam) {
+      setSelectedProjectId(projectParam);
+      // Remove the parameter from URL without causing a page reload
+      const newUrl = window.location.pathname;
+      window.history.replaceState({}, '', newUrl);
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">

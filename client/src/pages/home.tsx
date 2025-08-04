@@ -4,12 +4,24 @@ import HeroSection from "../components/hero-section";
 import ProjectsSection from "../components/projects-section";
 import NetflixModal from "../components/netflix-modal";
 import { Profile } from "../../../shared/schema";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Linkedin, Mail, Phone } from "lucide-react";
 import { FaTwitter } from "react-icons/fa";
 
 export default function Home() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  
+  // Check for project parameter in URL on component mount
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectParam = urlParams.get('project');
+    if (projectParam) {
+      setSelectedProjectId(projectParam);
+      // Remove the parameter from URL without causing a page reload
+      const newUrl = window.location.pathname;
+      window.history.replaceState({}, '', newUrl);
+    }
+  }, []);
 
   const { data: profile, isLoading: profileLoading } = useQuery<Profile>({
     queryKey: ["/api/profile"],
