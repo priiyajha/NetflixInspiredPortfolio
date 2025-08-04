@@ -400,6 +400,23 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
 
                     {/* Right Column - Project Details (1/3 width) */}
                     <div className="w-full lg:w-1/3 pl-0 lg:pl-0 mt-8 lg:mt-0 space-y-6">
+                      {/* Tech Stacks - For Cazpro only */}
+                      {project.title === "Cazpro" && (
+                        <div>
+                          <h4 className="font-medium text-white mb-3">Tech Stacks:</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {["Shopify", "PHP", "HTML", "SEMrush", "Google Ads", "Meta Ads", "Klaviyo", "MailChimp"].map((tech) => (
+                              <span 
+                                key={tech}
+                                className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
                       {/* Skills - For Cazpro only */}
                       {project.title === "Cazpro" && (
                         <div>
@@ -465,6 +482,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         </div>
                       )}
 
+                      {/* Results - For Cazpro only */}
+                      {project.title === "Cazpro" && (
+                        <div>
+                          <h4 className="font-medium text-white mb-2">Results:</h4>
+                          <p className="text-gray-400">2.5M INR sales in 15 months, 200+ daily orders in 3 months, successful exit</p>
+                        </div>
+                      )}
+
                       {/* Engagement Type for Cazpro, Role for others */}
                       <div>
                         <h4 className="font-medium text-white mb-2">
@@ -497,14 +522,12 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         </p>
                       </div>
 
-                      {/* Results - For Business Projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") && (
+                      {/* Results - For Business Projects (excluding Cazpro) */}
+                      {(project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
-                            {project.title === "Cazpro" 
-                              ? "2.5M INR sales in 15 months, 200+ daily orders in 3 months, successful exit"
-                              : project.title === "Millionth Mile Marketing"
+                            {project.title === "Millionth Mile Marketing"
                               ? "$180K revenue in 2 years, 40+ clients (60% overseas), 10+ media features, top 5 agency recognition"
                               : project.title === "DigiPay"
                               ? "$4M to $80M revenue, 30K B2B app installs, 500K merchant downloads, built team from 1 to 28"
@@ -527,23 +550,12 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         </div>
                       )}
 
-                      {/* Technologies / Tech Stacks */}
-                      <div>
-                        <h4 className="font-medium text-white mb-3">
-                          {project.title === "Cazpro" ? "Tech Stacks:" : "Technologies:"}
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {project.title === "Cazpro" ? (
-                            ["Shopify", "PHP", "HTML", "SEMrush", "Google Ads", "Meta Ads", "Klaviyo", "MailChimp"].map((tech) => (
-                              <span 
-                                key={tech}
-                                className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                              >
-                                {tech}
-                              </span>
-                            ))
-                          ) : (
-                            project.technologies.slice(0, 8).map((tech) => (
+                      {/* Technologies - For non-Cazpro projects */}
+                      {project.title !== "Cazpro" && (
+                        <div>
+                          <h4 className="font-medium text-white mb-3">Technologies:</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {project.technologies.slice(0, 8).map((tech) => (
                               <span 
                                 key={tech}
                                 className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
@@ -553,10 +565,10 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                  tech === "PostgreSQL" ? "PostgreSQL" :
                                  tech === "MongoDB" ? "MongoDB" : tech}
                               </span>
-                            ))
-                          )}
+                            ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
 
                       {/* Period - For Business Projects */}
                       {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") && (
