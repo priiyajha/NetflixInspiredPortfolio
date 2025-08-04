@@ -89,7 +89,7 @@ class MemStorage implements IStorage {
         description: "Head of Growth at FDX Sports, scaling India's premier sports equipment platform. Built growth systems that drove 400% user acquisition, optimized conversion funnels, and established partnerships that expanded market reach across multiple sports categories.",
         image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
-        technologies: ["React & Next.js", "Node.js & Express", "PostgreSQL"],
+        technologies: ["Shopify", "Google Ads", "Meta Ads", "Klaviyo", "SMSBump"],
         category: "fulltime",
         liveUrl: "https://fdxsports.com",
         githubUrl: "",
