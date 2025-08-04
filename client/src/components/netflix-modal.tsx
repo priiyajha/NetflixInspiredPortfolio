@@ -263,6 +263,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "2023"
                             : project.title === "InboxBites"
                             ? "2024"
+                            : project.title === "Solgames"
+                            ? "2022-2023"
                             : "2025"}
                         </span>
                         <span className="px-3 py-1 rounded-full border border-white text-white text-sm">
@@ -284,6 +286,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "B2B Marketing"
                             : project.title === "InboxBites"
                             ? "MicroSaaS/AI"
+                            : project.title === "Solgames"
+                            ? "GameFi/Web3"
                             : "Web Application"}
                         </span>
                       </div>
@@ -308,6 +312,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           ? "Dropped into Zentrades as a marketing consultant, rewired their inbound engine, and took MQLs from single digits to 60 a month in 4 months."
                           : project.title === "InboxBites"
                           ? "Solo-built InboxBites, a microSaaS AI agent for Gmail, transforming newsletter chaos into snackable, swipeable, 50-word knowledge bites."
+                          : project.title === "Solgames"
+                          ? "Co-built Soulgames, a GameFi dev toolkit, into a Solana hackathon winner and landed $150K in seed with 3K-strong dev/gamer community."
                           : "Complex processes now run seamlessly."
                         }
                       </h2>
@@ -332,6 +338,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           ? "B2B inbound marketing was chaos: scattered MQLs, broken attribution flows, and buried conversion insights that had to be cleaned and restructured just to land a single qualified demo. Multiple marketers were manually analyzing traffic data every day to meet tight lead deadlines. I joined as a consultant and built a comprehensive solution using programmatic SEO, Google Analytics, and CRM automation that processes unstructured lead data and generates clean, system-ready campaigns in minutes. Today, we scaled MQLs from 9 to 60 monthly with complete accuracy and zero funnel stress. What used to be a daily bottleneck became a seamless lead generation machine that delivered 125% traffic growth and 5000+ landing pages."
                           : project.title === "InboxBites"
                           ? "Newsletter management was chaos: scattered information, broken summarization flows, and buried knowledge insights that had to be cleaned and restructured just to process a single actionable takeaway. Multiple professionals were manually reading newsletters every day to meet tight learning deadlines. I solo-built a comprehensive solution using Replit Cloud Code, Gmail API, and AI automation that processes unstructured newsletter data and generates clean, system-ready knowledge bites in minutes. Today, we transformed newsletter chaos into 50-word insights with complete accuracy and zero reading stress. What used to be a daily information bottleneck became a seamless knowledge consumption machine that delivered 200+ waitlisters and 60% solo-coded MVP."
+                          : project.title === "Solgames"
+                          ? "GameFi development was chaos: scattered Web2 developers, broken Web3 onboarding flows, and buried tokenization insights that had to be cleaned and restructured just to build a single playable game. Multiple dev teams were manually learning blockchain protocols every day to meet tight hackathon deadlines. I co-built a comprehensive solution using Solana, Web3 tools, and community automation that processes unstructured gaming data and generates clean, system-ready GameFi applications in minutes. Today, we scaled from concept to $150K seed with complete accuracy and zero development stress. What used to be a daily blockchain bottleneck became a seamless GameFi ecosystem that delivered 3K developers and Solana hackathon victory."
                           : project.description
                         }
                       </p>
@@ -420,6 +428,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Scale high-quality B2B leads, boost organic traffic, optimize funnel stages"
                             : project.title === "InboxBites"
                             ? "Turn newsletters into actionable micro-insights, deliver value via PWA"
+                            : project.title === "Solgames"
+                            ? "Enable Web2-to-Web3 game transition, build dev/gamer ecosystem, MVP + community"
                             : "Manual data processing under tight deadlines"
                           }
                         </p>
@@ -447,12 +457,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Consultant (Freelance)"
                             : project.title === "InboxBites"
                             ? "Founder (Side Hustle/MicroSaaS)"
+                            : project.title === "Solgames"
+                            ? "Head of Growth, Co-founder"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
 
                       {/* Results - For Business Projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
@@ -472,6 +484,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "MQLs 9→60/month, 125% traffic growth, 3x demo conversion, 5000+ landing pages"
                               : project.title === "InboxBites"
                               ? "MVP built in 6 weeks, 200+ waitlisters, 60% solo-coded, live waitlist"
+                              : project.title === "Solgames"
+                              ? "3K devs/gamers, $150K seed, Solana hackathon top 10, 1K+ hackathon apps"
                               : "180K installs, 100K+ community, 10K+ agents, 120+ partnerships, 50+ IRL events"}
                           </p>
                         </div>
@@ -496,7 +510,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       </div>
 
                       {/* Period - For Business Projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Period:</h4>
                           <p className="text-gray-400">
@@ -516,6 +530,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "2023"
                               : project.title === "InboxBites"
                               ? "2024"
+                              : project.title === "Solgames"
+                              ? "Nov 2022 – May 2023"
                               : "Jan 2024 – Aug 2025"}
                           </p>
                         </div>
