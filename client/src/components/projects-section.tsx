@@ -8,8 +8,8 @@ interface ProjectsSectionProps {
 }
 
 export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps) {
-  const { data: featuredProjects = [], isLoading: featuredLoading } = useQuery<Project[]>({
-    queryKey: ["/api/projects/featured"],
+  const { data: startupProjects = [], isLoading: startupLoading } = useQuery<Project[]>({
+    queryKey: ["/api/projects/category/startup"],
   });
 
   const { data: fulltimeProjects = [], isLoading: fulltimeLoading } = useQuery<Project[]>({
@@ -44,12 +44,12 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
           </h2>
         </div>
         
-        {featuredLoading ? (
+        {startupLoading ? (
           <div className="px-4 sm:px-6 md:px-12">
-            <div className="text-netflix-light-gray text-sm sm:text-base">Loading featured projects...</div>
+            <div className="text-netflix-light-gray text-sm sm:text-base">Loading startup projects...</div>
           </div>
         ) : (
-          <ProjectCarousel projects={featuredProjects} onProjectClick={onProjectClick} />
+          <ProjectCarousel projects={startupProjects} onProjectClick={onProjectClick} />
         )}
       </motion.div>
 
