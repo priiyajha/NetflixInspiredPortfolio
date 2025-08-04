@@ -59,7 +59,7 @@ class MemStorage implements IStorage {
         description: "Joined DigiPay as Head of Growth, scaling their fintech platform from startup to market leader. Drove user acquisition, optimized conversion funnels, and built growth systems that delivered consistent month-over-month expansion in the competitive digital payments space.",
         image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
-        technologies: ["React & Next.js", "Node.js & Express", "PostgreSQL"],
+        technologies: ["CleverTap", "AppsFlyer", "Amplitude", "Google Firebase", "Google Analytics", "SEMrush", "Branch.io"],
         category: "fulltime",
         liveUrl: "https://digipay.com",
         githubUrl: "",
