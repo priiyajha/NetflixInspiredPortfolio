@@ -15,6 +15,7 @@ interface NetflixModalProps {
 export default function NetflixModal({ projectId, onClose, onProjectSwitch }: NetflixModalProps) {
   const [isMuted, setIsMuted] = useState(true);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const imageScrollRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
@@ -23,9 +24,10 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
     enabled: !!projectId,
   });
 
-  // Reset image index when project changes
+  // Reset image index and selected image when project changes
   useEffect(() => {
     setCurrentImageIndex(0);
+    setSelectedImage(null);
   }, [projectId]);
 
   const { data: featuredProjects = [] } = useQuery<Project[]>({
@@ -243,7 +245,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                   {/* Two Column Layout with Blue Neon Line Separator */}
                   <div className="flex flex-col lg:flex-row">
                     {/* Left Column - All Content (2/3 width) */}
-                    <div className="w-full lg:w-2/3 pr-0 lg:pr-6">
+                    <div className="w-full lg:w-2/3 pr-0 lg:pr-6 flex flex-col">
                       {/* Status Tags */}
                       <div className="flex items-center gap-3 mb-6">
                         <span className="text-green-400 font-medium text-sm">
@@ -358,10 +360,10 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         }
                       </p>
 
-                      {/* Image Scroller Section */}
-                      <div className="mt-8">
+                      {/* Image Scroller Section - Full Height */}
+                      <div className="mt-8 flex-1 flex flex-col">
                         <h3 className="text-lg font-semibold text-white mb-4">Project Gallery</h3>
-                        <div className="relative">
+                        <div className="relative flex-1">
                           {/* Left Arrow - Visible when can scroll left */}
                           {currentImageIndex > 0 && (
                             <button
@@ -384,18 +386,19 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             </button>
                           )}
 
-                          {/* Two Images Container - 50% each */}
+                          {/* Two Square Images Container - 50% width each, full height */}
                           <div
                             ref={imageScrollRef}
-                            className="flex gap-3 overflow-hidden px-12"
+                            className="flex gap-3 h-full px-12"
                           >
                             {projectImages.slice(currentImageIndex, currentImageIndex + 2).map((image, index) => (
                               <div key={currentImageIndex + index} className="w-1/2 flex-shrink-0">
                                 <img
                                   src={image}
                                   alt={`${project?.title} screenshot ${currentImageIndex + index + 1}`}
-                                  className="w-full h-24 object-cover rounded-md hover:scale-105 transition-transform duration-200 cursor-pointer"
+                                  className="w-full h-full object-cover rounded-md hover:scale-105 transition-transform duration-200 cursor-pointer"
                                   draggable={false}
+                                  onClick={() => setSelectedImage(image)}
                                 />
                               </div>
                             ))}
@@ -827,6 +830,43 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
           )}
         </motion.div>
       </motion.div>
+
+      {/* Image Modal */}
+      {selectedImage && (
+        <motion.div
+          className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[60] flex items-center justify-center p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={() => setSelectedImage(null)}
+        >
+          <motion.div
+            className="relative max-w-4xl max-h-[90vh] w-full h-full flex items-center justify-center"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm"
+              aria-label="Close image"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* Full Size Image */}
+            <img
+              src={selectedImage}
+              alt="Project screenshot"
+              className="max-w-full max-h-full object-contain rounded-lg"
+              draggable={false}
+            />
+          </motion.div>
+        </motion.div>
+      )}
     </AnimatePresence>
   );
 }
