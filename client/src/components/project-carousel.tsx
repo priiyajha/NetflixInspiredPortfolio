@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Share, Check, Copy, Play, Plus, ThumbsUp, ChevronDown } from "lucide-react";
+import { ChevronLeft, ChevronRight, Share, Check, Copy, Play, Plus, ThumbsUp, ChevronDown, Share2 } from "lucide-react";
 import { Project } from "@shared/schema";
 
 interface ProjectCarouselProps {
@@ -417,6 +417,18 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                           >
                             <ThumbsUp className="w-4 h-4" />
                           </button>
+                          
+                          {/* Share Button */}
+                          <button 
+                            className="border-2 border-gray-400 text-white p-2 rounded-full hover:border-white hover:bg-white/10 transition-colors"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleShare(project, e);
+                            }}
+                            title="Share project"
+                          >
+                            <Share2 className="w-4 h-4" />
+                          </button>
                         </div>
                         
                         {/* Downward Arrow - Opens Card Details */}
@@ -431,6 +443,54 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                           <ChevronDown className="w-4 h-4" />
                         </button>
                       </div>
+                      
+                      {/* Share Menu Dropdown */}
+                      {showShareMenu === project.id && (
+                        <motion.div 
+                          className="absolute bottom-14 right-0 bg-gray-900/95 backdrop-blur-sm border border-gray-700 rounded-lg p-3 shadow-xl z-50 min-w-[200px]"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.2 }}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <div className="space-y-2">
+                            <button
+                              onClick={(e) => copyProjectLink(project, e)}
+                              className="flex items-center w-full text-left px-3 py-2 text-white hover:bg-gray-700/50 rounded-md transition-colors"
+                            >
+                              {copiedProject === project.id ? (
+                                <>
+                                  <Check className="w-4 h-4 mr-3 text-green-400" />
+                                  <span className="text-green-400">Link copied!</span>
+                                </>
+                              ) : (
+                                <>
+                                  <Copy className="w-4 h-4 mr-3" />
+                                  <span>Copy link</span>
+                                </>
+                              )}
+                            </button>
+                            
+                            <div className="border-t border-gray-700 pt-2">
+                              <p className="text-gray-400 text-xs mb-2 px-3">Share on social</p>
+                              <button
+                                onClick={(e) => shareOnSocial('twitter', project, e)}
+                                className="flex items-center w-full text-left px-3 py-2 text-white hover:bg-gray-700/50 rounded-md transition-colors"
+                              >
+                                <Share className="w-4 h-4 mr-3" />
+                                <span>Twitter</span>
+                              </button>
+                              <button
+                                onClick={(e) => shareOnSocial('linkedin', project, e)}
+                                className="flex items-center w-full text-left px-3 py-2 text-white hover:bg-gray-700/50 rounded-md transition-colors"
+                              >
+                                <Share className="w-4 h-4 mr-3" />
+                                <span>LinkedIn</span>
+                              </button>
+                            </div>
+                          </div>
+                        </motion.div>
+                      )}
                     </motion.div>
                   )}
                 </div>
