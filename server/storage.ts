@@ -44,12 +44,12 @@ class MemStorage implements IStorage {
           "Review and rating system for quality assurance",
           "Mobile-responsive design for cross-platform access"
         ],
-        skills: ["B2B marketing", "field ops", "performance marketing", "attribution", "mobile marketing", "onboarding", "analytics"],
-        goal: "Drive B2B installs, scale revenue, build top-tier marketing org",
-        kpis: ["App downloads", "revenue growth", "team size", "lead volume", "merchant activation"],
-        results: "$4M to $80M revenue, 30K B2B app installs, 500K merchant downloads, built team from 1 to 28",
-        engagementType: "Head of Marketing (Full Time)",
-        period: "Dec 2019 – Sep 2021"
+        skills: ["D2C marketing", "e-commerce", "college marketing", "brand building", "operations", "partnerships", "startup scaling"],
+        goal: "Build and scale D2C college merch brand from dorm room to market leader",
+        kpis: ["Revenue growth", "product sales", "college partnerships", "brand recognition", "market expansion"],
+        results: "2.5M INR revenue in 15 months, scaled from dorm room to acquisition, handled end-to-end operations",
+        engagementType: "Founder",
+        period: "May 2014 – Dec 2015"
       },
 
       // Full-time Gigs
