@@ -229,7 +229,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   // Set a delay before showing hover state (like Netflix)
                   const timeout = setTimeout(() => {
                     setHoveredProject(project.id);
-                  }, 300);
+                  }, 500);
                   setHoverTimeout(timeout);
                 }
               }}
@@ -255,7 +255,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   scale: hoveredProject === project.id ? 1.1 : 1,
                   y: hoveredProject === project.id ? -10 : 0,
                 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
               >
                 {/* Video background for hover state */}
                 {hoveredProject === project.id && project.video && (
@@ -269,7 +269,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     className="absolute inset-0 w-full h-full object-cover z-0"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
+                    transition={{ duration: 0.8 }}
                   />
                 )}
                 
@@ -365,7 +365,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 0.2 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
                     >
                       <p className="text-gray-300 text-sm mb-3 line-clamp-3">
                         {getProjectTitleDescription(project)}
