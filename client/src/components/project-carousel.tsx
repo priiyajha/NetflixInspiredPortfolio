@@ -400,8 +400,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     ? 'bg-gradient-to-t from-black/90 to-transparent pt-16'
                     : ''
                 }`}>
-                  <h3 className={`font-semibold transition-all duration-300 text-white ${
-                    hoveredProject === project.id ? 'text-lg mb-1' : 'text-sm mb-1'
+                  <h3 className={`font-bold transition-all duration-300 text-white ${
+                    hoveredProject === project.id ? 'text-xl mb-1' : 'text-base mb-1'
                   }`}>
                     {project.title}
                   </h3>
