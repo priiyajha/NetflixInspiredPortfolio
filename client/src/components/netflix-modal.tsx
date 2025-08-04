@@ -259,6 +259,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "2024"
                             : project.title === "ZO Labs"
                             ? "2024-2025"
+                            : project.title === "Zentrades"
+                            ? "2023"
                             : "2025"}
                         </span>
                         <span className="px-3 py-1 rounded-full border border-white text-white text-sm">
@@ -276,6 +278,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Marketing Agency"
                             : project.title === "ZO Labs"
                             ? "AI Startup"
+                            : project.title === "Zentrades"
+                            ? "B2B Marketing"
                             : "Web Application"}
                         </span>
                       </div>
@@ -296,6 +300,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           ? "Fractional CMO who 4x'd marketing output and 2.5x'd sales response rates through team building and automation."
                           : project.title === "ZO Labs"
                           ? "Head of Growth who scaled ZO Labs from stealth to 180K installs and built 100K+ community with 10K+ AI agents."
+                          : project.title === "Zentrades"
+                          ? "Dropped into Zentrades as a marketing consultant, rewired their inbound engine, and took MQLs from single digits to 60 a month in 4 months."
                           : "Complex processes now run seamlessly."
                         }
                       </h2>
@@ -316,6 +322,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           ? "Marketing and sales operations were chaos: scattered teams, broken processes, and buried optimization insights that had to be cleaned and restructured just to generate a single qualified lead. Multiple team members were manually executing campaigns every day to meet tight output deadlines. I joined as Fractional CMO and built a comprehensive solution using Apollo, LeadDino, and automation that processes unstructured marketing data and generates clean, system-ready campaigns in minutes. Today, we achieved 4x team output and 2.5x sales response with complete accuracy and zero process stress. What used to be a daily bottleneck became a seamless high-output marketing machine with full-stack automation and AI integration."
                           : project.title === "ZO Labs"
                           ? "AI startup growth was chaos: scattered user acquisition, broken community engagement, and buried partnership insights that had to be cleaned and restructured just to land a single install. Multiple growth marketers were manually coordinating campaigns every day to meet tight scaling deadlines. I joined as Head of Growth and built a comprehensive solution using HubSpot, ActiveCampaign, and AI automation that processes unstructured growth data and generates clean, system-ready campaigns in minutes. Today, we scaled from stealth to 180K installs with complete accuracy and zero growth stress. What used to be a daily bottleneck became a seamless AI-powered growth machine that shipped 10K+ agents and secured 120+ partnerships."
+                          : project.title === "Zentrades"
+                          ? "B2B inbound marketing was chaos: scattered MQLs, broken attribution flows, and buried conversion insights that had to be cleaned and restructured just to land a single qualified demo. Multiple marketers were manually analyzing traffic data every day to meet tight lead deadlines. I joined as a consultant and built a comprehensive solution using programmatic SEO, Google Analytics, and CRM automation that processes unstructured lead data and generates clean, system-ready campaigns in minutes. Today, we scaled MQLs from 9 to 60 monthly with complete accuracy and zero funnel stress. What used to be a daily bottleneck became a seamless lead generation machine that delivered 125% traffic growth and 5000+ landing pages."
                           : project.description
                         }
                       </p>
@@ -400,6 +408,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Build a high-output marketing org, automate lead gen, optimize funnel"
                             : project.title === "ZO Labs"
                             ? "Scale installs, community, and organic traffic, land strategic partnerships"
+                            : project.title === "Zentrades"
+                            ? "Scale high-quality B2B leads, boost organic traffic, optimize funnel stages"
                             : "Manual data processing under tight deadlines"
                           }
                         </p>
@@ -423,12 +433,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Fractional CMO (Consulting)"
                             : project.title === "ZO Labs"
                             ? "Head of Growth (Full Time)"
+                            : project.title === "Zentrades"
+                            ? "Consultant (Freelance)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
 
                       {/* Results - For Business Projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
@@ -444,6 +456,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "$10K to $120K/month sales, $500K+ ad spend, AOV up 2.5x"
                               : project.title === "Codiste"
                               ? "4x team output, 2.5x sales response, full-stack process automation"
+                              : project.title === "Zentrades"
+                              ? "MQLs 9→60/month, 125% traffic growth, 3x demo conversion, 5000+ landing pages"
                               : "180K installs, 100K+ community, 10K+ agents, 120+ partnerships, 50+ IRL events"}
                           </p>
                         </div>
@@ -468,7 +482,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       </div>
 
                       {/* Period - For Business Projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Period:</h4>
                           <p className="text-gray-400">
@@ -484,6 +498,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "2023"
                               : project.title === "Codiste"
                               ? "2024"
+                              : project.title === "Zentrades"
+                              ? "2023"
                               : "Jan 2024 – Aug 2025"}
                           </p>
                         </div>
