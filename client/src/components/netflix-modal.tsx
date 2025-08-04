@@ -701,7 +701,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       </div>
 
                       {/* Period - For custom structured projects */}
-                      {(project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites") && (
+                      {(project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Period:</h4>
                           <p className="text-gray-400">
@@ -716,7 +716,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Codiste"
                               ? "2024"
                               : project.title === "ZO Labs"
-                              ? "Dec 2023 – Aug 2024"
+                              ? "Jan 2024 – Aug 2025"
                               : project.title === "Zentrades"
                               ? "2023"
                               : project.title === "InboxBites"
