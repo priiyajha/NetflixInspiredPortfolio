@@ -471,7 +471,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 </span>
                               ))
                             ) : project.title === "ZO Labs" ? (
-                              ["HubSpot", "ActiveCampaign", "Firebase Studio", "AppsFlyer", "AppRadar", "WebEngage", "Discord", "Twitter"].map((tech) => (
+                              ["HubSpot", "ActiveCampaign", "Firebase Studio", "AppsFlyer", "AppRadar", "WebEngage", "Discord", "Twitter", "Telegram", "Instagram"].map((tech) => (
                                 <span 
                                   key={tech}
                                   className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
