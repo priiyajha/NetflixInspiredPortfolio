@@ -364,11 +364,18 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     ? 'bg-gradient-to-t from-black/90 to-transparent pt-16'
                     : ''
                 }`}>
-                  <h3 className={`font-semibold mb-2 transition-all duration-300 text-white ${
-                    hoveredProject === project.id ? 'text-lg' : 'text-sm'
+                  <h3 className={`font-semibold transition-all duration-300 text-white ${
+                    hoveredProject === project.id ? 'text-lg mb-1' : 'text-sm mb-1'
                   }`}>
                     {project.title}
                   </h3>
+                  
+                  {/* Engagement Type - Always Visible */}
+                  <p className={`text-gray-400 transition-all duration-300 ${
+                    hoveredProject === project.id ? 'text-sm mb-2' : 'text-xs mb-2'
+                  }`}>
+                    {project.engagementType}
+                  </p>
                   
                   {/* Show description only on hover */}
                   {hoveredProject === project.id && (
