@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { Project } from "@shared/schema";
@@ -14,6 +14,7 @@ interface NetflixModalProps {
 
 export default function NetflixModal({ projectId, onClose, onProjectSwitch }: NetflixModalProps) {
   const [isMuted, setIsMuted] = useState(true);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const imageScrollRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
@@ -21,6 +22,11 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
     queryKey: ["/api/projects", projectId],
     enabled: !!projectId,
   });
+
+  // Reset image index when project changes
+  useEffect(() => {
+    setCurrentImageIndex(0);
+  }, [projectId]);
 
   const { data: featuredProjects = [] } = useQuery<Project[]>({
     queryKey: ["/api/projects/featured"],
@@ -47,14 +53,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
   ];
 
   const scrollImages = (direction: 'left' | 'right') => {
-    const container = imageScrollRef.current;
-    if (!container) return;
-    
-    const scrollAmount = 200;
-    container.scrollBy({ 
-      left: direction === 'left' ? -scrollAmount : scrollAmount, 
-      behavior: 'smooth' 
-    });
+    const totalImages = projectImages.length;
+    const maxIndex = Math.max(0, totalImages - 2); // Maximum starting index for pairs
+
+    if (direction === 'right') {
+      setCurrentImageIndex(prev => Math.min(prev + 2, maxIndex));
+    } else {
+      setCurrentImageIndex(prev => Math.max(prev - 2, 0));
+    }
   };
 
   if (!projectId) return null;
@@ -355,37 +361,40 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       {/* Image Scroller Section */}
                       <div className="mt-8">
                         <h3 className="text-lg font-semibold text-white mb-4">Project Gallery</h3>
-                        <div className="relative group">
-                          {/* Left Arrow */}
-                          <button
-                            onClick={() => scrollImages('left')}
-                            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm"
-                            aria-label="Scroll left"
-                          >
-                            <ChevronLeft className="w-4 h-4" />
-                          </button>
+                        <div className="relative">
+                          {/* Left Arrow - Visible when can scroll left */}
+                          {currentImageIndex > 0 && (
+                            <button
+                              onClick={() => scrollImages('left')}
+                              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm shadow-lg"
+                              aria-label="Scroll left"
+                            >
+                              <ChevronLeft className="w-4 h-4" />
+                            </button>
+                          )}
 
-                          {/* Right Arrow */}
-                          <button
-                            onClick={() => scrollImages('right')}
-                            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm"
-                            aria-label="Scroll right"
-                          >
-                            <ChevronRight className="w-4 h-4" />
-                          </button>
+                          {/* Right Arrow - Visible when can scroll right */}
+                          {currentImageIndex < projectImages.length - 2 && (
+                            <button
+                              onClick={() => scrollImages('right')}
+                              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm shadow-lg"
+                              aria-label="Scroll right"
+                            >
+                              <ChevronRight className="w-4 h-4" />
+                            </button>
+                          )}
 
-                          {/* Scrollable Images Container */}
+                          {/* Two Images Container - 50% each */}
                           <div
                             ref={imageScrollRef}
-                            className="flex space-x-3 overflow-x-auto scrollbar-hide pb-2"
-                            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                            className="flex gap-3 overflow-hidden px-12"
                           >
-                            {projectImages.map((image, index) => (
-                              <div key={index} className="flex-none">
+                            {projectImages.slice(currentImageIndex, currentImageIndex + 2).map((image, index) => (
+                              <div key={currentImageIndex + index} className="w-1/2 flex-shrink-0">
                                 <img
                                   src={image}
-                                  alt={`${project?.title} screenshot ${index + 1}`}
-                                  className="w-32 h-20 object-cover rounded-md hover:scale-105 transition-transform duration-200 cursor-pointer"
+                                  alt={`${project?.title} screenshot ${currentImageIndex + index + 1}`}
+                                  className="w-full h-24 object-cover rounded-md hover:scale-105 transition-transform duration-200 cursor-pointer"
                                   draggable={false}
                                 />
                               </div>
