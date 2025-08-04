@@ -303,7 +303,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 }`}></div>
                 
                 {/* Share Button */}
-                <div className="absolute top-3 right-3 z-20">
+                <div className="absolute top-6 right-3 z-20">
                   <button
                     onClick={(e) => handleShare(project, e)}
                     className="bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm"
@@ -418,17 +418,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                             <ThumbsUp className="w-4 h-4" />
                           </button>
                           
-                          {/* Share Button */}
-                          <button 
-                            className="border-2 border-gray-400 text-white p-2 rounded-full hover:border-white hover:bg-white/10 transition-colors"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleShare(project, e);
-                            }}
-                            title="Share project"
-                          >
-                            <Share2 className="w-4 h-4" />
-                          </button>
+
                         </div>
                         
                         {/* Downward Arrow - Opens Card Details */}
