@@ -43,6 +43,32 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     switch (project.title) {
       case "Cazpro":
         return "Built and scaled a leading college merch brand from zero to 2.5M INR in 15 months.";
+      case "DigiPay":
+        return "Scaled fintech platform from startup to market leader with 500% user growth.";
+      case "FDX Sports":
+        return "Drove 400% user acquisition for India's premier sports equipment platform.";
+      case "Codiste":
+        return "4x'd marketing output and 2.5x'd sales response rates as Technical Lead.";
+      case "ZO Labs":
+        return "Scaled from stealth to 180K installs and built 100K+ AI community.";
+      case "Million Dollar Sellers":
+        return "5x'd revenue pipeline and automated lead generation as Fractional CMO.";
+      case "Zentrades":
+        return "Increased MQLs from single digits to 60/month in 4 months.";
+      case "InboxBites":
+        return "Solo-built AI Gmail agent with 200+ waitlisters in 6 weeks.";
+      case "Solgames":
+        return "Co-built GameFi toolkit to Solana hackathon winner with $150K seed.";
+      case "Martian Wallet":
+        return "Scaled installs 50% and doubled DApp volumes from $1.2B to $2B.";
+      case "TED":
+        return "Keynote speaker sharing growth strategies and marketing insights.";
+      case "Growth Summit":
+        return "Featured speaker on scaling startups and growth marketing.";
+      case "Inventrax":
+        return "Drove 600% organic traffic growth for warehouse automation SaaS.";
+      case "Millionth Mile Marketing":
+        return "Co-founded top 5 growth agency with 40+ global clients and $180K revenue.";
       default:
         return project.engagementType;
     }
