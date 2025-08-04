@@ -347,7 +347,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           : project.title === "Solgames"
                           ? "Co-built Soulgames, a GameFi dev toolkit, into a Solana hackathon winner and landed $150K in seed. Rallied a 3K-strong dev/gamer community, ran hackathons with 1K+ participants, and delivered a live MVP in 3 months. Paused by market chaos, but left a mark."
                           : project.title === "Martian Wallet"
-                          ? "Web3 wallet marketing was chaos: scattered user acquisition, broken DApp integration flows, and buried transaction insights that had to be cleaned and restructured just to land a single active user. Multiple marketing teams were manually coordinating campaigns every day to meet tight growth deadlines. I joined as Head of Marketing and built a comprehensive solution using Aptos/Sui ecosystem, Chrome extensions, and analytics automation that processes unstructured Web3 data and generates clean, system-ready growth campaigns in minutes. Today, we scaled from 1.2B to 2B+ transaction volume with complete accuracy and zero acquisition stress. What used to be a daily user bottleneck became a seamless Web3 growth machine that delivered 1M+ installs and 50+ partnerships."
+                          ? "Headed marketing at Martian Wallet, scaling installs by 50%, landing 400K+ new users, and doubling DApp transaction volumes from $1.2B to $2B. Launched a DApp that hit $1M daily volume in a month, forged 50+ partnerships, and kept the Web3 world buzzing."
                           : project.description
                         }
                       </p>
