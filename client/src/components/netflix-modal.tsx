@@ -261,6 +261,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "2024-2025"
                             : project.title === "Zentrades"
                             ? "2023"
+                            : project.title === "InboxBites"
+                            ? "2024"
                             : "2025"}
                         </span>
                         <span className="px-3 py-1 rounded-full border border-white text-white text-sm">
@@ -280,6 +282,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "AI Startup"
                             : project.title === "Zentrades"
                             ? "B2B Marketing"
+                            : project.title === "InboxBites"
+                            ? "MicroSaaS/AI"
                             : "Web Application"}
                         </span>
                       </div>
@@ -302,6 +306,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           ? "Head of Growth who scaled ZO Labs from stealth to 180K installs and built 100K+ community with 10K+ AI agents."
                           : project.title === "Zentrades"
                           ? "Dropped into Zentrades as a marketing consultant, rewired their inbound engine, and took MQLs from single digits to 60 a month in 4 months."
+                          : project.title === "InboxBites"
+                          ? "Solo-built InboxBites, a microSaaS AI agent for Gmail, transforming newsletter chaos into snackable, swipeable, 50-word knowledge bites."
                           : "Complex processes now run seamlessly."
                         }
                       </h2>
@@ -324,6 +330,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           ? "AI startup growth was chaos: scattered user acquisition, broken community engagement, and buried partnership insights that had to be cleaned and restructured just to land a single install. Multiple growth marketers were manually coordinating campaigns every day to meet tight scaling deadlines. I joined as Head of Growth and built a comprehensive solution using HubSpot, ActiveCampaign, and AI automation that processes unstructured growth data and generates clean, system-ready campaigns in minutes. Today, we scaled from stealth to 180K installs with complete accuracy and zero growth stress. What used to be a daily bottleneck became a seamless AI-powered growth machine that shipped 10K+ agents and secured 120+ partnerships."
                           : project.title === "Zentrades"
                           ? "B2B inbound marketing was chaos: scattered MQLs, broken attribution flows, and buried conversion insights that had to be cleaned and restructured just to land a single qualified demo. Multiple marketers were manually analyzing traffic data every day to meet tight lead deadlines. I joined as a consultant and built a comprehensive solution using programmatic SEO, Google Analytics, and CRM automation that processes unstructured lead data and generates clean, system-ready campaigns in minutes. Today, we scaled MQLs from 9 to 60 monthly with complete accuracy and zero funnel stress. What used to be a daily bottleneck became a seamless lead generation machine that delivered 125% traffic growth and 5000+ landing pages."
+                          : project.title === "InboxBites"
+                          ? "Newsletter management was chaos: scattered information, broken summarization flows, and buried knowledge insights that had to be cleaned and restructured just to process a single actionable takeaway. Multiple professionals were manually reading newsletters every day to meet tight learning deadlines. I solo-built a comprehensive solution using Replit Cloud Code, Gmail API, and AI automation that processes unstructured newsletter data and generates clean, system-ready knowledge bites in minutes. Today, we transformed newsletter chaos into 50-word insights with complete accuracy and zero reading stress. What used to be a daily information bottleneck became a seamless knowledge consumption machine that delivered 200+ waitlisters and 60% solo-coded MVP."
                           : project.description
                         }
                       </p>
@@ -410,6 +418,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Scale installs, community, and organic traffic, land strategic partnerships"
                             : project.title === "Zentrades"
                             ? "Scale high-quality B2B leads, boost organic traffic, optimize funnel stages"
+                            : project.title === "InboxBites"
+                            ? "Turn newsletters into actionable micro-insights, deliver value via PWA"
                             : "Manual data processing under tight deadlines"
                           }
                         </p>
@@ -435,12 +445,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Head of Growth (Full Time)"
                             : project.title === "Zentrades"
                             ? "Consultant (Freelance)"
+                            : project.title === "InboxBites"
+                            ? "Founder (Side Hustle/MicroSaaS)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
 
                       {/* Results - For Business Projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
@@ -458,6 +470,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "4x team output, 2.5x sales response, full-stack process automation"
                               : project.title === "Zentrades"
                               ? "MQLs 9→60/month, 125% traffic growth, 3x demo conversion, 5000+ landing pages"
+                              : project.title === "InboxBites"
+                              ? "MVP built in 6 weeks, 200+ waitlisters, 60% solo-coded, live waitlist"
                               : "180K installs, 100K+ community, 10K+ agents, 120+ partnerships, 50+ IRL events"}
                           </p>
                         </div>
@@ -482,7 +496,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       </div>
 
                       {/* Period - For Business Projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Period:</h4>
                           <p className="text-gray-400">
@@ -500,6 +514,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "2024"
                               : project.title === "Zentrades"
                               ? "2023"
+                              : project.title === "InboxBites"
+                              ? "2024"
                               : "Jan 2024 – Aug 2025"}
                           </p>
                         </div>
