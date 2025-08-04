@@ -400,8 +400,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
 
                     {/* Right Column - Project Details (1/3 width) */}
                     <div className="w-full lg:w-1/3 pl-0 lg:pl-0 mt-8 lg:mt-0 space-y-6">
-                      {/* Tech Stacks - For Cazpro and Millionth Mile Marketing */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing") && (
+                      {/* Tech Stacks - For Cazpro, Millionth Mile Marketing, and DigiPay */}
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay") && (
                         <div>
                           <h4 className="font-medium text-white mb-3">
                             {project.title === "Cazpro" ? "Tech Stacks:" : "Tech Stack:"}
@@ -416,8 +416,17 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                   {tech}
                                 </span>
                               ))
-                            ) : (
+                            ) : project.title === "Millionth Mile Marketing" ? (
                               ["Google Ads", "Meta Ads", "SEMrush", "Ahrefs", "Mailchimp", "HubSpot", "WordPress"].map((tech) => (
+                                <span 
+                                  key={tech}
+                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
+                                >
+                                  {tech}
+                                </span>
+                              ))
+                            ) : (
+                              ["CleverTap", "AppsFlyer", "Amplitude", "Google Firebase", "Google Analytics", "SEMrush", "Branch.io"].map((tech) => (
                                 <span 
                                   key={tech}
                                   className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
@@ -430,42 +439,46 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         </div>
                       )}
 
-                      {/* Skills - For Cazpro and Millionth Mile Marketing */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing") && (
+                      {/* Skills - For Cazpro, Millionth Mile Marketing, and DigiPay */}
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Skills:</h4>
                           <p className="text-gray-400">
                             {project.title === "Cazpro"
                               ? "D2C marketing, social media, performance marketing, B2C, SEO, email marketing, analytics"
-                              : "Growth marketing, B2B sales, team building, media buying, analytics, design thinking"
+                              : project.title === "Millionth Mile Marketing"
+                              ? "Growth marketing, B2B sales, team building, media buying, analytics, design thinking"
+                              : "B2B marketing, field ops, performance marketing, attribution, mobile marketing, onboarding, analytics"
                             }
                           </p>
                         </div>
                       )}
 
-                      {/* Goal - For Cazpro and Millionth Mile Marketing */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing") && (
+                      {/* Goal - For Cazpro, Millionth Mile Marketing, and DigiPay */}
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Goal:</h4>
                           <p className="text-gray-400">
                             {project.title === "Cazpro"
                               ? "Build profitable D2C college merch business, achieve market leadership, scale operations"
-                              : "Land marquee clients, drive high revenue growth, build a leading regional agency"
+                              : project.title === "Millionth Mile Marketing"
+                              ? "Land marquee clients, drive high revenue growth, build a leading regional agency"
+                              : "Drive B2B installs, scale revenue, build top-tier marketing org"
                             }
                           </p>
                         </div>
                       )}
 
-                      {/* Director - For non-Cazpro and non-Millionth Mile Marketing projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing") && (
+                      {/* Director - For non-Cazpro, non-Millionth Mile Marketing, and non-DigiPay projects */}
+                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Director:</h4>
                           <p className="text-gray-400">Farooq Chisty</p>
                         </div>
                       )}
 
-                      {/* Cast - For non-Cazpro and non-Millionth Mile Marketing projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing") && (
+                      {/* Cast - For non-Cazpro, non-Millionth Mile Marketing, and non-DigiPay projects */}
+                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Cast:</h4>
                           <p className="text-gray-400">Solo Builder Team</p>
@@ -505,36 +518,40 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         </p>
                       </div>
 
-                      {/* KPIs - For Cazpro and Millionth Mile Marketing */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing") && (
+                      {/* KPIs - For Cazpro, Millionth Mile Marketing, and DigiPay */}
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">KPIs:</h4>
                           <p className="text-gray-400">
                             {project.title === "Cazpro"
                               ? "Monthly sales, order volume, organic growth rate, website traffic, campaign ROI"
-                              : "Client acquisition, revenue, ad spend managed, team size, media features"
+                              : project.title === "Millionth Mile Marketing"
+                              ? "Client acquisition, revenue, ad spend managed, team size, media features"
+                              : "App downloads, revenue growth, team size, lead volume, merchant activation"
                             }
                           </p>
                         </div>
                       )}
 
-                      {/* Results - For Cazpro and Millionth Mile Marketing */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing") && (
+                      {/* Results - For Cazpro, Millionth Mile Marketing, and DigiPay */}
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
                             {project.title === "Cazpro"
                               ? "2.5M INR sales in 15 months, 200+ daily orders in 3 months, successful exit"
-                              : "$180K revenue in 2 years, 40+ clients (60% overseas), 10+ media features, top 5 agency recognition"
+                              : project.title === "Millionth Mile Marketing"
+                              ? "$180K revenue in 2 years, 40+ clients (60% overseas), 10+ media features, top 5 agency recognition"
+                              : "$4M to $80M revenue, 30K B2B app installs, 500K merchant downloads, built team from 1 to 28"
                             }
                           </p>
                         </div>
                       )}
 
-                      {/* Engagement Type for Cazpro and Millionth Mile Marketing, Role for others */}
+                      {/* Engagement Type for Cazpro, Millionth Mile Marketing, and DigiPay, Role for others */}
                       <div>
                         <h4 className="font-medium text-white mb-2">
-                          {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing") ? "Engagement Type:" : "Role:"}
+                          {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay") ? "Engagement Type:" : "Role:"}
                         </h4>
                         <p className="text-gray-400">
                           {project.title === "Cazpro" 
@@ -563,22 +580,25 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         </p>
                       </div>
 
-                      {/* Period - For Millionth Mile Marketing */}
-                      {project.title === "Millionth Mile Marketing" && (
+                      {/* Period - For Millionth Mile Marketing and DigiPay */}
+                      {(project.title === "Millionth Mile Marketing" || project.title === "DigiPay") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Period:</h4>
-                          <p className="text-gray-400">2017 – Dec 2019</p>
+                          <p className="text-gray-400">
+                            {project.title === "Millionth Mile Marketing"
+                              ? "2017 – Dec 2019"
+                              : "Dec 2019 – Sep 2021"
+                            }
+                          </p>
                         </div>
                       )}
 
-                      {/* Results - For Business Projects (excluding Cazpro and Millionth Mile Marketing) */}
-                      {(project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") && (
+                      {/* Results - For Business Projects (excluding Cazpro, Millionth Mile Marketing, and DigiPay) */}
+                      {(project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
-                            {project.title === "DigiPay"
-                              ? "$4M to $80M revenue, 30K B2B app installs, 500K merchant downloads, built team from 1 to 28"
-                              : project.title === "Inventrax"
+                            {project.title === "Inventrax"
                               ? "600% traffic growth, ranked top 1-2 for 3 keywords, lead volume surge"
                               : project.title === "FDX Sports"
                               ? "$10K to $120K/month sales, $500K+ ad spend, AOV up 2.5x"
@@ -597,8 +617,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         </div>
                       )}
 
-                      {/* Technologies - For non-Cazpro and non-Millionth Mile Marketing projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing") && (
+                      {/* Technologies - For non-Cazpro, non-Millionth Mile Marketing, and non-DigiPay projects */}
+                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay") && (
                         <div>
                           <h4 className="font-medium text-white mb-3">Technologies:</h4>
                           <div className="flex flex-wrap gap-2">
