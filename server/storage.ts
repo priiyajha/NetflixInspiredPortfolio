@@ -28,7 +28,7 @@ class MemStorage implements IStorage {
         description: "Built Cazpro into India's go-to freelance platform, connecting 10K+ freelancers with 5K+ clients. Conquered marketing, scaled operations, and shipped a full-stack platform that actually works. From concept to community in under two years.",
         image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
-        technologies: ["React & Next.js", "Node.js & Express", "MongoDB"],
+        technologies: ["Shopify", "PHP", "HTML", "SEMrush", "Google Ads", "Meta Ads", "Klaviyo", "MailChimp"],
         category: "startup",
         liveUrl: "https://cazpro.com",
         githubUrl: "",
