@@ -38,6 +38,16 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
         return project.description;
     }
   };
+
+  const getProjectSubtitle = (project: Project): string => {
+    switch (project.title) {
+      case "Cazpro":
+        return "Built and scaled a leading college merch brand from zero to 2.5M INR in 15 months.";
+      default:
+        return project.engagementType;
+    }
+  };
+
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -370,11 +380,11 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     {project.title}
                   </h3>
                   
-                  {/* Engagement Type - Always Visible */}
+                  {/* Project Subtitle - Always Visible */}
                   <p className={`text-gray-400 transition-all duration-300 ${
                     hoveredProject === project.id ? 'text-sm mb-2' : 'text-xs mb-2'
                   }`}>
-                    {project.engagementType}
+                    {getProjectSubtitle(project)}
                   </p>
                   
                   {/* Show description only on hover */}
