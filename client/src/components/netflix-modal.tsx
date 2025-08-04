@@ -93,7 +93,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
           ) : project ? (
             <>
               {/* Video/Image Header Section */}
-              <div className="relative h-[60vh] overflow-hidden rounded-t-lg">
+              <div className="video-header-section relative h-[60vh] overflow-hidden rounded-t-lg">
                 {project.video ? (
                   <video
                     src={project.video}
@@ -180,33 +180,18 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         variant="ghost"
                         size="icon"
                         className="text-white hover:bg-white/20 rounded-full border-2 border-white/70"
-                        onClick={async () => {
-                          try {
-                            const projectUrl = `${window.location.origin}?project=${project.id}`;
-                            
-                            if (navigator.share) {
-                              await navigator.share({
-                                title: project.title,
-                                text: `Check out this project: ${project.title}`,
-                                url: projectUrl
-                              });
+                        onClick={() => {
+                          const projectUrl = `${window.location.origin}?project=${project.id}`;
+                          
+                          // Use the most reliable clipboard method
+                          if (navigator.clipboard && window.isSecureContext) {
+                            navigator.clipboard.writeText(projectUrl).then(() => {
                               toast({
-                                title: "Shared successfully!",
-                                description: "Project link has been shared.",
+                                title: "Link copied!",
+                                description: "Project link has been copied to clipboard.",
                               });
-                            } else {
-                              // Fallback to clipboard
-                              await navigator.clipboard.writeText(projectUrl);
-                              toast({
-                                title: "Link copied to clipboard!",
-                                description: "You can now paste the project link anywhere.",
-                              });
-                            }
-                          } catch (error) {
-                            console.error('Share failed:', error);
-                            // Final fallback - create a temporary text element and copy
-                            try {
-                              const projectUrl = `${window.location.origin}?project=${project.id}`;
+                            }).catch(() => {
+                              // Fallback method
                               const textArea = document.createElement('textarea');
                               textArea.value = projectUrl;
                               textArea.style.position = 'fixed';
@@ -222,14 +207,24 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 title: "Link copied!",
                                 description: "Project link has been copied to clipboard.",
                               });
-                            } catch (fallbackError) {
-                              console.error('Final fallback failed:', fallbackError);
-                              toast({
-                                title: "Share failed",
-                                description: "Unable to share or copy the link. Please copy the URL manually.",
-                                variant: "destructive",
-                              });
-                            }
+                            });
+                          } else {
+                            // Fallback for non-secure contexts
+                            const textArea = document.createElement('textarea');
+                            textArea.value = projectUrl;
+                            textArea.style.position = 'fixed';
+                            textArea.style.left = '-999999px';
+                            textArea.style.top = '-999999px';
+                            document.body.appendChild(textArea);
+                            textArea.focus();
+                            textArea.select();
+                            document.execCommand('copy');
+                            textArea.remove();
+                            
+                            toast({
+                              title: "Link copied!",
+                              description: "Project link has been copied to clipboard.",
+                            });
                           }
                         }}
                       >
@@ -791,13 +786,34 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       {moreLikeThisProjects.map((similarProject) => (
                         <div
                           key={similarProject.id}
-                          className="bg-[#2F2F2F] rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 group"
-                          onClick={() => handleProjectClick(similarProject.id)}
+                          className="bg-[#2F2F2F] rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 group relative"
+                          onClick={() => {
+                            // First scroll to the video section to highlight the background video
+                            const videoSection = document.querySelector('.video-header-section');
+                            if (videoSection) {
+                              videoSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }
+                            // Then switch to the new project after a brief delay
+                            setTimeout(() => {
+                              handleProjectClick(similarProject.id);
+                            }, 500);
+                          }}
                         >
+                          {/* Video hover preview */}
+                          {similarProject.video && (
+                            <video
+                              src={similarProject.video}
+                              className="absolute inset-0 w-full h-32 object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                              autoPlay
+                              loop
+                              muted
+                              playsInline
+                            />
+                          )}
                           <img
                             src={similarProject.image}
                             alt={similarProject.title}
-                            className="w-full h-32 object-cover"
+                            className="w-full h-32 object-cover group-hover:opacity-0 transition-opacity duration-300"
                           />
                           <div className="p-4">
                             <div className="flex justify-between items-start mb-2">

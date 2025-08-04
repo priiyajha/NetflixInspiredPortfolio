@@ -43,6 +43,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
   const [canScrollRight, setCanScrollRight] = useState(false);
   const [showShareMenu, setShowShareMenu] = useState<string | null>(null);
   const [copiedProject, setCopiedProject] = useState<string | null>(null);
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
 
   const checkScrollability = () => {
     const container = scrollRef.current;
@@ -211,40 +213,82 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
           return (
             <motion.div
               key={project.id}
-              className={`flex-none w-64 sm:w-72 md:w-80 lg:w-96 group ${isClickable ? 'cursor-pointer' : 'cursor-default'}`}
+              className={`flex-none w-64 sm:w-72 md:w-80 lg:w-96 ${isClickable ? 'cursor-pointer' : 'cursor-default'} relative`}
               onClick={() => isClickable && onProjectClick(project.id)}
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={isClickable ? { 
-                scale: 1.05,
-                transition: { duration: 0.3, ease: "easeOut" }
-              } : {}}
+              onMouseEnter={() => {
+                if (isClickable) {
+                  // Clear any existing timeout
+                  if (hoverTimeout) {
+                    clearTimeout(hoverTimeout);
+                  }
+                  // Set a delay before showing hover state (like Netflix)
+                  const timeout = setTimeout(() => {
+                    setHoveredProject(project.id);
+                  }, 300);
+                  setHoverTimeout(timeout);
+                }
+              }}
+              onMouseLeave={() => {
+                // Clear timeout and hover state
+                if (hoverTimeout) {
+                  clearTimeout(hoverTimeout);
+                  setHoverTimeout(null);
+                }
+                setHoveredProject(null);
+              }}
             >
-              <div className={`relative rounded-lg overflow-hidden transition-all duration-300 ease-out ${
-                isClickable 
-                  ? 'group-hover:shadow-2xl group-hover:shadow-white/20 group-hover:-translate-y-2' 
-                  : ''
-              }`}>
+              {/* Normal Card State */}
+              <motion.div 
+                className={`relative rounded-lg overflow-hidden transition-all duration-300 ease-out ${
+                  isClickable 
+                    ? hoveredProject === project.id 
+                      ? 'shadow-2xl shadow-black/50 scale-110 z-20' 
+                      : 'hover:shadow-lg hover:shadow-black/30'
+                    : ''
+                }`}
+                animate={{
+                  scale: hoveredProject === project.id ? 1.1 : 1,
+                  y: hoveredProject === project.id ? -10 : 0,
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                {/* Video background for hover state */}
+                {hoveredProject === project.id && project.video && (
+                  <motion.video
+                    src={project.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover z-0"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                )}
+                
+                {/* Static Image */}
                 <img
                   src={project.image}
                   alt={project.title}
-                  className={`w-full h-40 sm:h-44 md:h-48 lg:h-52 object-cover transition-all duration-300 ${
-                    isClickable 
-                      ? 'group-hover:brightness-110 group-hover:scale-110'
-                      : 'opacity-80'
+                  className={`w-full object-cover transition-all duration-300 relative z-10 ${
+                    hoveredProject === project.id 
+                      ? 'opacity-0 h-64 sm:h-72 md:h-80' 
+                      : 'opacity-100 h-40 sm:h-44 md:h-48 lg:h-52'
                   }`}
                   draggable={false}
                 />
-                <div className={`absolute inset-0 transition-all duration-300 bg-gradient-to-t from-black/80 via-transparent to-transparent ${
-                  isClickable ? 'group-hover:from-black/60' : ''
-                }`}></div>
                 
-                {/* Hover overlay for interactive cards */}
-                {isClickable && (
-                  <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-all duration-300"></div>
-                )}
+                {/* Gradient Overlay */}
+                <div className={`absolute inset-0 z-20 transition-all duration-300 ${
+                  hoveredProject === project.id 
+                    ? 'bg-gradient-to-t from-black/90 via-black/20 to-transparent'
+                    : 'bg-gradient-to-t from-black/80 via-transparent to-transparent'
+                }`}></div>
                 
                 {/* Share Button */}
                 <div className="absolute top-3 right-3 z-20">
@@ -302,25 +346,45 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 </div>
 
                 
-                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 transition-all duration-300 group-hover:bottom-4 sm:group-hover:bottom-6">
-                  <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1 sm:mb-2 transition-all duration-300 group-hover:text-white group-hover:drop-shadow-lg">
+                {/* Content overlay - adapts to hover state */}
+                <div className={`absolute bottom-0 left-0 right-0 p-4 z-30 transition-all duration-300 ${
+                  hoveredProject === project.id 
+                    ? 'bg-gradient-to-t from-black/90 to-transparent pt-16'
+                    : ''
+                }`}>
+                  <h3 className={`font-semibold mb-2 transition-all duration-300 text-white ${
+                    hoveredProject === project.id ? 'text-lg' : 'text-sm'
+                  }`}>
                     {project.title}
                   </h3>
                   
-                  <p className="text-netflix-light-gray text-xs sm:text-sm transition-all duration-300 group-hover:text-gray-200 line-clamp-3">
-                    {getProjectTitleDescription(project)}
-                  </p>
-                  
-                  {/* Hover indicator for clickable projects */}
-                  {isClickable && (
-                    <div className="mt-1 sm:mt-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                      <div className="inline-flex items-center text-xs text-white bg-red-600/80 px-2 py-1 rounded backdrop-blur-sm">
-                        Click to view details
+                  {/* Show description only on hover */}
+                  {hoveredProject === project.id && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: 0.2 }}
+                    >
+                      <p className="text-gray-300 text-sm mb-3 line-clamp-3">
+                        {getProjectTitleDescription(project)}
+                      </p>
+                      
+                      {/* Action buttons like Netflix */}
+                      <div className="flex items-center space-x-2">
+                        <button className="bg-white text-black px-4 py-1 rounded-sm text-sm font-semibold hover:bg-gray-200 transition-colors">
+                          ▶ Play
+                        </button>
+                        <button className="border border-gray-400 text-white p-1 rounded-full hover:border-white transition-colors">
+                          <div className="w-4 h-4 border border-white rounded-full"></div>
+                        </button>
+                        <button className="border border-gray-400 text-white p-1 rounded-full hover:border-white transition-colors">
+                          👍
+                        </button>
                       </div>
-                    </div>
+                    </motion.div>
                   )}
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           );
         })}
