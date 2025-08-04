@@ -9,6 +9,35 @@ interface ProjectCarouselProps {
 }
 
 export default function ProjectCarousel({ projects, onProjectClick }: ProjectCarouselProps) {
+  
+  const getProjectTitleDescription = (project: Project) => {
+    switch (project.title) {
+      case "Cazpro":
+        return "Built and scaled Cazpro, a D2C college merch brand, from a dorm room idea at 17 to a 2.5M INR sales machine in 15 months. Survived near shutdowns, sold to a local industrialist, and handled everything from code to partnerships. Hustled hard, shipped harder.";
+      case "Millionth Mile Marketing":
+        return "Co-founded a growth agency that became an Andhra Pradesh top 5, racking up 40+ global clients, 2 years, $180K revenue, and 25 teammates. Built teams, scaled campaigns, won awards, and hustled for brands from Vizag to Europe. Brought a bold attitude to every pitch.";
+      case "DigiPay":
+        return "Joined as first marketing hire, scaled the team to 28, and helped take revenue from $4M to $80M in 19 months. Drove growth with everything from guerrilla tactics to field ops. Orchestrated viral B2B installs and led the brand through major funding rounds.";
+      case "Inventrax":
+        return "Drove a 600% organic traffic jump for a warehouse automation SaaS in 4 months as a marketing consultant. Cracked the top 2 spots for three high-value keywords and turned traffic into leads with CRO and smart automation. Growth hacking, done right.";
+      case "FDX Sports":
+        return "Turbocharged FDX into a million-dollar D2C brand in Europe. Drove sales from $10K to $120K/month in 6 months, spent half a million on ads, reworked CRO and email automation, and 2.5x'd average cart value. Did not just play the game, rewrote the playbook.";
+      case "Codiste":
+        return "Fractional CMO who built, trained, and turbocharged the marketing and outbound sales teams. 4x'd marketing output, 2.5x'd sales response rates, and baked AI and programmatic SEO into their DNA. Set up every process from social to cold DMs, always optimizing for impact.";
+      case "ZO Labs":
+        return "As Head of Growth, took ZO Labs from stealth to 180K installs, built a 100K+ community, and shipped 10,000+ AI agent landing pages. Ran AI-led marketing sprints, bagged 120+ partnerships, and put ZO on the global stage. All hustle, zero fluff.";
+      case "Zentrades":
+        return "Dropped into Zentrades as a marketing consultant, rewired their inbound engine, and took MQLs from single digits to 60 a month in 4 months. Engineered a 125% traffic spike, built 5000+ SEO-rich landing pages, and turned a good CRM into a qualified lead machine.";
+      case "InboxBites":
+        return "Solo-built InboxBites, a microSaaS AI agent for Gmail, transforming newsletter chaos into snackable, swipeable, 50-word knowledge bites. Architected 60%+ of the code, GTM, UI/UX, and product strategy in 6 weeks. Already has 200+ waitlisters—built for hustlers who hate inbox overload.";
+      case "Solgames":
+        return "Co-built Soulgames, a GameFi dev toolkit, into a Solana hackathon winner and landed $150K in seed. Rallied a 3K-strong dev/gamer community, ran hackathons with 1K+ participants, and delivered a live MVP in 3 months. Paused by market chaos, but left a mark.";
+      case "Martian Wallet":
+        return "Headed marketing at Martian Wallet, scaling installs by 50%, landing 400K+ new users, and doubling DApp transaction volumes from $1.2B to $2B. Launched a DApp that hit $1M daily volume in a month, forged 50+ partnerships, and kept the Web3 world buzzing.";
+      default:
+        return project.description;
+    }
+  };
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -278,8 +307,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     {project.title}
                   </h3>
                   
-                  <p className="text-netflix-light-gray text-xs sm:text-sm transition-all duration-300 group-hover:text-gray-200">
-                    {project.technologies.join(", ")}
+                  <p className="text-netflix-light-gray text-xs sm:text-sm transition-all duration-300 group-hover:text-gray-200 line-clamp-3">
+                    {getProjectTitleDescription(project)}
                   </p>
                   
                   {/* Hover indicator for clickable projects */}
