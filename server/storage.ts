@@ -330,7 +330,7 @@ class MemStorage implements IStorage {
         description: "Dropped into Zentrades as a marketing consultant, rewired their inbound engine, and took MQLs from single digits to 60 a month in 4 months. Built programmatic SEO systems, optimized conversion funnels, and delivered measurable growth that transformed their lead generation.",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
-        technologies: ["React & Next.js", "Node.js & Express", "PostgreSQL"],
+        technologies: ["Programmatic SEO", "Google Analytics", "CRM", "marketing attribution tools"],
         category: "consulting",
         liveUrl: "https://zentrades.com",
         githubUrl: "",
