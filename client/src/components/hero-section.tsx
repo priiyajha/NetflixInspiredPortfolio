@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Download, Play } from "lucide-react";
+import { Download, Play, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Profile } from "@shared/schema";
@@ -122,8 +122,8 @@ export default function HeroSection({ profile }: HeroSectionProps) {
               className="bg-white/20 backdrop-blur-sm text-white px-6 sm:px-8 py-3 sm:py-4 rounded font-semibold text-base sm:text-lg hover:bg-white/30 transition-all duration-200 flex items-center justify-center gap-2"
               size="lg"
             >
-              <Download className="w-4 h-4 sm:w-5 sm:h-5" />
-              Download Resume
+              <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
+              View Resume
             </Button>
           </motion.div>
         </div>
