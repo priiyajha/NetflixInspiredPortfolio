@@ -400,19 +400,31 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
 
                     {/* Right Column - Project Details (1/3 width) */}
                     <div className="w-full lg:w-1/3 pl-0 lg:pl-0 mt-8 lg:mt-0 space-y-6">
-                      {/* Director */}
-                      <div>
-                        <h4 className="font-medium text-white mb-2">Director:</h4>
-                        <p className="text-gray-400">Farooq Chisty</p>
-                      </div>
+                      {/* Skills - For Cazpro only */}
+                      {project.title === "Cazpro" && (
+                        <div>
+                          <h4 className="font-medium text-white mb-2">Skills:</h4>
+                          <p className="text-gray-400">D2C marketing, social media, performance marketing, B2C, SEO, email marketing, analytics</p>
+                        </div>
+                      )}
 
-                      {/* Cast */}
-                      <div>
-                        <h4 className="font-medium text-white mb-2">Cast:</h4>
-                        <p className="text-gray-400">Solo Builder Team</p>
-                      </div>
+                      {/* Director - For non-Cazpro projects */}
+                      {project.title !== "Cazpro" && (
+                        <div>
+                          <h4 className="font-medium text-white mb-2">Director:</h4>
+                          <p className="text-gray-400">Farooq Chisty</p>
+                        </div>
+                      )}
 
-                      {/* Challenge */}
+                      {/* Cast - For non-Cazpro projects */}
+                      {project.title !== "Cazpro" && (
+                        <div>
+                          <h4 className="font-medium text-white mb-2">Cast:</h4>
+                          <p className="text-gray-400">Solo Builder Team</p>
+                        </div>
+                      )}
+
+                      {/* Goal */}
                       <div>
                         <h4 className="font-medium text-white mb-2">
                           {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing") ? "Goal:" : "Challenge:"}
@@ -445,9 +457,19 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         </p>
                       </div>
 
-                      {/* Role */}
+                      {/* KPIs - For Cazpro only */}
+                      {project.title === "Cazpro" && (
+                        <div>
+                          <h4 className="font-medium text-white mb-2">KPIs:</h4>
+                          <p className="text-gray-400">Monthly sales, order volume, organic growth rate, website traffic, campaign ROI</p>
+                        </div>
+                      )}
+
+                      {/* Engagement Type for Cazpro, Role for others */}
                       <div>
-                        <h4 className="font-medium text-white mb-2">Role:</h4>
+                        <h4 className="font-medium text-white mb-2">
+                          {project.title === "Cazpro" ? "Engagement Type:" : "Role:"}
+                        </h4>
                         <p className="text-gray-400">
                           {project.title === "Cazpro" 
                             ? "Founder (Full Time)" 
@@ -505,21 +527,34 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         </div>
                       )}
 
-                      {/* Technologies */}
+                      {/* Technologies / Tech Stacks */}
                       <div>
-                        <h4 className="font-medium text-white mb-3">Technologies:</h4>
+                        <h4 className="font-medium text-white mb-3">
+                          {project.title === "Cazpro" ? "Tech Stacks:" : "Technologies:"}
+                        </h4>
                         <div className="flex flex-wrap gap-2">
-                          {project.technologies.slice(0, 8).map((tech) => (
-                            <span 
-                              key={tech}
-                              className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                            >
-                              {tech === "React & Next.js" ? "React" : 
-                               tech === "Node.js & Express" ? "Node.js" :
-                               tech === "PostgreSQL" ? "PostgreSQL" :
-                               tech === "MongoDB" ? "MongoDB" : tech}
-                            </span>
-                          ))}
+                          {project.title === "Cazpro" ? (
+                            ["Shopify", "PHP", "HTML", "SEMrush", "Google Ads", "Meta Ads", "Klaviyo", "MailChimp"].map((tech) => (
+                              <span 
+                                key={tech}
+                                className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
+                              >
+                                {tech}
+                              </span>
+                            ))
+                          ) : (
+                            project.technologies.slice(0, 8).map((tech) => (
+                              <span 
+                                key={tech}
+                                className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
+                              >
+                                {tech === "React & Next.js" ? "React" : 
+                                 tech === "Node.js & Express" ? "Node.js" :
+                                 tech === "PostgreSQL" ? "PostgreSQL" :
+                                 tech === "MongoDB" ? "MongoDB" : tech}
+                              </span>
+                            ))
+                          )}
                         </div>
                       </div>
 
