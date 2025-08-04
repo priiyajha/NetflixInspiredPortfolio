@@ -25,10 +25,10 @@ class MemStorage implements IStorage {
       {
         id: "1",
         title: "Cazpro",
-        description: "Built Cazpro into India's go-to freelance platform, connecting 10K+ freelancers with 5K+ clients. Conquered marketing, scaled operations, and shipped a full-stack platform that actually works. From concept to community in under two years.",
+        description: "Joined as first marketing hire, scaled the team to 28, and helped take revenue from $4M to $80M in 19 months. Drove growth with everything from guerrilla tactics to field ops. Orchestrated viral B2B installs and led the brand through major funding rounds.",
         image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
-        technologies: ["Shopify", "PHP", "HTML", "SEMrush", "Google Ads", "Meta Ads", "Klaviyo", "MailChimp"],
+        technologies: ["CleverTap", "AppsFlyer", "Amplitude", "Google Firebase", "Google Analytics", "SEMrush", "Branch.io"],
         category: "startup",
         liveUrl: "https://cazpro.com",
         githubUrl: "",
@@ -44,12 +44,12 @@ class MemStorage implements IStorage {
           "Review and rating system for quality assurance",
           "Mobile-responsive design for cross-platform access"
         ],
-        skills: ["Full-stack development", "platform architecture", "user acquisition", "product management", "community building"],
-        goal: "Create India's leading freelance marketplace connecting talent with opportunity",
-        kpis: ["User growth", "project completion rate", "revenue growth", "user retention"],
-        results: "10K+ freelancers, 5K+ clients, 15K+ completed projects, 85% satisfaction rate",
-        engagementType: "Founder & Technical Lead",
-        period: "2022 – Present"
+        skills: ["B2B marketing", "field ops", "performance marketing", "attribution", "mobile marketing", "onboarding", "analytics"],
+        goal: "Drive B2B installs, scale revenue, build top-tier marketing org",
+        kpis: ["App downloads", "revenue growth", "team size", "lead volume", "merchant activation"],
+        results: "$4M to $80M revenue, 30K B2B app installs, 500K merchant downloads, built team from 1 to 28",
+        engagementType: "Head of Marketing (Full Time)",
+        period: "Dec 2019 – Sep 2021"
       },
 
       // Full-time Gigs
