@@ -42,6 +42,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
         return "Engineering a Reply Agent that auto-generates and posts targeted replies across LinkedIn, Twitter, and Reddit. Comment up to 150x a day, all automated and prompt-driven—think hustle in a headless browser. Launching with a waitlist on Product Hunt, August 25.";
       case "Internal Linking Agent":
         return "Launching a plug-and-play internal linking agent for founders strapped on SEO budgets—instantly optimize content for search and LLMs. Built on Node.js, React, and custom logic, delivers fast actionable traffic/visibility gains. Shipping first week of September.";
+      case "Content Automation (Reddit → LinkedIn)":
+        return "Built an intelligent content automation system that discovers trending discussions on Reddit and transforms them into professional LinkedIn posts. Uses AI to analyze engagement patterns, extract key insights, and adapt tone for different professional audiences while maintaining authenticity and relevance.";
       default:
         return project.description;
     }

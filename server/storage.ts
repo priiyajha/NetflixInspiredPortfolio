@@ -325,6 +325,36 @@ class MemStorage implements IStorage {
       },
 
       {
+        id: "22",
+        title: "Content Automation (Reddit → LinkedIn)",
+        description: "Built an intelligent content automation system that discovers trending discussions on Reddit and transforms them into professional LinkedIn posts. Uses AI to analyze engagement patterns, extract key insights, and adapt tone for different professional audiences while maintaining authenticity and relevance.",
+        image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["Python", "Reddit API", "LinkedIn API", "OpenAI GPT-4", "Content Analysis"],
+        category: "sidehustle",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true",
+        status: "completed",
+        features: [
+          "Automated Reddit trending topic discovery",
+          "AI-powered content transformation and adaptation",
+          "Professional tone adjustment for LinkedIn audience",
+          "Engagement pattern analysis and optimization",
+          "Multi-platform content scheduling and posting",
+          "Sentiment analysis and brand alignment",
+          "Custom content templates and personalization",
+          "Performance tracking and content analytics"
+        ],
+        skills: ["Content automation", "social media strategy", "AI content generation", "cross-platform marketing"],
+        goal: "Automate high-quality content creation from social insights",
+        kpis: ["Posts generated", "engagement rate", "content quality score", "time saved"],
+        results: "Content pipeline automated, engagement improved, professional presence scaled",
+        engagementType: "Founder (Solo Builder)",
+        period: "2024 – ongoing"
+      },
+
+      {
         id: "15",
         title: "InboxBites",
         description: "Solo-built InboxBites, a microSaaS AI agent for Gmail, transforming newsletter chaos into snackable, swipeable, 50-word knowledge bites. MVP in 6 weeks with 200+ waitlisters and 60% solo-coded, live waitlist driving organic engagement.",
