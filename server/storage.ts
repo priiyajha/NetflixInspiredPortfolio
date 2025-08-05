@@ -205,6 +205,35 @@ class MemStorage implements IStorage {
 
       // Side Hustles
       {
+        id: "18",
+        title: "GEOptimer",
+        description: "Founder and builder of GEOptimer, a micro-SaaS that scores and audits website content for LLM/AI engine visibility—think SEO for AI, not just search. Enter a URL, get a GEO Score, action-packed report, and clear next steps in seconds. Built for growth-obsessed marketers.",
+        image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["Replit", "Supabase", "Node.js", "Cursor", "Cloud Code", "custom scripts"],
+        category: "sidehustle",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true",
+        status: "live",
+        features: [
+          "AI-powered website content scoring for LLM visibility",
+          "Comprehensive GEO Score generation and reporting",
+          "URL-based instant auditing and analysis",
+          "Action-packed reports with clear next steps",
+          "Custom scripts for content optimization",
+          "Supabase backend for data management",
+          "Replit cloud development environment",
+          "Real-time website content analysis"
+        ],
+        skills: ["AI SEO", "product management", "SaaS engineering", "growth analytics", "reporting"],
+        goal: "Optimize websites for generative engine visibility and citations",
+        kpis: ["GEO Score", "report depth", "user activation", "actionable insights delivered"],
+        results: "Comprehensive reports in seconds, instant action items, live MVP",
+        engagementType: "Founder (Solo Builder)",
+        period: "2025 – ongoing"
+      },
+      {
         id: "15",
         title: "InboxBites",
         description: "Solo-built InboxBites, a microSaaS AI agent for Gmail, transforming newsletter chaos into snackable, swipeable, 50-word knowledge bites. MVP in 6 weeks with 200+ waitlisters and 60% solo-coded, live waitlist driving organic engagement.",
