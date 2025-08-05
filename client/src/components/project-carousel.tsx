@@ -89,6 +89,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
         return "Built AI-powered micro-SaaS for generative engine SEO with live MVP.";
       case "Growth Opportunity Agent":
         return "AI-powered growth agent identifying untapped opportunities with precision analytics.";
+      case "Reply Agent (Auto-Commenter)":
+        return "Complex processes now run seamlessly.";
       default:
         return project.engagementType;
     }
