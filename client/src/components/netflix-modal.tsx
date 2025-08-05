@@ -535,6 +535,15 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                   {tech}
                                 </span>
                               ))
+                            ) : project.title === "Growth Opportunity Agent" ? (
+                              ["OpenAI GPT-4", "Python", "React", "FastAPI", "PostgreSQL", "Redis"].map((tech) => (
+                                <span 
+                                  key={tech}
+                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
+                                >
+                                  {tech}
+                                </span>
+                              ))
                             ) : (
                               ["Aptos/Sui Ecosystem", "DApp Platform", "Chrome Extension", "Discord", "Google Analytics"].map((tech) => (
                                 <span 
@@ -550,7 +559,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Skills - For all projects with custom structure */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Skills:</h4>
                           <p className="text-gray-400">
@@ -576,6 +585,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Growth marketing, community building, Web3 strategy, hackathon ops, program management"
                               : project.title === "GEOptimer"
                               ? "AI SEO, product management, SaaS engineering, growth analytics, reporting"
+                              : project.title === "Growth Opportunity Agent"
+                              ? "AI strategy, growth hacking, market analysis, product management, data science"
                               : "Web3 marketing, community ops, DApp growth, partnerships, content, BD"
                             }
                           </p>
@@ -583,7 +594,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Goal - For all projects with custom structure */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Goal:</h4>
                           <p className="text-gray-400">
@@ -611,6 +622,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Grow user base, launch DApp, increase transaction volume, build global partnerships"
                               : project.title === "GEOptimer"
                               ? "Optimize websites for generative engine visibility and citations"
+                              : project.title === "Growth Opportunity Agent"
+                              ? "Identify and capitalize on hidden growth opportunities with AI-driven insights"
                               : "Grow user base, launch DApp, increase transaction volume, build global partnerships"
                             }
                           </p>
@@ -618,7 +631,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Director - For non-custom structured projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet" && project.title !== "GEOptimer") && (
+                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet" && project.title !== "GEOptimer" && project.title !== "Growth Opportunity Agent") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Director:</h4>
                           <p className="text-gray-400">Farooq Chisty</p>
@@ -626,7 +639,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Cast - For non-custom structured projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet" && project.title !== "GEOptimer") && (
+                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet" && project.title !== "GEOptimer" && project.title !== "Growth Opportunity Agent") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Cast:</h4>
                           <p className="text-gray-400">Solo Builder Team</p>
@@ -636,7 +649,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
 
 
                       {/* KPIs - For custom structured projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">KPIs:</h4>
                           <p className="text-gray-400">
@@ -664,6 +677,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Installs, active users, partnerships, transaction volume, community growth"
                               : project.title === "GEOptimer"
                               ? "GEO Score, report depth, user activation, actionable insights delivered"
+                              : project.title === "Growth Opportunity Agent"
+                              ? "Opportunities identified, accuracy rate, ROI predictions, user adoption"
                               : "User acquisition, transaction volume, partnership deals, DApp engagement"
                             }
                           </p>
@@ -671,7 +686,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Results - For custom structured projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
@@ -699,6 +714,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "1M+ installs, $2B+ volume, 400K new users, 50+ partnerships, $1M DApp daily"
                               : project.title === "GEOptimer"
                               ? "Comprehensive reports in seconds, instant action items, live MVP"
+                              : project.title === "Growth Opportunity Agent"
+                              ? "AI-powered opportunity detection, automated strategy generation, live analytics platform"
                               : "50K+ users, 10K+ transactions, 20+ partnerships, global adoption across 30+ countries"
                             }
                           </p>
@@ -708,7 +725,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       {/* Engagement Type for custom structured projects, Role for others */}
                       <div>
                         <h4 className="font-medium text-white mb-2">
-                          {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer") ? "Engagement Type:" : "Role:"}
+                          {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent") ? "Engagement Type:" : "Role:"}
                         </h4>
                         <p className="text-gray-400">
                           {project.title === "Cazpro" 
@@ -735,12 +752,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Head of Marketing (Full Time)"
                             : project.title === "GEOptimer"
                             ? "Founder (Solo Builder)"
+                            : project.title === "Growth Opportunity Agent"
+                            ? "Founder (Solo Builder)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
 
                       {/* Period - For custom structured projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Period:</h4>
                           <p className="text-gray-400">
@@ -767,6 +786,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Martian Wallet"
                               ? "May 2023 – Jan 2024"
                               : project.title === "GEOptimer"
+                              ? "2025 – ongoing"
+                              : project.title === "Growth Opportunity Agent"
                               ? "2025 – ongoing"
                               : "2024"
                             }

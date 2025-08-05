@@ -36,6 +36,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
         return "Headed marketing at Martian Wallet, scaling installs by 50%, landing 400K+ new users, and doubling DApp transaction volumes from $1.2B to $2B. Launched a DApp that hit $1M daily volume in a month, forged 50+ partnerships, and kept the Web3 world buzzing.";
       case "GEOptimer":
         return "Founder and builder of GEOptimer, a micro-SaaS that scores and audits website content for LLM/AI engine visibility—think SEO for AI, not just search. Enter a URL, get a GEO Score, action-packed report, and clear next steps in seconds. Built for growth-obsessed marketers.";
+      case "Growth Opportunity Agent":
+        return "Revolutionary AI-powered growth agent that identifies and prioritizes untapped business opportunities across multiple channels. Analyzes market gaps, competitor weaknesses, and emerging trends to deliver actionable growth strategies with precision targeting and ROI predictions.";
       default:
         return project.description;
     }
@@ -73,6 +75,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
         return "Co-founded top 5 growth agency with 40+ global clients and $180K revenue.";
       case "GEOptimer":
         return "Built AI-powered micro-SaaS for generative engine SEO with live MVP.";
+      case "Growth Opportunity Agent":
+        return "AI-powered growth agent identifying untapped opportunities with precision analytics.";
       default:
         return project.engagementType;
     }

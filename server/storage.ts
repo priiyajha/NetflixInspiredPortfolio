@@ -233,6 +233,37 @@ class MemStorage implements IStorage {
         engagementType: "Founder (Solo Builder)",
         period: "2025 – ongoing"
       },
+
+      {
+        id: "19",
+        title: "Growth Opportunity Agent",
+        description: "Revolutionary AI-powered growth agent that identifies and prioritizes untapped business opportunities across multiple channels. Analyzes market gaps, competitor weaknesses, and emerging trends to deliver actionable growth strategies with precision targeting and ROI predictions.",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["OpenAI GPT-4", "Python", "React", "FastAPI", "PostgreSQL", "Redis"],
+        category: "sidehustle",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true",
+        status: "live",
+        features: [
+          "AI-powered market opportunity identification and analysis",
+          "Competitor weakness detection and exploitation strategies",
+          "Multi-channel growth opportunity mapping",
+          "ROI prediction and priority ranking system",
+          "Real-time market trend analysis and alerts",
+          "Automated growth strategy generation",
+          "Integration with major analytics platforms",
+          "Custom reporting and dashboard visualization"
+        ],
+        skills: ["AI strategy", "growth hacking", "market analysis", "product management", "data science"],
+        goal: "Identify and capitalize on hidden growth opportunities with AI-driven insights",
+        kpis: ["Opportunities identified", "accuracy rate", "ROI predictions", "user adoption"],
+        results: "AI-powered opportunity detection, automated strategy generation, live analytics platform",
+        engagementType: "Founder (Solo Builder)",
+        period: "2025 – ongoing"
+      },
+
       {
         id: "15",
         title: "InboxBites",
