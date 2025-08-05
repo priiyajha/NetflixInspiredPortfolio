@@ -429,8 +429,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
 
                     {/* Right Column - Project Details (1/3 width) */}
                     <div className="w-full lg:w-1/3 pl-0 lg:pl-0 mt-8 lg:mt-0 space-y-6">
-                      {/* Tech Stacks - For Cazpro, Millionth Mile Marketing, DigiPay, Inventrax, FDX Sports, Codiste, ZO Labs, Zentrades, InboxBites, Solgames, Martian Wallet, GEOptimer, Growth Opportunity Agent, and Reply Agent */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)") && (
+                      {/* Tech Stacks - For Cazpro, Millionth Mile Marketing, DigiPay, Inventrax, FDX Sports, Codiste, ZO Labs, Zentrades, InboxBites, Solgames, Martian Wallet, GEOptimer, Growth Opportunity Agent, Reply Agent, and Internal Linking Agent */}
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent") && (
                         <div>
                           <h4 className="font-medium text-white mb-3">
                             {project.title === "Cazpro" ? "Tech Stacks:" : "Tech Stack:"}
@@ -553,6 +553,15 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                   {tech}
                                 </span>
                               ))
+                            ) : project.title === "Internal Linking Agent" ? (
+                              ["Python", "NLP", "Web Scraping", "SEO Analytics", "Machine Learning"].map((tech) => (
+                                <span 
+                                  key={tech}
+                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
+                                >
+                                  {tech}
+                                </span>
+                              ))
                             ) : (
                               ["Aptos/Sui Ecosystem", "DApp Platform", "Chrome Extension", "Discord", "Google Analytics"].map((tech) => (
                                 <span 
@@ -568,7 +577,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Skills - For all projects with custom structure */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Skills:</h4>
                           <p className="text-gray-400">
@@ -598,6 +607,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Growth analysis, automation, product design, digital strategy"
                               : project.title === "Reply Agent (Auto-Commenter)"
                               ? "Automation, headless browser ops, prompt engineering, multi-channel growth"
+                              : project.title === "Internal Linking Agent"
+                              ? "SEO optimization, content analysis, automation, web scraping, data processing"
                               : "Web3 marketing, community ops, DApp growth, partnerships, content, BD"
                             }
                           </p>
@@ -605,7 +616,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Goal - For all projects with custom structure */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Goal:</h4>
                           <p className="text-gray-400">
@@ -637,6 +648,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Unlock growth channels for startups instantly"
                               : project.title === "Reply Agent (Auto-Commenter)"
                               ? "Automate replies for inbound, outreach, and community engagement at scale"
+                              : project.title === "Internal Linking Agent"
+                              ? "Automate internal linking strategy for maximum SEO impact"
                               : "Grow user base, launch DApp, increase transaction volume, build global partnerships"
                             }
                           </p>
@@ -644,7 +657,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Director - For non-custom structured projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet" && project.title !== "GEOptimer" && project.title !== "Growth Opportunity Agent" && project.title !== "Reply Agent (Auto-Commenter)") && (
+                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet" && project.title !== "GEOptimer" && project.title !== "Growth Opportunity Agent" && project.title !== "Reply Agent (Auto-Commenter)" && project.title !== "Internal Linking Agent") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Director:</h4>
                           <p className="text-gray-400">Farooq Chisty</p>
@@ -652,7 +665,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Cast - For non-custom structured projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet" && project.title !== "GEOptimer" && project.title !== "Growth Opportunity Agent" && project.title !== "Reply Agent (Auto-Commenter)") && (
+                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet" && project.title !== "GEOptimer" && project.title !== "Growth Opportunity Agent" && project.title !== "Reply Agent (Auto-Commenter)" && project.title !== "Internal Linking Agent") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Cast:</h4>
                           <p className="text-gray-400">Solo Builder Team</p>
@@ -662,7 +675,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
 
 
                       {/* KPIs - For custom structured projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">KPIs:</h4>
                           <p className="text-gray-400">
@@ -694,6 +707,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Growth opps surfaced, activation rate, time-to-value"
                               : project.title === "Reply Agent (Auto-Commenter)"
                               ? "Replies/day, engagement, conversion rate, waitlist signups"
+                              : project.title === "Internal Linking Agent"
+                              ? "Link opportunities found, SEO score improvement, page authority distribution, crawl efficiency"
                               : "User acquisition, transaction volume, partnership deals, DApp engagement"
                             }
                           </p>
@@ -701,7 +716,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Results - For custom structured projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
@@ -733,6 +748,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Opportunities delivered in real time, MVP ready, beta users onboard"
                               : project.title === "Reply Agent (Auto-Commenter)"
                               ? "150 auto-comments/day, Product Hunt launch scheduled, early demand"
+                              : project.title === "Internal Linking Agent"
+                              ? "Internal linking optimized automatically, SEO performance enhanced, user navigation improved"
                               : "50K+ users, 10K+ transactions, 20+ partnerships, global adoption across 30+ countries"
                             }
                           </p>
@@ -742,7 +759,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       {/* Engagement Type for custom structured projects, Role for others */}
                       <div>
                         <h4 className="font-medium text-white mb-2">
-                          {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)") ? "Engagement Type:" : "Role:"}
+                          {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent") ? "Engagement Type:" : "Role:"}
                         </h4>
                         <p className="text-gray-400">
                           {project.title === "Cazpro" 
@@ -773,12 +790,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Founder (Micro-SaaS)"
                             : project.title === "Reply Agent (Auto-Commenter)"
                             ? "Founder (Micro-SaaS)"
+                            : project.title === "Internal Linking Agent"
+                            ? "Founder (Solo Builder)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
 
                       {/* Period - For custom structured projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Period:</h4>
                           <p className="text-gray-400">
@@ -809,6 +828,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Growth Opportunity Agent"
                               ? "2025 – ongoing"
                               : project.title === "Reply Agent (Auto-Commenter)"
+                              ? "2025 – ongoing"
+                              : project.title === "Internal Linking Agent"
                               ? "2024 – ongoing"
                               : "2024"
                             }

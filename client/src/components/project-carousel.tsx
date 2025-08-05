@@ -40,6 +40,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
         return "Built a micro-SaaS agent that surfaces untapped digital growth opportunities for startups—automating what founders and marketers miss. Scans all digital touchpoints and delivers actionable insights, making \"where do I grow next?\" a one-click answer.";
       case "Reply Agent (Auto-Commenter)":
         return "Engineering a Reply Agent that auto-generates and posts targeted replies across LinkedIn, Twitter, and Reddit. Comment up to 150x a day, all automated and prompt-driven—think hustle in a headless browser. Launching with a waitlist on Product Hunt, August 25.";
+      case "Internal Linking Agent":
+        return "Built an AI-powered internal linking optimization agent that automatically analyzes website content and generates strategic internal link suggestions. Scans pages for semantic relevance, identifies link opportunities, and creates contextual anchor text recommendations to boost SEO performance and user navigation.";
       default:
         return project.description;
     }

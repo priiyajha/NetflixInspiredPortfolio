@@ -295,6 +295,36 @@ class MemStorage implements IStorage {
       },
 
       {
+        id: "21",
+        title: "Internal Linking Agent",
+        description: "Built an AI-powered internal linking optimization agent that automatically analyzes website content and generates strategic internal link suggestions. Scans pages for semantic relevance, identifies link opportunities, and creates contextual anchor text recommendations to boost SEO performance and user navigation.",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["Python", "NLP", "Web Scraping", "SEO Analytics", "Machine Learning"],
+        category: "sidehustle",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true",
+        status: "completed",
+        features: [
+          "Automated content analysis and semantic mapping",
+          "Strategic internal link opportunity identification",
+          "Contextual anchor text generation",
+          "SEO performance impact analysis",
+          "Bulk link suggestion export",
+          "Page authority flow optimization",
+          "Custom linking strategy recommendations",
+          "Real-time content scanning and updates"
+        ],
+        skills: ["SEO optimization", "content analysis", "automation", "web scraping", "data processing"],
+        goal: "Automate internal linking strategy for maximum SEO impact",
+        kpis: ["Link opportunities found", "SEO score improvement", "page authority distribution", "crawl efficiency"],
+        results: "Internal linking optimized automatically, SEO performance enhanced, user navigation improved",
+        engagementType: "Founder (Solo Builder)",
+        period: "2024 – ongoing"
+      },
+
+      {
         id: "15",
         title: "InboxBites",
         description: "Solo-built InboxBites, a microSaaS AI agent for Gmail, transforming newsletter chaos into snackable, swipeable, 50-word knowledge bites. MVP in 6 weeks with 200+ waitlisters and 60% solo-coded, live waitlist driving organic engagement.",
