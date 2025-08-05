@@ -429,8 +429,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
 
                     {/* Right Column - Project Details (1/3 width) */}
                     <div className="w-full lg:w-1/3 pl-0 lg:pl-0 mt-8 lg:mt-0 space-y-6">
-                      {/* Tech Stacks - For Cazpro, Millionth Mile Marketing, DigiPay, Inventrax, FDX Sports, Codiste, ZO Labs, Zentrades, InboxBites, Solgames, Martian Wallet, GEOptimer, Growth Opportunity Agent, Reply Agent, Internal Linking Agent, Content Automation, Blog Automation, and Lead Generator Agent */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)") && (
+                      {/* Tech Stacks - For Cazpro, Millionth Mile Marketing, DigiPay, Inventrax, FDX Sports, Codiste, ZO Labs, Zentrades, InboxBites, Solgames, Martian Wallet, GEOptimer, Growth Opportunity Agent, Reply Agent, Internal Linking Agent, Content Automation, Blog Automation, Lead Generator Agent, and AGENTSY */}
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)" || project.title === "AGENTSY") && (
                         <div>
                           <h4 className="font-medium text-white mb-3">
                             {project.title === "Cazpro" ? "Tech Stacks:" : "Tech Stack:"}
@@ -589,6 +589,15 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                   {tech}
                                 </span>
                               ))
+                            ) : project.title === "AGENTSY" ? (
+                              ["React", "Node.js", "AI APIs", "Docker", "PostgreSQL"].map((tech) => (
+                                <span 
+                                  key={tech}
+                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
+                                >
+                                  {tech}
+                                </span>
+                              ))
                             ) : (
                               ["Aptos/Sui Ecosystem", "DApp Platform", "Chrome Extension", "Discord", "Google Analytics"].map((tech) => (
                                 <span 
@@ -604,7 +613,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Skills - For all projects with custom structure */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)" || project.title === "AGENTSY") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Skills:</h4>
                           <p className="text-gray-400">
@@ -642,6 +651,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Content automation, API integration, workflow building"
                               : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
                               ? "Lead scraping, automation, enrichment, workflow engineering"
+                              : project.title === "AGENTSY"
+                              ? "AI platform development, agent orchestration, marketplace design, enterprise integration"
                               : "Web3 marketing, community ops, DApp growth, partnerships, content, BD"
                             }
                           </p>
@@ -649,7 +660,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Goal - For all projects with custom structure */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)" || project.title === "AGENTSY") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Goal:</h4>
                           <p className="text-gray-400">
@@ -689,6 +700,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Automate discovery and repurposing of trending content for blogs"
                               : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
                               ? "Automate discovery + outreach for B2B leads"
+                              : project.title === "AGENTSY"
+                              ? "Create comprehensive platform for AI agent deployment and management"
                               : "Grow user base, launch DApp, increase transaction volume, build global partnerships"
                             }
                           </p>
@@ -696,7 +709,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Director - For non-custom structured projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet" && project.title !== "GEOptimer" && project.title !== "Growth Opportunity Agent" && project.title !== "Reply Agent (Auto-Commenter)" && project.title !== "Internal Linking Agent" && project.title !== "Content Automation (Reddit → LinkedIn)" && project.title !== "Blog Automation (Purple City MCP)" && project.title !== "Lead Generator Agent (LinkedIn, Twitter, Reddit)") && (
+                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet" && project.title !== "GEOptimer" && project.title !== "Growth Opportunity Agent" && project.title !== "Reply Agent (Auto-Commenter)" && project.title !== "Internal Linking Agent" && project.title !== "Content Automation (Reddit → LinkedIn)" && project.title !== "Blog Automation (Purple City MCP)" && project.title !== "Lead Generator Agent (LinkedIn, Twitter, Reddit)" && project.title !== "AGENTSY") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Director:</h4>
                           <p className="text-gray-400">Farooq Chisty</p>
@@ -704,7 +717,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Cast - For non-custom structured projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet" && project.title !== "GEOptimer" && project.title !== "Growth Opportunity Agent" && project.title !== "Reply Agent (Auto-Commenter)" && project.title !== "Internal Linking Agent" && project.title !== "Content Automation (Reddit → LinkedIn)" && project.title !== "Blog Automation (Purple City MCP)" && project.title !== "Lead Generator Agent (LinkedIn, Twitter, Reddit)") && (
+                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet" && project.title !== "GEOptimer" && project.title !== "Growth Opportunity Agent" && project.title !== "Reply Agent (Auto-Commenter)" && project.title !== "Internal Linking Agent" && project.title !== "Content Automation (Reddit → LinkedIn)" && project.title !== "Blog Automation (Purple City MCP)" && project.title !== "Lead Generator Agent (LinkedIn, Twitter, Reddit)" && project.title !== "AGENTSY") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Cast:</h4>
                           <p className="text-gray-400">Solo Builder Team</p>
@@ -714,7 +727,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
 
 
                       {/* KPIs - For custom structured projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)" || project.title === "AGENTSY") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">KPIs:</h4>
                           <p className="text-gray-400">
@@ -754,6 +767,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Articles sourced, posts published, time saved per post"
                               : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
                               ? "Profiles scraped, leads enriched, time saved"
+                              : project.title === "AGENTSY"
+                              ? "Agents deployed, workflow automations, platform adoption, integration success rate"
                               : "User acquisition, transaction volume, partnership deals, DApp engagement"
                             }
                           </p>
@@ -761,7 +776,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       )}
 
                       {/* Results - For custom structured projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)" || project.title === "AGENTSY") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Results:</h4>
                           <p className="text-gray-400">
@@ -801,6 +816,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "Deployed flow, InboxBites blog launch pending"
                               : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
                               ? "60% lead gen time saved, dashboarded leads, live beta"
+                              : project.title === "AGENTSY"
+                              ? "AI agent platform launched, enterprise clients onboarded, workflow automation scaled"
                               : "50K+ users, 10K+ transactions, 20+ partnerships, global adoption across 30+ countries"
                             }
                           </p>
@@ -810,7 +827,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       {/* Engagement Type for custom structured projects, Role for others */}
                       <div>
                         <h4 className="font-medium text-white mb-2">
-                          {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)") ? "Engagement Type:" : "Role:"}
+                          {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)" || project.title === "AGENTSY") ? "Engagement Type:" : "Role:"}
                         </h4>
                         <p className="text-gray-400">
                           {project.title === "Cazpro" 
@@ -849,12 +866,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             ? "Founder/Builder"
                             : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
                             ? "Founder (Micro-SaaS)"
+                            : project.title === "AGENTSY"
+                            ? "Founder (Platform)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
 
                       {/* Period - For custom structured projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)") && (
+                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)" || project.title === "AGENTSY") && (
                         <div>
                           <h4 className="font-medium text-white mb-2">Period:</h4>
                           <p className="text-gray-400">
@@ -894,6 +913,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ? "2025 – ongoing"
                               : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
                               ? "2025 – ongoing"
+                              : project.title === "AGENTSY"
+                              ? "2024 – ongoing"
                               : "2024"
                             }
                           </p>

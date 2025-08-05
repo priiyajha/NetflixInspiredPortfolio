@@ -48,6 +48,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
         return "Built a flow to auto-repurpose trending articles via Purple City MCP and RSS, turning them into original blog posts with a human-in-the-loop review. All powered by n8n and will soon power InboxBites' blog at scale.";
       case "Lead Generator Agent (LinkedIn, Twitter, Reddit)":
         return "Created an agent to scrape, filter, and funnel target profiles talking about specific pain points on LinkedIn, Twitter, and Reddit—automates profile discovery and dashboarding, saving 60% of lead gen time. Frees founders and marketers to focus on closing, not scraping.";
+      case "AGENTSY":
+        return "Built a comprehensive AI agent marketplace and management platform that enables businesses to discover, deploy, and orchestrate multiple AI agents for various tasks. Features agent discovery, workflow automation, performance monitoring, and seamless integration capabilities for enterprise-scale AI adoption.";
       default:
         return project.description;
     }

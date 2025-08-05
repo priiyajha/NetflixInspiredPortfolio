@@ -415,6 +415,36 @@ class MemStorage implements IStorage {
       },
 
       {
+        id: "25",
+        title: "AGENTSY",
+        description: "Built a comprehensive AI agent marketplace and management platform that enables businesses to discover, deploy, and orchestrate multiple AI agents for various tasks. Features agent discovery, workflow automation, performance monitoring, and seamless integration capabilities for enterprise-scale AI adoption.",
+        image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["React", "Node.js", "AI APIs", "Docker", "PostgreSQL"],
+        category: "sidehustle",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true",
+        status: "completed",
+        features: [
+          "AI agent marketplace with discovery and filtering",
+          "Multi-agent workflow orchestration platform",
+          "Real-time performance monitoring and analytics",
+          "Enterprise integration capabilities",
+          "Custom agent development tools",
+          "Automated deployment and scaling",
+          "Usage tracking and billing management",
+          "API gateway for agent communication"
+        ],
+        skills: ["AI platform development", "agent orchestration", "marketplace design", "enterprise integration"],
+        goal: "Create comprehensive platform for AI agent deployment and management",
+        kpis: ["Agents deployed", "workflow automations", "platform adoption", "integration success rate"],
+        results: "AI agent platform launched, enterprise clients onboarded, workflow automation scaled",
+        engagementType: "Founder (Platform)",
+        period: "2024 – ongoing"
+      },
+
+      {
         id: "15",
         title: "InboxBites",
         description: "Solo-built InboxBites, a microSaaS AI agent for Gmail, transforming newsletter chaos into snackable, swipeable, 50-word knowledge bites. MVP in 6 weeks with 200+ waitlisters and 60% solo-coded, live waitlist driving organic engagement.",
