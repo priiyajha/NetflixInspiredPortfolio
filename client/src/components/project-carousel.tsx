@@ -92,15 +92,15 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
       case "Reply Agent (Auto-Commenter)":
         return "Complex processes now run seamlessly.";
       case "Internal Linking Agent":
-        return "Launching a plug-and-play internal linking agent for founders strapped on SEO budgets—instantly optimize content for search and LLMs. Built on Node.js, React, and custom logic, delivers fast actionable traffic/visibility gains. Shipping first week of September.";
+        return "Launching a plug-and-play internal linking agent for founders strapped on SEO budgets.";
       case "Content Automation (Reddit → LinkedIn)":
-        return "Automated my LinkedIn content pipeline by scraping Reddit for trending AI/agent pain points, converting topics into hooks, and posting on LinkedIn with a human-in-the-loop review. All my posts now flow from this. Soon to be productized for other creators.";
+        return "Automated my LinkedIn content pipeline by scraping Reddit for trending AI/agent pain points.";
       case "Blog Automation (Purple City MCP)":
-        return "Built a flow to auto-repurpose trending articles via Purple City MCP and RSS, turning them into original blog posts with a human-in-the-loop review. All powered by n8n and will soon power InboxBites' blog at scale.";
+        return "Built a flow to auto-repurpose trending articles via Purple City MCP and RSS.";
       case "Lead Generator Agent (LinkedIn, Twitter, Reddit)":
-        return "Created an agent to scrape, filter, and funnel target profiles talking about specific pain points on LinkedIn, Twitter, and Reddit—automates profile discovery and dashboarding, saving 60% of lead gen time. Frees founders and marketers to focus on closing, not scraping.";
+        return "Created an agent to scrape, filter, and funnel target profiles talking about specific pain points.";
       case "AGENTSY":
-        return "Sold over $2M in digital products via AGENTSY—performance marketing funnels at scale. Ran campaigns on Facebook/Google, moved 20L+ INR in 6 months, sold e-books, templates, and downloadables. Built funnels, ran the stack, shipped results.";
+        return "Sold over $2M in digital products via AGENTSY—performance marketing funnels at scale.";
       default:
         return project.engagementType;
     }
