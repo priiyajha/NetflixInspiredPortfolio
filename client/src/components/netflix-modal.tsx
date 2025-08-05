@@ -390,13 +390,15 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           >
                             {projectImages.slice(currentImageIndex, currentImageIndex + 2).map((image, index) => (
                               <div key={currentImageIndex + index} className="w-1/2 flex-shrink-0">
-                                <img
-                                  src={image}
-                                  alt={`${project?.title} screenshot ${currentImageIndex + index + 1}`}
-                                  className="w-full h-full object-cover rounded-md hover:scale-105 transition-transform duration-200 cursor-pointer"
-                                  draggable={false}
-                                  onClick={() => setSelectedImage(image)}
-                                />
+                                <div className="w-full aspect-[16/9] overflow-hidden rounded-md">
+                                  <img
+                                    src={image}
+                                    alt={`${project?.title} screenshot ${currentImageIndex + index + 1}`}
+                                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-200 cursor-pointer"
+                                    draggable={false}
+                                    onClick={() => setSelectedImage(image)}
+                                  />
+                                </div>
                               </div>
                             ))}
                           </div>
