@@ -49,7 +49,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
       case "Lead Generator Agent (LinkedIn, Twitter, Reddit)":
         return "Created an agent to scrape, filter, and funnel target profiles talking about specific pain points on LinkedIn, Twitter, and Reddit—automates profile discovery and dashboarding, saving 60% of lead gen time. Frees founders and marketers to focus on closing, not scraping.";
       case "AGENTSY":
-        return "Built a comprehensive AI agent marketplace and management platform that enables businesses to discover, deploy, and orchestrate multiple AI agents for various tasks. Features agent discovery, workflow automation, performance monitoring, and seamless integration capabilities for enterprise-scale AI adoption.";
+        return "Sold over $2M in digital products via AGENTSY—performance marketing funnels at scale. Ran campaigns on Facebook/Google, moved 20L+ INR in 6 months, sold e-books, templates, and downloadables. Built funnels, ran the stack, shipped results.";
       default:
         return project.description;
     }

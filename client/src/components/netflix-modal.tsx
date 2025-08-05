@@ -590,7 +590,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 </span>
                               ))
                             ) : project.title === "AGENTSY" ? (
-                              ["React", "Node.js", "AI APIs", "Docker", "PostgreSQL"].map((tech) => (
+                              ["ClickFunnels", "Hotcart", "Shopify", "WordPress", "Facebook Ads", "Google Ads", "GTM"].map((tech) => (
                                 <span 
                                   key={tech}
                                   className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
@@ -652,7 +652,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
                               ? "Lead scraping, automation, enrichment, workflow engineering"
                               : project.title === "AGENTSY"
-                              ? "AI platform development, agent orchestration, marketplace design, enterprise integration"
+                              ? "Performance marketing, funnel building, digital sales, analytics"
                               : "Web3 marketing, community ops, DApp growth, partnerships, content, BD"
                             }
                           </p>
@@ -701,7 +701,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
                               ? "Automate discovery + outreach for B2B leads"
                               : project.title === "AGENTSY"
-                              ? "Create comprehensive platform for AI agent deployment and management"
+                              ? "Scale digital product sales via paid channels"
                               : "Grow user base, launch DApp, increase transaction volume, build global partnerships"
                             }
                           </p>
@@ -768,7 +768,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
                               ? "Profiles scraped, leads enriched, time saved"
                               : project.title === "AGENTSY"
-                              ? "Agents deployed, workflow automations, platform adoption, integration success rate"
+                              ? "Revenue, funnel conversion, ad spend ROI"
                               : "User acquisition, transaction volume, partnership deals, DApp engagement"
                             }
                           </p>
@@ -817,7 +817,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
                               ? "60% lead gen time saved, dashboarded leads, live beta"
                               : project.title === "AGENTSY"
-                              ? "AI agent platform launched, enterprise clients onboarded, workflow automation scaled"
+                              ? "$2M+ sales, 20L+ INR in 6 months, high-volume funnel ops"
                               : "50K+ users, 10K+ transactions, 20+ partnerships, global adoption across 30+ countries"
                             }
                           </p>
@@ -867,7 +867,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
                             ? "Founder (Micro-SaaS)"
                             : project.title === "AGENTSY"
-                            ? "Founder (Platform)"
+                            ? "Founder (Solo)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
@@ -914,7 +914,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
                               ? "2025 – ongoing"
                               : project.title === "AGENTSY"
-                              ? "2024 – ongoing"
+                              ? "2025 – ongoing"
                               : "2024"
                             }
                           </p>
