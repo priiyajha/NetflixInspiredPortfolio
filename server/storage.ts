@@ -267,10 +267,10 @@ class MemStorage implements IStorage {
       {
         id: "20",
         title: "Reply Agent (Auto-Commenter)",
-        description: "Built an AI-powered auto-commenting agent that intelligently engages across social platforms and forums. Generates contextual, brand-aligned responses at scale while maintaining authentic voice and sentiment. Automates community engagement for maximum reach and authentic interactions.",
+        description: "Engineering a Reply Agent that auto-generates and posts targeted replies across LinkedIn, Twitter, and Reddit. Comment up to 150x a day, all automated and prompt-driven—think hustle in a headless browser. Launching with a waitlist on Product Hunt, August 25.",
         image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
-        technologies: ["OpenAI GPT-4", "Python", "Social APIs", "NLP", "Automation Scripts"],
+        technologies: ["Replit", "Cursor", "Cloud Code", "custom scripts"],
         category: "sidehustle",
         liveUrl: "",
         githubUrl: "",
@@ -286,12 +286,12 @@ class MemStorage implements IStorage {
           "Custom response templates and personalization",
           "Analytics and engagement tracking dashboard"
         ],
-        skills: ["AI automation", "social media strategy", "NLP", "community management", "content strategy"],
-        goal: "Automate authentic social engagement at scale",
-        kpis: ["Response rate", "engagement quality", "brand sentiment", "reach amplification"],
-        results: "10x engagement efficiency, authentic voice maintained, community growth accelerated",
-        engagementType: "Founder (Solo Builder)",
-        period: "2024 – ongoing"
+        skills: ["Automation", "headless browser ops", "prompt engineering", "multi-channel growth"],
+        goal: "Automate replies for inbound, outreach, and community engagement at scale",
+        kpis: ["Replies/day", "engagement", "conversion rate", "waitlist signups"],
+        results: "150 auto-comments/day, Product Hunt launch scheduled, early demand",
+        engagementType: "Founder (Micro-SaaS)",
+        period: "2025 – ongoing"
       },
 
       {

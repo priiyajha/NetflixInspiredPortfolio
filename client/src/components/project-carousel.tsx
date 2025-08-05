@@ -39,7 +39,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
       case "Growth Opportunity Agent":
         return "Built a micro-SaaS agent that surfaces untapped digital growth opportunities for startups—automating what founders and marketers miss. Scans all digital touchpoints and delivers actionable insights, making \"where do I grow next?\" a one-click answer.";
       case "Reply Agent (Auto-Commenter)":
-        return "Built an AI-powered auto-commenting agent that intelligently engages across social platforms and forums. Generates contextual, brand-aligned responses at scale while maintaining authentic voice and sentiment. Automates community engagement for maximum reach and authentic interactions.";
+        return "Engineering a Reply Agent that auto-generates and posts targeted replies across LinkedIn, Twitter, and Reddit. Comment up to 150x a day, all automated and prompt-driven—think hustle in a headless browser. Launching with a waitlist on Product Hunt, August 25.";
       default:
         return project.description;
     }

@@ -545,7 +545,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 </span>
                               ))
                             ) : project.title === "Reply Agent (Auto-Commenter)" ? (
-                              ["OpenAI GPT-4", "Python", "Social APIs", "NLP", "Automation Scripts"].map((tech) => (
+                              ["Replit", "Cursor", "Cloud Code", "custom scripts"].map((tech) => (
                                 <span 
                                   key={tech}
                                   className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
@@ -597,7 +597,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Growth Opportunity Agent"
                               ? "Growth analysis, automation, product design, digital strategy"
                               : project.title === "Reply Agent (Auto-Commenter)"
-                              ? "AI automation, social media strategy, NLP, community management, content strategy"
+                              ? "Automation, headless browser ops, prompt engineering, multi-channel growth"
                               : "Web3 marketing, community ops, DApp growth, partnerships, content, BD"
                             }
                           </p>
@@ -636,7 +636,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Growth Opportunity Agent"
                               ? "Unlock growth channels for startups instantly"
                               : project.title === "Reply Agent (Auto-Commenter)"
-                              ? "Automate authentic social engagement at scale"
+                              ? "Automate replies for inbound, outreach, and community engagement at scale"
                               : "Grow user base, launch DApp, increase transaction volume, build global partnerships"
                             }
                           </p>
@@ -693,7 +693,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Growth Opportunity Agent"
                               ? "Growth opps surfaced, activation rate, time-to-value"
                               : project.title === "Reply Agent (Auto-Commenter)"
-                              ? "Response rate, engagement quality, brand sentiment, reach amplification"
+                              ? "Replies/day, engagement, conversion rate, waitlist signups"
                               : "User acquisition, transaction volume, partnership deals, DApp engagement"
                             }
                           </p>
@@ -732,7 +732,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Growth Opportunity Agent"
                               ? "Opportunities delivered in real time, MVP ready, beta users onboard"
                               : project.title === "Reply Agent (Auto-Commenter)"
-                              ? "10x engagement efficiency, authentic voice maintained, community growth accelerated"
+                              ? "150 auto-comments/day, Product Hunt launch scheduled, early demand"
                               : "50K+ users, 10K+ transactions, 20+ partnerships, global adoption across 30+ countries"
                             }
                           </p>
@@ -772,7 +772,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "Growth Opportunity Agent"
                             ? "Founder (Micro-SaaS)"
                             : project.title === "Reply Agent (Auto-Commenter)"
-                            ? "Founder (Solo Builder)"
+                            ? "Founder (Micro-SaaS)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
