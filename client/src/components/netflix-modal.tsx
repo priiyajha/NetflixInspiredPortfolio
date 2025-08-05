@@ -365,7 +365,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           {currentImageIndex > 0 && (
                             <button
                               onClick={() => scrollImages('left')}
-                              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm shadow-lg"
+                              className="absolute left-12 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm shadow-lg"
                               aria-label="Scroll left"
                             >
                               <ChevronLeft className="w-4 h-4" />
@@ -376,7 +376,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           {currentImageIndex < projectImages.length - 2 && (
                             <button
                               onClick={() => scrollImages('right')}
-                              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm shadow-lg"
+                              className="absolute right-12 top-1/2 -translate-y-1/2 z-10 bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm shadow-lg"
                               aria-label="Scroll right"
                             >
                               <ChevronRight className="w-4 h-4" />
