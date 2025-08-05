@@ -5,7 +5,6 @@ import { Project } from "@shared/schema";
 import { Button } from "./ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { X, Play, Plus, Volume2, VolumeX, ThumbsUp, ChevronLeft, ChevronRight, Share } from "lucide-react";
-import cazproExploreImage from "@assets/image_1754406606783.png";
 
 interface NetflixModalProps {
   projectId: string | null;
@@ -47,11 +46,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
   };
 
   // Sample images for the scroller - in a real app, these would come from the project data
-  const projectImages = project?.title === "Cazpro" ? [
-    // Cazpro specific images
-    cazproExploreImage, // The uploaded travel/explore image
-    project?.image || "https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450"
-  ] : [
+  const projectImages = [
     project?.image || "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
     "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
     "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
