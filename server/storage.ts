@@ -215,7 +215,7 @@ class MemStorage implements IStorage {
         liveUrl: "",
         githubUrl: "",
         featured: "true",
-        status: "live",
+        status: "completed",
         features: [
           "AI-powered website content scoring for LLM visibility",
           "Comprehensive GEO Score generation and reporting",
@@ -245,7 +245,7 @@ class MemStorage implements IStorage {
         liveUrl: "",
         githubUrl: "",
         featured: "true",
-        status: "live",
+        status: "completed",
         features: [
           "AI-powered market opportunity identification and analysis",
           "Competitor weakness detection and exploitation strategies",
