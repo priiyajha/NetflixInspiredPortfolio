@@ -387,10 +387,10 @@ class MemStorage implements IStorage {
       {
         id: "24",
         title: "Lead Generator Agent (LinkedIn, Twitter, Reddit)",
-        description: "Built an intelligent lead generation agent that automatically identifies and engages potential prospects across LinkedIn, Twitter, and Reddit. Uses AI-powered targeting to find decision-makers, analyzes their content engagement patterns, and initiates personalized outreach sequences to convert social media interactions into qualified leads.",
+        description: "Created an agent to scrape, filter, and funnel target profiles talking about specific pain points on LinkedIn, Twitter, and Reddit—automates profile discovery and dashboarding, saving 60% of lead gen time. Frees founders and marketers to focus on closing, not scraping.",
         image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
-        technologies: ["Python", "LinkedIn API", "Twitter API", "Reddit API", "Lead Scoring AI"],
+        technologies: ["N8n", "platform APIs", "dashboard (custom)"],
         category: "sidehustle",
         liveUrl: "",
         githubUrl: "",
@@ -406,12 +406,12 @@ class MemStorage implements IStorage {
           "Performance tracking and conversion analytics",
           "Compliance-aware engagement protocols"
         ],
-        skills: ["Lead generation", "social media automation", "AI targeting", "sales funnel optimization"],
-        goal: "Automate lead generation and qualification across social platforms",
-        kpis: ["Leads generated", "qualification rate", "conversion to meetings", "outreach response rate"],
-        results: "Lead pipeline automated, qualification improved, outreach scaled across platforms",
-        engagementType: "Founder (Solo Builder)",
-        period: "2024 – ongoing"
+        skills: ["Lead scraping", "automation", "enrichment", "workflow engineering"],
+        goal: "Automate discovery + outreach for B2B leads",
+        kpis: ["Profiles scraped", "leads enriched", "time saved"],
+        results: "60% lead gen time saved, dashboarded leads, live beta",
+        engagementType: "Founder (Micro-SaaS)",
+        period: "2025 – ongoing"
       },
 
       {

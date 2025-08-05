@@ -581,7 +581,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 </span>
                               ))
                             ) : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)" ? (
-                              ["Python", "LinkedIn API", "Twitter API", "Reddit API", "Lead Scoring AI"].map((tech) => (
+                              ["N8n", "platform APIs", "dashboard (custom)"].map((tech) => (
                                 <span 
                                   key={tech}
                                   className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
@@ -641,7 +641,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Blog Automation (Purple City MCP)"
                               ? "Content automation, API integration, workflow building"
                               : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
-                              ? "Lead generation, social media automation, AI targeting, sales funnel optimization"
+                              ? "Lead scraping, automation, enrichment, workflow engineering"
                               : "Web3 marketing, community ops, DApp growth, partnerships, content, BD"
                             }
                           </p>
@@ -688,7 +688,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Blog Automation (Purple City MCP)"
                               ? "Automate discovery and repurposing of trending content for blogs"
                               : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
-                              ? "Automate lead generation and qualification across social platforms"
+                              ? "Automate discovery + outreach for B2B leads"
                               : "Grow user base, launch DApp, increase transaction volume, build global partnerships"
                             }
                           </p>
@@ -753,7 +753,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Blog Automation (Purple City MCP)"
                               ? "Articles sourced, posts published, time saved per post"
                               : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
-                              ? "Leads generated, qualification rate, conversion to meetings, outreach response rate"
+                              ? "Profiles scraped, leads enriched, time saved"
                               : "User acquisition, transaction volume, partnership deals, DApp engagement"
                             }
                           </p>
@@ -800,7 +800,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Blog Automation (Purple City MCP)"
                               ? "Deployed flow, InboxBites blog launch pending"
                               : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
-                              ? "Lead pipeline automated, qualification improved, outreach scaled across platforms"
+                              ? "60% lead gen time saved, dashboarded leads, live beta"
                               : "50K+ users, 10K+ transactions, 20+ partnerships, global adoption across 30+ countries"
                             }
                           </p>
@@ -848,7 +848,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "Blog Automation (Purple City MCP)"
                             ? "Founder/Builder"
                             : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
-                            ? "Founder (Solo Builder)"
+                            ? "Founder (Micro-SaaS)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
@@ -893,7 +893,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Blog Automation (Purple City MCP)"
                               ? "2025 – ongoing"
                               : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
-                              ? "2024 – ongoing"
+                              ? "2025 – ongoing"
                               : "2024"
                             }
                           </p>
