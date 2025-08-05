@@ -383,10 +383,10 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             </button>
                           )}
 
-                          {/* Two Square Images Container - 50% width each, full height */}
+                          {/* Two Square Images Container - 50% width each, 50% height */}
                           <div
                             ref={imageScrollRef}
-                            className="flex gap-3 h-full px-12"
+                            className="flex gap-3 h-1/2 px-12"
                           >
                             {projectImages.slice(currentImageIndex, currentImageIndex + 2).map((image, index) => (
                               <div key={currentImageIndex + index} className="w-1/2 flex-shrink-0">
