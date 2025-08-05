@@ -355,6 +355,36 @@ class MemStorage implements IStorage {
       },
 
       {
+        id: "23",
+        title: "Blog Automation (Purple City MCP)",
+        description: "Built an intelligent blog automation system that leverages MCP (Model Context Protocol) to generate, optimize, and publish high-quality blog content. Integrates with Purple City's content pipeline to automatically research topics, create SEO-optimized articles, and schedule publications across multiple platforms.",
+        image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["MCP", "Python", "Content AI", "SEO Tools", "Publishing APIs"],
+        category: "sidehustle",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true",
+        status: "completed",
+        features: [
+          "Automated content research and topic generation",
+          "MCP-powered content creation and optimization",
+          "SEO keyword integration and meta tag generation",
+          "Multi-platform publishing automation",
+          "Content performance tracking and analytics",
+          "Editorial workflow with approval gates",
+          "Brand voice consistency enforcement",
+          "Scheduled content calendar management"
+        ],
+        skills: ["Content automation", "MCP integration", "SEO optimization", "publishing workflows"],
+        goal: "Automate blog content creation and publishing at scale",
+        kpis: ["Articles published", "SEO performance", "engagement metrics", "publishing frequency"],
+        results: "Blog pipeline fully automated, content quality maintained, publishing efficiency increased",
+        engagementType: "Founder (Solo Builder)",
+        period: "2024 – ongoing"
+      },
+
+      {
         id: "15",
         title: "InboxBites",
         description: "Solo-built InboxBites, a microSaaS AI agent for Gmail, transforming newsletter chaos into snackable, swipeable, 50-word knowledge bites. MVP in 6 weeks with 200+ waitlisters and 60% solo-coded, live waitlist driving organic engagement.",

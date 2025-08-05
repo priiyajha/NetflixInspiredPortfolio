@@ -44,6 +44,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
         return "Launching a plug-and-play internal linking agent for founders strapped on SEO budgets—instantly optimize content for search and LLMs. Built on Node.js, React, and custom logic, delivers fast actionable traffic/visibility gains. Shipping first week of September.";
       case "Content Automation (Reddit → LinkedIn)":
         return "Automated my LinkedIn content pipeline by scraping Reddit for trending AI/agent pain points, converting topics into hooks, and posting on LinkedIn with a human-in-the-loop review. All my posts now flow from this. Soon to be productized for other creators.";
+      case "Blog Automation (Purple City MCP)":
+        return "Built an intelligent blog automation system that leverages MCP (Model Context Protocol) to generate, optimize, and publish high-quality blog content. Integrates with Purple City's content pipeline to automatically research topics, create SEO-optimized articles, and schedule publications across multiple platforms.";
       default:
         return project.description;
     }
