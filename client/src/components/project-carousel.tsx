@@ -38,6 +38,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
         return "Founder and builder of GEOptimer, a micro-SaaS that scores and audits website content for LLM/AI engine visibility—think SEO for AI, not just search. Enter a URL, get a GEO Score, action-packed report, and clear next steps in seconds. Built for growth-obsessed marketers.";
       case "Growth Opportunity Agent":
         return "Built a micro-SaaS agent that surfaces untapped digital growth opportunities for startups—automating what founders and marketers miss. Scans all digital touchpoints and delivers actionable insights, making \"where do I grow next?\" a one-click answer.";
+      case "Reply Agent (Auto-Commenter)":
+        return "Built an AI-powered auto-commenting agent that intelligently engages across social platforms and forums. Generates contextual, brand-aligned responses at scale while maintaining authentic voice and sentiment. Automates community engagement for maximum reach and authentic interactions.";
       default:
         return project.description;
     }

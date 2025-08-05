@@ -265,6 +265,36 @@ class MemStorage implements IStorage {
       },
 
       {
+        id: "20",
+        title: "Reply Agent (Auto-Commenter)",
+        description: "Built an AI-powered auto-commenting agent that intelligently engages across social platforms and forums. Generates contextual, brand-aligned responses at scale while maintaining authentic voice and sentiment. Automates community engagement for maximum reach and authentic interactions.",
+        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["OpenAI GPT-4", "Python", "Social APIs", "NLP", "Automation Scripts"],
+        category: "sidehustle",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true",
+        status: "completed",
+        features: [
+          "AI-powered contextual comment generation",
+          "Multi-platform social media integration",
+          "Brand voice and tone consistency",
+          "Sentiment analysis and response optimization",
+          "Automated engagement scheduling",
+          "Real-time content monitoring and response",
+          "Custom response templates and personalization",
+          "Analytics and engagement tracking dashboard"
+        ],
+        skills: ["AI automation", "social media strategy", "NLP", "community management", "content strategy"],
+        goal: "Automate authentic social engagement at scale",
+        kpis: ["Response rate", "engagement quality", "brand sentiment", "reach amplification"],
+        results: "10x engagement efficiency, authentic voice maintained, community growth accelerated",
+        engagementType: "Founder (Solo Builder)",
+        period: "2024 – ongoing"
+      },
+
+      {
         id: "15",
         title: "InboxBites",
         description: "Solo-built InboxBites, a microSaaS AI agent for Gmail, transforming newsletter chaos into snackable, swipeable, 50-word knowledge bites. MVP in 6 weeks with 200+ waitlisters and 60% solo-coded, live waitlist driving organic engagement.",
