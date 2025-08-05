@@ -34,6 +34,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
         return "Co-built Soulgames, a GameFi dev toolkit, into a Solana hackathon winner and landed $150K in seed. Rallied a 3K-strong dev/gamer community, ran hackathons with 1K+ participants, and delivered a live MVP in 3 months. Paused by market chaos, but left a mark.";
       case "Martian Wallet":
         return "Headed marketing at Martian Wallet, scaling installs by 50%, landing 400K+ new users, and doubling DApp transaction volumes from $1.2B to $2B. Launched a DApp that hit $1M daily volume in a month, forged 50+ partnerships, and kept the Web3 world buzzing.";
+      case "GEOptimer":
+        return "Founder and builder of GEOptimer, a micro-SaaS that scores and audits website content for LLM/AI engine visibility—think SEO for AI, not just search. Enter a URL, get a GEO Score, action-packed report, and clear next steps in seconds. Built for growth-obsessed marketers.";
       default:
         return project.description;
     }
@@ -69,6 +71,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
         return "Drove 600% organic traffic growth for warehouse automation SaaS.";
       case "Millionth Mile Marketing":
         return "Co-founded top 5 growth agency with 40+ global clients and $180K revenue.";
+      case "GEOptimer":
+        return "Built AI-powered micro-SaaS for generative engine SEO with live MVP.";
       default:
         return project.engagementType;
     }
