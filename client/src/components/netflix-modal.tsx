@@ -698,7 +698,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Martian Wallet"
                               ? "1M+ installs, $2B+ volume, 400K new users, 50+ partnerships, $1M DApp daily"
                               : project.title === "GEOptimer"
-                              ? "MVP platform complete, comprehensive SEO analysis engine, automated report generation"
+                              ? "Comprehensive reports in seconds, instant action items, live MVP"
                               : "50K+ users, 10K+ transactions, 20+ partnerships, global adoption across 30+ countries"
                             }
                           </p>
@@ -734,7 +734,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "Martian Wallet"
                             ? "Head of Marketing (Full Time)"
                             : project.title === "GEOptimer"
-                            ? "Founder (Side Hustle/MicroSaaS)"
+                            ? "Founder (Solo Builder)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
