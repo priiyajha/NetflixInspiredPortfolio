@@ -325,8 +325,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   alt={project.title}
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
-                      ? 'opacity-0 h-48 sm:h-52 md:h-56' 
-                      : 'opacity-100 h-32 sm:h-36 md:h-40 lg:h-44'
+                      ? 'opacity-0 h-80 sm:h-80 md:h-80' 
+                      : 'opacity-100 h-40 sm:h-44 md:h-48 lg:h-52'
                   }`}
                   draggable={false}
                 />
