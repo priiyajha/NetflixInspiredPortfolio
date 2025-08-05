@@ -361,27 +361,27 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       <div className="mt-8 flex-1 flex flex-col">
                         <h3 className="text-lg font-semibold text-white mb-4">Project Gallery</h3>
                         <div className="relative flex-1">
-                          {/* Left Arrow - Positioned at extreme left edge of left image */}
+                          {/* Left Arrow - At extreme left of left image */}
                           {currentImageIndex > 0 && (
                             <button
                               onClick={() => scrollImages('left')}
-                              className="absolute top-1/2 -translate-y-1/2 z-30 bg-black/80 hover:bg-black text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm shadow-xl border border-white/20"
+                              className="absolute top-1/2 -translate-y-1/2 z-30 bg-red-600 hover:bg-red-700 text-white p-2 rounded-full transition-all duration-300 shadow-lg"
                               aria-label="Scroll left"
                               style={{ left: '48px' }}
                             >
-                              <ChevronLeft className="w-5 h-5" />
+                              <ChevronLeft className="w-4 h-4" />
                             </button>
                           )}
 
-                          {/* Right Arrow - Positioned at extreme right edge of right image */}
+                          {/* Right Arrow - At extreme right of right image */}  
                           {currentImageIndex < projectImages.length - 2 && (
                             <button
                               onClick={() => scrollImages('right')}
-                              className="absolute top-1/2 -translate-y-1/2 z-30 bg-black/80 hover:bg-black text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm shadow-xl border border-white/20"
+                              className="absolute top-1/2 -translate-y-1/2 z-30 bg-red-600 hover:bg-red-700 text-white p-2 rounded-full transition-all duration-300 shadow-lg"
                               aria-label="Scroll right"
                               style={{ right: '48px' }}
                             >
-                              <ChevronRight className="w-5 h-5" />
+                              <ChevronRight className="w-4 h-4" />
                             </button>
                           )}
 
