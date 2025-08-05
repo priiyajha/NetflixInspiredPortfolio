@@ -357,10 +357,10 @@ class MemStorage implements IStorage {
       {
         id: "23",
         title: "Blog Automation (Purple City MCP)",
-        description: "Built an intelligent blog automation system that leverages MCP (Model Context Protocol) to generate, optimize, and publish high-quality blog content. Integrates with Purple City's content pipeline to automatically research topics, create SEO-optimized articles, and schedule publications across multiple platforms.",
+        description: "Built a flow to auto-repurpose trending articles via Purple City MCP and RSS, turning them into original blog posts with a human-in-the-loop review. All powered by n8n and will soon power InboxBites' blog at scale.",
         image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
-        technologies: ["MCP", "Python", "Content AI", "SEO Tools", "Publishing APIs"],
+        technologies: ["n8n", "Purple City MCP", "RSS feeds", "CMS"],
         category: "sidehustle",
         liveUrl: "",
         githubUrl: "",
@@ -376,12 +376,12 @@ class MemStorage implements IStorage {
           "Brand voice consistency enforcement",
           "Scheduled content calendar management"
         ],
-        skills: ["Content automation", "MCP integration", "SEO optimization", "publishing workflows"],
-        goal: "Automate blog content creation and publishing at scale",
-        kpis: ["Articles published", "SEO performance", "engagement metrics", "publishing frequency"],
-        results: "Blog pipeline fully automated, content quality maintained, publishing efficiency increased",
-        engagementType: "Founder (Solo Builder)",
-        period: "2024 – ongoing"
+        skills: ["Content automation", "API integration", "workflow building"],
+        goal: "Automate discovery and repurposing of trending content for blogs",
+        kpis: ["Articles sourced", "posts published", "time saved per post"],
+        results: "Deployed flow, InboxBites blog launch pending",
+        engagementType: "Founder/Builder",
+        period: "2025 – ongoing"
       },
 
       {

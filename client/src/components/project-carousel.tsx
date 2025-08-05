@@ -45,7 +45,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
       case "Content Automation (Reddit → LinkedIn)":
         return "Automated my LinkedIn content pipeline by scraping Reddit for trending AI/agent pain points, converting topics into hooks, and posting on LinkedIn with a human-in-the-loop review. All my posts now flow from this. Soon to be productized for other creators.";
       case "Blog Automation (Purple City MCP)":
-        return "Built an intelligent blog automation system that leverages MCP (Model Context Protocol) to generate, optimize, and publish high-quality blog content. Integrates with Purple City's content pipeline to automatically research topics, create SEO-optimized articles, and schedule publications across multiple platforms.";
+        return "Built a flow to auto-repurpose trending articles via Purple City MCP and RSS, turning them into original blog posts with a human-in-the-loop review. All powered by n8n and will soon power InboxBites' blog at scale.";
       default:
         return project.description;
     }
