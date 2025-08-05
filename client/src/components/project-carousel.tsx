@@ -102,7 +102,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
       case "AGENTSY":
         return "Sold over $2M in digital products via AGENTSY—performance marketing funnels at scale.";
       default:
-        return project.engagementType;
+        return project.engagementType || "Project details available";
     }
   };
 
