@@ -68,9 +68,9 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
   if (!projectId) return null;
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence>
       <motion.div
-        key="netflix-modal-backdrop"
+        key={`netflix-modal-${projectId}`}
         className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -78,7 +78,6 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
         onClick={onClose}
       >
         <motion.div
-          key="netflix-modal-content"
           className="bg-[#141414] rounded-lg max-w-5xl w-full max-h-[95vh] overflow-y-auto relative"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -102,12 +101,19 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                     loop
                     muted={isMuted}
                     playsInline
+                    onError={(e) => {
+                      console.warn('Failed to load project video:', project.video);
+                    }}
                   />
                 ) : (
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      console.warn('Failed to load project image:', project.image);
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450";
+                    }}
                   />
                 )}
                 
@@ -399,6 +405,10 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-200 cursor-pointer"
                                     draggable={false}
                                     onClick={() => setSelectedImage(image)}
+                                    onError={(e) => {
+                                      console.warn('Failed to load image:', image);
+                                      e.currentTarget.style.display = 'none';
+                                    }}
                                   />
                                 </div>
                               </div>
@@ -814,12 +824,19 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               loop
                               muted
                               playsInline
+                              onError={(e) => {
+                                console.warn('Failed to load similar project video:', similarProject.video);
+                              }}
                             />
                           )}
                           <img
                             src={similarProject.image}
                             alt={similarProject.title}
                             className="w-full h-32 object-cover group-hover:opacity-0 transition-opacity duration-300"
+                            onError={(e) => {
+                              console.warn('Failed to load similar project image:', similarProject.image);
+                              e.currentTarget.src = "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450";
+                            }}
                           />
                           <div className="p-4">
                             <div className="flex justify-between items-start mb-2">
@@ -889,6 +906,10 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
               alt="Project screenshot"
               className="max-w-full max-h-full object-contain rounded-lg"
               draggable={false}
+              onError={(e) => {
+                console.warn('Failed to load selected image:', selectedImage);
+                setSelectedImage(null);
+              }}
             />
           </motion.div>
         </motion.div>
