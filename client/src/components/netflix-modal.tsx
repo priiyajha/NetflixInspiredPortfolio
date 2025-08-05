@@ -554,7 +554,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 </span>
                               ))
                             ) : project.title === "Internal Linking Agent" ? (
-                              ["Python", "NLP", "Web Scraping", "SEO Analytics", "Machine Learning"].map((tech) => (
+                              ["Replicate", "Node.js", "React.js", "Cloud Code", "custom logic"].map((tech) => (
                                 <span 
                                   key={tech}
                                   className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
@@ -608,7 +608,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Reply Agent (Auto-Commenter)"
                               ? "Automation, headless browser ops, prompt engineering, multi-channel growth"
                               : project.title === "Internal Linking Agent"
-                              ? "SEO optimization, content analysis, automation, web scraping, data processing"
+                              ? "SEO automation, React development, SaaS engineering, content strategy"
                               : "Web3 marketing, community ops, DApp growth, partnerships, content, BD"
                             }
                           </p>
@@ -649,7 +649,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Reply Agent (Auto-Commenter)"
                               ? "Automate replies for inbound, outreach, and community engagement at scale"
                               : project.title === "Internal Linking Agent"
-                              ? "Automate internal linking strategy for maximum SEO impact"
+                              ? "Drive internal linking + AI visibility for resource-constrained sites"
                               : "Grow user base, launch DApp, increase transaction volume, build global partnerships"
                             }
                           </p>
@@ -708,7 +708,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Reply Agent (Auto-Commenter)"
                               ? "Replies/day, engagement, conversion rate, waitlist signups"
                               : project.title === "Internal Linking Agent"
-                              ? "Link opportunities found, SEO score improvement, page authority distribution, crawl efficiency"
+                              ? "Pages optimized, time-to-optimize, user retention"
                               : "User acquisition, transaction volume, partnership deals, DApp engagement"
                             }
                           </p>
@@ -749,7 +749,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Reply Agent (Auto-Commenter)"
                               ? "150 auto-comments/day, Product Hunt launch scheduled, early demand"
                               : project.title === "Internal Linking Agent"
-                              ? "Internal linking optimized automatically, SEO performance enhanced, user navigation improved"
+                              ? "Live in September, beta user waitlist, agent workflow ready"
                               : "50K+ users, 10K+ transactions, 20+ partnerships, global adoption across 30+ countries"
                             }
                           </p>
@@ -791,7 +791,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "Reply Agent (Auto-Commenter)"
                             ? "Founder (Micro-SaaS)"
                             : project.title === "Internal Linking Agent"
-                            ? "Founder (Solo Builder)"
+                            ? "Founder (Micro-SaaS)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>

@@ -297,10 +297,10 @@ class MemStorage implements IStorage {
       {
         id: "21",
         title: "Internal Linking Agent",
-        description: "Built an AI-powered internal linking optimization agent that automatically analyzes website content and generates strategic internal link suggestions. Scans pages for semantic relevance, identifies link opportunities, and creates contextual anchor text recommendations to boost SEO performance and user navigation.",
+        description: "Launching a plug-and-play internal linking agent for founders strapped on SEO budgets—instantly optimize content for search and LLMs. Built on Node.js, React, and custom logic, delivers fast actionable traffic/visibility gains. Shipping first week of September.",
         image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
-        technologies: ["Python", "NLP", "Web Scraping", "SEO Analytics", "Machine Learning"],
+        technologies: ["Replicate", "Node.js", "React.js", "Cloud Code", "custom logic"],
         category: "sidehustle",
         liveUrl: "",
         githubUrl: "",
@@ -316,12 +316,12 @@ class MemStorage implements IStorage {
           "Custom linking strategy recommendations",
           "Real-time content scanning and updates"
         ],
-        skills: ["SEO optimization", "content analysis", "automation", "web scraping", "data processing"],
-        goal: "Automate internal linking strategy for maximum SEO impact",
-        kpis: ["Link opportunities found", "SEO score improvement", "page authority distribution", "crawl efficiency"],
-        results: "Internal linking optimized automatically, SEO performance enhanced, user navigation improved",
-        engagementType: "Founder (Solo Builder)",
-        period: "2024 – ongoing"
+        skills: ["SEO automation", "React development", "SaaS engineering", "content strategy"],
+        goal: "Drive internal linking + AI visibility for resource-constrained sites",
+        kpis: ["Pages optimized", "time-to-optimize", "user retention"],
+        results: "Live in September, beta user waitlist, agent workflow ready",
+        engagementType: "Founder (Micro-SaaS)",
+        period: "2025 – ongoing"
       },
 
       {
