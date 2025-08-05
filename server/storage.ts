@@ -237,10 +237,10 @@ class MemStorage implements IStorage {
       {
         id: "19",
         title: "Growth Opportunity Agent",
-        description: "Revolutionary AI-powered growth agent that identifies and prioritizes untapped business opportunities across multiple channels. Analyzes market gaps, competitor weaknesses, and emerging trends to deliver actionable growth strategies with precision targeting and ROI predictions.",
+        description: "Built a micro-SaaS agent that surfaces untapped digital growth opportunities for startups—automating what founders and marketers miss. Scans all digital touchpoints and delivers actionable insights, making \"where do I grow next?\" a one-click answer.",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
-        technologies: ["OpenAI GPT-4", "Python", "React", "FastAPI", "PostgreSQL", "Redis"],
+        technologies: ["Replit", "Node.js", "Cloud Code", "Cursor", "custom logic"],
         category: "sidehustle",
         liveUrl: "",
         githubUrl: "",
@@ -256,11 +256,11 @@ class MemStorage implements IStorage {
           "Integration with major analytics platforms",
           "Custom reporting and dashboard visualization"
         ],
-        skills: ["AI strategy", "growth hacking", "market analysis", "product management", "data science"],
-        goal: "Identify and capitalize on hidden growth opportunities with AI-driven insights",
-        kpis: ["Opportunities identified", "accuracy rate", "ROI predictions", "user adoption"],
-        results: "AI-powered opportunity detection, automated strategy generation, live analytics platform",
-        engagementType: "Founder (Solo Builder)",
+        skills: ["Growth analysis", "automation", "product design", "digital strategy"],
+        goal: "Unlock growth channels for startups instantly",
+        kpis: ["Growth opps surfaced", "activation rate", "time-to-value"],
+        results: "Opportunities delivered in real time, MVP ready, beta users onboard",
+        engagementType: "Founder (Micro-SaaS)",
         period: "2025 – ongoing"
       },
 

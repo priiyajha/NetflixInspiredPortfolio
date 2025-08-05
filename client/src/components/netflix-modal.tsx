@@ -536,7 +536,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 </span>
                               ))
                             ) : project.title === "Growth Opportunity Agent" ? (
-                              ["OpenAI GPT-4", "Python", "React", "FastAPI", "PostgreSQL", "Redis"].map((tech) => (
+                              ["Replit", "Node.js", "Cloud Code", "Cursor", "custom logic"].map((tech) => (
                                 <span 
                                   key={tech}
                                   className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
@@ -586,7 +586,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "GEOptimer"
                               ? "AI SEO, product management, SaaS engineering, growth analytics, reporting"
                               : project.title === "Growth Opportunity Agent"
-                              ? "AI strategy, growth hacking, market analysis, product management, data science"
+                              ? "Growth analysis, automation, product design, digital strategy"
                               : "Web3 marketing, community ops, DApp growth, partnerships, content, BD"
                             }
                           </p>
@@ -623,7 +623,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "GEOptimer"
                               ? "Optimize websites for generative engine visibility and citations"
                               : project.title === "Growth Opportunity Agent"
-                              ? "Identify and capitalize on hidden growth opportunities with AI-driven insights"
+                              ? "Unlock growth channels for startups instantly"
                               : "Grow user base, launch DApp, increase transaction volume, build global partnerships"
                             }
                           </p>
@@ -678,7 +678,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "GEOptimer"
                               ? "GEO Score, report depth, user activation, actionable insights delivered"
                               : project.title === "Growth Opportunity Agent"
-                              ? "Opportunities identified, accuracy rate, ROI predictions, user adoption"
+                              ? "Growth opps surfaced, activation rate, time-to-value"
                               : "User acquisition, transaction volume, partnership deals, DApp engagement"
                             }
                           </p>
@@ -715,7 +715,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "GEOptimer"
                               ? "Comprehensive reports in seconds, instant action items, live MVP"
                               : project.title === "Growth Opportunity Agent"
-                              ? "AI-powered opportunity detection, automated strategy generation, live analytics platform"
+                              ? "Opportunities delivered in real time, MVP ready, beta users onboard"
                               : "50K+ users, 10K+ transactions, 20+ partnerships, global adoption across 30+ countries"
                             }
                           </p>
@@ -753,7 +753,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "GEOptimer"
                             ? "Founder (Solo Builder)"
                             : project.title === "Growth Opportunity Agent"
-                            ? "Founder (Solo Builder)"
+                            ? "Founder (Micro-SaaS)"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
