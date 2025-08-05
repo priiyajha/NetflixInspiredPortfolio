@@ -43,7 +43,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
       case "Internal Linking Agent":
         return "Launching a plug-and-play internal linking agent for founders strapped on SEO budgets—instantly optimize content for search and LLMs. Built on Node.js, React, and custom logic, delivers fast actionable traffic/visibility gains. Shipping first week of September.";
       case "Content Automation (Reddit → LinkedIn)":
-        return "Built an intelligent content automation system that discovers trending discussions on Reddit and transforms them into professional LinkedIn posts. Uses AI to analyze engagement patterns, extract key insights, and adapt tone for different professional audiences while maintaining authenticity and relevance.";
+        return "Automated my LinkedIn content pipeline by scraping Reddit for trending AI/agent pain points, converting topics into hooks, and posting on LinkedIn with a human-in-the-loop review. All my posts now flow from this. Soon to be productized for other creators.";
       default:
         return project.description;
     }

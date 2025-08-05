@@ -563,7 +563,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 </span>
                               ))
                             ) : project.title === "Content Automation (Reddit → LinkedIn)" ? (
-                              ["Python", "Reddit API", "LinkedIn API", "OpenAI GPT-4", "Content Analysis"].map((tech) => (
+                              ["N8n", "RapidAPI", "CMS", "Reddit API", "LinkedIn API"].map((tech) => (
                                 <span 
                                   key={tech}
                                   className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
@@ -619,7 +619,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Internal Linking Agent"
                               ? "SEO automation, React development, SaaS engineering, content strategy"
                               : project.title === "Content Automation (Reddit → LinkedIn)"
-                              ? "Content automation, social media strategy, AI content generation, cross-platform marketing"
+                              ? "Automation, scraping, prompt engineering, workflow design"
                               : "Web3 marketing, community ops, DApp growth, partnerships, content, BD"
                             }
                           </p>
@@ -662,7 +662,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Internal Linking Agent"
                               ? "Drive internal linking + AI visibility for resource-constrained sites"
                               : project.title === "Content Automation (Reddit → LinkedIn)"
-                              ? "Automate high-quality content creation from social insights"
+                              ? "Turn Reddit trends into LinkedIn-ready content, automate ideation"
                               : "Grow user base, launch DApp, increase transaction volume, build global partnerships"
                             }
                           </p>
@@ -723,7 +723,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Internal Linking Agent"
                               ? "Pages optimized, time-to-optimize, user retention"
                               : project.title === "Content Automation (Reddit → LinkedIn)"
-                              ? "Posts generated, engagement rate, content quality score, time saved"
+                              ? "Posts generated, engagement rate, review-to-post time"
                               : "User acquisition, transaction volume, partnership deals, DApp engagement"
                             }
                           </p>
@@ -766,7 +766,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Internal Linking Agent"
                               ? "Live in September, beta user waitlist, agent workflow ready"
                               : project.title === "Content Automation (Reddit → LinkedIn)"
-                              ? "Content pipeline automated, engagement improved, professional presence scaled"
+                              ? "Automated 100% of LinkedIn pipeline, human QA in loop, next step: SaaS"
                               : "50K+ users, 10K+ transactions, 20+ partnerships, global adoption across 30+ countries"
                             }
                           </p>
@@ -810,7 +810,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             : project.title === "Internal Linking Agent"
                             ? "Founder (Micro-SaaS)"
                             : project.title === "Content Automation (Reddit → LinkedIn)"
-                            ? "Founder (Solo Builder)"
+                            ? "Founder/Operator"
                             : "Solo Builder + Marketer"}
                         </p>
                       </div>
@@ -851,7 +851,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               : project.title === "Internal Linking Agent"
                               ? "2025 – ongoing"
                               : project.title === "Content Automation (Reddit → LinkedIn)"
-                              ? "2024 – ongoing"
+                              ? "2025 – ongoing"
                               : "2024"
                             }
                           </p>

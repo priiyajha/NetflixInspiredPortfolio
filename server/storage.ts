@@ -327,10 +327,10 @@ class MemStorage implements IStorage {
       {
         id: "22",
         title: "Content Automation (Reddit → LinkedIn)",
-        description: "Built an intelligent content automation system that discovers trending discussions on Reddit and transforms them into professional LinkedIn posts. Uses AI to analyze engagement patterns, extract key insights, and adapt tone for different professional audiences while maintaining authenticity and relevance.",
+        description: "Automated my LinkedIn content pipeline by scraping Reddit for trending AI/agent pain points, converting topics into hooks, and posting on LinkedIn with a human-in-the-loop review. All my posts now flow from this. Soon to be productized for other creators.",
         image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
         video: null,
-        technologies: ["Python", "Reddit API", "LinkedIn API", "OpenAI GPT-4", "Content Analysis"],
+        technologies: ["N8n", "RapidAPI", "CMS", "Reddit API", "LinkedIn API"],
         category: "sidehustle",
         liveUrl: "",
         githubUrl: "",
@@ -346,12 +346,12 @@ class MemStorage implements IStorage {
           "Custom content templates and personalization",
           "Performance tracking and content analytics"
         ],
-        skills: ["Content automation", "social media strategy", "AI content generation", "cross-platform marketing"],
-        goal: "Automate high-quality content creation from social insights",
-        kpis: ["Posts generated", "engagement rate", "content quality score", "time saved"],
-        results: "Content pipeline automated, engagement improved, professional presence scaled",
-        engagementType: "Founder (Solo Builder)",
-        period: "2024 – ongoing"
+        skills: ["Automation", "scraping", "prompt engineering", "workflow design"],
+        goal: "Turn Reddit trends into LinkedIn-ready content, automate ideation",
+        kpis: ["Posts generated", "engagement rate", "review-to-post time"],
+        results: "Automated 100% of LinkedIn pipeline, human QA in loop, next step: SaaS",
+        engagementType: "Founder/Operator",
+        period: "2025 – ongoing"
       },
 
       {
