@@ -357,15 +357,15 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         }
                       </p>
 
-                      {/* Image Scroller Section - Full Height */}
-                      <div className="mt-8 flex-1 flex flex-col">
+                      {/* Image Scroller Section - Height matches images */}
+                      <div className="mt-8">
                         <h3 className="text-lg font-semibold text-white mb-4">Project Gallery</h3>
-                        <div className="relative flex-1">
+                        <div className="relative">
                           {/* Left Arrow - At extreme left of left image */}
                           {currentImageIndex > 0 && (
                             <button
                               onClick={() => scrollImages('left')}
-                              className="absolute top-1/2 -translate-y-1/2 z-30 bg-red-600 hover:bg-red-700 text-white p-2 rounded-full transition-all duration-300 shadow-lg"
+                              className="absolute top-1/2 -translate-y-1/2 z-30 bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm shadow-lg"
                               aria-label="Scroll left"
                               style={{ left: '48px' }}
                             >
@@ -377,7 +377,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           {currentImageIndex < projectImages.length - 2 && (
                             <button
                               onClick={() => scrollImages('right')}
-                              className="absolute top-1/2 -translate-y-1/2 z-30 bg-red-600 hover:bg-red-700 text-white p-2 rounded-full transition-all duration-300 shadow-lg"
+                              className="absolute top-1/2 -translate-y-1/2 z-30 bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm shadow-lg"
                               aria-label="Scroll right"
                               style={{ right: '48px' }}
                             >
@@ -385,10 +385,10 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             </button>
                           )}
 
-                          {/* Two Square Images Container - 50% width each, 50% height */}
+                          {/* Two Square Images Container - Height matches images */}
                           <div
                             ref={imageScrollRef}
-                            className="flex gap-3 h-1/2 px-12"
+                            className="flex gap-3 px-12"
                           >
                             {projectImages.slice(currentImageIndex, currentImageIndex + 2).map((image, index) => (
                               <div key={currentImageIndex + index} className="w-1/2 flex-shrink-0">
