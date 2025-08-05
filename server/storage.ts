@@ -385,6 +385,36 @@ class MemStorage implements IStorage {
       },
 
       {
+        id: "24",
+        title: "Lead Generator Agent (LinkedIn, Twitter, Reddit)",
+        description: "Built an intelligent lead generation agent that automatically identifies and engages potential prospects across LinkedIn, Twitter, and Reddit. Uses AI-powered targeting to find decision-makers, analyzes their content engagement patterns, and initiates personalized outreach sequences to convert social media interactions into qualified leads.",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        video: null,
+        technologies: ["Python", "LinkedIn API", "Twitter API", "Reddit API", "Lead Scoring AI"],
+        category: "sidehustle",
+        liveUrl: "",
+        githubUrl: "",
+        featured: "true",
+        status: "completed",
+        features: [
+          "Multi-platform lead identification and targeting",
+          "AI-powered prospect qualification and scoring",
+          "Automated personalized outreach sequences",
+          "Social media engagement pattern analysis",
+          "Lead nurturing workflow automation",
+          "CRM integration and pipeline management",
+          "Performance tracking and conversion analytics",
+          "Compliance-aware engagement protocols"
+        ],
+        skills: ["Lead generation", "social media automation", "AI targeting", "sales funnel optimization"],
+        goal: "Automate lead generation and qualification across social platforms",
+        kpis: ["Leads generated", "qualification rate", "conversion to meetings", "outreach response rate"],
+        results: "Lead pipeline automated, qualification improved, outreach scaled across platforms",
+        engagementType: "Founder (Solo Builder)",
+        period: "2024 – ongoing"
+      },
+
+      {
         id: "15",
         title: "InboxBites",
         description: "Solo-built InboxBites, a microSaaS AI agent for Gmail, transforming newsletter chaos into snackable, swipeable, 50-word knowledge bites. MVP in 6 weeks with 200+ waitlisters and 60% solo-coded, live waitlist driving organic engagement.",

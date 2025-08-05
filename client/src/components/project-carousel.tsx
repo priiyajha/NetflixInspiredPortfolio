@@ -46,6 +46,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
         return "Automated my LinkedIn content pipeline by scraping Reddit for trending AI/agent pain points, converting topics into hooks, and posting on LinkedIn with a human-in-the-loop review. All my posts now flow from this. Soon to be productized for other creators.";
       case "Blog Automation (Purple City MCP)":
         return "Built a flow to auto-repurpose trending articles via Purple City MCP and RSS, turning them into original blog posts with a human-in-the-loop review. All powered by n8n and will soon power InboxBites' blog at scale.";
+      case "Lead Generator Agent (LinkedIn, Twitter, Reddit)":
+        return "Built an intelligent lead generation agent that automatically identifies and engages potential prospects across LinkedIn, Twitter, and Reddit. Uses AI-powered targeting to find decision-makers, analyzes their content engagement patterns, and initiates personalized outreach sequences to convert social media interactions into qualified leads.";
       default:
         return project.description;
     }
