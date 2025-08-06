@@ -45,14 +45,10 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
     }
   };
 
-  // Sample images for the scroller - in a real app, these would come from the project data
-  const projectImages = [
-    project?.image || "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
-    "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
-    "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
-    "https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
-    "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450"
-  ];
+  // Use actual gallery images from project data, fallback to main image if no gallery
+  const projectImages = project?.gallery && project.gallery.length > 0 
+    ? project.gallery 
+    : [project?.image || "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450"];
 
   const scrollImages = (direction: 'left' | 'right') => {
     const totalImages = projectImages.length;
@@ -383,59 +379,61 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         }
                       </p>
 
-                      {/* Image Scroller Section - Height matches images */}
-                      <div className="mt-8">
-                        <h3 className="text-lg font-semibold text-white mb-4">Project Gallery</h3>
-                        <div className="relative">
-                          {/* Left Arrow - At extreme left of left image */}
-                          {currentImageIndex > 0 && (
-                            <button
-                              onClick={() => scrollImages('left')}
-                              className="absolute top-1/2 -translate-y-1/2 z-30 bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm shadow-lg"
-                              aria-label="Scroll left"
-                              style={{ left: '48px' }}
-                            >
-                              <ChevronLeft className="w-4 h-4" />
-                            </button>
-                          )}
+                      {/* Project Gallery Section - Only show if gallery has images */}
+                      {projectImages && projectImages.length > 0 && (
+                        <div className="mt-8">
+                          <h3 className="text-lg font-semibold text-white mb-4">Project Gallery</h3>
+                          <div className="relative">
+                            {/* Left Arrow - Only show if there are more than 2 images and we can scroll left */}
+                            {projectImages.length > 2 && currentImageIndex > 0 && (
+                              <button
+                                onClick={() => scrollImages('left')}
+                                className="absolute top-1/2 -translate-y-1/2 z-30 bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm shadow-lg"
+                                aria-label="Scroll left"
+                                style={{ left: '48px' }}
+                              >
+                                <ChevronLeft className="w-4 h-4" />
+                              </button>
+                            )}
 
-                          {/* Right Arrow - At extreme right of right image */}  
-                          {currentImageIndex < projectImages.length - 2 && (
-                            <button
-                              onClick={() => scrollImages('right')}
-                              className="absolute top-1/2 -translate-y-1/2 z-30 bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm shadow-lg"
-                              aria-label="Scroll right"
-                              style={{ right: '48px' }}
-                            >
-                              <ChevronRight className="w-4 h-4" />
-                            </button>
-                          )}
+                            {/* Right Arrow - Only show if there are more than 2 images and we can scroll right */}  
+                            {projectImages.length > 2 && currentImageIndex < projectImages.length - 2 && (
+                              <button
+                                onClick={() => scrollImages('right')}
+                                className="absolute top-1/2 -translate-y-1/2 z-30 bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm shadow-lg"
+                                aria-label="Scroll right"
+                                style={{ right: '48px' }}
+                              >
+                                <ChevronRight className="w-4 h-4" />
+                              </button>
+                            )}
 
-                          {/* Two Square Images Container - Height matches images */}
-                          <div
-                            ref={imageScrollRef}
-                            className="flex gap-3 px-12"
-                          >
-                            {projectImages.slice(currentImageIndex, currentImageIndex + 2).map((image, index) => (
-                              <div key={currentImageIndex + index} className="w-1/2 flex-shrink-0">
-                                <div className="w-full aspect-[16/9] overflow-hidden rounded-md">
-                                  <img
-                                    src={image}
-                                    alt={`${project?.title} screenshot ${currentImageIndex + index + 1}`}
-                                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-200 cursor-pointer"
-                                    draggable={false}
-                                    onClick={() => setSelectedImage(image)}
-                                    onError={(e) => {
-                                      console.warn('Failed to load image:', image);
-                                      e.currentTarget.style.display = 'none';
-                                    }}
-                                  />
+                            {/* Images Container - Show up to 2 images */}
+                            <div
+                              ref={imageScrollRef}
+                              className="flex gap-3 px-12"
+                            >
+                              {projectImages.slice(currentImageIndex, currentImageIndex + 2).map((image, index) => (
+                                <div key={currentImageIndex + index} className={`flex-shrink-0 ${projectImages.length === 1 ? 'w-full' : 'w-1/2'}`}>
+                                  <div className="w-full aspect-[16/9] overflow-hidden rounded-md">
+                                    <img
+                                      src={image}
+                                      alt={`${project?.title} gallery image ${currentImageIndex + index + 1}`}
+                                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-200 cursor-pointer"
+                                      draggable={false}
+                                      onClick={() => setSelectedImage(image)}
+                                      onError={(e) => {
+                                        console.warn('Failed to load gallery image:', image);
+                                        e.currentTarget.style.display = 'none';
+                                      }}
+                                    />
+                                  </div>
                                 </div>
-                              </div>
-                            ))}
+                              ))}
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      )}
                     </div>
 
                     {/* Vertical Navy Blue Separator */}
