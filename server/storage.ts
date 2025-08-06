@@ -389,7 +389,7 @@ class MemStorage implements IStorage {
         title: "Lead Generator Agent (LinkedIn, Twitter, Reddit)",
         description: "Created an agent to scrape, filter, and funnel target profiles talking about specific pain points on LinkedIn, Twitter, and Reddit—automates profile discovery and dashboarding, saving 60% of lead gen time. Frees founders and marketers to focus on closing, not scraping.",
         image: "/attached_assets/ChatGPT Image Aug 6, 2025, 01_28_58 AM_1754451946834.png",
-        video: null,
+        video: "/attached_assets/18_1754499898932.mp4",
         technologies: ["N8n", "platform APIs", "dashboard (custom)"],
         category: "sidehustle",
         liveUrl: "",
