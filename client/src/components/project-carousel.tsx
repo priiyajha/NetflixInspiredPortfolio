@@ -57,8 +57,6 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
 
   const getProjectSubtitle = (project: Project): string => {
     switch (project.title) {
-      case "Cazpro":
-        return "Built and scaled a leading college merch brand from zero to 2.5M INR in 15 months.";
       case "DigiPay":
         return "Scaled fintech platform from startup to market leader with 500% user growth.";
       case "FDX Sports":
