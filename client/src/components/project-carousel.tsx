@@ -248,6 +248,11 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
           const hasLiveUrl = project.liveUrl && project.liveUrl.length > 0;
           const isClickable = hasLiveUrl || project.status === "coming-soon" || project.status === "completed";
           
+          // Debug log to check project data
+          if (project.title === "Cazpro") {
+            console.log("Cazpro project data:", { title: project.title, video: project.video, image: project.image });
+          }
+          
           return (
             <motion.div
               key={project.id}
@@ -303,7 +308,15 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 {/* Video background for hover state */}
                 {hoveredProject === project.id && project.video && (
                   <motion.video
-                    ref={(el) => { videoRefs.current[project.id] = el; }}
+                    ref={(el) => { 
+                      videoRefs.current[project.id] = el;
+                      if (el) {
+                        console.log(`Video element created for ${project.title}:`, project.video);
+                        el.addEventListener('loadstart', () => console.log(`Video loadstart: ${project.title}`));
+                        el.addEventListener('error', (e) => console.error(`Video error for ${project.title}:`, e));
+                        el.addEventListener('canplay', () => console.log(`Video canplay: ${project.title}`));
+                      }
+                    }}
                     src={project.video}
                     autoPlay
                     loop
@@ -313,6 +326,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.4 }}
+                    onError={(e) => console.error(`Video element error for ${project.title}:`, e)}
                   />
                 )}
                 
