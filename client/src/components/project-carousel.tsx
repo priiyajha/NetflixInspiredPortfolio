@@ -83,16 +83,16 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     const container = scrollRef.current;
     if (!container) return;
     
-    const cardWidth = 320; // Approximate card width + gap
-    container.scrollBy({ left: -cardWidth * 2, behavior: 'smooth' });
+    const cardWidth = window.innerWidth >= 1280 ? 296 : window.innerWidth >= 1024 ? 272 : window.innerWidth >= 768 ? 224 : window.innerWidth >= 640 ? 172 : 140; // Responsive card width + gap
+    container.scrollBy({ left: -cardWidth * 3, behavior: 'smooth' });
   };
 
   const scrollRight = () => {
     const container = scrollRef.current;
     if (!container) return;
     
-    const cardWidth = 320; // Approximate card width + gap
-    container.scrollBy({ left: cardWidth * 2, behavior: 'smooth' });
+    const cardWidth = window.innerWidth >= 1280 ? 296 : window.innerWidth >= 1024 ? 272 : window.innerWidth >= 768 ? 224 : window.innerWidth >= 640 ? 172 : 140; // Responsive card width + gap
+    container.scrollBy({ left: cardWidth * 3, behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -239,7 +239,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
 
       <div
         ref={scrollRef}
-        className="flex space-x-3 sm:space-x-4 overflow-x-auto scrollbar-hide px-4 sm:px-6 md:px-12 pb-4 cursor-grab active:cursor-grabbing"
+        className="flex space-x-2 sm:space-x-3 md:space-x-4 overflow-x-auto scrollbar-hide px-4 sm:px-6 md:px-12 pb-4 cursor-grab active:cursor-grabbing"
         onMouseDown={handleMouseDown}
       >
         {projects.map((project, index) => {
@@ -251,8 +251,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
               key={project.id}
               className={`flex-none ${isClickable ? 'cursor-pointer' : 'cursor-default'} relative ${
                 hoveredProject === project.id 
-                  ? 'w-80 sm:w-80 md:w-80 lg:w-80' 
-                  : 'w-64 sm:w-72 md:w-80 lg:w-96'
+                  ? 'w-80 sm:w-80 md:w-80 lg:w-80 xl:w-80' 
+                  : 'w-32 sm:w-40 md:w-52 lg:w-64 xl:w-72'
               }`}
               style={{
                 transition: 'width 0.3s ease-in-out'
@@ -325,7 +325,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
                       ? 'opacity-0 h-80 sm:h-80 md:h-80' 
-                      : 'opacity-100 h-40 sm:h-44 md:h-48 lg:h-52'
+                      : 'opacity-100 h-24 sm:h-32 md:h-40 lg:h-44 xl:h-48'
                   }`}
                   draggable={false}
                 />
