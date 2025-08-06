@@ -286,7 +286,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
             >
               {/* Normal Card State */}
               <motion.div 
-                className={`relative rounded-lg overflow-hidden transition-all duration-300 ease-out ${
+                className={`relative overflow-hidden transition-all duration-300 ease-out ${
                   isClickable 
                     ? hoveredProject === project.id 
                       ? 'shadow-2xl shadow-black/50 z-20' 
