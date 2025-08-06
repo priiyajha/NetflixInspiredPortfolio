@@ -83,18 +83,18 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     const container = scrollRef.current;
     if (!container) return;
     
-    // Netflix-style card width + gap based on reference dimensions
-    const cardWidth = window.innerWidth >= 1280 ? 260 : window.innerWidth >= 1024 ? 244 : window.innerWidth >= 768 ? 220 : window.innerWidth >= 640 ? 184 : 148;
-    container.scrollBy({ left: -cardWidth * 6, behavior: 'smooth' });
+    // Netflix pixel-perfect dimensions - 7 cards per row with tight spacing
+    const cardWidth = window.innerWidth >= 1280 ? 216 : window.innerWidth >= 1024 ? 200 : window.innerWidth >= 768 ? 184 : window.innerWidth >= 640 ? 152 : 136;
+    container.scrollBy({ left: -cardWidth * 7, behavior: 'smooth' });
   };
 
   const scrollRight = () => {
     const container = scrollRef.current;
     if (!container) return;
     
-    // Netflix-style card width + gap based on reference dimensions
-    const cardWidth = window.innerWidth >= 1280 ? 260 : window.innerWidth >= 1024 ? 244 : window.innerWidth >= 768 ? 220 : window.innerWidth >= 640 ? 184 : 148;
-    container.scrollBy({ left: cardWidth * 6, behavior: 'smooth' });
+    // Netflix pixel-perfect dimensions - 7 cards per row with tight spacing
+    const cardWidth = window.innerWidth >= 1280 ? 216 : window.innerWidth >= 1024 ? 200 : window.innerWidth >= 768 ? 184 : window.innerWidth >= 640 ? 152 : 136;
+    container.scrollBy({ left: cardWidth * 7, behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -241,7 +241,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
 
       <div
         ref={scrollRef}
-        className="flex space-x-1 sm:space-x-2 md:space-x-3 lg:space-x-4 xl:space-x-5 overflow-x-auto scrollbar-hide px-4 sm:px-6 md:px-12 pb-4 cursor-grab active:cursor-grabbing"
+        className="flex gap-1 sm:gap-1 md:gap-2 lg:gap-2 xl:gap-2 overflow-x-auto scrollbar-hide px-4 sm:px-6 md:px-12 pb-4 cursor-grab active:cursor-grabbing"
         onMouseDown={handleMouseDown}
       >
         {projects.map((project, index) => {
@@ -254,7 +254,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
               className={`flex-none ${isClickable ? 'cursor-pointer' : 'cursor-default'} relative ${
                 hoveredProject === project.id 
                   ? 'w-80 sm:w-80 md:w-80 lg:w-80 xl:w-80' 
-                  : 'w-36 sm:w-44 md:w-52 lg:w-56 xl:w-60'
+                  : 'w-32 sm:w-36 md:w-44 lg:w-48 xl:w-52'
               }`}
               style={{
                 transition: 'width 0.3s ease-in-out'
@@ -327,7 +327,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
                       ? 'opacity-0 h-80 sm:h-80 md:h-80' 
-                      : 'opacity-100 h-20 sm:h-24 md:h-28 lg:h-32 xl:h-36'
+                      : 'opacity-100 h-18 sm:h-20 md:h-24 lg:h-28 xl:h-32'
                   }`}
                   draggable={false}
                 />
