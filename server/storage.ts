@@ -539,7 +539,7 @@ class MemStorage implements IStorage {
         title: "Inventrax",
         description: "Inventrax is a comprehensive inventory management system designed for businesses of all sizes. Features real-time tracking, automated reordering, and advanced analytics to optimize stock levels and reduce operational costs.",
         image: "/attached_assets/ChatGPT Image Aug 5, 2025, 10_52_17 PM_1754451303136.png",
-        video: null,
+        video: "/attached_assets/4_1754493466751.mov",
         technologies: ["SEMrush", "Backlinko.io", "Ahrefs", "Google Analytics", "Google Search Console"],
         category: "consulting",
         liveUrl: "https://inventrax.com",
