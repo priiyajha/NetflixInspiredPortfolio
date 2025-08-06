@@ -438,11 +438,14 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                             <Play className="w-4 h-4 fill-current" />
                           </button>
                           
-                          {/* Add Button - Dummy for now */}
+                          {/* Add Button - Opens Project Modal */}
                           <button 
                             className="border-2 border-gray-400 text-white p-2 rounded-full hover:border-white hover:bg-white/10 transition-colors"
-                            onClick={(e) => e.stopPropagation()}
-                            title="Add to list"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onProjectClick(project.id);
+                            }}
+                            title="View project details"
                           >
                             <Plus className="w-4 h-4" />
                           </button>
