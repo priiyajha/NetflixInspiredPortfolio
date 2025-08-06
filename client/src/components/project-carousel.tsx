@@ -300,7 +300,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   scale: hoveredProject === project.id ? 1.15 : 1,
                   y: hoveredProject === project.id ? -15 : 0,
                 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
+                transition={{ duration: 1.0, ease: "easeInOut" }}
               >
                 {/* Video background for hover state */}
                 {hoveredProject === project.id && project.video && (
