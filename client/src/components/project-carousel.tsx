@@ -426,18 +426,14 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                       {/* Netflix-style Action buttons */}
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-2">
-                          {/* Play Button - Restarts Video */}
+                          {/* Play Button - Opens Project Modal */}
                           <button 
                             className="bg-white text-black p-2 rounded-full hover:bg-gray-200 transition-colors"
                             onClick={(e) => {
                               e.stopPropagation();
-                              const video = videoRefs.current[project.id];
-                              if (video) {
-                                video.currentTime = 0;
-                                video.play();
-                              }
+                              onProjectClick(project.id);
                             }}
-                            title="Restart video"
+                            title="View project details"
                           >
                             <Play className="w-4 h-4 fill-current" />
                           </button>
