@@ -185,6 +185,19 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
       setTimeout(() => setCopiedProject(null), 2000);
     } catch (err) {
       console.error('Failed to copy: ', err);
+      // Fallback for older browsers or failed clipboard access
+      try {
+        const textArea = document.createElement('textarea');
+        textArea.value = projectUrl;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        setCopiedProject(project.id);
+        setTimeout(() => setCopiedProject(null), 2000);
+      } catch (fallbackErr) {
+        console.error('Fallback copy failed: ', fallbackErr);
+      }
     }
   };
 

@@ -23,7 +23,7 @@ export default function Home() {
     }
   }, []);
 
-  const { data: profile, isLoading: profileLoading } = useQuery<Profile>({
+  const { data: profile, isLoading: profileLoading, error: profileError } = useQuery<Profile>({
     queryKey: ["/api/profile"],
   });
 
@@ -31,6 +31,14 @@ export default function Home() {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
         <div className="text-white text-lg sm:text-xl">Loading...</div>
+      </div>
+    );
+  }
+
+  if (profileError) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-red-400 text-lg sm:text-xl">Failed to load profile. Please refresh the page.</div>
       </div>
     );
   }
