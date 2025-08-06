@@ -27,7 +27,7 @@ class MemStorage implements IStorage {
         title: "Cazpro",
         description: "Built and scaled Cazpro, a D2C college merch brand, from a dorm room idea at 17 to a 2.5M INR sales machine in 15 months. Survived near shutdowns, sold to a local industrialist, and handled everything from code to partnerships. Hustled hard, shipped harder.",
         image: "/attached_assets/ChatGPT Image Aug 5, 2025, 11_15_03 PM_1754424201577.png",
-        video: null,
+        video: "/attached_assets/1_1754491684471.mp4",
         technologies: ["CleverTap", "AppsFlyer", "Amplitude", "Google Firebase", "Google Analytics", "SEMrush", "Branch.io"],
         category: "startup",
         liveUrl: "https://cazpro.com",
