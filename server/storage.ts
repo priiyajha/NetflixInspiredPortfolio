@@ -328,7 +328,7 @@ class MemStorage implements IStorage {
         id: "22",
         title: "Content Automation (Reddit → LinkedIn)",
         description: "Automated my LinkedIn content pipeline by scraping Reddit for trending AI/agent pain points, converting topics into hooks, and posting on LinkedIn with a human-in-the-loop review. All my posts now flow from this. Soon to be productized for other creators.",
-        image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        image: "/attached_assets/ChatGPT Image Aug 6, 2025, 01_27_25 AM_1754451883207.png",
         video: null,
         technologies: ["N8n", "RapidAPI", "CMS", "Reddit API", "LinkedIn API"],
         category: "sidehustle",
