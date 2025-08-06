@@ -147,7 +147,7 @@ class MemStorage implements IStorage {
         id: "11",
         title: "ZO Labs",
         description: "Head of Growth who scaled ZO Labs from stealth to 180K installs and built 100K+ community with 10K+ AI agents. Led partnerships, growth campaigns, and community building that established the platform as a leader in the AI agent ecosystem.",
-        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        image: "/attached_assets/ChatGPT Image Aug 5, 2025, 10_38_49 PM_1754451537463.png",
         video: null,
         technologies: ["HubSpot", "ActiveCampaign", "Firebase Studio", "AppsFlyer", "AppRadar", "WebEngage", "Discord", "Twitter", "LinkedIn", "Telegram", "Instagram"],
         category: "fulltime",
