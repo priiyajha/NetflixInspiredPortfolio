@@ -270,10 +270,10 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   if (hoverTimeout) {
                     clearTimeout(hoverTimeout);
                   }
-                  // Set a delay before showing hover state (like Netflix)
+                  // Set a 2 second delay before showing hover state
                   const timeout = setTimeout(() => {
                     setHoveredProject(project.id);
-                  }, 150);
+                  }, 2000);
                   setHoverTimeout(timeout);
                 }
               }}
