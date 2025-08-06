@@ -455,6 +455,7 @@ class MemStorage implements IStorage {
         description: "Solo-built InboxBites, a microSaaS AI agent for Gmail, transforming newsletter chaos into snackable, swipeable, 50-word knowledge bites. MVP in 6 weeks with 200+ waitlisters and 60% solo-coded, live waitlist driving organic engagement.",
         image: "/attached_assets/ChatGPT Image Aug 5, 2025, 10_53_35 PM_1754451620594.png",
         video: "/attached_assets/9_1754495180203.mov",
+        gallery: ["/attached_assets/9_3_1754501901232.png", "/attached_assets/9_2_1754501915653.png"],
         technologies: ["Replit Cloud Code (Anthropic)", "Gmail API", "PWA", "JavaScript"],
         category: "sidehustle",
         liveUrl: "",
