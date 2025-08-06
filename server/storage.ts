@@ -485,6 +485,7 @@ class MemStorage implements IStorage {
         description: "Co-built Soulgames, a GameFi dev toolkit, into a Solana hackathon winner and landed $150K in seed. Rallied a 3K-strong dev/gamer community, ran hackathons with 1K+ participants, and delivered a live MVP in 3 months. Paused by market chaos, but left a mark.",
         image: "/attached_assets/ChatGPT Image Aug 5, 2025, 10_32_06 PM_1754451653048.png",
         video: "/attached_assets/10_1754496630178.mp4",
+        gallery: ["/attached_assets/10_1_1754501979375.png", "/attached_assets/10_2_1754501985289.png"],
         technologies: ["Solana", "Web3 tools", "tokenization protocols", "Discord", "Telegram"],
         category: "sidehustle",
         liveUrl: "",
