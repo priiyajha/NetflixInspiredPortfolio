@@ -239,7 +239,7 @@ class MemStorage implements IStorage {
         title: "Growth Opportunity Agent",
         description: "Built a micro-SaaS agent that surfaces untapped digital growth opportunities for startups—automating what founders and marketers miss. Scans all digital touchpoints and delivers actionable insights, making \"where do I grow next?\" a one-click answer.",
         image: "/attached_assets/ChatGPT Image Aug 6, 2025, 01_13_48 AM_1754451747484.png",
-        video: null,
+        video: "/attached_assets/13_1754497974190.mp4",
         technologies: ["Replit", "Node.js", "Cloud Code", "Cursor", "custom logic"],
         category: "sidehustle",
         liveUrl: "",
