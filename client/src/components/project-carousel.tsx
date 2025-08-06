@@ -251,7 +251,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
           return (
             <motion.div
               key={project.id}
-              className={`flex-none ${isClickable ? 'cursor-pointer' : 'cursor-default'} relative ${
+              className={`flex-none cursor-pointer relative ${
                 hoveredProject === project.id 
                   ? 'w-80 sm:w-80 md:w-80 lg:w-80 xl:w-80' 
                   : 'w-32 sm:w-36 md:w-44 lg:w-48 xl:w-52'
@@ -259,23 +259,21 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
               style={{
                 transition: 'width 0.3s ease-in-out'
               }}
-              onClick={() => isClickable && onProjectClick(project.id)}
+              onClick={() => onProjectClick(project.id)}
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
               onMouseEnter={() => {
-                if (isClickable) {
-                  // Clear any existing timeout
-                  if (hoverTimeout) {
-                    clearTimeout(hoverTimeout);
-                  }
-                  // Set a 2 second delay before showing hover state
-                  const timeout = setTimeout(() => {
-                    setHoveredProject(project.id);
-                  }, 2000);
-                  setHoverTimeout(timeout);
+                // Clear any existing timeout
+                if (hoverTimeout) {
+                  clearTimeout(hoverTimeout);
                 }
+                // Set a 2 second delay before showing hover state
+                const timeout = setTimeout(() => {
+                  setHoveredProject(project.id);
+                }, 2000);
+                setHoverTimeout(timeout);
               }}
               onMouseLeave={() => {
                 // Clear timeout and hover state
@@ -289,11 +287,9 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
               {/* Normal Card State */}
               <motion.div 
                 className={`relative overflow-hidden transition-all duration-300 ease-out ${
-                  isClickable 
-                    ? hoveredProject === project.id 
-                      ? 'shadow-2xl shadow-black/50 z-20' 
-                      : 'hover:shadow-lg hover:shadow-black/30'
-                    : ''
+                  hoveredProject === project.id 
+                    ? 'shadow-2xl shadow-black/50 z-20' 
+                    : 'hover:shadow-lg hover:shadow-black/30'
                 }`}
                 style={{
                   transformOrigin: 'center center'
