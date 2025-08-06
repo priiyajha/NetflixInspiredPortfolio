@@ -9,7 +9,7 @@ export const projects = pgTable("projects", {
   description: text("description").notNull(),
   image: text("image").notNull(),
   video: text("video"),
-  gallery: json("gallery").$type<string[]>(), // Project gallery images
+  gallery: json("gallery").$type<string[]>().default([]), // Project gallery images
   technologies: json("technologies").$type<string[]>().notNull(),
   category: text("category").notNull(),
   liveUrl: text("live_url"),
