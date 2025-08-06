@@ -509,7 +509,7 @@ class MemStorage implements IStorage {
         title: "Millionth Mile Marketing",
         description: "Millionth Mile Marketing is a comprehensive digital marketing platform that provides advanced marketing automation, campaign management, and analytics solutions. Built for businesses looking to scale their marketing efforts with data-driven strategies and real-time performance insights.",
         image: "/attached_assets/ChatGPT Image Aug 5, 2025, 10_04_17 PM_1754424520386.png",
-        video: null,
+        video: "/attached_assets/2_1754492193766.mp4",
         technologies: ["Google Ads", "Meta Ads", "SEMrush", "Ahrefs", "Mailchimp", "HubSpot", "WordPress"],
         category: "consulting",
         liveUrl: "https://millionthmiledgtl.com",
