@@ -251,7 +251,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
           return (
             <motion.div
               key={project.id}
-              className={`flex-none cursor-pointer relative ${
+              className={`flex-none cursor-pointer relative group ${
                 hoveredProject === project.id 
                   ? 'w-80 sm:w-80 md:w-80 lg:w-80 xl:w-80' 
                   : 'w-32 sm:w-36 md:w-44 lg:w-48 xl:w-52'
@@ -336,10 +336,12 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 }`}></div>
                 
                 {/* Share Button */}
-                <div className="absolute top-6 right-3 z-20">
+                <div className="absolute top-2 right-2 z-30">
                   <button
                     onClick={(e) => handleShare(project, e)}
-                    className="bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 backdrop-blur-sm"
+                    className={`bg-black/60 hover:bg-black/80 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm ${
+                      hoveredProject === project.id ? 'opacity-100' : 'opacity-0'
+                    }`}
                     aria-label="Share project"
                   >
                     <Share className="w-4 h-4" />
