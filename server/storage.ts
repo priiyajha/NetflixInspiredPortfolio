@@ -268,7 +268,7 @@ class MemStorage implements IStorage {
         id: "20",
         title: "Reply Agent (Auto-Commenter)",
         description: "Engineering a Reply Agent that auto-generates and posts targeted replies across LinkedIn, Twitter, and Reddit. Comment up to 150x a day, all automated and prompt-driven—think hustle in a headless browser. Launching with a waitlist on Product Hunt, August 25.",
-        image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450",
+        image: "/attached_assets/ChatGPT Image Aug 6, 2025, 01_02_37 AM_1754451829997.png",
         video: null,
         technologies: ["Replit", "Cursor", "Cloud Code", "custom scripts"],
         category: "sidehustle",
