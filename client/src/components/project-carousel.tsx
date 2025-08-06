@@ -57,6 +57,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
 
   const getProjectSubtitle = (project: Project): string => {
     switch (project.title) {
+      case "Cazpro":
+        return ""; // No subtitle for Cazpro
       case "DigiPay":
         return "Scaled fintech platform from startup to market leader with 500% user growth.";
       case "FDX Sports":
