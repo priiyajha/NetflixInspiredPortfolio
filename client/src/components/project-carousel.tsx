@@ -449,11 +449,9 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     {project.title}
                   </h3>
                   
-                  {/* Project Subtitle - Always Visible (except for Cazpro) */}
-                  {project.title !== "Cazpro" && (
-                    <p className={`text-gray-400 transition-all duration-300 ${
-                      hoveredProject === project.id ? 'text-sm mb-2' : 'text-xs mb-2'
-                    }`}>
+                  {/* Project Subtitle - Only visible on hover */}
+                  {hoveredProject === project.id && (
+                    <p className="text-gray-400 text-sm mb-2 transition-all duration-300">
                       {getProjectSubtitle(project)}
                     </p>
                   )}
