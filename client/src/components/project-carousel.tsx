@@ -269,10 +269,10 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 if (hoverTimeout) {
                   clearTimeout(hoverTimeout);
                 }
-                // Set a 2 second delay before showing hover state
+                // Set a 1 second delay before showing hover state
                 const timeout = setTimeout(() => {
                   setHoveredProject(project.id);
-                }, 2000);
+                }, 1000);
                 setHoverTimeout(timeout);
               }}
               onMouseLeave={() => {
