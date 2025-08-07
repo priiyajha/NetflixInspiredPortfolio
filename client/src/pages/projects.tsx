@@ -28,6 +28,9 @@ export default function ProjectsPage() {
             Explore my portfolio of web applications, automation tools, and creative projects. 
             Each project showcases different aspects of my development skills and problem-solving approach.
           </p>
+          
+          {/* Horizontal Divider Line */}
+          <div className="w-full h-px bg-navy-700 opacity-50 mb-8 sm:mb-12" style={{backgroundColor: '#1e3a8a'}}></div>
         </div>
         <ProjectsSection onProjectClick={setSelectedProjectId} />
       </div>
