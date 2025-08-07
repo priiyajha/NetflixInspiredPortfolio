@@ -149,7 +149,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
   }
 
   return (
-    <div className="relative group">
+    <div className="relative group" style={{ overflow: 'visible' }}>
       {/* Left Arrow */}
       {canScrollLeft && (
         <button
@@ -175,6 +175,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
       <div
         ref={scrollRef}
         className="flex gap-1 sm:gap-2 md:gap-2 lg:gap-3 xl:gap-3 overflow-x-auto scrollbar-hide px-4 sm:px-6 md:px-12 pb-4"
+        style={{ overflowY: 'visible' }}
       >
         {projects.map((project, index) => {
           return (
@@ -186,9 +187,11 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 if (hoverTimeout) {
                   clearTimeout(hoverTimeout);
                 }
+                // Reduce delay to 200ms for better responsiveness
                 const timeout = setTimeout(() => {
+                  console.log('Setting hovered project:', project.id);
                   setHoveredProject(project.id);
-                }, 500);
+                }, 200);
                 setHoverTimeout(timeout);
               }}
               onMouseLeave={() => {
@@ -237,11 +240,10 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
               {/* Expanded Hover Card State - Absolutely positioned */}
               {hoveredProject === project.id && (
                 <motion.div 
-                  className="absolute top-0 left-0 w-80 overflow-hidden shadow-2xl shadow-black/50 pointer-events-auto bg-gray-800"
+                  className="absolute top-0 left-0 w-80 overflow-hidden shadow-2xl shadow-black/50 pointer-events-auto bg-gray-900 border-2 border-red-500 z-50"
                   style={{
                     transformOrigin: 'center center',
-                    borderRadius: '12px',
-                    zIndex: 50
+                    borderRadius: '12px'
                   }}
                   initial={{
                     scale: 1,
