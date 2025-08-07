@@ -11,48 +11,8 @@ interface ProjectCarouselProps {
 export default function ProjectCarousel({ projects, onProjectClick }: ProjectCarouselProps) {
   
   const getProjectTitleDescription = (project: Project) => {
-    switch (project.title) {
-      case "Cazpro":
-        return "";
-      case "Millionth Mile Marketing":
-        return "Co-founded a growth agency that became an Andhra Pradesh top 5, racking up 40+ global clients, 2 years, $180K revenue, and 25 teammates. Built teams, scaled campaigns, won awards, and hustled for brands from Vizag to Europe. Brought a bold attitude to every pitch.";
-      case "DigiPay":
-        return "Joined as first marketing hire, scaled the team to 28, and helped take revenue from $4M to $80M in 19 months. Drove growth with everything from guerrilla tactics to field ops. Orchestrated viral B2B installs and led the brand through major funding rounds.";
-      case "Inventrax":
-        return "Drove a 600% organic traffic jump for a warehouse automation SaaS in 4 months as a marketing consultant. Cracked the top 2 spots for three high-value keywords and turned traffic into leads with CRO and smart automation. Growth hacking, done right.";
-      case "FDX Sports":
-        return "Turbocharged FDX into a million-dollar D2C brand in Europe. Drove sales from $10K to $120K/month in 6 months, spent half a million on ads, reworked CRO and email automation, and 2.5x'd average cart value. Did not just play the game, rewrote the playbook.";
-      case "Codiste":
-        return "Fractional CMO who built, trained, and turbocharged the marketing and outbound sales teams. 4x'd marketing output, 2.5x'd sales response rates, and baked AI and programmatic SEO into their DNA. Set up every process from social to cold DMs, always optimizing for impact.";
-      case "ZO Labs":
-        return "As Head of Growth, took ZO Labs from stealth to 180K installs, built a 100K+ community, and shipped 10,000+ AI agent landing pages. Ran AI-led marketing sprints, bagged 120+ partnerships, and put ZO on the global stage. All hustle, zero fluff.";
-      case "Zentrades":
-        return "Dropped into Zentrades as a marketing consultant, rewired their inbound engine, and took MQLs from single digits to 60 a month in 4 months. Engineered a 125% traffic spike, built 5000+ SEO-rich landing pages, and turned a good CRM into a qualified lead machine.";
-      case "InboxBites":
-        return "Solo-built InboxBites, a microSaaS AI agent for Gmail, transforming newsletter chaos into snackable, swipeable, 50-word knowledge bites. Architected 60%+ of the code, GTM, UI/UX, and product strategy in 6 weeks. Already has 200+ waitlisters—built for hustlers who hate inbox overload.";
-      case "Solgames":
-        return "Co-built Soulgames, a GameFi dev toolkit, into a Solana hackathon winner and landed $150K in seed. Rallied a 3K-strong dev/gamer community, ran hackathons with 1K+ participants, and delivered a live MVP in 3 months. Paused by market chaos, but left a mark.";
-      case "Martian Wallet":
-        return "Headed marketing at Martian Wallet, scaling installs by 50%, landing 400K+ new users, and doubling DApp transaction volumes from $1.2B to $2B. Launched a DApp that hit $1M daily volume in a month, forged 50+ partnerships, and kept the Web3 world buzzing.";
-      case "GEOptimer":
-        return "Founder and builder of GEOptimer, a micro-SaaS that scores and audits website content for LLM/AI engine visibility—think SEO for AI, not just search. Enter a URL, get a GEO Score, action-packed report, and clear next steps in seconds. Built for growth-obsessed marketers.";
-      case "Growth Opportunity Agent":
-        return "Built a micro-SaaS agent that surfaces untapped digital growth opportunities for startups—automating what founders and marketers miss. Scans all digital touchpoints and delivers actionable insights, making \"where do I grow next?\" a one-click answer.";
-      case "Reply Agent (Auto-Commenter)":
-        return "Engineering a Reply Agent that auto-generates and posts targeted replies across LinkedIn, Twitter, and Reddit. Comment up to 150x a day, all automated and prompt-driven—think hustle in a headless browser. Launching with a waitlist on Product Hunt, August 25.";
-      case "Internal Linking Agent":
-        return "Launching a plug-and-play internal linking agent for founders strapped on SEO budgets—instantly optimize content for search and LLMs. Built on Node.js, React, and custom logic, delivers fast actionable traffic/visibility gains. Shipping first week of September.";
-      case "Content Automation (Reddit → LinkedIn)":
-        return "Automated my LinkedIn content pipeline by scraping Reddit for trending AI/agent pain points, converting topics into hooks, and posting on LinkedIn with a human-in-the-loop review. All my posts now flow from this. Soon to be productized for other creators.";
-      case "Blog Automation (Purple City MCP)":
-        return "Built a flow to auto-repurpose trending articles via Purple City MCP and RSS, turning them into original blog posts with a human-in-the-loop review. All powered by n8n and will soon power InboxBites' blog at scale.";
-      case "Lead Generator Agent (LinkedIn, Twitter, Reddit)":
-        return "Created an agent to scrape, filter, and funnel target profiles talking about specific pain points on LinkedIn, Twitter, and Reddit—automates profile discovery and dashboarding, saving 60% of lead gen time. Frees founders and marketers to focus on closing, not scraping.";
-      case "AGENTSY":
-        return "Sold over $2M in digital products via AGENTSY—performance marketing funnels at scale. Ran campaigns on Facebook/Google, moved 20L+ INR in 6 months, sold e-books, templates, and downloadables. Built funnels, ran the stack, shipped results.";
-      default:
-        return project.description;
-    }
+    // Return empty string for all projects to remove hover descriptions
+    return "";
   };
 
   const getProjectSubtitle = (project: Project): string => {
