@@ -405,52 +405,52 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                         <div className="flex items-center space-x-3">
                           {/* Play Button - Opens Project Modal */}
                           <button 
-                            className="bg-white text-black p-3 rounded-full hover:bg-gray-200 transition-colors flex items-center justify-center"
+                            className="bg-white text-black p-2 rounded-full hover:bg-gray-200 transition-colors flex items-center justify-center"
                             onClick={(e) => {
                               e.stopPropagation();
                               onProjectClick(project.id);
                             }}
                             title="View project details"
-                            style={{ width: '48px', height: '48px' }}
+                            style={{ width: '40px', height: '40px' }}
                           >
-                            <Play className="w-5 h-5 fill-current ml-1" />
+                            <Play className="w-4 h-4 fill-current ml-1" />
                           </button>
                           
                           {/* Add Button - Opens Project Modal */}
                           <button 
-                            className="border-2 border-gray-500 text-white p-3 rounded-full hover:border-white hover:bg-white/10 transition-colors flex items-center justify-center"
+                            className="border-2 border-gray-500 text-white p-2 rounded-full hover:border-white hover:bg-white/10 transition-colors flex items-center justify-center"
                             onClick={(e) => {
                               e.stopPropagation();
                               onProjectClick(project.id);
                             }}
                             title="View project details"
-                            style={{ width: '42px', height: '42px' }}
+                            style={{ width: '36px', height: '36px' }}
                           >
-                            <Plus className="w-4 h-4" />
+                            <Plus className="w-3.5 h-3.5" />
                           </button>
                           
                           {/* Like Button - Dummy for now */}
                           <button 
-                            className="border-2 border-gray-500 text-white p-3 rounded-full hover:border-white hover:bg-white/10 transition-colors flex items-center justify-center"
+                            className="border-2 border-gray-500 text-white p-2 rounded-full hover:border-white hover:bg-white/10 transition-colors flex items-center justify-center"
                             onClick={(e) => e.stopPropagation()}
                             title="Like"
-                            style={{ width: '42px', height: '42px' }}
+                            style={{ width: '36px', height: '36px' }}
                           >
-                            <ThumbsUp className="w-4 h-4" />
+                            <ThumbsUp className="w-3.5 h-3.5" />
                           </button>
                         </div>
                         
                         {/* Downward Arrow - Opens Card Details */}
                         <button 
-                          className="border-2 border-gray-500 text-white p-3 rounded-full hover:border-white hover:bg-white/10 transition-colors flex items-center justify-center"
+                          className="border-2 border-gray-500 text-white p-2 rounded-full hover:border-white hover:bg-white/10 transition-colors flex items-center justify-center"
                           onClick={(e) => {
                             e.stopPropagation();
                             onProjectClick(project.id);
                           }}
                           title="More info"
-                          style={{ width: '42px', height: '42px' }}
+                          style={{ width: '36px', height: '36px' }}
                         >
-                          <ChevronDown className="w-4 h-4" />
+                          <ChevronDown className="w-3.5 h-3.5" />
                         </button>
                       </div>
                       
