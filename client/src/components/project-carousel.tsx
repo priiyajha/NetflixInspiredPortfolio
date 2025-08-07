@@ -450,16 +450,16 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     : '',
                   borderBottomLeftRadius: hoveredProject === project.id ? '12px' : '6px',
                   borderBottomRightRadius: hoveredProject === project.id ? '12px' : '6px',
-                  minHeight: hoveredProject === project.id ? '140px' : 'auto',
-                  maxHeight: hoveredProject === project.id ? '140px' : 'auto',
+                  minHeight: hoveredProject === project.id ? '160px' : 'auto',
+                  maxHeight: hoveredProject === project.id ? '160px' : 'auto',
                   overflow: 'hidden'
                 }}>
                   {hoveredProject === project.id && (
-                    <div className="transition-all duration-300 mb-2">
-                      <h3 className="font-bold text-white text-lg mb-1">
+                    <div className="transition-all duration-300 mb-1">
+                      <h3 className="font-bold text-white text-sm mb-1">
                         {project.title}
                       </h3>
-                      <p className="text-gray-300 text-xs leading-tight line-clamp-2">
+                      <p className="text-gray-300 text-xs leading-tight line-clamp-2 mb-2">
                         {project.description}
                       </p>
                     </div>
@@ -482,7 +482,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
 
                       
                       {/* Netflix-style Action buttons */}
-                      <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center space-x-2">
                           {/* Play Button - Opens Project Modal */}
                           <button 
