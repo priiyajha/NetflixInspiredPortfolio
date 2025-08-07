@@ -390,7 +390,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 onClick={() => scrollImages('left')}
                                 className="absolute top-1/2 -translate-y-1/2 z-30 bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm shadow-lg"
                                 aria-label="Scroll left"
-                                style={{ left: '48px' }}
+                                style={{ left: '8px' }}
                               >
                                 <ChevronLeft className="w-4 h-4" />
                               </button>
@@ -402,7 +402,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 onClick={() => scrollImages('right')}
                                 className="absolute top-1/2 -translate-y-1/2 z-30 bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm shadow-lg"
                                 aria-label="Scroll right"
-                                style={{ right: '48px' }}
+                                style={{ right: '8px' }}
                               >
                                 <ChevronRight className="w-4 h-4" />
                               </button>
@@ -411,7 +411,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             {/* Images Container - Show up to 2 images */}
                             <div
                               ref={imageScrollRef}
-                              className="flex gap-3 px-12"
+                              className="flex gap-3 pr-12"
                             >
                               {projectImages.slice(currentImageIndex, currentImageIndex + 2).map((image, index) => (
                                 <div key={currentImageIndex + index} className={`flex-shrink-0 ${projectImages.length === 1 ? 'w-full' : 'w-1/2'}`}>
