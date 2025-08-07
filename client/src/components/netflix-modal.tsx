@@ -1080,7 +1080,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
         >
           <motion.div
             key="image-modal-content"
-            className="relative max-w-4xl max-h-[90vh] w-full h-full flex items-center justify-center"
+            className="relative w-[95vw] h-[95vh] flex items-center justify-center"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -1100,7 +1100,13 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
             <img
               src={selectedImage}
               alt="Project screenshot"
-              className="max-w-full max-h-full object-contain rounded-lg"
+              className="w-auto h-auto max-w-full max-h-full object-contain rounded-lg"
+              style={{ 
+                maxWidth: '100%',
+                maxHeight: '100%',
+                width: 'auto',
+                height: 'auto'
+              }}
               draggable={false}
               onError={(e) => {
                 console.warn('Failed to load selected image:', selectedImage);
