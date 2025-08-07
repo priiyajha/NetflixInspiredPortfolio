@@ -209,7 +209,7 @@ export default function Header() {
                     className="flex items-center space-x-2 p-2 hover:bg-white/10 rounded transition-all duration-200"
                   >
                     <img 
-                      src="/attached_assets/Screenshot 2025-08-08 at 1.07.07 AM_1754596184172.png" 
+                      src="/attached_assets/Screenshot%202025-08-08%20at%201.07.07%20AM_1754596184172.png" 
                       alt="Farooq Chisty" 
                       className="w-8 h-8 rounded object-cover"
                     />
@@ -230,7 +230,7 @@ export default function Header() {
                         <div className="px-4 py-3 border-b border-gray-700">
                           <div className="flex items-center space-x-3">
                             <img 
-                              src="/attached_assets/Screenshot 2025-08-08 at 1.07.07 AM_1754596184172.png" 
+                              src="/attached_assets/Screenshot%202025-08-08%20at%201.07.07%20AM_1754596184172.png" 
                               alt="Farooq Chisty" 
                               className="w-10 h-10 rounded object-cover"
                             />
@@ -327,7 +327,7 @@ export default function Header() {
                   </button>
                   <div className="flex items-center space-x-2">
                     <img 
-                      src="/attached_assets/Screenshot 2025-08-08 at 1.07.07 AM_1754596184172.png" 
+                      src="/attached_assets/Screenshot%202025-08-08%20at%201.07.07%20AM_1754596184172.png" 
                       alt="Farooq Chisty" 
                       className="w-10 h-10 rounded object-cover"
                     />
