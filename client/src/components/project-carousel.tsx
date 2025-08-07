@@ -44,7 +44,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     if (!container) return;
     
     // Netflix pixel-perfect dimensions - 5 cards per row with spacing
-    const cardWidth = window.innerWidth >= 1280 ? 240 : window.innerWidth >= 1024 ? 220 : window.innerWidth >= 768 ? 200 : window.innerWidth >= 640 ? 180 : 160;
+    const cardWidth = window.innerWidth >= 1280 ? 224 : window.innerWidth >= 1024 ? 204 : window.innerWidth >= 768 ? 184 : window.innerWidth >= 640 ? 164 : 144;
     container.scrollBy({ left: -cardWidth * 5, behavior: 'smooth' });
   };
 
@@ -53,7 +53,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     if (!container) return;
     
     // Netflix pixel-perfect dimensions - 5 cards per row with spacing
-    const cardWidth = window.innerWidth >= 1280 ? 240 : window.innerWidth >= 1024 ? 220 : window.innerWidth >= 768 ? 200 : window.innerWidth >= 640 ? 180 : 160;
+    const cardWidth = window.innerWidth >= 1280 ? 224 : window.innerWidth >= 1024 ? 204 : window.innerWidth >= 768 ? 184 : window.innerWidth >= 640 ? 164 : 144;
     container.scrollBy({ left: cardWidth * 5, behavior: 'smooth' });
   };
 
@@ -201,7 +201,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
 
       <div
         ref={scrollRef}
-        className="flex gap-2 sm:gap-2 md:gap-3 lg:gap-4 xl:gap-4 overflow-x-auto scrollbar-hide px-4 sm:px-6 md:px-12 pb-4 cursor-grab active:cursor-grabbing"
+        className="flex gap-1 sm:gap-2 md:gap-2 lg:gap-3 xl:gap-3 overflow-x-auto scrollbar-hide px-4 sm:px-6 md:px-12 pb-4 cursor-grab active:cursor-grabbing"
         onMouseDown={handleMouseDown}
       >
         {projects.map((project, index) => {
@@ -214,7 +214,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
               className={`flex-none cursor-pointer relative group ${
                 hoveredProject === project.id 
                   ? 'w-80 sm:w-80 md:w-80 lg:w-80 xl:w-80' 
-                  : 'w-36 sm:w-40 md:w-44 lg:w-52 xl:w-56'
+                  : 'w-32 sm:w-36 md:w-40 lg:w-48 xl:w-52'
               }`}
               style={{
                 transition: 'width 0.3s ease-in-out'
