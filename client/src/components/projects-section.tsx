@@ -29,7 +29,7 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
   });
 
   return (
-    <section id="projects" className="pb-16">
+    <section id="projects" className="pb-16 relative z-10">
       {/* Founded Startups - Netflix "Your Next Watch" exact positioning */}
       <motion.div
         className="mb-16"

@@ -46,8 +46,14 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Header />
-      <HeroSection profile={profile} />
-      <ProjectsSection onProjectClick={setSelectedProjectId} />
+      <div className="relative">
+        <HeroSection profile={profile} />
+        <div className="absolute top-0 left-0 right-0 z-10 pointer-events-none">
+          <div className="pointer-events-auto" style={{ marginTop: 'calc(100vh - 6rem)' }}>
+            <ProjectsSection onProjectClick={setSelectedProjectId} />
+          </div>
+        </div>
+      </div>
       
       {/* Footer Section */}
       <footer id="footer" className="bg-black/95 border-t border-gray-800 mt-12 sm:mt-16 md:mt-20 w-screen">
