@@ -209,9 +209,18 @@ export default function Header() {
                     className="flex items-center space-x-2 p-2 hover:bg-white/10 rounded transition-all duration-200"
                   >
                     <img 
-                      src="/attached_assets/Screenshot%202025-08-08%20at%201.07.07%20AM_1754596184172.png" 
+                      src="/attached_assets/F%20%282%29_1754596016605.png" 
                       alt="Farooq Chisty" 
                       className="w-8 h-8 rounded object-cover"
+                      onError={(e) => {
+                        console.error('Profile image failed to load:', e);
+                        // Fallback to blue gradient if image fails
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const fallback = document.createElement('div');
+                        fallback.className = 'w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded';
+                        target.parentNode?.insertBefore(fallback, target);
+                      }}
                     />
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${profileMenuOpen ? 'rotate-180' : ''}`} />
                   </button>
@@ -230,9 +239,17 @@ export default function Header() {
                         <div className="px-4 py-3 border-b border-gray-700">
                           <div className="flex items-center space-x-3">
                             <img 
-                              src="/attached_assets/Screenshot%202025-08-08%20at%201.07.07%20AM_1754596184172.png" 
+                              src="/attached_assets/F%20%282%29_1754596016605.png" 
                               alt="Farooq Chisty" 
                               className="w-10 h-10 rounded object-cover"
+                              onError={(e) => {
+                                console.error('Profile image failed to load in dropdown:', e);
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                                const fallback = document.createElement('div');
+                                fallback.className = 'w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded';
+                                target.parentNode?.insertBefore(fallback, target);
+                              }}
                             />
                             <div>
                               <p className="text-white font-medium text-sm">Farooq Chisty</p>
@@ -327,9 +344,17 @@ export default function Header() {
                   </button>
                   <div className="flex items-center space-x-2">
                     <img 
-                      src="/attached_assets/Screenshot%202025-08-08%20at%201.07.07%20AM_1754596184172.png" 
+                      src="/attached_assets/F%20%282%29_1754596016605.png" 
                       alt="Farooq Chisty" 
                       className="w-10 h-10 rounded object-cover"
+                      onError={(e) => {
+                        console.error('Profile image failed to load in mobile menu:', e);
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const fallback = document.createElement('div');
+                        fallback.className = 'w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded';
+                        target.parentNode?.insertBefore(fallback, target);
+                      }}
                     />
                     <ChevronDown className="w-5 h-5" />
                   </div>
