@@ -454,11 +454,11 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   maxHeight: hoveredProject === project.id ? '140px' : 'auto',
                   overflow: 'hidden'
                 }}>
-                  <h3 className={`font-bold transition-all duration-300 text-white ${
-                    hoveredProject === project.id ? 'text-sm mb-2 line-clamp-2' : 'text-base mb-1 truncate'
-                  }`}>
-                    {hoveredProject === project.id ? project.description : project.title}
-                  </h3>
+                  {hoveredProject === project.id && (
+                    <h3 className="font-bold transition-all duration-300 text-white text-sm mb-2 line-clamp-2">
+                      {project.description}
+                    </h3>
+                  )}
                   
                   {/* Project Subtitle - Only visible on hover */}
                   {hoveredProject === project.id && (
