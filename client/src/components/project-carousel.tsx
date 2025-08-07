@@ -455,9 +455,14 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   overflow: 'hidden'
                 }}>
                   {hoveredProject === project.id && (
-                    <h3 className="font-bold transition-all duration-300 text-white text-sm mb-2 line-clamp-2">
-                      {project.title}: {project.description}
-                    </h3>
+                    <div className="transition-all duration-300 mb-2">
+                      <h3 className="font-bold text-white text-lg mb-1 bg-netflix-red px-2 py-1 rounded inline-block">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-300 text-xs leading-tight line-clamp-2">
+                        {project.description}
+                      </p>
+                    </div>
                   )}
                   
                   {/* Project Subtitle - Only visible on hover */}
