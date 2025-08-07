@@ -531,18 +531,14 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                       </div>
                       
                       {/* Movie info tags - matching Netflix style */}
-                      <div className="flex items-center justify-between text-xs text-gray-300">
-                        <div className="flex items-center space-x-2">
-                          <span className="border border-gray-500 px-2 py-0.5 rounded">HD</span>
-                        </div>
-                        <div className="flex flex-col text-right text-xs leading-tight">
-                          {project.period && (
-                            <span className="text-gray-400">Period: {project.period}</span>
-                          )}
-                          {project.engagementType && (
-                            <span className="text-gray-400 mt-0.5">Type: {project.engagementType}</span>
-                          )}
-                        </div>
+                      <div className="flex items-center space-x-3 text-xs text-gray-300">
+                        <span className="border border-gray-500 px-2 py-0.5 rounded">HD</span>
+                        {project.period && (
+                          <span className="text-gray-400">{project.period}</span>
+                        )}
+                        {project.engagementType && (
+                          <span className="text-gray-400">{project.engagementType}</span>
+                        )}
                       </div>
                       
                       {/* Share Menu Dropdown */}
