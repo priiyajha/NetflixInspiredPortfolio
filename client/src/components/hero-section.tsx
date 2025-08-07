@@ -92,7 +92,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            Full-Stack & Vibe Coding | Marketing
+            Growth Operator | Vibe Marketer | AI Generalist
           </motion.h2>
           
           <motion.p
