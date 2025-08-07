@@ -252,18 +252,14 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     : 'hover:shadow-lg hover:shadow-black/30'
                 }`}
                 style={{
-                  transformOrigin: 'center top',
-                  borderRadius: hoveredProject === project.id ? '12px' : '6px',
-                  zIndex: hoveredProject === project.id ? 999 : 1,
-                  position: 'relative'
+                  transformOrigin: 'center center',
+                  borderRadius: hoveredProject === project.id ? '12px' : '6px'
                 }}
                 animate={{
-                  scaleX: hoveredProject === project.id ? 1.6 : 1,
-                  scaleY: hoveredProject === project.id ? 2.4 : 1,
-                  y: hoveredProject === project.id ? -80 : 0,
-                  zIndex: hoveredProject === project.id ? 50 : 1,
+                  scale: hoveredProject === project.id ? 1.15 : 1,
+                  y: hoveredProject === project.id ? -15 : 0,
                 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
+                transition={{ duration: 1.0, ease: "easeInOut" }}
               >
                 {/* Video background for hover state */}
                 {hoveredProject === project.id && project.video && (
@@ -276,7 +272,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     playsInline
                     className="absolute top-0 left-0 right-0 w-full object-cover z-0"
                     style={{ 
-                      height: '70%',
+                      height: '65%',
                       borderTopLeftRadius: '12px',
                       borderTopRightRadius: '12px'
                     }}
@@ -292,7 +288,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   alt={project.title}
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
-                      ? 'opacity-0 h-[360px] sm:h-[360px] md:h-[360px]' 
+                      ? 'opacity-0 h-80 sm:h-80 md:h-80' 
                       : 'opacity-100 h-18 sm:h-20 md:h-24 lg:h-28 xl:h-32'
                   }`}
                   style={{
@@ -378,7 +374,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     : '',
                   borderBottomLeftRadius: hoveredProject === project.id ? '12px' : '6px',
                   borderBottomRightRadius: hoveredProject === project.id ? '12px' : '6px',
-                  height: hoveredProject === project.id ? '30%' : 'auto'
+                  height: hoveredProject === project.id ? '35%' : 'auto'
                 }}>
                   <h3 className={`font-bold transition-all duration-300 text-white ${
                     hoveredProject === project.id ? 'text-xl mb-1' : 'text-base mb-1'
