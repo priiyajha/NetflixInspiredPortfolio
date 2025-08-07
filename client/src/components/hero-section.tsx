@@ -3,6 +3,7 @@ import { Download, Play, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Profile } from "@shared/schema";
+import { useLocation } from "wouter";
 import backgroundVideo from "@assets/20250731_1654_Neon Code Symphony_simple_compose_01k1g3kq5af70vc1a2b12hvja6_1753961284060.mp4";
 
 interface HeroSectionProps {
@@ -11,6 +12,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ profile }: HeroSectionProps) {
   const { toast } = useToast();
+  const [, setLocation] = useLocation();
 
   const handleDownloadResume = async () => {
     try {
@@ -35,11 +37,8 @@ export default function HeroSection({ profile }: HeroSectionProps) {
     }
   };
 
-  const scrollToProjects = () => {
-    const element = document.getElementById("projects");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+  const navigateToProjects = () => {
+    setLocation('/projects');
   };
 
   return (
@@ -111,7 +110,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
             transition={{ duration: 0.8, delay: 1.1 }}
           >
             <Button
-              onClick={scrollToProjects}
+              onClick={navigateToProjects}
               className="bg-white text-black px-6 sm:px-8 py-3 sm:py-4 rounded font-semibold text-base sm:text-lg hover:bg-netflix-light-gray transition-colors duration-200 flex items-center justify-center gap-2"
               size="lg"
             >
