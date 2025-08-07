@@ -44,7 +44,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     if (!container) return;
     
     // Netflix pixel-perfect dimensions - 5 cards per row with spacing
-    const cardWidth = window.innerWidth >= 1280 ? 280 : window.innerWidth >= 1024 ? 260 : window.innerWidth >= 768 ? 240 : window.innerWidth >= 640 ? 200 : 180;
+    const cardWidth = window.innerWidth >= 1280 ? 300 : window.innerWidth >= 1024 ? 280 : window.innerWidth >= 768 ? 260 : window.innerWidth >= 640 ? 220 : 200;
     container.scrollBy({ left: -cardWidth * 5, behavior: 'smooth' });
   };
 
@@ -53,7 +53,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     if (!container) return;
     
     // Netflix pixel-perfect dimensions - 5 cards per row with spacing
-    const cardWidth = window.innerWidth >= 1280 ? 280 : window.innerWidth >= 1024 ? 260 : window.innerWidth >= 768 ? 240 : window.innerWidth >= 640 ? 200 : 180;
+    const cardWidth = window.innerWidth >= 1280 ? 300 : window.innerWidth >= 1024 ? 280 : window.innerWidth >= 768 ? 260 : window.innerWidth >= 640 ? 220 : 200;
     container.scrollBy({ left: cardWidth * 5, behavior: 'smooth' });
   };
 
@@ -261,7 +261,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
               className={`flex-none cursor-pointer relative group ${
                 hoveredProject === project.id 
                   ? 'w-80 sm:w-80 md:w-80 lg:w-80 xl:w-80' 
-                  : 'w-40 sm:w-44 md:w-48 lg:w-60 xl:w-64'
+                  : 'w-44 sm:w-48 md:w-52 lg:w-64 xl:w-72'
               }`}
               style={{
                 transition: 'width 0.3s ease-in-out'
