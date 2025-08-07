@@ -90,15 +90,18 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Technologies Column */}
+            {/* Core Skills Column */}
             <div className="space-y-4">
-              <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Technologies</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Core Skills</h3>
               <div className="space-y-3">
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">HTML/CSS</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">JavaScript</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">React & Next.js</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Node.js & Express</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">MongoDB & PostgreSQL</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">AI Marketing</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Product Marketing</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Growth Strategy</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">D2C Marketing</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Marketing Automation</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Marketing Measurement</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Performance Marketing</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">GTM & Funnel Building</div>
               </div>
             </div>
 
