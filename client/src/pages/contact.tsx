@@ -236,7 +236,14 @@ export default function ContactPage() {
               <p className="text-white leading-relaxed text-lg">
                 I respond to all professional inquiries within 24 hours. Thinking of{" "}
                 <span className="text-red-400 font-semibold">collaborating</span>? Ping me on{" "}
-                <span className="text-yellow-400 font-semibold">LinkedIn</span>, let's talk systems, vibes, and solutions.
+                <a 
+                  href="https://linkedin.com/in/farooqchisty" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-yellow-400 font-semibold hover:text-yellow-300 transition-colors duration-200 underline hover:no-underline"
+                >
+                  LinkedIn
+                </a>, let's talk systems, vibes, and solutions.
               </p>
             </motion.div>
           </motion.div>
