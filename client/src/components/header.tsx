@@ -208,7 +208,11 @@ export default function Header() {
                     onClick={() => setProfileMenuOpen(!profileMenuOpen)}
                     className="flex items-center space-x-2 p-2 hover:bg-white/10 rounded transition-all duration-200"
                   >
-                    <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded"></div>
+                    <img 
+                      src="/attached_assets/Screenshot 2025-08-08 at 1.07.07 AM_1754596184172.png" 
+                      alt="Farooq Chisty" 
+                      className="w-8 h-8 rounded object-cover"
+                    />
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${profileMenuOpen ? 'rotate-180' : ''}`} />
                   </button>
                   
@@ -225,7 +229,11 @@ export default function Header() {
                         {/* Profile Section */}
                         <div className="px-4 py-3 border-b border-gray-700">
                           <div className="flex items-center space-x-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded"></div>
+                            <img 
+                              src="/attached_assets/Screenshot 2025-08-08 at 1.07.07 AM_1754596184172.png" 
+                              alt="Farooq Chisty" 
+                              className="w-10 h-10 rounded object-cover"
+                            />
                             <div>
                               <p className="text-white font-medium text-sm">Farooq Chisty</p>
                             </div>
@@ -318,7 +326,11 @@ export default function Header() {
                     <Bell className="w-6 h-6" />
                   </button>
                   <div className="flex items-center space-x-2">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded"></div>
+                    <img 
+                      src="/attached_assets/Screenshot 2025-08-08 at 1.07.07 AM_1754596184172.png" 
+                      alt="Farooq Chisty" 
+                      className="w-10 h-10 rounded object-cover"
+                    />
                     <ChevronDown className="w-5 h-5" />
                   </div>
                 </div>
