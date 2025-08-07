@@ -263,14 +263,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
               >
                 {/* Video background for hover state */}
                 {hoveredProject === project.id && project.video && (
-                  <motion.video
-                    ref={(el) => { videoRefs.current[project.id] = el; }}
-                    src={project.video}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="absolute inset-0 w-full object-cover z-0"
+                  <motion.div
+                    className="absolute top-0 left-0 right-0 overflow-hidden z-0"
                     style={{ 
                       height: '70%',
                       borderTopLeftRadius: '12px',
@@ -279,7 +273,17 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.4 }}
-                  />
+                  >
+                    <video
+                      ref={(el) => { videoRefs.current[project.id] = el; }}
+                      src={project.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover"
+                    />
+                  </motion.div>
                 )}
                 
                 {/* Static Image */}
