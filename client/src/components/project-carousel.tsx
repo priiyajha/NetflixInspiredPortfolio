@@ -121,6 +121,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     e.stopPropagation();
     const projectUrl = encodeURIComponent(`${window.location.origin}?project=${project.id}`);
     const text = encodeURIComponent(`Check out this project: ${project.title}`);
+    const projectTitle = encodeURIComponent(project.title);
     
     let shareUrl = '';
     switch (platform) {
@@ -130,6 +131,19 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
       case 'linkedin':
         shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${projectUrl}`;
         break;
+      case 'whatsapp':
+        shareUrl = `https://wa.me/?text=${text}%20${projectUrl}`;
+        break;
+      case 'telegram':
+        shareUrl = `https://t.me/share/url?url=${projectUrl}&text=${text}`;
+        break;
+      case 'instagram':
+        // Instagram doesn't support direct URL sharing, so we'll copy to clipboard
+        navigator.clipboard.writeText(`${decodeURIComponent(text)} ${decodeURIComponent(projectUrl)}`);
+        setCopiedProject(project.id);
+        setTimeout(() => setCopiedProject(null), 2000);
+        setShowShareMenu(null);
+        return;
       case 'facebook':
         shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${projectUrl}`;
         break;
@@ -318,11 +332,11 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   
                   {/* Share Menu */}
                   {showShareMenu === project.id && (
-                    <div className="absolute top-16 right-0 bg-black/95 backdrop-blur-md rounded-lg p-4 min-w-[200px] z-50 border border-white/10 shadow-2xl">
+                    <div className="absolute top-16 right-0 bg-black/95 backdrop-blur-md rounded-lg p-4 min-w-[220px] z-50 border border-white/10 shadow-2xl">
                       <div className="space-y-2">
                         <button
                           onClick={(e) => copyProjectLink(project, e)}
-                          className="flex items-center space-x-2 w-full text-left text-white hover:text-red-400 transition-colors"
+                          className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                         >
                           {copiedProject === project.id ? (
                             <Check className="w-4 h-4 text-green-400" />
@@ -334,27 +348,56 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                           </span>
                         </button>
                         
-                        <hr className="border-gray-600" />
-                        
-                        <button
-                          onClick={(e) => shareOnSocial('twitter', project, e)}
-                          className="flex items-center space-x-2 w-full text-left text-white hover:text-red-400 transition-colors"
-                        >
-                          <span className="text-sm">Share on Twitter</span>
-                        </button>
+                        <hr className="border-gray-600 my-2" />
                         
                         <button
                           onClick={(e) => shareOnSocial('linkedin', project, e)}
-                          className="flex items-center space-x-2 w-full text-left text-white hover:text-red-400 transition-colors"
+                          className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                         >
-                          <span className="text-sm">Share on LinkedIn</span>
+                          <div className="w-4 h-4 bg-blue-600 rounded-sm flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">in</span>
+                          </div>
+                          <span className="text-sm">LinkedIn</span>
                         </button>
                         
                         <button
-                          onClick={(e) => shareOnSocial('facebook', project, e)}
-                          className="flex items-center space-x-2 w-full text-left text-white hover:text-red-400 transition-colors"
+                          onClick={(e) => shareOnSocial('twitter', project, e)}
+                          className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                         >
-                          <span className="text-sm">Share on Facebook</span>
+                          <div className="w-4 h-4 bg-black rounded-sm flex items-center justify-center border border-white">
+                            <span className="text-white text-xs font-bold">𝕏</span>
+                          </div>
+                          <span className="text-sm">Twitter</span>
+                        </button>
+                        
+                        <button
+                          onClick={(e) => shareOnSocial('whatsapp', project, e)}
+                          className="flex items-center space-x-3 w-full text-left text-white hover:text-green-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                        >
+                          <div className="w-4 h-4 bg-green-500 rounded-sm flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">W</span>
+                          </div>
+                          <span className="text-sm">WhatsApp</span>
+                        </button>
+                        
+                        <button
+                          onClick={(e) => shareOnSocial('telegram', project, e)}
+                          className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                        >
+                          <div className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">T</span>
+                          </div>
+                          <span className="text-sm">Telegram</span>
+                        </button>
+                        
+                        <button
+                          onClick={(e) => shareOnSocial('instagram', project, e)}
+                          className="flex items-center space-x-3 w-full text-left text-white hover:text-pink-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                        >
+                          <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-sm flex items-center justify-center">
+                            <span className="text-white text-xs font-bold">IG</span>
+                          </div>
+                          <span className="text-sm">Instagram (Copy)</span>
                         </button>
                       </div>
                     </div>
