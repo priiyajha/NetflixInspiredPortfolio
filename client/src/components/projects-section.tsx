@@ -24,10 +24,6 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
     queryKey: ["/api/projects/category/consulting"],
   });
 
-  const { data: keynoteProjects = [], isLoading: keynoteLoading, error: keynoteError } = useQuery<Project[]>({
-    queryKey: ["/api/projects/category/keynote"],
-  });
-
   return (
     <section id="projects" className="pb-16 relative z-10">
       {/* Founded Startups - Netflix "Your Next Watch" exact positioning */}
@@ -167,41 +163,6 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
           </div>
         ) : (
           <ProjectCarousel projects={consultingProjects} onProjectClick={onProjectClick} />
-        )}
-      </motion.div>
-
-      {/* Keynotes */}
-      <motion.div
-        style={{ marginBottom: '32px' }}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px' }}>
-          <h2 style={{ 
-            fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif', 
-            fontWeight: '500', 
-            fontSize: '20px', 
-            lineHeight: '1.4', 
-            color: '#e5e5e5',
-            letterSpacing: '0.15px',
-            margin: '0'
-          }}>
-            Keynotes
-          </h2>
-        </div>
-        
-        {keynoteLoading ? (
-          <div className="px-4 sm:px-6 md:px-12">
-            <div className="text-netflix-light-gray text-sm sm:text-base">Loading keynotes...</div>
-          </div>
-        ) : keynoteError ? (
-          <div className="px-4 sm:px-6 md:px-12">
-            <div className="text-red-400 text-sm sm:text-base">Failed to load keynotes</div>
-          </div>
-        ) : (
-          <ProjectCarousel projects={keynoteProjects} onProjectClick={onProjectClick} />
         )}
       </motion.div>
     </section>
