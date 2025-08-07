@@ -396,7 +396,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 {/* Content overlay - adapts to hover state */}
                 <div className={`absolute bottom-0 left-0 right-0 p-4 z-30 transition-all duration-300 ${
                   hoveredProject === project.id 
-                    ? 'bg-gradient-to-t from-black/90 to-transparent pt-16'
+                    ? 'bg-gradient-to-t from-black/90 to-transparent pt-16 rounded-b-lg'
                     : ''
                 }`}>
                   <h3 className={`font-bold transition-all duration-300 text-white ${
