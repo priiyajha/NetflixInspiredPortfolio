@@ -152,13 +152,6 @@ export default function Header() {
                     </button>
                   </Link>
                 </li>
-                <li>
-                  <Link href="/contact">
-                    <button className="text-xs sm:text-sm hover:text-netflix-light-gray transition-colors duration-200">
-                      Hire Me
-                    </button>
-                  </Link>
-                </li>
               </ul>
             </nav>
 
