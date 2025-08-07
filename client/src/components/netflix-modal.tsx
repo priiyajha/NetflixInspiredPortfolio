@@ -413,23 +413,33 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               ref={imageScrollRef}
                               className="flex gap-3 pr-12"
                             >
-                              {projectImages.slice(currentImageIndex, currentImageIndex + 2).map((image, index) => (
-                                <div key={currentImageIndex + index} className={`flex-shrink-0 ${projectImages.length === 1 ? 'w-full' : 'w-1/2'}`}>
-                                  <div className="w-full aspect-[16/9] overflow-hidden rounded-md">
-                                    <img
-                                      src={image}
-                                      alt={`${project?.title} gallery image ${currentImageIndex + index + 1}`}
-                                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-200 cursor-pointer"
-                                      draggable={false}
-                                      onClick={() => setSelectedImage(image)}
-                                      onError={(e) => {
-                                        console.warn('Failed to load gallery image:', image);
-                                        e.currentTarget.style.display = 'none';
-                                      }}
-                                    />
+                              {projectImages.slice(currentImageIndex, currentImageIndex + 2).map((image, index) => {
+                                const isSingleVisibleImage = projectImages.slice(currentImageIndex, currentImageIndex + 2).length === 1;
+                                
+                                return (
+                                  <div 
+                                    key={currentImageIndex + index} 
+                                    className="flex-shrink-0" 
+                                    style={{ 
+                                      width: isSingleVisibleImage ? '100%' : 'calc(50% - 6px)' 
+                                    }}
+                                  >
+                                    <div className="w-full aspect-[16/9] overflow-hidden rounded-md">
+                                      <img
+                                        src={image}
+                                        alt={`${project?.title} gallery image ${currentImageIndex + index + 1}`}
+                                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-200 cursor-pointer"
+                                        draggable={false}
+                                        onClick={() => setSelectedImage(image)}
+                                        onError={(e) => {
+                                          console.warn('Failed to load gallery image:', image);
+                                          e.currentTarget.style.display = 'none';
+                                        }}
+                                      />
+                                    </div>
                                   </div>
-                                </div>
-                              ))}
+                                );
+                              })}
                             </div>
                           </div>
                         </div>
