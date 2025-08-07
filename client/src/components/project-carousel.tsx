@@ -176,7 +176,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
   }
 
   return (
-    <div className="relative group">
+    <div className="relative group" style={{ marginBottom: '0', overflow: 'visible', minHeight: '200px' }}>
       {/* Left Arrow */}
       {canScrollLeft && (
         <button
@@ -257,7 +257,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 }}
                 animate={{
                   scale: hoveredProject === project.id ? 1.15 : 1,
-                  y: hoveredProject === project.id ? -15 : 0,
+                  y: hoveredProject === project.id ? -20 : 0,
+                  zIndex: hoveredProject === project.id ? 50 : 1,
                 }}
                 transition={{ duration: 1.0, ease: "easeInOut" }}
               >
