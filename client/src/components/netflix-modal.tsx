@@ -74,7 +74,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
         onClick={onClose}
       >
         <motion.div
-          className="bg-[#141414] rounded-lg max-w-5xl w-full max-h-[95vh] overflow-y-auto relative"
+          className="bg-[#141414] rounded-xl max-w-5xl w-full max-h-[95vh] overflow-y-auto relative"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
@@ -88,7 +88,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
           ) : project ? (
             <>
               {/* Video/Image Header Section */}
-              <div className="video-header-section relative h-[60vh] overflow-hidden rounded-t-lg">
+              <div className="video-header-section relative h-[60vh] overflow-hidden rounded-t-xl">
                 {project.video ? (
                   <video
                     src={project.video}
@@ -143,7 +143,9 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       {project.title}
                     </h1>
                     
-                    <div className="flex items-center gap-4 mb-6">
+                    {/* Deeper background for buttons section to match Netflix style */}
+                    <div className="bg-black/70 backdrop-blur-sm rounded-lg p-4 -mx-2">
+                      <div className="flex items-center gap-4 mb-2">
                       {/* Restart Video Button */}
                       <Button
                         className="bg-white text-black hover:bg-white/90 font-semibold px-6 py-2"
@@ -232,6 +234,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                       >
                         <Share className="w-5 h-5" />
                       </Button>
+                    </div>
                     </div>
                   </div>
                 </div>

@@ -399,11 +399,12 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     ? 'bg-gradient-to-t from-black/90 to-transparent pt-16'
                     : ''
                 }`}>
-                  <h3 className={`font-bold transition-all duration-300 text-white ${
-                    hoveredProject === project.id ? 'text-xl mb-1' : 'text-base mb-1'
-                  }`}>
-                    {project.title}
-                  </h3>
+                  {/* Only show title when NOT hovered - remove title on hover for Cazpro and all projects */}
+                  {hoveredProject !== project.id && (
+                    <h3 className="font-bold text-base mb-1 text-white">
+                      {project.title}
+                    </h3>
+                  )}
                   
                   {/* Project Subtitle - Only visible on hover */}
                   {hoveredProject === project.id && (
