@@ -190,9 +190,9 @@ export default function ContactPage() {
                   boxShadow: "0 20px 60px rgba(255, 255, 255, 0.3), 0 0 80px rgba(255, 255, 255, 0.2)"
                 }}
               >
-                <h3 className="text-2xl font-bold text-white mb-4">🖥️ Full-stack</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">📈 Growth Strategy</h3>
                 <p className="text-gray-300 leading-relaxed">
-                  MERN stack development, real-time data flows, and scalable system design.
+                  GTM, AI workflows, Vibe marketing and social distribution using AI.
                 </p>
               </motion.div>
 
