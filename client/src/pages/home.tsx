@@ -81,12 +81,12 @@ export default function Home() {
             <div className="space-y-4">
               <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Key Highlights</h3>
               <div className="space-y-3">
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">$80M+ revenue generated across 5 companies</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Managed $2M+ in paid ad spend</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Acquired more than 2 Million users across three apps</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Raised $150K Pre-seed</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Founded 3 startups. 1 exit</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">30+ Keynotes in AI, Blockchain</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">• $80M+ revenue generated across 5 companies</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">• Managed $2M+ in paid ad spend</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">• Acquired more than 2 Million users across three apps</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">• Raised $150K Pre-seed</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">• Founded 3 startups. 1 exit</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">• 30+ Keynotes in AI, Blockchain</div>
               </div>
             </div>
 
@@ -94,14 +94,14 @@ export default function Home() {
             <div className="space-y-4">
               <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Core Skills</h3>
               <div className="space-y-3">
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">AI Marketing</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Product Marketing</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Growth Strategy</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">D2C Marketing</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Marketing Automation</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Marketing Measurement</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Performance Marketing</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">GTM & Funnel Building</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">• AI Marketing</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">• Product Marketing</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">• Growth Strategy</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">• D2C Marketing</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">• Marketing Automation</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">• Marketing Measurement</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">• Performance Marketing</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">• GTM & Funnel Building</div>
               </div>
             </div>
 
