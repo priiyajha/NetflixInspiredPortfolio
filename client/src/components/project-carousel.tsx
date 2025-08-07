@@ -252,14 +252,15 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     : 'hover:shadow-lg hover:shadow-black/30'
                 }`}
                 style={{
-                  transformOrigin: 'center center',
+                  transformOrigin: 'center top',
                   borderRadius: hoveredProject === project.id ? '12px' : '6px',
                   zIndex: hoveredProject === project.id ? 999 : 1,
                   position: 'relative'
                 }}
                 animate={{
-                  scale: hoveredProject === project.id ? 1.4 : 1,
-                  y: hoveredProject === project.id ? -20 : 0,
+                  scaleX: hoveredProject === project.id ? 1.6 : 1,
+                  scaleY: hoveredProject === project.id ? 2.4 : 1,
+                  y: hoveredProject === project.id ? -80 : 0,
                   zIndex: hoveredProject === project.id ? 50 : 1,
                 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
@@ -291,7 +292,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   alt={project.title}
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
-                      ? 'opacity-0 h-72 sm:h-72 md:h-72' 
+                      ? 'opacity-0 h-[360px] sm:h-[360px] md:h-[360px]' 
                       : 'opacity-100 h-18 sm:h-20 md:h-24 lg:h-28 xl:h-32'
                   }`}
                   style={{
