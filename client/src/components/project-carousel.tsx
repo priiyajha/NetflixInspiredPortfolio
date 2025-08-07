@@ -176,7 +176,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
   }
 
   return (
-    <div className="relative group" style={{ marginBottom: '0', overflow: 'visible', minHeight: '200px' }}>
+    <div className="relative group" style={{ overflow: 'visible', height: '200px', position: 'relative' }}>
       {/* Left Arrow */}
       {canScrollLeft && (
         <button
@@ -202,6 +202,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
       <div
         ref={scrollRef}
         className="flex gap-1 sm:gap-2 md:gap-2 lg:gap-3 xl:gap-3 overflow-x-auto scrollbar-hide px-4 sm:px-6 md:px-12 pb-4 cursor-grab active:cursor-grabbing"
+        style={{ height: '100%', position: 'relative' }}
         onMouseDown={handleMouseDown}
       >
         {projects.map((project, index) => {
@@ -253,12 +254,13 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 }`}
                 style={{
                   transformOrigin: 'center center',
-                  borderRadius: hoveredProject === project.id ? '12px' : '6px'
+                  borderRadius: hoveredProject === project.id ? '12px' : '6px',
+                  position: hoveredProject === project.id ? 'absolute' : 'relative',
+                  zIndex: hoveredProject === project.id ? 999 : 1,
                 }}
                 animate={{
                   scale: hoveredProject === project.id ? 1.15 : 1,
-                  y: hoveredProject === project.id ? -20 : 0,
-                  zIndex: hoveredProject === project.id ? 50 : 1,
+                  y: hoveredProject === project.id ? -30 : 0,
                 }}
                 transition={{ duration: 1.0, ease: "easeInOut" }}
               >
