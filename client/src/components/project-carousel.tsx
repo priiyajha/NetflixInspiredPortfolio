@@ -454,10 +454,10 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   maxHeight: hoveredProject === project.id ? '140px' : 'auto',
                   overflow: 'hidden'
                 }}>
-                  <h3 className={`font-bold transition-all duration-300 text-white truncate ${
-                    hoveredProject === project.id ? 'text-lg mb-2' : 'text-base mb-1'
+                  <h3 className={`font-bold transition-all duration-300 text-white ${
+                    hoveredProject === project.id ? 'text-sm mb-2 line-clamp-2' : 'text-base mb-1 truncate'
                   }`}>
-                    {project.title}
+                    {hoveredProject === project.id ? project.description : project.title}
                   </h3>
                   
                   {/* Project Subtitle - Only visible on hover */}
@@ -531,9 +531,18 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                       </div>
                       
                       {/* Movie info tags - matching Netflix style */}
-                      <div className="flex items-center space-x-3 text-sm text-gray-300">
-                        <span className="border border-gray-500 px-2 py-0.5 text-xs rounded">HD</span>
-                        <span className="text-xs text-gray-400">{project.category}</span>
+                      <div className="flex items-center justify-between text-xs text-gray-300">
+                        <div className="flex items-center space-x-2">
+                          <span className="border border-gray-500 px-2 py-0.5 rounded">HD</span>
+                        </div>
+                        <div className="flex flex-col text-right text-xs leading-tight">
+                          {project.period && (
+                            <span className="text-gray-400">Period: {project.period}</span>
+                          )}
+                          {project.engagementType && (
+                            <span className="text-gray-400 mt-0.5">Type: {project.engagementType}</span>
+                          )}
+                        </div>
                       </div>
                       
                       {/* Share Menu Dropdown */}
