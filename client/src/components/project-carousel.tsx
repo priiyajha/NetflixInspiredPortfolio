@@ -235,28 +235,40 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
                 </div>
               </motion.div>
 
-              {/* Expanded Hover Card State - Absolutely positioned */}
+              {/* Modal Portal for Hover Card */}
               <AnimatePresence>
                 {isHovered && (
-                  <motion.div 
-                    className="absolute top-0 left-0 w-80 overflow-hidden shadow-2xl shadow-black/50 pointer-events-auto bg-gray-900 rounded-xl z-[100]"
-                    initial={{
-                      scale: 1,
-                      y: 0,
-                      opacity: 0
-                    }}
-                    animate={{
-                      scale: 1.15,
-                      y: -20,
-                      opacity: 1
-                    }}
-                    exit={{
-                      scale: 1,
-                      y: 0,
-                      opacity: 0
-                    }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  >
+                  <div className="fixed inset-0 z-[100] pointer-events-none">
+                    {/* Backdrop */}
+                    <motion.div
+                      className="absolute inset-0 bg-black/60 backdrop-blur-sm pointer-events-auto"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                    />
+                    
+                    {/* Card Modal - Centered */}
+                    <div className="flex items-center justify-center min-h-screen p-4 pointer-events-none">
+                      <motion.div 
+                        className="w-full max-w-md bg-gray-900 rounded-xl shadow-2xl shadow-black/50 pointer-events-auto overflow-hidden"
+                        initial={{
+                          scale: 0.8,
+                          opacity: 0,
+                          y: 20
+                        }}
+                        animate={{
+                          scale: 1,
+                          opacity: 1,
+                          y: 0
+                        }}
+                        exit={{
+                          scale: 0.8,
+                          opacity: 0,
+                          y: 20
+                        }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                      >
                     {/* Video background for hover state */}
                     {project.video && (
                       <video
@@ -427,6 +439,8 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
                       </div>
                     </div>
                   </motion.div>
+                    </div>
+                  </div>
                 )}
               </AnimatePresence>
             </div>
