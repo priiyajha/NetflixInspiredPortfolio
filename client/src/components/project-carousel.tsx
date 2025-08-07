@@ -140,7 +140,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
   }
 
   return (
-    <div className="relative group mb-8">
+    <div className="relative group mb-8" style={{ overflow: 'visible' }}>
       <h2 className="text-white text-xl sm:text-2xl font-semibold mb-4 px-4 sm:px-6 md:px-12">
         {title}
       </h2>
@@ -167,7 +167,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
 
       <div
         ref={scrollRef}
-        className="flex gap-1 sm:gap-2 md:gap-2 lg:gap-3 xl:gap-3 overflow-x-auto scrollbar-hide px-4 sm:px-6 md:px-12 pb-4 relative"
+        className="flex gap-1 sm:gap-2 md:gap-2 lg:gap-3 xl:gap-3 overflow-x-auto scrollbar-hide px-4 sm:px-6 md:px-12 pb-80 relative"
         onScroll={checkScrollability}
         style={{ overflowY: 'visible' }}
       >
@@ -183,7 +183,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
                 if (hoverTimeout) clearTimeout(hoverTimeout);
                 const timeout = setTimeout(() => {
                   setHoveredProject(project.id);
-                }, 300);
+                }, 200);
                 setHoverTimeout(timeout);
               }}
               onMouseLeave={() => {
@@ -231,15 +231,15 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
               {/* Expanded Card - Shows when hovered, positioned absolutely in place */}
               {isHovered && (
                 <motion.div 
-                  className="absolute top-0 left-0 w-80 bg-gray-900 rounded-xl shadow-2xl shadow-black/50 pointer-events-auto z-[100]"
+                  className="absolute top-0 left-0 w-72 bg-gray-900 rounded-xl shadow-2xl shadow-black/50 pointer-events-auto z-[100]"
                   initial={{
                     scale: 1,
                     opacity: 0
                   }}
                   animate={{
-                    scale: 1.2,
+                    scale: 1.15,
                     opacity: 1,
-                    y: -20
+                    y: -15
                   }}
                   exit={{
                     scale: 1,
@@ -257,13 +257,13 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
                       loop
                       muted
                       playsInline
-                      className="w-full h-48 object-cover rounded-t-xl"
+                      className="w-full h-40 object-cover rounded-t-xl"
                     />
                   ) : (
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-48 object-cover rounded-t-xl"
+                      className="w-full h-40 object-cover rounded-t-xl"
                       draggable={false}
                     />
                   )}
@@ -352,26 +352,26 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
                   </div>
                   
                   {/* Content */}
-                  <div className="p-4 bg-gray-800 rounded-b-xl">
-                    <div className="flex flex-col space-y-2">
-                      <h3 className="text-white font-bold text-lg leading-tight">
+                  <div className="p-3 bg-gray-800 rounded-b-xl">
+                    <div className="flex flex-col space-y-1.5">
+                      <h3 className="text-white font-bold text-base leading-tight">
                         {project.title}
                       </h3>
-                      <p className="text-netflix-light-gray text-sm">
+                      <p className="text-netflix-light-gray text-xs">
                         {getProjectSubtitle(project)}
                       </p>
-                      <p className="text-white text-sm line-clamp-3 leading-relaxed">
+                      <p className="text-white text-sm line-clamp-2 leading-snug">
                         {project.description}
                       </p>
                       
                       {/* Action Buttons */}
-                      <div className="flex space-x-2 pt-2">
+                      <div className="flex space-x-1.5 pt-1.5">
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
                             onProjectClick(project.id);
                           }}
-                          className="flex-1 bg-white text-black font-semibold py-2 px-4 rounded hover:bg-gray-200 transition-colors text-sm"
+                          className="flex-1 bg-white text-black font-semibold py-1.5 px-3 rounded hover:bg-gray-200 transition-colors text-xs"
                         >
                           View Details
                         </button>
@@ -382,7 +382,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
                               e.stopPropagation();
                               window.open(project.liveUrl!, '_blank');
                             }}
-                            className="flex-1 bg-gray-600 text-white font-semibold py-2 px-4 rounded hover:bg-gray-500 transition-colors text-sm"
+                            className="flex-1 bg-gray-600 text-white font-semibold py-1.5 px-3 rounded hover:bg-gray-500 transition-colors text-xs"
                           >
                             Visit Live
                           </button>
@@ -394,7 +394,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
                               e.stopPropagation();
                               window.open(project.githubUrl!, '_blank');
                             }}
-                            className="flex-1 bg-gray-600 text-white font-semibold py-2 px-4 rounded hover:bg-gray-500 transition-colors text-sm"
+                            className="flex-1 bg-gray-600 text-white font-semibold py-1.5 px-3 rounded hover:bg-gray-500 transition-colors text-xs"
                           >
                             GitHub
                           </button>
