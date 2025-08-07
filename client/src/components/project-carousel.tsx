@@ -456,7 +456,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 }}>
                   {hoveredProject === project.id && (
                     <h3 className="font-bold transition-all duration-300 text-white text-sm mb-2 line-clamp-2">
-                      {project.description}
+                      {project.title}: {project.description}
                     </h3>
                   )}
                   
