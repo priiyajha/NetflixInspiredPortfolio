@@ -58,13 +58,12 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
     }
   }, []);
 
-  // Handle video playback for hover states
   useEffect(() => {
     if (hoveredProject) {
       const video = videoRefs.current[hoveredProject];
       if (video) {
         video.currentTime = 0;
-        video.play().catch(() => {}); // Ignore autoplay errors
+        video.play().catch(() => {});
       }
     }
   }, [hoveredProject]);
@@ -126,7 +125,6 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
     return 'Side Project';
   };
 
-  // Close share menu when clicking outside
   useEffect(() => {
     const handleClickOutside = () => setShowShareMenu(null);
     document.addEventListener('click', handleClickOutside);
@@ -143,12 +141,10 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
 
   return (
     <div className="relative group mb-8">
-      {/* Section Title */}
       <h2 className="text-white text-xl sm:text-2xl font-semibold mb-4 px-4 sm:px-6 md:px-12">
         {title}
       </h2>
 
-      {/* Left Arrow */}
       {canScrollLeft && (
         <button
           onClick={scrollLeft}
@@ -159,7 +155,6 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
         </button>
       )}
 
-      {/* Right Arrow */}
       {canScrollRight && (
         <button
           onClick={scrollRight}
@@ -170,11 +165,11 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
         </button>
       )}
 
-      {/* Project Cards Container */}
       <div
         ref={scrollRef}
         className="flex gap-1 sm:gap-2 md:gap-2 lg:gap-3 xl:gap-3 overflow-x-auto scrollbar-hide px-4 sm:px-6 md:px-12 pb-4 relative"
         onScroll={checkScrollability}
+        style={{ overflowY: 'visible' }}
       >
         {projects.map((project, index) => {
           const isHovered = hoveredProject === project.id;
@@ -188,7 +183,7 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
                 if (hoverTimeout) clearTimeout(hoverTimeout);
                 const timeout = setTimeout(() => {
                   setHoveredProject(project.id);
-                }, 200);
+                }, 300);
                 setHoverTimeout(timeout);
               }}
               onMouseLeave={() => {
@@ -200,249 +195,215 @@ const ProjectCarousel: React.FC<ProjectCarouselProps> = ({
                 setShowShareMenu(null);
               }}
             >
-              {/* Normal Card State - Always visible as placeholder */}
-              <motion.div 
-                className={`relative overflow-hidden transition-all duration-300 ease-out ${
-                  !isHovered ? 'hover:shadow-lg hover:shadow-black/30' : 'opacity-0'
-                }`}
-                style={{
-                  borderRadius: '6px',
-                  height: '120px'
-                }}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
-                  style={{ borderRadius: '6px' }}
-                  draggable={false}
-                />
-                
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"
-                  style={{ borderRadius: '6px' }}>
-                </div>
-                
-                {/* Content overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-2">
-                  <h3 className="font-bold text-sm text-white truncate">
-                    {project.title}
-                  </h3>
-                </div>
-              </motion.div>
+              {/* Normal Card - Visible when not hovered */}
+              {!isHovered && (
+                <motion.div 
+                  className="relative overflow-hidden transition-all duration-300 ease-out hover:shadow-lg hover:shadow-black/30"
+                  style={{
+                    borderRadius: '6px',
+                    height: '120px'
+                  }}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                    style={{ borderRadius: '6px' }}
+                    draggable={false}
+                  />
+                  
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"
+                    style={{ borderRadius: '6px' }}>
+                  </div>
+                  
+                  <div className="absolute bottom-0 left-0 right-0 p-2">
+                    <h3 className="font-bold text-sm text-white truncate">
+                      {project.title}
+                    </h3>
+                  </div>
+                </motion.div>
+              )}
 
-              {/* Modal Portal for Hover Card */}
-              <AnimatePresence>
-                {isHovered && (
-                  <div className="fixed inset-0 z-[100] pointer-events-none">
-                    {/* Backdrop */}
-                    <motion.div
-                      className="absolute inset-0 bg-black/60 backdrop-blur-sm pointer-events-auto"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.2 }}
+              {/* Expanded Card - Shows when hovered, positioned absolutely in place */}
+              {isHovered && (
+                <motion.div 
+                  className="absolute top-0 left-0 w-80 bg-gray-900 rounded-xl shadow-2xl shadow-black/50 pointer-events-auto z-[100]"
+                  initial={{
+                    scale: 1,
+                    opacity: 0
+                  }}
+                  animate={{
+                    scale: 1.2,
+                    opacity: 1,
+                    y: -20
+                  }}
+                  exit={{
+                    scale: 1,
+                    opacity: 0,
+                    y: 0
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  {/* Video or Image */}
+                  {project.video ? (
+                    <video
+                      ref={(el) => { videoRefs.current[project.id] = el; }}
+                      src={project.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-48 object-cover rounded-t-xl"
                     />
+                  ) : (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-48 object-cover rounded-t-xl"
+                      draggable={false}
+                    />
+                  )}
+                  
+                  {/* Share Button */}
+                  <div className="absolute top-4 right-4">
+                    <button
+                      onClick={(e) => handleShare(project, e)}
+                      className="bg-black/80 hover:bg-black/90 text-white p-3 rounded-full transition-all duration-300 shadow-lg"
+                      aria-label="Share project"
+                    >
+                      <Share className="w-5 h-5" />
+                    </button>
                     
-                    {/* Card Modal - Centered */}
-                    <div className="flex items-center justify-center min-h-screen p-4 pointer-events-none">
-                      <motion.div 
-                        className="w-full max-w-md bg-gray-900 rounded-xl shadow-2xl shadow-black/50 pointer-events-auto overflow-hidden"
-                        initial={{
-                          scale: 0.8,
-                          opacity: 0,
-                          y: 20
-                        }}
-                        animate={{
-                          scale: 1,
-                          opacity: 1,
-                          y: 0
-                        }}
-                        exit={{
-                          scale: 0.8,
-                          opacity: 0,
-                          y: 20
-                        }}
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                      >
-                    {/* Video background for hover state */}
-                    {project.video && (
-                      <video
-                        ref={(el) => { videoRefs.current[project.id] = el; }}
-                        src={project.video}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-48 object-cover"
-                        style={{ 
-                          borderTopLeftRadius: '12px',
-                          borderTopRightRadius: '12px'
-                        }}
-                      />
-                    )}
-                    
-                    {/* Static Image - fallback when no video */}
-                    {!project.video && (
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-48 object-cover"
-                        style={{
-                          borderTopLeftRadius: '12px',
-                          borderTopRightRadius: '12px'
-                        }}
-                        draggable={false}
-                      />
-                    )}
-                    
-                    {/* Share Button */}
-                    <div className="absolute top-4 right-4">
-                      <button
-                        onClick={(e) => handleShare(project, e)}
-                        className="bg-black/80 hover:bg-black/90 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-md border border-white/20 shadow-lg"
-                        aria-label="Share project"
-                      >
-                        <Share className="w-5 h-5" />
-                      </button>
-                      
-                      {/* Share Menu */}
-                      {showShareMenu === project.id && (
-                        <div className="absolute top-16 right-0 bg-black/95 backdrop-blur-md rounded-lg p-4 min-w-[220px] z-[60] border border-white/10 shadow-2xl">
-                          <div className="space-y-2">
-                            <button
-                              onClick={(e) => copyProjectLink(project, e)}
-                              className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
-                            >
-                              {copiedProject === project.id ? (
-                                <Check className="w-4 h-4 text-green-400" />
-                              ) : (
-                                <Copy className="w-4 h-4" />
-                              )}
-                              <span className="text-sm">
-                                {copiedProject === project.id ? 'Copied!' : 'Copy Link'}
-                              </span>
-                            </button>
-                            
-                            <hr className="border-gray-600 my-2" />
-                            
-                            <button
-                              onClick={(e) => shareOnSocial('linkedin', project, e)}
-                              className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
-                            >
-                              <div className="w-4 h-4 bg-blue-600 rounded-sm flex items-center justify-center">
-                                <span className="text-white text-xs font-bold">in</span>
-                              </div>
-                              <span className="text-sm">LinkedIn</span>
-                            </button>
-                            
-                            <button
-                              onClick={(e) => shareOnSocial('twitter', project, e)}
-                              className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
-                            >
-                              <div className="w-4 h-4 bg-black rounded-sm flex items-center justify-center border border-white">
-                                <span className="text-white text-xs font-bold">𝕏</span>
-                              </div>
-                              <span className="text-sm">Twitter</span>
-                            </button>
-                            
-                            <button
-                              onClick={(e) => shareOnSocial('whatsapp', project, e)}
-                              className="flex items-center space-x-3 w-full text-left text-white hover:text-green-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
-                            >
-                              <div className="w-4 h-4 bg-green-500 rounded-sm flex items-center justify-center">
-                                <span className="text-white text-xs font-bold">W</span>
-                              </div>
-                              <span className="text-sm">WhatsApp</span>
-                            </button>
-                            
-                            <button
-                              onClick={(e) => shareOnSocial('telegram', project, e)}
-                              className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-300 transition-colors py-2 px-2 rounded hover:bg-white/10"
-                            >
-                              <div className="w-4 h-4 bg-blue-500 rounded-sm flex items-center justify-center">
-                                <span className="text-white text-xs font-bold">T</span>
-                              </div>
-                              <span className="text-sm">Telegram</span>
-                            </button>
-                            
-                            <button
-                              onClick={(e) => shareOnSocial('instagram', project, e)}
-                              className="flex items-center space-x-3 w-full text-left text-white hover:text-pink-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
-                            >
-                              <div className="w-4 h-4 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 rounded-sm flex items-center justify-center">
-                                <span className="text-white text-xs font-bold">IG</span>
-                              </div>
-                              <span className="text-sm">Instagram</span>
-                            </button>
-                          </div>
+                    {showShareMenu === project.id && (
+                      <div className="absolute top-16 right-0 bg-black/95 rounded-lg p-4 min-w-[220px] z-[60] shadow-2xl">
+                        <div className="space-y-2">
+                          <button
+                            onClick={(e) => copyProjectLink(project, e)}
+                            className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                          >
+                            {copiedProject === project.id ? (
+                              <Check className="w-4 h-4 text-green-400" />
+                            ) : (
+                              <Copy className="w-4 h-4" />
+                            )}
+                            <span className="text-sm">
+                              {copiedProject === project.id ? 'Copied!' : 'Copy Link'}
+                            </span>
+                          </button>
+                          
+                          <hr className="border-gray-600 my-2" />
+                          
+                          <button
+                            onClick={(e) => shareOnSocial('linkedin', project, e)}
+                            className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                          >
+                            <div className="w-4 h-4 bg-blue-600 rounded-sm flex items-center justify-center">
+                              <span className="text-white text-xs font-bold">in</span>
+                            </div>
+                            <span className="text-sm">LinkedIn</span>
+                          </button>
+                          
+                          <button
+                            onClick={(e) => shareOnSocial('twitter', project, e)}
+                            className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                          >
+                            <div className="w-4 h-4 bg-black rounded-sm flex items-center justify-center border border-white">
+                              <span className="text-white text-xs font-bold">𝕏</span>
+                            </div>
+                            <span className="text-sm">Twitter</span>
+                          </button>
+                          
+                          <button
+                            onClick={(e) => shareOnSocial('whatsapp', project, e)}
+                            className="flex items-center space-x-3 w-full text-left text-white hover:text-green-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                          >
+                            <div className="w-4 h-4 bg-green-500 rounded-sm flex items-center justify-center">
+                              <span className="text-white text-xs font-bold">W</span>
+                            </div>
+                            <span className="text-sm">WhatsApp</span>
+                          </button>
+                          
+                          <button
+                            onClick={(e) => shareOnSocial('telegram', project, e)}
+                            className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-300 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                          >
+                            <div className="w-4 h-4 bg-blue-500 rounded-sm flex items-center justify-center">
+                              <span className="text-white text-xs font-bold">T</span>
+                            </div>
+                            <span className="text-sm">Telegram</span>
+                          </button>
+                          
+                          <button
+                            onClick={(e) => shareOnSocial('instagram', project, e)}
+                            className="flex items-center space-x-3 w-full text-left text-white hover:text-pink-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                          >
+                            <div className="w-4 h-4 bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600 rounded-sm flex items-center justify-center">
+                              <span className="text-white text-xs font-bold">IG</span>
+                            </div>
+                            <span className="text-sm">Instagram</span>
+                          </button>
                         </div>
-                      )}
-                    </div>
-                    
-                    {/* Content Area */}
-                    <div className="p-4 bg-gray-800" style={{ 
-                      borderBottomLeftRadius: '12px',
-                      borderBottomRightRadius: '12px'
-                    }}>
-                      <div className="flex flex-col space-y-2">
-                        <h3 className="text-white font-bold text-lg leading-tight">
-                          {project.title}
-                        </h3>
-                        <p className="text-netflix-light-gray text-sm">
-                          {getProjectSubtitle(project)}
-                        </p>
-                        <p className="text-white text-sm line-clamp-3 leading-relaxed">
-                          {project.description}
-                        </p>
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="p-4 bg-gray-800 rounded-b-xl">
+                    <div className="flex flex-col space-y-2">
+                      <h3 className="text-white font-bold text-lg leading-tight">
+                        {project.title}
+                      </h3>
+                      <p className="text-netflix-light-gray text-sm">
+                        {getProjectSubtitle(project)}
+                      </p>
+                      <p className="text-white text-sm line-clamp-3 leading-relaxed">
+                        {project.description}
+                      </p>
+                      
+                      {/* Action Buttons */}
+                      <div className="flex space-x-2 pt-2">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onProjectClick(project.id);
+                          }}
+                          className="flex-1 bg-white text-black font-semibold py-2 px-4 rounded hover:bg-gray-200 transition-colors text-sm"
+                        >
+                          View Details
+                        </button>
                         
-                        {/* Action Buttons */}
-                        <div className="flex space-x-2 pt-2">
+                        {project.liveUrl && (
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
-                              onProjectClick(project.id);
+                              window.open(project.liveUrl!, '_blank');
                             }}
-                            className="flex-1 bg-white text-black font-semibold py-2 px-4 rounded hover:bg-gray-200 transition-colors text-sm"
+                            className="flex-1 bg-gray-600 text-white font-semibold py-2 px-4 rounded hover:bg-gray-500 transition-colors text-sm"
                           >
-                            View Details
+                            Visit Live
                           </button>
-                          
-                          {project.liveUrl && (
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                window.open(project.liveUrl!, '_blank');
-                              }}
-                              className="flex-1 bg-gray-600 text-white font-semibold py-2 px-4 rounded hover:bg-gray-500 transition-colors text-sm"
-                            >
-                              Visit Live
-                            </button>
-                          )}
-                          
-                          {project.githubUrl && (
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                window.open(project.githubUrl!, '_blank');
-                              }}
-                              className="flex-1 bg-gray-600 text-white font-semibold py-2 px-4 rounded hover:bg-gray-500 transition-colors text-sm"
-                            >
-                              GitHub
-                            </button>
-                          )}
-                        </div>
+                        )}
+                        
+                        {project.githubUrl && (
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              window.open(project.githubUrl!, '_blank');
+                            }}
+                            className="flex-1 bg-gray-600 text-white font-semibold py-2 px-4 rounded hover:bg-gray-500 transition-colors text-sm"
+                          >
+                            GitHub
+                          </button>
+                        )}
                       </div>
                     </div>
-                  </motion.div>
-                    </div>
                   </div>
-                )}
-              </AnimatePresence>
+                </motion.div>
+              )}
             </div>
           );
         })}
