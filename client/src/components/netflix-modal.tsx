@@ -252,10 +252,56 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                            project.status === "completed" ? "Successfully Exited" : "In Development"}
                         </span>
                         <span className="text-gray-400 text-sm">
-                          Period: {project.period || "2025"}
+                          {project.title === "Cazpro" 
+                            ? "2014-2015" 
+                            : project.title === "Millionth Mile Marketing"
+                            ? "2017-2019"
+                            : project.title === "DigiPay"
+                            ? "2019-2021"
+                            : project.title === "Inventrax"
+                            ? "2022"
+                            : project.title === "FDX Sports"
+                            ? "2023"
+                            : project.title === "Codiste"
+                            ? "2024"
+                            : project.title === "ZO Labs"
+                            ? "2024-2025"
+                            : project.title === "Zentrades"
+                            ? "2023"
+                            : project.title === "InboxBites"
+                            ? "2024"
+                            : project.title === "Solgames"
+                            ? "2022-2023"
+                            : project.title === "Martian Wallet"
+                            ? "2023-2024"
+                            : "2025"}
                         </span>
                         <span className="px-3 py-1 rounded-full border border-white text-white text-sm">
-                          Engagement Type: {project.engagementType || "Professional"}
+                          {project.title === "Cazpro" 
+                            ? "D2C Business"
+                            : project.title === "Millionth Mile Marketing" 
+                            ? "Growth Agency"
+                            : project.title === "DigiPay"
+                            ? "Fintech Startup"
+                            : project.title === "Inventrax"
+                            ? "SEO Platform"
+                            : project.title === "FDX Sports"
+                            ? "E-commerce Brand"
+                            : project.title === "Codiste"
+                            ? "Marketing Agency"
+                            : project.title === "ZO Labs"
+                            ? "AI Startup"
+                            : project.title === "Zentrades"
+                            ? "B2B Marketing"
+                            : project.title === "InboxBites"
+                            ? "MicroSaaS/AI"
+                            : project.title === "Solgames"
+                            ? "GameFi/Web3"
+                            : project.title === "Martian Wallet"
+                            ? "Web3/DApp"
+                            : project.title === "GEOptimer"
+                            ? "AI SEO/SaaS"
+                            : "Web Application"}
                         </span>
                       </div>
 
