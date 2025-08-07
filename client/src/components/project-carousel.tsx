@@ -39,32 +39,49 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     );
   };
 
+  const getCardWidth = () => {
+    // Calculate exact card width to fit 5 cards per row
+    const containerPadding = window.innerWidth >= 768 ? 96 : 32; // px-12 on md+ or px-4 on smaller
+    const totalGap = 4 * 16; // 4 gaps of 1rem each (16px)
+    const availableWidth = window.innerWidth - containerPadding;
+    return Math.floor((availableWidth - totalGap) / 5);
+  };
+
   const scrollLeft = () => {
     const container = scrollRef.current;
     if (!container) return;
     
-    // Netflix pixel-perfect dimensions - 5 cards per row with spacing
-    const cardWidth = window.innerWidth >= 1280 ? 224 : window.innerWidth >= 1024 ? 204 : window.innerWidth >= 768 ? 184 : window.innerWidth >= 640 ? 164 : 144;
-    container.scrollBy({ left: -cardWidth * 5, behavior: 'smooth' });
+    const cardWidth = getCardWidth();
+    const gap = 16; // 1rem gap
+    const scrollAmount = cardWidth + gap;
+    container.scrollBy({ left: -scrollAmount * 5, behavior: 'smooth' });
   };
 
   const scrollRight = () => {
     const container = scrollRef.current;
     if (!container) return;
     
-    // Netflix pixel-perfect dimensions - 5 cards per row with spacing
-    const cardWidth = window.innerWidth >= 1280 ? 224 : window.innerWidth >= 1024 ? 204 : window.innerWidth >= 768 ? 184 : window.innerWidth >= 640 ? 164 : 144;
-    container.scrollBy({ left: cardWidth * 5, behavior: 'smooth' });
+    const cardWidth = getCardWidth();
+    const gap = 16; // 1rem gap
+    const scrollAmount = cardWidth + gap;
+    container.scrollBy({ left: scrollAmount * 5, behavior: 'smooth' });
   };
+
+  const [cardWidth, setCardWidth] = useState(getCardWidth());
 
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
 
+    const updateCardWidth = () => {
+      setCardWidth(getCardWidth());
+      checkScrollability();
+    };
+
     checkScrollability();
     
     const handleScroll = () => checkScrollability();
-    const handleResize = () => checkScrollability();
+    const handleResize = () => updateCardWidth();
     
     container.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
@@ -248,8 +265,12 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
 
       <div
         ref={scrollRef}
-        className="flex gap-1 sm:gap-2 md:gap-2 lg:gap-3 xl:gap-3 overflow-x-auto scrollbar-hide px-4 sm:px-6 md:px-12 pb-4 cursor-grab active:cursor-grabbing"
+        className="flex gap-4 overflow-x-auto scrollbar-hide px-4 md:px-12 pb-4 cursor-grab active:cursor-grabbing"
         onMouseDown={handleMouseDown}
+        style={{ 
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none'
+        }}
       >
         {projects.map((project, index) => {
           const hasLiveUrl = project.liveUrl && project.liveUrl.length > 0;
@@ -258,13 +279,10 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
           return (
             <motion.div
               key={project.id}
-              className={`flex-none cursor-pointer relative group ${
-                hoveredProject === project.id 
-                  ? 'w-80 sm:w-80 md:w-80 lg:w-80 xl:w-80' 
-                  : 'w-32 sm:w-36 md:w-40 lg:w-48 xl:w-52'
-              }`}
+              className="flex-none cursor-pointer relative group"
               style={{
-                transition: 'width 0.3s ease-in-out'
+                width: `${cardWidth}px`,
+                minWidth: `${cardWidth}px`
               }}
               onClick={() => onProjectClick(project.id)}
               initial={{ opacity: 0, x: 50 }}
@@ -293,20 +311,16 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
             >
               {/* Normal Card State */}
               <motion.div 
-                className={`relative overflow-hidden transition-all duration-300 ease-out ${
+                className={`relative overflow-hidden transition-all duration-300 ease-out h-full ${
                   hoveredProject === project.id 
                     ? 'shadow-2xl shadow-black/50 z-20' 
                     : 'hover:shadow-lg hover:shadow-black/30'
                 }`}
                 style={{
                   transformOrigin: 'center center',
-                  borderRadius: hoveredProject === project.id ? '12px' : '6px'
+                  borderRadius: '8px',
+                  aspectRatio: '16 / 9'
                 }}
-                animate={{
-                  scale: hoveredProject === project.id ? 1.15 : 1,
-                  y: hoveredProject === project.id ? -15 : 0,
-                }}
-                transition={{ duration: 1.0, ease: "easeInOut" }}
               >
                 {/* Video background for hover state */}
                 {hoveredProject === project.id && project.video && (
@@ -317,12 +331,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     loop
                     muted
                     playsInline
-                    className="absolute top-0 left-0 right-0 w-full object-cover z-0"
-                    style={{ 
-                      height: '65%',
-                      borderTopLeftRadius: '12px',
-                      borderTopRightRadius: '12px'
-                    }}
+                    className="absolute top-0 left-0 right-0 w-full h-full object-cover z-0 rounded-lg"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.4 }}
@@ -333,21 +342,16 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 <img
                   src={project.image}
                   alt={project.title}
-                  className={`w-full object-cover transition-all duration-300 relative z-10 ${
-                    hoveredProject === project.id 
-                      ? 'opacity-0 h-80 sm:h-80 md:h-80' 
-                      : 'opacity-100 h-18 sm:h-20 md:h-24 lg:h-28 xl:h-32'
-                  }`}
+                  className="w-full h-full object-cover transition-opacity duration-300 rounded-lg"
                   style={{
-                    borderRadius: hoveredProject === project.id ? '12px' : '6px'
+                    opacity: hoveredProject === project.id && project.video ? 0 : 1
                   }}
                   draggable={false}
                 />
                 
                 {/* Gradient Overlay - only for non-hover state */}
                 {hoveredProject !== project.id && (
-                  <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/80 via-transparent to-transparent"
-                    style={{ borderRadius: '6px' }}>
+                  <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-lg">
                   </div>
                 )}
                 
@@ -438,153 +442,12 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 </div>
 
                 
-                {/* Content overlay - adapts to hover state */}
-                <div className={`absolute bottom-0 left-0 right-0 z-30 transition-all duration-300 ${
-                  hoveredProject === project.id 
-                    ? 'p-3'
-                    : 'p-4'
-                }`}
-                style={{
-                  background: hoveredProject === project.id 
-                    ? '#2a2a2a'
-                    : '',
-                  borderBottomLeftRadius: hoveredProject === project.id ? '12px' : '6px',
-                  borderBottomRightRadius: hoveredProject === project.id ? '12px' : '6px',
-                  minHeight: hoveredProject === project.id ? '140px' : 'auto',
-                  maxHeight: hoveredProject === project.id ? '140px' : 'auto',
-                  overflow: 'hidden'
-                }}>
-                  <h3 className={`font-bold transition-all duration-300 text-white truncate ${
-                    hoveredProject === project.id ? 'text-lg mb-2' : 'text-base mb-1'
-                  }`}>
+                {/* Content overlay - simple title overlay */}
+                <div className="absolute bottom-0 left-0 right-0 z-30 p-3 bg-black/90 rounded-b-lg">
+                  <h3 className="font-bold text-white text-sm truncate">
                     {project.title}
                   </h3>
-                  
-                  {/* Project Subtitle - Only visible on hover */}
-                  {hoveredProject === project.id && (
-                    <p className="text-gray-400 text-sm mb-2 transition-all duration-300">
-                      {getProjectSubtitle(project)}
-                    </p>
-                  )}
-                  
-                  {/* Show description only on hover */}
-                  {hoveredProject === project.id && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.3, delay: 0.1 }}
-                    >
-
-                      
-                      {/* Netflix-style Action buttons */}
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center space-x-2">
-                          {/* Play Button - Opens Project Modal */}
-                          <button 
-                            className="bg-white text-black p-2 rounded-full hover:bg-gray-200 transition-colors flex items-center justify-center"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              onProjectClick(project.id);
-                            }}
-                            title="View project details"
-                            style={{ width: '36px', height: '36px' }}
-                          >
-                            <Play className="w-4 h-4 fill-current ml-1" />
-                          </button>
-                          
-                          {/* Add Button - Opens Project Modal */}
-                          <button 
-                            className="border-2 border-gray-500 text-white p-2 rounded-full hover:border-white hover:bg-white/10 transition-colors flex items-center justify-center"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              onProjectClick(project.id);
-                            }}
-                            title="View project details"
-                            style={{ width: '32px', height: '32px' }}
-                          >
-                            <Plus className="w-3.5 h-3.5" />
-                          </button>
-                          
-                          {/* Like Button - Dummy for now */}
-                          <button 
-                            className="border-2 border-gray-500 text-white p-2 rounded-full hover:border-white hover:bg-white/10 transition-colors flex items-center justify-center"
-                            onClick={(e) => e.stopPropagation()}
-                            title="Like"
-                            style={{ width: '32px', height: '32px' }}
-                          >
-                            <ThumbsUp className="w-3.5 h-3.5" />
-                          </button>
-                        </div>
-                        
-                        {/* Downward Arrow - Opens Card Details */}
-                        <button 
-                          className="border-2 border-gray-500 text-white p-2 rounded-full hover:border-white hover:bg-white/10 transition-colors flex items-center justify-center"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            onProjectClick(project.id);
-                          }}
-                          title="More info"
-                          style={{ width: '32px', height: '32px' }}
-                        >
-                          <ChevronDown className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-                      
-                      {/* Movie info tags - matching Netflix style */}
-                      <div className="flex items-center space-x-3 text-sm text-gray-300">
-                        <span className="border border-gray-500 px-2 py-0.5 text-xs rounded">HD</span>
-                        <span className="text-xs text-gray-400">{project.category}</span>
-                      </div>
-                      
-                      {/* Share Menu Dropdown */}
-                      {showShareMenu === project.id && (
-                        <motion.div 
-                          className="absolute bottom-14 right-0 bg-gray-900/95 backdrop-blur-sm border border-gray-700 rounded-lg p-3 shadow-xl z-50 min-w-[200px]"
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.2 }}
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <div className="space-y-2">
-                            <button
-                              onClick={(e) => copyProjectLink(project, e)}
-                              className="flex items-center w-full text-left px-3 py-2 text-white hover:bg-gray-700/50 rounded-md transition-colors"
-                            >
-                              {copiedProject === project.id ? (
-                                <>
-                                  <Check className="w-4 h-4 mr-3 text-green-400" />
-                                  <span className="text-green-400">Link copied!</span>
-                                </>
-                              ) : (
-                                <>
-                                  <Copy className="w-4 h-4 mr-3" />
-                                  <span>Copy link</span>
-                                </>
-                              )}
-                            </button>
-                            
-                            <div className="border-t border-gray-700 pt-2">
-                              <p className="text-gray-400 text-xs mb-2 px-3">Share on social</p>
-                              <button
-                                onClick={(e) => shareOnSocial('twitter', project, e)}
-                                className="flex items-center w-full text-left px-3 py-2 text-white hover:bg-gray-700/50 rounded-md transition-colors"
-                              >
-                                <Share className="w-4 h-4 mr-3" />
-                                <span>Twitter</span>
-                              </button>
-                              <button
-                                onClick={(e) => shareOnSocial('linkedin', project, e)}
-                                className="flex items-center w-full text-left px-3 py-2 text-white hover:bg-gray-700/50 rounded-md transition-colors"
-                              >
-                                <Share className="w-4 h-4 mr-3" />
-                                <span>LinkedIn</span>
-                              </button>
-                            </div>
-                          </div>
-                        </motion.div>
-                      )}
-                    </motion.div>
-                  )}
+                  <p className="text-gray-400 text-xs truncate">{project.category}</p>
                 </div>
               </motion.div>
             </motion.div>
