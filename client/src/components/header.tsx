@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Search, ChevronDown, Bell, Menu, X, User, HelpCircle, Settings, UserCog } from "lucide-react";
+import { Search, ChevronDown, Bell, Menu, X, User, HelpCircle, Settings, UserCog, Download, Briefcase, Mic, Linkedin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, Link } from "wouter";
 
@@ -76,22 +76,23 @@ export default function Header() {
 
   const handleProfileMenuClick = (action: string) => {
     setProfileMenuOpen(false);
-    // Navigate to home page and scroll to footer for all actions
-    if (location !== "/") {
-      setLocation("/");
-      // Wait for navigation then scroll to footer
-      setTimeout(() => {
-        const footerElement = document.getElementById("footer");
-        if (footerElement) {
-          footerElement.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }, 100);
-    } else {
-      // Already on home page, just scroll to footer
-      const footerElement = document.getElementById("footer");
-      if (footerElement) {
-        footerElement.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+    
+    switch (action) {
+      case 'download-resume':
+        // TODO: Implement resume download
+        console.log('Download resume clicked');
+        break;
+      case 'work-with-me':
+        setLocation("/contact");
+        break;
+      case 'invite-as-speaker':
+        setLocation("/contact");
+        break;
+      case 'connect-linkedin':
+        window.open("https://linkedin.com/in/farooqchisty", "_blank");
+        break;
+      default:
+        break;
     }
   };
 
@@ -218,7 +219,7 @@ export default function Header() {
                           <div className="flex items-center space-x-3">
                             <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded"></div>
                             <div>
-                              <p className="text-white font-medium text-sm">Priya</p>
+                              <p className="text-white font-medium text-sm">Farooq Chisty</p>
                             </div>
                           </div>
                         </div>
@@ -226,35 +227,35 @@ export default function Header() {
                         {/* Menu Items */}
                         <div className="py-2">
                           <button
-                            onClick={() => handleProfileMenuClick('manage-profiles')}
+                            onClick={() => handleProfileMenuClick('download-resume')}
                             className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
                           >
-                            <UserCog className="w-5 h-5" />
-                            <span className="text-sm">Manage Profiles</span>
+                            <Download className="w-5 h-5" />
+                            <span className="text-sm">Download Resume</span>
                           </button>
                           
                           <button
-                            onClick={() => handleProfileMenuClick('transfer-profile')}
+                            onClick={() => handleProfileMenuClick('work-with-me')}
                             className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
                           >
-                            <User className="w-5 h-5" />
-                            <span className="text-sm">Transfer Profile</span>
+                            <Briefcase className="w-5 h-5" />
+                            <span className="text-sm">Work with me</span>
                           </button>
                           
                           <button
-                            onClick={() => handleProfileMenuClick('account')}
+                            onClick={() => handleProfileMenuClick('invite-as-speaker')}
                             className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
                           >
-                            <Settings className="w-5 h-5" />
-                            <span className="text-sm">Account</span>
+                            <Mic className="w-5 h-5" />
+                            <span className="text-sm">Invite as a Speaker</span>
                           </button>
                           
                           <button
-                            onClick={() => handleProfileMenuClick('help-centre')}
+                            onClick={() => handleProfileMenuClick('connect-linkedin')}
                             className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
                           >
-                            <HelpCircle className="w-5 h-5" />
-                            <span className="text-sm">Help Centre</span>
+                            <Linkedin className="w-5 h-5" />
+                            <span className="text-sm">Connect on LinkedIn</span>
                           </button>
                         </div>
                       </motion.div>
