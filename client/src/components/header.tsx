@@ -79,8 +79,9 @@ export default function Header() {
     
     switch (action) {
       case 'download-resume':
-        // TODO: Implement resume download
-        console.log('Download resume clicked');
+        // Opens the same Google Doc URL as the "View Resume" button on the home page
+        const resumeUrl = "https://docs.google.com/document/d/YOUR_GOOGLE_DOC_ID/edit";
+        window.open(resumeUrl, "_blank");
         break;
       case 'work-with-me':
         setLocation("/contact");
