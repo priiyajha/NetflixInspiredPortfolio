@@ -683,7 +683,7 @@ class MemStorage implements IStorage {
       name: "Farooq Chisty",
       title: "Farooq",
       subtitle: "Chisty",
-      bio: "Farooq codes like he's curating a vibe, part full-stack dev, part automation whisperer, part marketing nerd. With the MERN stack at his fingertips and GenAI in his toolkit, he turns messy workflows into seamless systems. Beyond code, he leads with clarity, from TEDx stages to NSS teams, blending tech, voice, and vision. Quick to learn, faster to build, and always rewriting the rules, in beta, by choice.",
+      bio: "AI-first growth operator with 10+ years building, growing and helping scale businesses. Generated $80M+ in revenue across 5 ventures. Drove 2 Million+ users across 4 apps. TEDx speaker, 30+ Keynotes. Full-stack growth marketer delivering results by blending AI automation, systems thinking, and strategy.",
       mission: "Transforming complex workflows into elegant solutions through the perfect blend of technology, automation, and strategic thinking.",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800",
       email: "farooqsheik52543@gmail.com",
