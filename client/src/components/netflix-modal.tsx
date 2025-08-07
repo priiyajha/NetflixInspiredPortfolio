@@ -1072,7 +1072,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
       {selectedImage && (
         <motion.div
           key="image-modal-backdrop"
-          className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[60] flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[60] flex items-center justify-center p-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -1080,7 +1080,13 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
         >
           <motion.div
             key="image-modal-content"
-            className="relative w-[95vw] h-[95vh] flex items-center justify-center"
+            className="relative flex items-center justify-center"
+            style={{
+              maxWidth: 'calc(100vw - 64px)',
+              maxHeight: 'calc(100vh - 64px)',
+              width: 'fit-content',
+              height: 'fit-content'
+            }}
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -1090,7 +1096,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
             {/* Close Button */}
             <button
               onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm"
+              className="absolute -top-12 right-0 z-10 bg-black/70 hover:bg-black/90 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
               aria-label="Close image"
             >
               <X className="w-6 h-6" />
@@ -1100,12 +1106,13 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
             <img
               src={selectedImage}
               alt="Project screenshot"
-              className="w-auto h-auto max-w-full max-h-full object-contain rounded-lg"
+              className="block rounded-lg shadow-2xl"
               style={{ 
-                maxWidth: '100%',
-                maxHeight: '100%',
+                maxWidth: 'calc(100vw - 64px)',
+                maxHeight: 'calc(100vh - 64px)',
                 width: 'auto',
-                height: 'auto'
+                height: 'auto',
+                objectFit: 'contain'
               }}
               draggable={false}
               onError={(e) => {
