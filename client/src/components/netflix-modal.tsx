@@ -1044,9 +1044,9 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               </div>
                             </div>
                             <div className="flex items-center gap-2 text-xs text-gray-400 mb-2">
-                              <span>2025</span>
+                              <span>{similarProject.period || "2025"}</span>
                               <span className="border border-gray-400 px-1 rounded text-xs">
-                                Professional
+                                {similarProject.engagementType || "Professional"}
                               </span>
                             </div>
                             <p className="text-gray-300 text-xs line-clamp-2">
