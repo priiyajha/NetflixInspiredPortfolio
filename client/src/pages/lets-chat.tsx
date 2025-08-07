@@ -1,9 +1,23 @@
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 import Header from "@/components/header";
 import { MessageCircle, Calendar, Phone, Mail, Linkedin, Send, Coffee, Lightbulb, Rocket } from "lucide-react";
 import { FaTwitter } from "react-icons/fa";
 
 export default function LetsChatPage() {
+  // Load Calendly script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
+    
+    return () => {
+      // Clean up script when component unmounts
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-black text-white">
       <Header />
@@ -166,16 +180,38 @@ export default function LetsChatPage() {
             </div>
           </motion.div>
 
+          {/* Calendly Scheduling Section */}
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Schedule a Call</h2>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              Pick a time that works for you and let's have a conversation about your project, ideas, or anything interesting.
+            </p>
+            
+            {/* Calendly Embed */}
+            <div className="bg-white rounded-xl overflow-hidden shadow-2xl max-w-4xl mx-auto">
+              <div 
+                className="calendly-inline-widget" 
+                data-url="https://calendly.com/farooqsheik52543" 
+                style={{minWidth: '320px', height: '700px'}}
+              ></div>
+            </div>
+          </motion.div>
+
           {/* Call to Action */}
           <motion.div
             className="text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Chat?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Or Reach Out Directly</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Don't be shy! I love connecting with creative minds, ambitious entrepreneurs, and curious thinkers.
+              Prefer a quick message? Drop me a line and I'll get back to you soon.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
