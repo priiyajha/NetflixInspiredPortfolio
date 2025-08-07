@@ -211,7 +211,7 @@ export default function Header() {
                     <img 
                       src="/attached_assets/farooq-headshot.png" 
                       alt="Farooq Chisty" 
-                      className="w-8 h-8 rounded-full object-cover"
+                      className="w-8 h-8 rounded object-cover"
                     />
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${profileMenuOpen ? 'rotate-180' : ''}`} />
                   </button>
@@ -232,7 +232,7 @@ export default function Header() {
                             <img 
                               src="/attached_assets/farooq-headshot.png" 
                               alt="Farooq Chisty" 
-                              className="w-10 h-10 rounded-full object-cover"
+                              className="w-10 h-10 rounded object-cover"
                             />
                             <div>
                               <p className="text-white font-medium text-sm">Farooq Chisty</p>
@@ -329,7 +329,7 @@ export default function Header() {
                     <img 
                       src="/attached_assets/farooq-headshot.png" 
                       alt="Farooq Chisty" 
-                      className="w-10 h-10 rounded-full object-cover"
+                      className="w-10 h-10 rounded object-cover"
                     />
                     <ChevronDown className="w-5 h-5" />
                   </div>
