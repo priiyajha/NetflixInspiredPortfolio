@@ -25,10 +25,10 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
   });
 
   return (
-    <section id="projects" className="pb-16 relative z-10">
+    <section id="projects" className="pb-16 pt-16 relative z-10">
       {/* Founded Startups - Netflix "Your Next Watch" exact positioning */}
       <motion.div
-        style={{ marginBottom: '32px' }}
+        style={{ marginBottom: '48px' }}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -63,7 +63,7 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
 
       {/* Full-time Gigs */}
       <motion.div
-        style={{ marginBottom: '32px' }}
+        style={{ marginBottom: '48px' }}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -98,7 +98,7 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
 
       {/* Side Hustles */}
       <motion.div
-        style={{ marginBottom: '32px' }}
+        style={{ marginBottom: '48px' }}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -133,7 +133,7 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
 
       {/* Consulting/Fractional CMO */}
       <motion.div
-        style={{ marginBottom: '32px' }}
+        style={{ marginBottom: '48px' }}
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
