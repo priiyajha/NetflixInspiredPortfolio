@@ -270,9 +270,9 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     loop
                     muted
                     playsInline
-                    className="absolute inset-0 w-full object-cover z-0"
+                    className="absolute top-0 left-0 right-0 w-full object-cover z-0"
                     style={{ 
-                      height: '70%',
+                      height: '65%',
                       borderTopLeftRadius: '12px',
                       borderTopRightRadius: '12px'
                     }}
@@ -297,15 +297,12 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   draggable={false}
                 />
                 
-                {/* Gradient Overlay */}
-                <div className={`absolute inset-0 z-20 transition-all duration-300 ${
-                  hoveredProject === project.id 
-                    ? 'bg-gradient-to-t from-black/90 via-black/20 to-transparent'
-                    : 'bg-gradient-to-t from-black/80 via-transparent to-transparent'
-                }`}
-                style={{
-                  borderRadius: hoveredProject === project.id ? '12px' : '6px'
-                }}></div>
+                {/* Gradient Overlay - only for non-hover state */}
+                {hoveredProject !== project.id && (
+                  <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/80 via-transparent to-transparent"
+                    style={{ borderRadius: '6px' }}>
+                  </div>
+                )}
                 
                 {/* Share Button */}
                 <div className="absolute top-4 right-4 z-40">
@@ -368,16 +365,16 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 {/* Content overlay - adapts to hover state */}
                 <div className={`absolute bottom-0 left-0 right-0 z-30 transition-all duration-300 ${
                   hoveredProject === project.id 
-                    ? 'p-4 pt-8'
+                    ? 'p-4'
                     : 'p-4'
                 }`}
                 style={{
                   background: hoveredProject === project.id 
-                    ? 'linear-gradient(to top, rgba(45, 45, 45, 0.95) 0%, rgba(45, 45, 45, 0.85) 70%, transparent 100%)'
+                    ? '#2a2a2a'
                     : '',
                   borderBottomLeftRadius: hoveredProject === project.id ? '12px' : '6px',
                   borderBottomRightRadius: hoveredProject === project.id ? '12px' : '6px',
-                  height: hoveredProject === project.id ? '30%' : 'auto'
+                  height: hoveredProject === project.id ? '35%' : 'auto'
                 }}>
                   <h3 className={`font-bold transition-all duration-300 text-white ${
                     hoveredProject === project.id ? 'text-xl mb-1' : 'text-base mb-1'
@@ -404,55 +401,64 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                       </p>
                       
                       {/* Netflix-style Action buttons */}
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center space-x-3">
                           {/* Play Button - Opens Project Modal */}
                           <button 
-                            className="bg-white text-black p-2 rounded-full hover:bg-gray-200 transition-colors"
+                            className="bg-white text-black p-3 rounded-full hover:bg-gray-200 transition-colors flex items-center justify-center"
                             onClick={(e) => {
                               e.stopPropagation();
                               onProjectClick(project.id);
                             }}
                             title="View project details"
+                            style={{ width: '48px', height: '48px' }}
                           >
-                            <Play className="w-4 h-4 fill-current" />
+                            <Play className="w-5 h-5 fill-current ml-1" />
                           </button>
                           
                           {/* Add Button - Opens Project Modal */}
                           <button 
-                            className="border-2 border-gray-400 text-white p-2 rounded-full hover:border-white hover:bg-white/10 transition-colors"
+                            className="border-2 border-gray-500 text-white p-3 rounded-full hover:border-white hover:bg-white/10 transition-colors flex items-center justify-center"
                             onClick={(e) => {
                               e.stopPropagation();
                               onProjectClick(project.id);
                             }}
                             title="View project details"
+                            style={{ width: '42px', height: '42px' }}
                           >
                             <Plus className="w-4 h-4" />
                           </button>
                           
                           {/* Like Button - Dummy for now */}
                           <button 
-                            className="border-2 border-gray-400 text-white p-2 rounded-full hover:border-white hover:bg-white/10 transition-colors"
+                            className="border-2 border-gray-500 text-white p-3 rounded-full hover:border-white hover:bg-white/10 transition-colors flex items-center justify-center"
                             onClick={(e) => e.stopPropagation()}
                             title="Like"
+                            style={{ width: '42px', height: '42px' }}
                           >
                             <ThumbsUp className="w-4 h-4" />
                           </button>
-                          
-
                         </div>
                         
                         {/* Downward Arrow - Opens Card Details */}
                         <button 
-                          className="border-2 border-gray-400 text-white p-2 rounded-full hover:border-white hover:bg-white/10 transition-colors"
+                          className="border-2 border-gray-500 text-white p-3 rounded-full hover:border-white hover:bg-white/10 transition-colors flex items-center justify-center"
                           onClick={(e) => {
                             e.stopPropagation();
                             onProjectClick(project.id);
                           }}
                           title="More info"
+                          style={{ width: '42px', height: '42px' }}
                         >
                           <ChevronDown className="w-4 h-4" />
                         </button>
+                      </div>
+                      
+                      {/* Movie info tags - matching Netflix style */}
+                      <div className="flex items-center space-x-4 text-sm text-gray-300">
+                        <span className="border border-gray-500 px-2 py-1 text-xs rounded">HD</span>
+                        <span className="text-gray-400">•</span>
+                        <span>{getProjectSubtitle(project)}</span>
                       </div>
                       
                       {/* Share Menu Dropdown */}
