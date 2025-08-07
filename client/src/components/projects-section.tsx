@@ -39,7 +39,15 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         viewport={{ once: true }}
       >
         <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px' }}>
-          <h2 className="text-white font-bold text-2xl leading-8 tracking-normal" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontWeight: 700, fontSize: '24px', lineHeight: '32px', letterSpacing: '0' }}>
+          <h2 style={{ 
+            fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif', 
+            fontWeight: '500', 
+            fontSize: '20px', 
+            lineHeight: '1.4', 
+            color: '#e5e5e5',
+            letterSpacing: '0.15px',
+            margin: '0'
+          }}>
             Founded Startups
           </h2>
         </div>
@@ -66,7 +74,15 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         viewport={{ once: true }}
       >
         <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px' }}>
-          <h2 className="text-white font-bold text-2xl leading-8 tracking-normal" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontWeight: 700, fontSize: '24px', lineHeight: '32px', letterSpacing: '0' }}>
+          <h2 style={{ 
+            fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif', 
+            fontWeight: '500', 
+            fontSize: '20px', 
+            lineHeight: '1.4', 
+            color: '#e5e5e5',
+            letterSpacing: '0.15px',
+            margin: '0'
+          }}>
             Full-time Gigs
           </h2>
         </div>
@@ -93,7 +109,15 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         viewport={{ once: true }}
       >
         <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px' }}>
-          <h2 className="text-white font-bold text-2xl leading-8 tracking-normal" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontWeight: 700, fontSize: '24px', lineHeight: '32px', letterSpacing: '0' }}>
+          <h2 style={{ 
+            fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif', 
+            fontWeight: '500', 
+            fontSize: '20px', 
+            lineHeight: '1.4', 
+            color: '#e5e5e5',
+            letterSpacing: '0.15px',
+            margin: '0'
+          }}>
             Side Hustles
           </h2>
         </div>
@@ -120,7 +144,15 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         viewport={{ once: true }}
       >
         <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px' }}>
-          <h2 className="text-white font-bold text-2xl leading-8 tracking-normal" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontWeight: 700, fontSize: '24px', lineHeight: '32px', letterSpacing: '0' }}>
+          <h2 style={{ 
+            fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif', 
+            fontWeight: '500', 
+            fontSize: '20px', 
+            lineHeight: '1.4', 
+            color: '#e5e5e5',
+            letterSpacing: '0.15px',
+            margin: '0'
+          }}>
             Consulting/Fractional CMO
           </h2>
         </div>
@@ -147,7 +179,15 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         viewport={{ once: true }}
       >
         <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px' }}>
-          <h2 className="text-white font-bold text-2xl leading-8 tracking-normal" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontWeight: 700, fontSize: '24px', lineHeight: '32px', letterSpacing: '0' }}>
+          <h2 style={{ 
+            fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif', 
+            fontWeight: '500', 
+            fontSize: '20px', 
+            lineHeight: '1.4', 
+            color: '#e5e5e5',
+            letterSpacing: '0.15px',
+            margin: '0'
+          }}>
             Keynotes
           </h2>
         </div>
