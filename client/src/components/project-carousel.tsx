@@ -309,7 +309,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     loop
                     muted
                     playsInline
-                    className="absolute inset-0 w-full h-full object-cover z-0"
+                    className="absolute inset-0 w-full h-full object-cover z-0 rounded-lg"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.4 }}
@@ -322,8 +322,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   alt={project.title}
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
-                      ? 'opacity-0 h-80 sm:h-80 md:h-80' 
-                      : 'opacity-100 h-18 sm:h-20 md:h-24 lg:h-28 xl:h-32'
+                      ? 'opacity-0 h-80 sm:h-80 md:h-80 rounded-lg' 
+                      : 'opacity-100 h-18 sm:h-20 md:h-24 lg:h-28 xl:h-32 rounded-md'
                   }`}
                   draggable={false}
                 />
@@ -331,8 +331,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 {/* Gradient Overlay */}
                 <div className={`absolute inset-0 z-20 transition-all duration-300 ${
                   hoveredProject === project.id 
-                    ? 'bg-gradient-to-t from-black/90 via-black/20 to-transparent'
-                    : 'bg-gradient-to-t from-black/80 via-transparent to-transparent'
+                    ? 'bg-gradient-to-t from-black/90 via-black/20 to-transparent rounded-lg'
+                    : 'bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-md'
                 }`}></div>
                 
                 {/* Share Button */}
