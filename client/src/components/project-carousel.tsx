@@ -13,7 +13,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
   const getProjectTitleDescription = (project: Project) => {
     switch (project.title) {
       case "Cazpro":
-        return "Built and scaled Cazpro, a D2C college merch brand, from a dorm room idea at 17 to a 2.5M INR sales machine in 15 months. Survived near shutdowns, sold to a local industrialist, and handled everything from code to partnerships. Hustled hard, shipped harder.";
+        return "";
       case "Millionth Mile Marketing":
         return "Co-founded a growth agency that became an Andhra Pradesh top 5, racking up 40+ global clients, 2 years, $180K revenue, and 25 teammates. Built teams, scaled campaigns, won awards, and hustled for brands from Vizag to Europe. Brought a bold attitude to every pitch.";
       case "DigiPay":
