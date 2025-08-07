@@ -258,11 +258,11 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   position: 'relative'
                 }}
                 animate={{
-                  scale: hoveredProject === project.id ? 2.2 : 1,
-                  y: hoveredProject === project.id ? -60 : 0,
+                  scale: hoveredProject === project.id ? 1.4 : 1,
+                  y: hoveredProject === project.id ? -20 : 0,
                   zIndex: hoveredProject === project.id ? 50 : 1,
                 }}
-                transition={{ duration: 0.25, ease: "easeOut" }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
               >
                 {/* Video background for hover state */}
                 {hoveredProject === project.id && project.video && (
@@ -291,7 +291,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   alt={project.title}
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
-                      ? 'opacity-0 h-[420px] sm:h-[420px] md:h-[420px]' 
+                      ? 'opacity-0 h-72 sm:h-72 md:h-72' 
                       : 'opacity-100 h-18 sm:h-20 md:h-24 lg:h-28 xl:h-32'
                   }`}
                   style={{
