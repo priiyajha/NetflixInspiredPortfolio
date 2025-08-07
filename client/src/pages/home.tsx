@@ -48,10 +48,8 @@ export default function Home() {
       <Header />
       <div className="relative">
         <HeroSection profile={profile} />
-        <div className="absolute top-0 left-0 right-0 z-10 pointer-events-none">
-          <div className="pointer-events-auto" style={{ marginTop: 'calc(100vh - 6rem)' }}>
-            <ProjectsSection onProjectClick={setSelectedProjectId} />
-          </div>
+        <div className="relative z-10" style={{ marginTop: '-4rem' }}>
+          <ProjectsSection onProjectClick={setSelectedProjectId} />
         </div>
       </div>
       

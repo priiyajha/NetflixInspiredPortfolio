@@ -43,7 +43,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
   };
 
   return (
-    <section id="home" className="relative h-screen flex items-end overflow-hidden" style={{ minHeight: 'calc(100vh + 8rem)' }}>
+    <section id="home" className="relative h-screen flex items-end overflow-hidden">
       {/* Background Video */}
       <div className="absolute inset-0">
         <video

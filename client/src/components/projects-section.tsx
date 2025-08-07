@@ -38,7 +38,7 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px' }}>
+        <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px', marginTop: '2rem' }}>
           <h2 style={{ 
             fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif', 
             fontWeight: '500', 
