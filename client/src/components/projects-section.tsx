@@ -29,10 +29,13 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
   });
 
   return (
-    <section id="projects" className="pb-16">
+    <section id="projects" className="relative pb-16 bg-black" style={{ marginTop: '-120px', paddingTop: '120px' }}>
+      {/* Netflix-style background continuation */}
+      <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-black to-black"></div>
+      
       {/* Founded Startups - Netflix "Your Next Watch" exact positioning */}
       <motion.div
-        className="mb-16"
+        className="relative z-10 mb-16"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}

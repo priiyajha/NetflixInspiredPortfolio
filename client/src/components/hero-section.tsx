@@ -64,6 +64,9 @@ export default function HeroSection({ profile }: HeroSectionProps) {
         </video>
         {/* Dark gradient overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/30"></div>
+        
+        {/* Netflix-style bottom fade for seamless transition to content */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black via-black/90 to-transparent"></div>
       </div>
 
       {/* Hero Content */}
