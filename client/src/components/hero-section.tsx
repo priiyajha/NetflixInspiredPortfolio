@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Profile } from "@shared/schema";
 import { useLocation } from "wouter";
-import backgroundVideo from "@assets/20250731_1654_Neon Code Symphony_simple_compose_01k1g3kq5af70vc1a2b12hvja6_1753961284060.mp4";
+import backgroundVideo from "@assets/portfolio showreel video_1754591759404.mp4";
 
 interface HeroSectionProps {
   profile?: Profile;
