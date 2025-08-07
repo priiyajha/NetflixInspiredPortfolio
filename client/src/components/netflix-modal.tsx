@@ -295,7 +295,13 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         
                         {/* Share Dropdown Menu */}
                         {showShareMenu && (
-                          <div className="absolute top-12 left-0 bg-black/95 backdrop-blur-md rounded-lg p-4 min-w-[220px] z-50 border border-white/10 shadow-2xl">
+                          <motion.div 
+                            className="absolute bottom-16 left-0 bg-black backdrop-blur-md rounded-lg p-4 min-w-[220px] z-[9999] border-2 border-white/30 shadow-2xl"
+                            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                            transition={{ duration: 0.2 }}
+                          >
                             <div className="space-y-2">
                               <button
                                 onClick={copyProjectLink}
@@ -363,7 +369,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 <span className="text-sm">Instagram (Copy)</span>
                               </button>
                             </div>
-                          </div>
+                          </motion.div>
                         )}
                       </div>
                     </div>
