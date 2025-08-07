@@ -45,10 +45,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
   return (
     <section id="home" className="relative h-screen flex items-end overflow-hidden" 
       style={{
-        backgroundImage: 'url("/attached_assets/image_1754583227214.png")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundColor: '#1a1a1a'
       }}>
       {/* Background Video */}
       <div className="absolute inset-0">
