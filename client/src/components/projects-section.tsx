@@ -29,11 +29,10 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
   });
 
   return (
-    <div className="relative bg-black">
-      {/* Founded Startups - Netflix "Your Next Watch" exact positioning overlaid on video */}
+    <section id="projects" className="pb-16">
+      {/* Founded Startups - Netflix "Your Next Watch" exact positioning */}
       <motion.div
-        className="relative z-30 pb-16"
-        style={{ marginTop: '-320px', paddingTop: '60px' }}
+        className="mb-16"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -47,8 +46,7 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
             lineHeight: '1.4', 
             color: '#e5e5e5',
             letterSpacing: '0.15px',
-            margin: '0',
-            textShadow: '2px 2px 4px rgba(0,0,0,0.8)'
+            margin: '0'
           }}>
             Founded Startups
           </h2>
@@ -67,16 +65,14 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         )}
       </motion.div>
 
-      {/* Remaining sections with normal background */}
-      <section id="projects" className="relative pb-16 bg-black">
-        {/* Full-time Gigs */}
-        <motion.div
-          className="mb-16"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+      {/* Full-time Gigs */}
+      <motion.div
+        className="mb-16"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
         <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px' }}>
           <h2 style={{ 
             fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif', 
@@ -207,8 +203,7 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         ) : (
           <ProjectCarousel projects={keynoteProjects} onProjectClick={onProjectClick} />
         )}
-        </motion.div>
-      </section>
-    </div>
+      </motion.div>
+    </section>
   );
 }
