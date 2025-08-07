@@ -14,27 +14,10 @@ export default function HeroSection({ profile }: HeroSectionProps) {
   const { toast } = useToast();
   const [, setLocation] = useLocation();
 
-  const handleDownloadResume = async () => {
-    try {
-      const response = await fetch("/api/download-resume");
-      const data = await response.json();
-      
-      if (response.ok) {
-        toast({
-          title: "Resume Download",
-          description: "Resume download initiated successfully",
-        });
-        // In a real app, this would trigger the actual download
-      } else {
-        throw new Error(data.message);
-      }
-    } catch (error) {
-      toast({
-        title: "Download Failed",
-        description: "Unable to download resume. Please try again.",
-        variant: "destructive",
-      });
-    }
+  const handleViewResume = () => {
+    // TODO: Replace with your Google Doc URL when uploaded
+    const resumeUrl = "https://docs.google.com/document/d/YOUR_GOOGLE_DOC_ID/edit";
+    window.open(resumeUrl, "_blank");
   };
 
   const navigateToProjects = () => {
@@ -119,7 +102,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
             </Button>
             
             <Button
-              onClick={handleDownloadResume}
+              onClick={handleViewResume}
               variant="secondary"
               className="bg-white/20 backdrop-blur-sm text-white px-6 sm:px-8 py-3 sm:py-4 rounded font-semibold text-base sm:text-lg hover:bg-white/30 transition-all duration-200 flex items-center justify-center gap-2"
               size="lg"
