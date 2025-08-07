@@ -139,16 +139,16 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact">
+                  <Link href="/lets-chat">
                     <button className="text-xs sm:text-sm hover:text-netflix-light-gray transition-colors duration-200">
-                      Contact
+                      Let's Chat
                     </button>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/lets-chat">
+                  <Link href="/contact">
                     <button className="text-xs sm:text-sm hover:text-netflix-light-gray transition-colors duration-200">
-                      Let's Chat
+                      Hire Me
                     </button>
                   </Link>
                 </li>
