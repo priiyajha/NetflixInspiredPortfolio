@@ -77,14 +77,16 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Services Column */}
+            {/* Key Highlights Column */}
             <div className="space-y-4">
-              <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Services</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6">Key Highlights</h3>
               <div className="space-y-3">
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Web Development</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Vibe Coding</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Vibe Marketing</div>
-                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Gen AI</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">$80M+ revenue generated across 5 companies</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Managed $2M+ in paid ad spend</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Acquired more than 2 Million users across three apps</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Raised $150K Pre-seed</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">Founded 3 startups. 1 exit</div>
+                <div className="text-gray-300 text-xs sm:text-sm hover:text-white transition-colors cursor-default">30+ Keynotes in AI, Blockchain</div>
               </div>
             </div>
 
