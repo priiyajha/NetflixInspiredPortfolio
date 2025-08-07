@@ -29,8 +29,8 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
   });
 
   return (
-    <section id="projects" className="py-16">
-      {/* Founded Startups */}
+    <section id="projects" className="pb-16">
+      {/* Founded Startups - Netflix "Your Next Watch" exact positioning */}
       <motion.div
         className="mb-16"
         initial={{ opacity: 0, y: 50 }}
@@ -38,8 +38,8 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="px-4 sm:px-6 md:px-12 mb-6">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+        <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px' }}>
+          <h2 className="text-white font-bold text-2xl leading-8 tracking-normal" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontWeight: 700, fontSize: '24px', lineHeight: '32px', letterSpacing: '0' }}>
             Founded Startups
           </h2>
         </div>
@@ -65,8 +65,8 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="px-4 sm:px-6 md:px-12 mb-6">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+        <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px' }}>
+          <h2 className="text-white font-bold text-2xl leading-8 tracking-normal" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontWeight: 700, fontSize: '24px', lineHeight: '32px', letterSpacing: '0' }}>
             Full-time Gigs
           </h2>
         </div>
@@ -92,8 +92,8 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="px-4 sm:px-6 md:px-12 mb-6">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+        <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px' }}>
+          <h2 className="text-white font-bold text-2xl leading-8 tracking-normal" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontWeight: 700, fontSize: '24px', lineHeight: '32px', letterSpacing: '0' }}>
             Side Hustles
           </h2>
         </div>
@@ -119,8 +119,8 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="px-4 sm:px-6 md:px-12 mb-6">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+        <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px' }}>
+          <h2 className="text-white font-bold text-2xl leading-8 tracking-normal" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontWeight: 700, fontSize: '24px', lineHeight: '32px', letterSpacing: '0' }}>
             Consulting/Fractional CMO
           </h2>
         </div>
@@ -146,8 +146,8 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="px-4 sm:px-6 md:px-12 mb-6">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+        <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px' }}>
+          <h2 className="text-white font-bold text-2xl leading-8 tracking-normal" style={{ fontFamily: 'Helvetica Neue, Helvetica, Arial, sans-serif', fontWeight: 700, fontSize: '24px', lineHeight: '32px', letterSpacing: '0' }}>
             Keynotes
           </h2>
         </div>
