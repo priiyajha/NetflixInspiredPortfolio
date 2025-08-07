@@ -111,18 +111,15 @@ export default function Header() {
           <div className="flex items-center justify-between">
             {/* Left Navigation - Always visible */}
             <nav className="flex items-center space-x-4 sm:space-x-6 md:space-x-8">
-              <div 
-                className="font-bold tracking-tight leading-none" 
+              <img 
+                src="/attached_assets/farooq-logo.png" 
+                alt="Farooq" 
+                className="h-8 sm:h-10 md:h-12 w-auto object-contain"
                 style={{ 
-                  fontFamily: 'Bebas Neue, Arial Black, sans-serif',
-                  fontSize: 'clamp(1.2rem, 3vw, 2.5rem)',
-                  fontWeight: '900',
-                  color: '#E50914',
-                  letterSpacing: '-0.02em'
+                  maxHeight: 'clamp(2rem, 4vw, 3rem)',
+                  filter: 'brightness(1.1) contrast(1.1)'
                 }}
-              >
-                Farooq Chisty
-              </div>
+              />
               <ul className="flex space-x-3 sm:space-x-4 md:space-x-6">
                 <li>
                   <Link href="/">
