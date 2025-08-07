@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Profile } from "@shared/schema";
 import { useLocation } from "wouter";
-import backgroundVideo from "@assets/portfolio showreel video_1754591759404.mp4";
+import backgroundVideo from "@assets/portfolio showreel video (1)_1754596406222.mp4";
 
 interface HeroSectionProps {
   profile?: Profile;
