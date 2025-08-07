@@ -365,7 +365,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 {/* Content overlay - adapts to hover state */}
                 <div className={`absolute bottom-0 left-0 right-0 z-30 transition-all duration-300 ${
                   hoveredProject === project.id 
-                    ? 'p-4'
+                    ? 'p-3'
                     : 'p-4'
                 }`}
                 style={{
@@ -374,10 +374,12 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     : '',
                   borderBottomLeftRadius: hoveredProject === project.id ? '12px' : '6px',
                   borderBottomRightRadius: hoveredProject === project.id ? '12px' : '6px',
-                  height: hoveredProject === project.id ? '35%' : 'auto'
+                  minHeight: hoveredProject === project.id ? '140px' : 'auto',
+                  maxHeight: hoveredProject === project.id ? '140px' : 'auto',
+                  overflow: 'hidden'
                 }}>
-                  <h3 className={`font-bold transition-all duration-300 text-white ${
-                    hoveredProject === project.id ? 'text-xl mb-1' : 'text-base mb-1'
+                  <h3 className={`font-bold transition-all duration-300 text-white truncate ${
+                    hoveredProject === project.id ? 'text-lg mb-2' : 'text-base mb-1'
                   }`}>
                     {project.title}
                   </h3>
@@ -396,13 +398,11 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: 0.1 }}
                     >
-                      <p className="text-gray-300 text-sm mb-3 line-clamp-3">
-                        {getProjectTitleDescription(project)}
-                      </p>
+
                       
                       {/* Netflix-style Action buttons */}
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center space-x-3">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center space-x-2">
                           {/* Play Button - Opens Project Modal */}
                           <button 
                             className="bg-white text-black p-2 rounded-full hover:bg-gray-200 transition-colors flex items-center justify-center"
@@ -411,7 +411,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                               onProjectClick(project.id);
                             }}
                             title="View project details"
-                            style={{ width: '40px', height: '40px' }}
+                            style={{ width: '36px', height: '36px' }}
                           >
                             <Play className="w-4 h-4 fill-current ml-1" />
                           </button>
@@ -424,7 +424,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                               onProjectClick(project.id);
                             }}
                             title="View project details"
-                            style={{ width: '36px', height: '36px' }}
+                            style={{ width: '32px', height: '32px' }}
                           >
                             <Plus className="w-3.5 h-3.5" />
                           </button>
@@ -434,7 +434,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                             className="border-2 border-gray-500 text-white p-2 rounded-full hover:border-white hover:bg-white/10 transition-colors flex items-center justify-center"
                             onClick={(e) => e.stopPropagation()}
                             title="Like"
-                            style={{ width: '36px', height: '36px' }}
+                            style={{ width: '32px', height: '32px' }}
                           >
                             <ThumbsUp className="w-3.5 h-3.5" />
                           </button>
@@ -448,17 +448,16 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                             onProjectClick(project.id);
                           }}
                           title="More info"
-                          style={{ width: '36px', height: '36px' }}
+                          style={{ width: '32px', height: '32px' }}
                         >
                           <ChevronDown className="w-3.5 h-3.5" />
                         </button>
                       </div>
                       
                       {/* Movie info tags - matching Netflix style */}
-                      <div className="flex items-center space-x-4 text-sm text-gray-300">
-                        <span className="border border-gray-500 px-2 py-1 text-xs rounded">HD</span>
-                        <span className="text-gray-400">•</span>
-                        <span>{getProjectSubtitle(project)}</span>
+                      <div className="flex items-center space-x-3 text-sm text-gray-300">
+                        <span className="border border-gray-500 px-2 py-0.5 text-xs rounded">HD</span>
+                        <span className="text-xs text-gray-400">{project.category}</span>
                       </div>
                       
                       {/* Share Menu Dropdown */}
