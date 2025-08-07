@@ -79,6 +79,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
   useEffect(() => {
     const handleClickOutside = () => {
       setShowShareMenu(null);
+      // Also clear hover state when closing share menu by clicking outside
+      setHoveredProject(null);
     };
 
     if (showShareMenu) {
@@ -89,7 +91,24 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
 
   const handleShare = (project: Project, e: React.MouseEvent) => {
     e.stopPropagation();
-    setShowShareMenu(showShareMenu === project.id ? null : project.id);
+    
+    // Toggle share menu
+    const isMenuOpen = showShareMenu === project.id;
+    setShowShareMenu(isMenuOpen ? null : project.id);
+    
+    // Apply hover effects when share button is clicked (similar to card hover)
+    if (!isMenuOpen) {
+      // Clear any existing hover timeout
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+        setHoverTimeout(null);
+      }
+      // Set hovered state to trigger all hover effects
+      setHoveredProject(project.id);
+    } else {
+      // Remove hover effects when closing share menu
+      setHoveredProject(null);
+    }
   };
 
   const copyProjectLink = async (project: Project, e: React.MouseEvent) => {
@@ -98,7 +117,12 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     try {
       await navigator.clipboard.writeText(projectUrl);
       setCopiedProject(project.id);
-      setTimeout(() => setCopiedProject(null), 2000);
+      setTimeout(() => {
+        setCopiedProject(null);
+        // Reset hover state after showing copied feedback
+        setShowShareMenu(null);
+        setHoveredProject(null);
+      }, 2000);
     } catch (err) {
       console.error('Failed to copy: ', err);
       // Fallback for older browsers or failed clipboard access
@@ -110,7 +134,12 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
         document.execCommand('copy');
         document.body.removeChild(textArea);
         setCopiedProject(project.id);
-        setTimeout(() => setCopiedProject(null), 2000);
+        setTimeout(() => {
+          setCopiedProject(null);
+          // Reset hover state after showing copied feedback
+          setShowShareMenu(null);
+          setHoveredProject(null);
+        }, 2000);
       } catch (fallbackErr) {
         console.error('Fallback copy failed: ', fallbackErr);
       }
@@ -143,6 +172,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
         setCopiedProject(project.id);
         setTimeout(() => setCopiedProject(null), 2000);
         setShowShareMenu(null);
+        // Reset hover state when sharing
+        setHoveredProject(null);
         return;
       case 'facebook':
         shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${projectUrl}`;
@@ -153,6 +184,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
       window.open(shareUrl, '_blank', 'width=600,height=400');
     }
     setShowShareMenu(null);
+    // Reset hover state when sharing
+    setHoveredProject(null);
   };
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
