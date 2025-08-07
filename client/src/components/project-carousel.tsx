@@ -288,8 +288,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
               <motion.div 
                 className={`relative overflow-hidden transition-all duration-300 ease-out ${
                   hoveredProject === project.id 
-                    ? 'shadow-2xl shadow-black/50 z-20' 
-                    : 'hover:shadow-lg hover:shadow-black/30'
+                    ? 'shadow-2xl shadow-black/50 z-20 rounded-lg' 
+                    : 'hover:shadow-lg hover:shadow-black/30 rounded-md'
                 }`}
                 style={{
                   transformOrigin: 'center center'
