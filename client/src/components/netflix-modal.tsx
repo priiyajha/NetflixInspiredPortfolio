@@ -1082,8 +1082,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
             key="image-modal-content"
             className="relative flex items-center justify-center"
             style={{
-              maxWidth: 'calc(100vw - 64px)',
-              maxHeight: 'calc(100vh - 64px)',
+              maxWidth: 'calc(100vw - 80px)',
+              maxHeight: 'calc(100vh - 120px)',
               width: 'fit-content',
               height: 'fit-content'
             }}
@@ -1108,13 +1108,31 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
               alt="Project screenshot"
               className="block rounded-lg shadow-2xl"
               style={{ 
-                maxWidth: 'calc(100vw - 64px)',
-                maxHeight: 'calc(100vh - 64px)',
+                maxWidth: 'calc(100vw - 80px)',
+                maxHeight: 'calc(100vh - 120px)',
                 width: 'auto',
                 height: 'auto',
-                objectFit: 'contain'
+                objectFit: 'contain',
+                display: 'block'
               }}
               draggable={false}
+              onLoad={(e) => {
+                // Ensure image maintains aspect ratio and fits viewport
+                const img = e.target as HTMLImageElement;
+                const aspectRatio = img.naturalWidth / img.naturalHeight;
+                const maxWidth = window.innerWidth - 80;
+                const maxHeight = window.innerHeight - 120;
+                
+                if (aspectRatio > maxWidth / maxHeight) {
+                  // Image is wider - constrain by width
+                  img.style.width = `${Math.min(maxWidth, img.naturalWidth)}px`;
+                  img.style.height = 'auto';
+                } else {
+                  // Image is taller - constrain by height
+                  img.style.height = `${Math.min(maxHeight, img.naturalHeight)}px`;
+                  img.style.width = 'auto';
+                }
+              }}
               onError={(e) => {
                 console.warn('Failed to load selected image:', selectedImage);
                 setSelectedImage(null);
