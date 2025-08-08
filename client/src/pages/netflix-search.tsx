@@ -2,15 +2,18 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { type Project } from "@shared/schema";
-import { Search, X } from "lucide-react";
+import { Search, X, ChevronDown, Download, Briefcase, Mic, Linkedin } from "lucide-react";
 import NetflixModal from "@/components/netflix-modal";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function NetflixSearchPage() {
   const [location, setLocation] = useLocation();
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const profileMenuRef = useRef<HTMLDivElement>(null);
 
   // Get search query from URL params
   useEffect(() => {
@@ -77,6 +80,46 @@ export default function NetflixSearchPage() {
     setSelectedProjectId(projectId);
   };
 
+  // Close profile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (profileMenuRef.current && !profileMenuRef.current.contains(event.target as Node)) {
+        setProfileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const handleProfileMenuClick = (action: string) => {
+    setProfileMenuOpen(false);
+    
+    switch (action) {
+      case 'download-resume':
+        // Download the PDF resume directly
+        const resumeUrl = "/attached_assets/FAROOQ%20CHISTY%20%20RESUME%202025%20%281%29_1754665051871.pdf";
+        const link = document.createElement('a');
+        link.href = resumeUrl;
+        link.download = "Farooq_Chisty_Resume_2025.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        break;
+      case 'work-with-me':
+        setLocation("/contact");
+        break;
+      case 'invite-as-speaker':
+        setLocation("/contact");
+        break;
+      case 'connect-linkedin':
+        window.open("https://linkedin.com/in/farooqchisty", "_blank");
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <>
       {/* Fixed Navigation Bar */}
@@ -134,8 +177,86 @@ export default function NetflixSearchPage() {
               </div>
             </div>
             
-            {/* Profile Icon */}
-            <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded"></div>
+            {/* Profile Dropdown */}
+            <div className="relative" ref={profileMenuRef}>
+              <button 
+                onClick={() => setProfileMenuOpen(!profileMenuOpen)}
+                className="flex items-center space-x-2 p-2 hover:bg-white/10 rounded transition-all duration-200"
+              >
+                <img 
+                  src="/attached_assets/farooq-headshot.png" 
+                  alt="Farooq Chisty" 
+                  loading="lazy"
+                  decoding="async"
+                  className="w-8 h-8 rounded object-cover"
+                />
+                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${profileMenuOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {/* Profile Dropdown Menu */}
+              <AnimatePresence>
+                {profileMenuOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute right-0 top-full mt-2 w-64 bg-black/95 backdrop-blur-sm border border-gray-700 rounded-md shadow-2xl overflow-hidden z-50"
+                  >
+                    {/* Profile Section */}
+                    <div className="px-4 py-3 border-b border-gray-700">
+                      <div className="flex items-center space-x-3">
+                        <img 
+                          src="/attached_assets/farooq-headshot.png" 
+                          alt="Farooq Chisty" 
+                          loading="lazy"
+                          decoding="async"
+                          className="w-10 h-10 rounded object-cover"
+                        />
+                        <div>
+                          <p className="text-white font-medium text-sm">Farooq Chisty</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Menu Items */}
+                    <div className="py-2">
+                      <button
+                        onClick={() => handleProfileMenuClick('download-resume')}
+                        className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
+                      >
+                        <Download className="w-5 h-5" />
+                        <span className="text-sm">Download Resume</span>
+                      </button>
+                      
+                      <button
+                        onClick={() => handleProfileMenuClick('work-with-me')}
+                        className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
+                      >
+                        <Briefcase className="w-5 h-5" />
+                        <span className="text-sm">Work with me</span>
+                      </button>
+                      
+                      <button
+                        onClick={() => handleProfileMenuClick('invite-as-speaker')}
+                        className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
+                      >
+                        <Mic className="w-5 h-5" />
+                        <span className="text-sm">Invite as a Speaker</span>
+                      </button>
+                      
+                      <button
+                        onClick={() => handleProfileMenuClick('connect-linkedin')}
+                        className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
+                      >
+                        <Linkedin className="w-5 h-5" />
+                        <span className="text-sm">Connect on LinkedIn</span>
+                      </button>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </nav>
