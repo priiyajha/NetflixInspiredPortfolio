@@ -7,7 +7,7 @@ import Home from "@/pages/home";
 import ProjectsPage from "@/pages/projects";
 import ContactPage from "@/pages/contact";
 import LetsChatPage from "@/pages/lets-chat";
-
+import NetflixSearchPage from "@/pages/netflix-search";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -17,7 +17,7 @@ function Router() {
       <Route path="/projects" component={ProjectsPage} />
       <Route path="/contact" component={ContactPage} />
       <Route path="/lets-chat" component={LetsChatPage} />
-
+      <Route path="/netflix-search" component={NetflixSearchPage} />
       <Route component={NotFound} />
     </Switch>
   );
