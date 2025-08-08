@@ -302,7 +302,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           <motion.div 
                             className="absolute bg-black/95 backdrop-blur-md rounded-lg p-1 w-[120px] xs:w-[130px] sm:w-[140px] md:w-[150px] z-[99999] border border-white/10 shadow-2xl"
                             style={{
-                              top: '34px',
+                              top: '46px',
                               right: '0px',
                               left: 'auto'
                             }}
