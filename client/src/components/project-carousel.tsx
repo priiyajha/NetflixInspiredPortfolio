@@ -43,18 +43,20 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     const container = scrollRef.current;
     if (!container) return;
     
-    // Netflix pixel-perfect dimensions - 5 cards per row with spacing
+    // Responsive card scrolling - mobile: 1 card, tablet: 2-3 cards, desktop: 5 cards
     const cardWidth = window.innerWidth >= 1280 ? 276 : window.innerWidth >= 1024 ? 252 : window.innerWidth >= 768 ? 236 : window.innerWidth >= 640 ? 220 : 200;
-    container.scrollBy({ left: -cardWidth * 5, behavior: 'smooth' });
+    const scrollCount = window.innerWidth >= 1024 ? 5 : window.innerWidth >= 768 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+    container.scrollBy({ left: -cardWidth * scrollCount, behavior: 'smooth' });
   };
 
   const scrollRight = () => {
     const container = scrollRef.current;
     if (!container) return;
     
-    // Netflix pixel-perfect dimensions - 5 cards per row with spacing
+    // Responsive card scrolling - mobile: 1 card, tablet: 2-3 cards, desktop: 5 cards
     const cardWidth = window.innerWidth >= 1280 ? 276 : window.innerWidth >= 1024 ? 252 : window.innerWidth >= 768 ? 236 : window.innerWidth >= 640 ? 220 : 200;
-    container.scrollBy({ left: cardWidth * 5, behavior: 'smooth' });
+    const scrollCount = window.innerWidth >= 1024 ? 5 : window.innerWidth >= 768 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+    container.scrollBy({ left: cardWidth * scrollCount, behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -260,8 +262,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
               key={project.id}
               className={`flex-none cursor-pointer relative group ${
                 hoveredProject === project.id 
-                  ? 'w-80 sm:w-80 md:w-80 lg:w-80 xl:w-80' 
-                  : 'w-48 sm:w-52 md:w-56 lg:w-60 xl:w-64'
+                  ? 'w-72 sm:w-76 md:w-80 lg:w-80 xl:w-80' 
+                  : 'w-40 sm:w-48 md:w-52 lg:w-60 xl:w-64'
               }`}
               style={{
                 transition: 'width 0.3s ease-in-out'
@@ -338,8 +340,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   decoding="async"
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
-                      ? 'opacity-0 h-80 sm:h-80 md:h-80' 
-                      : 'opacity-100 h-20 sm:h-24 md:h-28 lg:h-30 xl:h-32'
+                      ? 'opacity-0 h-72 sm:h-76 md:h-80' 
+                      : 'opacity-100 h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32'
                   }`}
                   style={{
                     borderRadius: hoveredProject === project.id ? '12px' : '6px'

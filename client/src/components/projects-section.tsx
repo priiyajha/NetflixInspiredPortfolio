@@ -34,11 +34,11 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px', marginTop: '0' }}>
+        <div className="px-3 sm:px-4 md:px-6 lg:px-12" style={{ marginBottom: '16px', marginTop: '0' }}>
           <h2 style={{ 
             fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif', 
             fontWeight: '500', 
-            fontSize: '20px', 
+            fontSize: 'clamp(16px, 4vw, 20px)', 
             lineHeight: '1.4', 
             color: '#e5e5e5',
             letterSpacing: '0.15px',
@@ -69,11 +69,11 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px' }}>
+        <div className="px-3 sm:px-4 md:px-6 lg:px-12" style={{ marginBottom: '16px' }}>
           <h2 style={{ 
             fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif', 
             fontWeight: '500', 
-            fontSize: '20px', 
+            fontSize: 'clamp(16px, 4vw, 20px)', 
             lineHeight: '1.4', 
             color: '#e5e5e5',
             letterSpacing: '0.15px',
@@ -104,11 +104,11 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px' }}>
+        <div className="px-3 sm:px-4 md:px-6 lg:px-12" style={{ marginBottom: '16px' }}>
           <h2 style={{ 
             fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif', 
             fontWeight: '500', 
-            fontSize: '20px', 
+            fontSize: 'clamp(16px, 4vw, 20px)', 
             lineHeight: '1.4', 
             color: '#e5e5e5',
             letterSpacing: '0.15px',
@@ -139,11 +139,11 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px' }}>
+        <div className="px-3 sm:px-4 md:px-6 lg:px-12" style={{ marginBottom: '16px' }}>
           <h2 style={{ 
             fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif', 
             fontWeight: '500', 
-            fontSize: '20px', 
+            fontSize: 'clamp(16px, 4vw, 20px)', 
             lineHeight: '1.4', 
             color: '#e5e5e5',
             letterSpacing: '0.15px',

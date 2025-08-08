@@ -74,6 +74,46 @@
     color: var(--netflix-light-gray);
   }
 
+  /* Mobile-first responsive utilities */
+  @media (max-width: 640px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    
+    /* Improve touch targets on mobile */
+    button {
+      min-height: 44px;
+      min-width: 44px;
+    }
+    
+    /* Optimize text sizes for mobile */
+    h1 {
+      font-size: clamp(1.5rem, 6vw, 3rem);
+      line-height: 1.2;
+    }
+    
+    h2 {
+      font-size: clamp(1.25rem, 5vw, 2rem);
+      line-height: 1.3;
+    }
+    
+    p {
+      font-size: clamp(0.875rem, 4vw, 1rem);
+      line-height: 1.6;
+    }
+  }
+
+  /* Prevent horizontal scrolling */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Improve scroll performance */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;

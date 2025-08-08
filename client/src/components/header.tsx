@@ -180,7 +180,7 @@ export default function Header() {
                           placeholder="titles, people, genres"
                           value={searchQuery}
                           onChange={(e) => setSearchQuery(e.target.value)}
-                          className="bg-transparent text-white placeholder-gray-400 outline-none text-sm w-48"
+                          className="bg-transparent text-white placeholder-gray-400 outline-none text-sm w-32 sm:w-40 md:w-48"
                           onBlur={() => !searchQuery && setSearchOpen(false)}
                         />
                         <button

@@ -176,7 +176,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
         onClick={onClose}
       >
         <motion.div
-          className="bg-[#141414] rounded-lg max-w-5xl w-full max-h-[95vh] overflow-y-auto relative"
+          className="bg-[#141414] rounded-lg max-w-5xl w-full max-h-[95vh] overflow-y-auto relative mx-2 sm:mx-4"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
@@ -190,7 +190,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
           ) : project ? (
             <>
               {/* Video/Image Header Section */}
-              <div className="video-header-section relative h-[60vh] overflow-hidden rounded-t-lg">
+              <div className="video-header-section relative h-[40vh] sm:h-[50vh] md:h-[60vh] overflow-hidden rounded-t-lg">
                 {project.video ? (
                   <video
                     src={project.video}
@@ -240,15 +240,15 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                   )}
 
                   {/* Project Title and Buttons - Bottom Left */}
-                  <div className="absolute bottom-8 left-8 right-8">
-                    <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+                  <div className="absolute bottom-4 sm:bottom-8 left-4 sm:left-8 right-4 sm:right-8">
+                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-6">
                       {project.title}
                     </h1>
                     
-                    <div className="flex items-center gap-4 mb-6">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-3 sm:mb-6">
                       {/* Restart Video Button */}
                       <Button
-                        className="bg-white text-black hover:bg-white/90 font-semibold px-6 py-2"
+                        className="bg-white text-black hover:bg-white/90 font-semibold px-3 sm:px-6 py-2 text-sm sm:text-base"
                         onClick={() => {
                           const video = document.querySelector('video');
                           if (video) {
@@ -257,17 +257,19 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           }
                         }}
                       >
-                        <Play className="w-5 h-5 mr-2 fill-current" />
-                        Restart Video
+                        <Play className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2 fill-current" />
+                        <span className="hidden sm:inline">Restart Video</span>
+                        <span className="sm:hidden">Play</span>
                       </Button>
 
                       {/* Add to List Button */}
                       <Button
                         variant="outline"
-                        className="border-2 border-white/70 text-white bg-white/10 hover:bg-white/20 font-semibold px-6 py-2"
+                        className="border-2 border-white/70 text-white bg-white/10 hover:bg-white/20 font-semibold px-3 sm:px-6 py-2 text-sm sm:text-base"
                       >
-                        <Plus className="w-5 h-5 mr-2" />
-                        Add to List
+                        <Plus className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2" />
+                        <span className="hidden sm:inline">Add to List</span>
+                        <span className="sm:hidden">List</span>
                       </Button>
 
                       {/* Like Icon */}
@@ -378,7 +380,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
               </div>
 
               {/* Content Section */}
-              <div className="px-8 py-12 bg-[#141414]">
+              <div className="px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-12 bg-[#141414]">
                 {/* Container with max width and centering */}
                 <div className="w-full max-w-[1280px] mx-auto">
                   {/* Two Column Layout with Blue Neon Line Separator */}
