@@ -378,19 +378,17 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   
                   {/* Share Menu */}
                   {showShareMenu === project.id && (
-                    <div className="absolute top-16 right-0 sm:right-0 bg-black/95 backdrop-blur-md rounded-lg p-3 sm:p-4 min-w-[200px] sm:min-w-[220px] max-w-[280px] sm:max-w-none z-50 border border-white/10 shadow-2xl 
-                         /* Mobile positioning adjustments */
-                         max-h-[50vh] overflow-y-auto
-                         /* Ensure it fits on smaller screens */
-                         transform -translate-x-full sm:translate-x-0"
+                    <div className="absolute top-12 sm:top-16 left-1/2 sm:left-auto sm:right-0 bg-black/95 backdrop-blur-md rounded-lg p-3 sm:p-4 w-[240px] sm:min-w-[220px] z-50 border border-white/10 shadow-2xl transform -translate-x-1/2 sm:translate-x-0"
                       style={{
-                        right: window.innerWidth < 640 ? '0' : 'auto',
-                        maxHeight: window.innerWidth < 640 ? '60vh' : 'auto'
+                        top: window.innerWidth < 640 ? '48px' : '64px',
+                        left: window.innerWidth < 640 ? '50%' : 'auto',
+                        right: window.innerWidth >= 640 ? '0' : 'auto',
+                        transform: window.innerWidth < 640 ? 'translateX(-50%)' : 'none'
                       }}>
                       <div className="space-y-1 sm:space-y-2">
                         <button
                           onClick={(e) => copyProjectLink(project, e)}
-                          className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                          className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-1.5 sm:py-2 px-2 rounded hover:bg-white/10"
                         >
                           {copiedProject === project.id ? (
                             <Check className="w-4 h-4 text-green-400" />
@@ -406,7 +404,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                         
                         <button
                           onClick={(e) => shareOnSocial('linkedin', project, e)}
-                          className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                          className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-400 transition-colors py-1.5 sm:py-2 px-2 rounded hover:bg-white/10"
                         >
                           <div className="w-4 h-4 bg-blue-600 rounded-sm flex items-center justify-center">
                             <span className="text-white text-xs font-bold">in</span>
@@ -416,7 +414,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                         
                         <button
                           onClick={(e) => shareOnSocial('twitter', project, e)}
-                          className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                          className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-400 transition-colors py-1.5 sm:py-2 px-2 rounded hover:bg-white/10"
                         >
                           <div className="w-4 h-4 bg-black rounded-sm flex items-center justify-center border border-white">
                             <span className="text-white text-xs font-bold">𝕏</span>
@@ -426,7 +424,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                         
                         <button
                           onClick={(e) => shareOnSocial('whatsapp', project, e)}
-                          className="flex items-center space-x-3 w-full text-left text-white hover:text-green-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                          className="flex items-center space-x-3 w-full text-left text-white hover:text-green-400 transition-colors py-1.5 sm:py-2 px-2 rounded hover:bg-white/10"
                         >
                           <div className="w-4 h-4 bg-green-500 rounded-sm flex items-center justify-center">
                             <span className="text-white text-xs font-bold">W</span>
@@ -436,7 +434,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                         
                         <button
                           onClick={(e) => shareOnSocial('telegram', project, e)}
-                          className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                          className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-400 transition-colors py-1.5 sm:py-2 px-2 rounded hover:bg-white/10"
                         >
                           <div className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">T</span>
@@ -446,7 +444,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                         
                         <button
                           onClick={(e) => shareOnSocial('instagram', project, e)}
-                          className="flex items-center space-x-3 w-full text-left text-white hover:text-pink-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                          className="flex items-center space-x-3 w-full text-left text-white hover:text-pink-400 transition-colors py-1.5 sm:py-2 px-2 rounded hover:bg-white/10"
                         >
                           <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-sm flex items-center justify-center">
                             <span className="text-white text-xs font-bold">IG</span>
