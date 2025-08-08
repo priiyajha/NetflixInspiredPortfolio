@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { type Project } from "@shared/schema";
-import { Search, X, ChevronDown, Download, Briefcase, Mic, Linkedin } from "lucide-react";
+import { Search, X, ChevronDown, Download, Briefcase, Mic, Linkedin, Menu } from "lucide-react";
 import NetflixModal from "@/components/netflix-modal";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -12,6 +12,7 @@ export default function NetflixSearchPage() {
   const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const profileMenuRef = useRef<HTMLDivElement>(null);
 
@@ -120,6 +121,18 @@ export default function NetflixSearchPage() {
     }
   };
 
+  const scrollToSection = (sectionId: string) => {
+    // Navigate to home page first, then scroll to section
+    setLocation("/");
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
+    setMobileMenuOpen(false);
+  };
+
   return (
     <>
       {/* Fixed Navigation Bar */}
@@ -141,14 +154,28 @@ export default function NetflixSearchPage() {
             {/* Navigation Links */}
             <div className="hidden md:flex space-x-6 text-sm text-white">
               <button onClick={() => setLocation("/")} className="hover:text-gray-300 transition-colors">Home</button>
-              <button onClick={() => setLocation("/projects")} className="hover:text-gray-300 transition-colors">Projects</button>
-              <button onClick={() => setLocation("/contact")} className="hover:text-gray-300 transition-colors">Contact</button>
+              <button onClick={() => scrollToSection("projects")} className="hover:text-gray-300 transition-colors">Projects</button>
+              <button onClick={() => scrollToSection("about")} className="hover:text-gray-300 transition-colors">About</button>
+              <button onClick={() => scrollToSection("contact")} className="hover:text-gray-300 transition-colors">Contact</button>
             </div>
           </div>
 
-          {/* Search Bar */}
+          {/* Right side items */}
           <div className="flex items-center space-x-2 sm:space-x-4">
-            <div className="relative">
+            
+            {/* Mobile Search and Menu */}
+            <div className="flex items-center space-x-2 md:hidden">
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 hover:bg-white/10 rounded transition-all duration-200"
+              >
+                <Menu className="w-5 h-5 text-white" />
+              </button>
+            </div>
+
+            {/* Desktop Search Bar */}
+            <div className="relative hidden md:block">
               <div className="flex items-center bg-black border border-white/20 rounded px-3 py-2">
                 <Search className="w-4 h-4 text-gray-400 mr-2" />
                 <input
@@ -259,6 +286,78 @@ export default function NetflixSearchPage() {
             </div>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden bg-[#141414] border-t border-gray-700"
+            >
+              <div className="px-4 py-4 space-y-3">
+                {/* Mobile Search Bar */}
+                <div className="relative">
+                  <div className="flex items-center bg-black border border-white/20 rounded px-3 py-2">
+                    <Search className="w-4 h-4 text-gray-400 mr-2" />
+                    <input
+                      type="text"
+                      placeholder="titles, people, genres"
+                      value={searchQuery}
+                      onChange={(e) => {
+                        setSearchQuery(e.target.value);
+                        // Update URL to reflect current search
+                        const newUrl = e.target.value.trim() 
+                          ? `/netflix-search?q=${encodeURIComponent(e.target.value.trim())}`
+                          : '/netflix-search';
+                        window.history.replaceState({}, '', newUrl);
+                      }}
+                      className="bg-transparent text-white placeholder-gray-400 outline-none text-sm w-full"
+                    />
+                    {searchQuery && (
+                      <button
+                        onClick={handleClearSearch}
+                        className="ml-2 text-gray-400 hover:text-white transition-colors"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    )}
+                  </div>
+                </div>
+
+                {/* Mobile Navigation Links */}
+                <div className="space-y-3 pt-2">
+                  <button 
+                    onClick={() => { setLocation("/"); setMobileMenuOpen(false); }}
+                    className="block w-full text-left text-white hover:text-gray-300 transition-colors py-2"
+                  >
+                    Home
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection("projects")}
+                    className="block w-full text-left text-white hover:text-gray-300 transition-colors py-2"
+                  >
+                    Projects
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection("about")}
+                    className="block w-full text-left text-white hover:text-gray-300 transition-colors py-2"
+                  >
+                    About
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection("contact")}
+                    className="block w-full text-left text-white hover:text-gray-300 transition-colors py-2"
+                  >
+                    Contact
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       {/* Main Content */}
