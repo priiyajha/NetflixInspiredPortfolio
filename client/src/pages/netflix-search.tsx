@@ -271,20 +271,21 @@ export default function NetflixSearchPage() {
                 {filteredProjects.map((project, index) => (
                   <div
                     key={project.id}
-                    className="group cursor-pointer transition-all duration-200 ease-in-out hover:scale-105"
+                    className="group cursor-pointer transition-all duration-200 ease-in-out hover:scale-105 active:scale-105"
                     onClick={() => handleProjectClick(project.id)}
+                    onTouchStart={() => {}} // Enable touch interactions
                   >
                     <div className="relative aspect-[16/9] rounded-lg overflow-hidden bg-gray-800">
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-all duration-200 group-hover:opacity-75"
+                        className="w-full h-full object-cover transition-all duration-200 group-hover:opacity-75 group-active:opacity-75"
                       />
                       
 
                       
-                      {/* Hover Overlay */}
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center">
+                      {/* Hover/Touch Overlay */}
+                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-200 flex items-center justify-center">
                         <div className="text-center p-3">
                           <h3 className="text-white font-semibold text-sm mb-2 line-clamp-2">{project.title}</h3>
                           <div className="flex flex-wrap gap-1 justify-center">
