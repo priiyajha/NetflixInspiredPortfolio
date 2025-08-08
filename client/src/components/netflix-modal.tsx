@@ -300,22 +300,16 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         {/* Share Dropdown Menu */}
                         {showShareMenu && (
                           <motion.div 
-                            className="absolute top-12 sm:bottom-16 left-1/2 sm:left-0 bg-black backdrop-blur-md rounded-lg p-3 sm:p-4 w-[240px] sm:min-w-[220px] z-[9999] border-2 border-white/30 shadow-2xl transform -translate-x-1/2 sm:translate-x-0"
-                            style={{
-                              top: window.innerWidth < 640 ? '48px' : 'auto',
-                              bottom: window.innerWidth >= 640 ? '64px' : 'auto',
-                              left: window.innerWidth < 640 ? '50%' : '0',
-                              transform: window.innerWidth < 640 ? 'translateX(-50%)' : 'none'
-                            }}
+                            className="absolute bottom-16 left-0 bg-black backdrop-blur-md rounded-lg p-3 w-[200px] z-[9999] border-2 border-white/30 shadow-2xl"
                             initial={{ opacity: 0, scale: 0.95, y: 10 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 10 }}
                             transition={{ duration: 0.2 }}
                           >
-                            <div className="space-y-1 sm:space-y-2">
+                            <div className="space-y-1">
                               <button
                                 onClick={copyProjectLink}
-                                className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-1.5 sm:py-2 px-2 rounded hover:bg-white/10"
+                                className="flex items-center space-x-2 w-full text-left text-white hover:text-red-400 transition-colors py-1.5 px-2 rounded hover:bg-white/10"
                               >
                                 {copiedProject ? (
                                   <Check className="w-4 h-4 text-green-400" />
@@ -327,11 +321,11 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 </span>
                               </button>
                               
-                              <hr className="border-gray-600 my-2" />
+                              <hr className="border-gray-600 my-1.5" />
                               
                               <button
                                 onClick={() => shareOnSocial('linkedin')}
-                                className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-400 transition-colors py-1.5 sm:py-2 px-2 rounded hover:bg-white/10"
+                                className="flex items-center space-x-2 w-full text-left text-white hover:text-blue-400 transition-colors py-1.5 px-2 rounded hover:bg-white/10"
                               >
                                 <div className="w-4 h-4 bg-blue-600 rounded-sm flex items-center justify-center">
                                   <span className="text-white text-xs font-bold">in</span>
@@ -341,7 +335,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               
                               <button
                                 onClick={() => shareOnSocial('twitter')}
-                                className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-400 transition-colors py-1.5 sm:py-2 px-2 rounded hover:bg-white/10"
+                                className="flex items-center space-x-2 w-full text-left text-white hover:text-blue-400 transition-colors py-1.5 px-2 rounded hover:bg-white/10"
                               >
                                 <div className="w-4 h-4 bg-black rounded-sm flex items-center justify-center border border-white">
                                   <span className="text-white text-xs font-bold">𝕏</span>
@@ -351,7 +345,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               
                               <button
                                 onClick={() => shareOnSocial('whatsapp')}
-                                className="flex items-center space-x-3 w-full text-left text-white hover:text-green-400 transition-colors py-1.5 sm:py-2 px-2 rounded hover:bg-white/10"
+                                className="flex items-center space-x-2 w-full text-left text-white hover:text-green-400 transition-colors py-1.5 px-2 rounded hover:bg-white/10"
                               >
                                 <div className="w-4 h-4 bg-green-500 rounded-sm flex items-center justify-center">
                                   <span className="text-white text-xs font-bold">W</span>
@@ -361,7 +355,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               
                               <button
                                 onClick={() => shareOnSocial('telegram')}
-                                className="flex items-center space-x-3 w-full text-left text-white hover:text-blue-400 transition-colors py-1.5 sm:py-2 px-2 rounded hover:bg-white/10"
+                                className="flex items-center space-x-2 w-full text-left text-white hover:text-blue-400 transition-colors py-1.5 px-2 rounded hover:bg-white/10"
                               >
                                 <div className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
                                   <span className="text-white text-xs font-bold">T</span>
@@ -371,7 +365,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               
                               <button
                                 onClick={() => shareOnSocial('instagram')}
-                                className="flex items-center space-x-3 w-full text-left text-white hover:text-pink-400 transition-colors py-1.5 sm:py-2 px-2 rounded hover:bg-white/10"
+                                className="flex items-center space-x-2 w-full text-left text-white hover:text-pink-400 transition-colors py-1.5 px-2 rounded hover:bg-white/10"
                               >
                                 <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-sm flex items-center justify-center">
                                   <span className="text-white text-xs font-bold">IG</span>
