@@ -157,9 +157,8 @@ export default function NetflixSearchPage() {
           {/* Right side items */}
           <div className="flex items-center space-x-2 sm:space-x-4">
             
-            {/* Mobile Search and Menu */}
-            <div className="flex items-center space-x-2 md:hidden">
-              {/* Mobile Menu Button */}
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="p-2 hover:bg-white/10 rounded transition-all duration-200"
@@ -198,8 +197,8 @@ export default function NetflixSearchPage() {
               </div>
             </div>
             
-            {/* Profile Dropdown */}
-            <div className="relative" ref={profileMenuRef}>
+            {/* Profile Dropdown - Hidden on Mobile */}
+            <div className="relative hidden md:block" ref={profileMenuRef}>
               <button 
                 onClick={() => setProfileMenuOpen(!profileMenuOpen)}
                 className="flex items-center space-x-2 p-2 hover:bg-white/10 rounded transition-all duration-200"
@@ -285,43 +284,40 @@ export default function NetflixSearchPage() {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="md:hidden bg-[#141414] border-t border-gray-700"
+              initial={{ opacity: 0, x: "100%" }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: "100%" }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="md:hidden fixed top-16 right-0 z-50"
             >
-              <div className="px-4 py-4 space-y-3">
-                {/* Mobile Search Bar */}
-                <div className="relative">
-                  <div className="flex items-center bg-black border border-white/20 rounded px-3 py-2">
-                    <Search className="w-4 h-4 text-gray-400 mr-2" />
-                    <input
-                      type="text"
-                      placeholder="titles, people, genres"
-                      value={searchQuery}
-                      onChange={(e) => {
-                        setSearchQuery(e.target.value);
-                        // Update URL to reflect current search
-                        const newUrl = e.target.value.trim() 
-                          ? `/netflix-search?q=${encodeURIComponent(e.target.value.trim())}`
-                          : '/netflix-search';
-                        window.history.replaceState({}, '', newUrl);
-                      }}
-                      className="bg-transparent text-white placeholder-gray-400 outline-none text-sm w-full"
-                    />
-                    {searchQuery && (
-                      <button
-                        onClick={handleClearSearch}
-                        className="ml-2 text-gray-400 hover:text-white transition-colors"
-                      >
-                        <X className="w-4 h-4" />
-                      </button>
-                    )}
-                  </div>
+              <div className="bg-[#141414] border border-gray-700 rounded-l-lg shadow-2xl">
+                <div className="px-6 py-6 space-y-4">
+                  {/* Mobile Navigation Links */}
+                  <button 
+                    onClick={() => { setLocation("/"); setMobileMenuOpen(false); }}
+                    className="block w-full text-right text-white hover:text-gray-300 transition-colors py-3 text-base font-medium"
+                  >
+                    Home
+                  </button>
+                  <button 
+                    onClick={() => { scrollToSection("projects"); setMobileMenuOpen(false); }}
+                    className="block w-full text-right text-white hover:text-gray-300 transition-colors py-3 text-base font-medium"
+                  >
+                    Projects
+                  </button>
+                  <button 
+                    onClick={() => { scrollToSection("contact"); setMobileMenuOpen(false); }}
+                    className="block w-full text-right text-white hover:text-gray-300 transition-colors py-3 text-base font-medium"
+                  >
+                    Let's Chat
+                  </button>
+                  <button 
+                    onClick={() => { window.open("https://linkedin.com/in/farooqchisty", "_blank"); setMobileMenuOpen(false); }}
+                    className="block w-full text-right text-white hover:text-gray-300 transition-colors py-3 text-base font-medium"
+                  >
+                    Hire Me
+                  </button>
                 </div>
-
-
               </div>
             </motion.div>
           )}
