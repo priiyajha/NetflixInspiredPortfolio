@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Profile } from "@shared/schema";
 import { useLocation } from "wouter";
-// Background video removed to optimize performance - using image background instead
+import { useState, useRef, useEffect } from "react";
+// Background video for immersive hero experience
 
 interface HeroSectionProps {
   profile?: Profile;
@@ -13,6 +14,8 @@ interface HeroSectionProps {
 export default function HeroSection({ profile }: HeroSectionProps) {
   const { toast } = useToast();
   const [, setLocation] = useLocation();
+  const [videoError, setVideoError] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleViewResume = () => {
     const resumeUrl = "/attached_assets/FAROOQ%20CHISTY%20%20RESUME%202025%20%281%29_1754665051871.pdf";
@@ -28,14 +31,38 @@ export default function HeroSection({ profile }: HeroSectionProps) {
       style={{
         backgroundColor: '#1a1a1a'
       }}>
-      {/* Optimized Background - Static image for better performance */}
+      {/* Background Video or Fallback */}
       <div className="absolute inset-0">
-        <div 
-          className="w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)"
-          }}
-        />
+        {!videoError ? (
+          <video
+            ref={videoRef}
+            className="w-full h-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            onError={() => setVideoError(true)}
+            onLoadedData={() => {
+              // Ensure video starts playing
+              if (videoRef.current) {
+                videoRef.current.play().catch(() => {
+                  console.log('Video autoplay prevented by browser');
+                });
+              }
+            }}
+          >
+            <source src="/attached_assets/1_1754491684471.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          // Fallback gradient background if video fails to load
+          <div 
+            className="w-full h-full bg-cover bg-center"
+            style={{
+              backgroundImage: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)"
+            }}
+          />
+        )}
         {/* Dark gradient overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/40"></div>
       </div>
