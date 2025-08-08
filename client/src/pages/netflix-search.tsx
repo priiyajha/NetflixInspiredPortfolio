@@ -84,17 +84,16 @@ export default function NetflixSearchPage() {
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           {/* Logo and Navigation Links */}
           <div className="flex items-center space-x-8">
-            <div 
-              className="text-2xl font-black cursor-pointer"
-              style={{
-                fontFamily: 'Bebas Neue, sans-serif',
-                color: '#E50914',
-                letterSpacing: '-0.02em'
+            <img 
+              src="/attached_assets/farooq-logo.png" 
+              alt="Farooq" 
+              className="h-8 sm:h-10 md:h-12 w-auto object-contain cursor-pointer"
+              style={{ 
+                maxHeight: 'clamp(2rem, 4vw, 3rem)',
+                filter: 'brightness(1.1) contrast(1.1)'
               }}
               onClick={() => setLocation("/")}
-            >
-              InBetaByPriya
-            </div>
+            />
 
             {/* Navigation Links */}
             <div className="hidden md:flex space-x-6 text-sm text-white">
