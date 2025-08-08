@@ -376,14 +376,14 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     <Share className="w-5 h-5" />
                   </button>
                   
-                  {/* Share Menu */}
+                  {/* Share Menu - positioned below button */}
                   {showShareMenu === project.id && (
-                    <div className="absolute bg-black/95 backdrop-blur-md rounded-lg p-1 w-[140px] sm:w-[160px] z-[9999] border border-white/10 shadow-2xl"
+                    <div className="absolute bg-black/95 backdrop-blur-md rounded-lg p-1 w-[140px] sm:w-[160px] z-[99999] border border-white/10 shadow-2xl"
                       style={{
-                        top: '100%',
-                        marginTop: '8px',
-                        left: window.innerWidth < 640 ? '-90px' : '-30px',
-                        transform: 'none'
+                        top: window.innerWidth < 640 ? '60px' : '56px',
+                        right: window.innerWidth < 640 ? '0px' : '0px',
+                        left: 'auto',
+                        transform: window.innerWidth < 640 ? 'translateX(-50%)' : 'translateX(-80%)'
                       }}
                       onClick={(e) => e.stopPropagation()}>
                       <div className="space-y-0.5">
