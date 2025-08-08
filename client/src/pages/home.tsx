@@ -61,10 +61,12 @@ export default function Home() {
         document.body.removeChild(link);
         break;
       case 'work-with-me':
-        window.open("https://linkedin.com/in/farooqchisty", "_blank");
-        break;
       case 'invite-speaker':
-        window.open("mailto:farooqsheik52543@gmail.com?subject=Speaking Opportunity&body=Hi Farooq, I'd like to invite you as a speaker for our event.", "_blank");
+        // Scroll to Hire Me section
+        const hireMeSection = document.getElementById('hire-me');
+        if (hireMeSection) {
+          hireMeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
         break;
       case 'connect-linkedin':
         window.open("https://linkedin.com/in/farooqchisty", "_blank");

@@ -108,10 +108,15 @@ export default function NetflixSearchPage() {
         document.body.removeChild(link);
         break;
       case 'work-with-me':
-        setLocation("/contact");
-        break;
-      case 'invite-as-speaker':
-        setLocation("/contact");
+      case 'invite-speaker':
+        // Navigate back to home and scroll to Hire Me section
+        setLocation('/');
+        setTimeout(() => {
+          const hireMeSection = document.getElementById('hire-me');
+          if (hireMeSection) {
+            hireMeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
         break;
       case 'connect-linkedin':
         window.open("https://linkedin.com/in/farooqchisty", "_blank");
@@ -388,7 +393,7 @@ export default function NetflixSearchPage() {
                     
                     <div className="space-y-1">
                       <button
-                        onClick={() => handleProfileAction('download-resume')}
+                        onClick={() => handleProfileMenuClick('download-resume')}
                         className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                       >
                         <Download className="w-4 h-4" />
@@ -396,7 +401,7 @@ export default function NetflixSearchPage() {
                       </button>
                       
                       <button
-                        onClick={() => handleProfileAction('work-with-me')}
+                        onClick={() => handleProfileMenuClick('work-with-me')}
                         className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                       >
                         <Briefcase className="w-4 h-4" />
@@ -404,7 +409,7 @@ export default function NetflixSearchPage() {
                       </button>
                       
                       <button
-                        onClick={() => handleProfileAction('invite-speaker')}
+                        onClick={() => handleProfileMenuClick('invite-speaker')}
                         className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                       >
                         <Mic className="w-4 h-4" />
@@ -412,7 +417,7 @@ export default function NetflixSearchPage() {
                       </button>
                       
                       <button
-                        onClick={() => handleProfileAction('connect-linkedin')}
+                        onClick={() => handleProfileMenuClick('connect-linkedin')}
                         className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                       >
                         <Linkedin className="w-4 h-4" />
