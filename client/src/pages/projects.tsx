@@ -30,7 +30,7 @@ export default function ProjectsPage() {
           </p>
           
           {/* Horizontal Divider Line */}
-          <div className="w-full h-px bg-navy-700 opacity-50 mb-6 sm:mb-8" style={{backgroundColor: '#1e3a8a'}}></div>
+          <div className="w-full h-px bg-navy-700 opacity-25 mb-6 sm:mb-8" style={{backgroundColor: '#1e3a8a'}}></div>
         </div>
         <ProjectsSection onProjectClick={setSelectedProjectId} />
       </div>
