@@ -300,14 +300,15 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         {/* Share Dropdown Menu */}
                         {showShareMenu && (
                           <motion.div 
-                            className="absolute bottom-16 bg-black/95 backdrop-blur-md rounded-lg p-1 w-[120px] xs:w-[130px] sm:w-[140px] md:w-[150px] z-[9999] border border-white/10 shadow-2xl"
+                            className="absolute bg-black/95 backdrop-blur-md rounded-lg p-1 w-[120px] xs:w-[130px] sm:w-[140px] md:w-[150px] z-[99999] border border-white/10 shadow-2xl"
                             style={{
-                              left: window.innerWidth < 640 ? '-70px' : '-30px',
-                              bottom: '48px'
+                              top: '52px',
+                              right: '0px',
+                              left: 'auto'
                             }}
-                            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                            initial={{ opacity: 0, scale: 0.95, y: -10 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                            exit={{ opacity: 0, scale: 0.95, y: -10 }}
                             transition={{ duration: 0.2 }}
                           >
                             <div className="space-y-0">
@@ -379,14 +380,6 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             </div>
                           </motion.div>
                         )}
-                        
-                        {/* Copy Success Popup for "Copy Link" option */}
-                        {copiedProject && (
-                          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-green-600 text-white text-xs px-3 py-1 rounded-full z-[10000] whitespace-nowrap">
-                            Link Copied!
-                          </div>
-                        )}
-
                       </div>
                     </div>
                   </div>
