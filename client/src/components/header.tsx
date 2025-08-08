@@ -160,13 +160,48 @@ export default function Header() {
 
             {/* Right Icons */}
             <div className="flex items-center">
-              {/* Mobile Search Icon - Only visible on mobile */}
-              <button 
-                className="sm:hidden p-2 hover:bg-white/10 rounded transition-all duration-200"
-                onClick={() => setSearchOpen(true)}
-              >
-                <Search className="w-5 h-5" />
-              </button>
+              {/* Mobile Search - Only visible on mobile */}
+              <div className="sm:hidden">
+                <AnimatePresence>
+                  {searchOpen ? (
+                    <motion.form
+                      onSubmit={handleSearchSubmit}
+                      className="flex items-center mr-2"
+                      initial={{ width: 0, opacity: 0 }}
+                      animate={{ width: "auto", opacity: 1 }}
+                      exit={{ width: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="flex items-center bg-black border border-white/30 rounded px-2 py-1">
+                        <Search className="w-4 h-4 text-gray-400 mr-2" />
+                        <input
+                          ref={searchInputRef}
+                          type="text"
+                          placeholder="search..."
+                          value={searchQuery}
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                          className="bg-transparent text-white placeholder-gray-400 outline-none text-sm w-24"
+                          onBlur={() => !searchQuery && setSearchOpen(false)}
+                        />
+                        <button
+                          type="button"
+                          onClick={handleSearchClose}
+                          className="ml-1 text-gray-400 hover:text-white transition-colors"
+                        >
+                          <X className="w-3 h-3" />
+                        </button>
+                      </div>
+                    </motion.form>
+                  ) : (
+                    <button 
+                      className="p-2 hover:bg-white/10 rounded transition-all duration-200"
+                      onClick={() => setSearchOpen(true)}
+                    >
+                      <Search className="w-5 h-5" />
+                    </button>
+                  )}
+                </AnimatePresence>
+              </div>
 
               {/* Mobile Hamburger Menu */}
               <button
