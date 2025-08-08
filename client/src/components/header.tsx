@@ -125,8 +125,8 @@ export default function Header() {
                   filter: 'brightness(1.1) contrast(1.1)'
                 }}
               />
-              {/* Desktop Navigation - Hidden on mobile/tablet */}
-              <ul className="hidden lg:flex space-x-6">
+              {/* Desktop Navigation - Hidden on mobile only */}
+              <ul className="hidden md:flex space-x-6">
                 <li>
                   <Link href="/">
                     <button className="text-sm hover:text-netflix-light-gray transition-colors duration-200">
@@ -163,7 +163,7 @@ export default function Header() {
               {/* Mobile Hamburger Menu */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 hover:bg-white/10 rounded transition-all duration-200 mr-2"
+                className="md:hidden p-2 hover:bg-white/10 rounded transition-all duration-200 mr-2"
               >
                 {mobileMenuOpen ? (
                   <X className="w-6 h-6" />
@@ -173,7 +173,7 @@ export default function Header() {
               </button>
 
               {/* Desktop/Tablet Icons */}
-              <div className="hidden md:flex items-center space-x-4">
+              <div className="hidden sm:flex items-center space-x-4">
                 {/* Embedded Search Bar */}
                 <AnimatePresence>
                   {searchOpen ? (
