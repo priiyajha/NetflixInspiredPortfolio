@@ -44,7 +44,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     if (!container) return;
     
     // Netflix pixel-perfect dimensions - 5 cards per row with spacing
-    const cardWidth = window.innerWidth >= 1280 ? 278 : window.innerWidth >= 1024 ? 254 : window.innerWidth >= 768 ? 238 : window.innerWidth >= 640 ? 222 : 202;
+    const cardWidth = window.innerWidth >= 1280 ? 340 : window.innerWidth >= 1024 ? 300 : window.innerWidth >= 768 ? 270 : window.innerWidth >= 640 ? 250 : 230;
     container.scrollBy({ left: -cardWidth * 5, behavior: 'smooth' });
   };
 
@@ -53,7 +53,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     if (!container) return;
     
     // Netflix pixel-perfect dimensions - 5 cards per row with spacing
-    const cardWidth = window.innerWidth >= 1280 ? 278 : window.innerWidth >= 1024 ? 254 : window.innerWidth >= 768 ? 238 : window.innerWidth >= 640 ? 222 : 202;
+    const cardWidth = window.innerWidth >= 1280 ? 340 : window.innerWidth >= 1024 ? 300 : window.innerWidth >= 768 ? 270 : window.innerWidth >= 640 ? 250 : 230;
     container.scrollBy({ left: cardWidth * 5, behavior: 'smooth' });
   };
 
@@ -261,7 +261,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
               className={`flex-none cursor-pointer relative group ${
                 hoveredProject === project.id 
                   ? 'w-80 sm:w-80 md:w-80 lg:w-80 xl:w-80' 
-                  : 'w-50 sm:w-52 md:w-56 lg:w-64 xl:w-68'
+                  : 'w-56 sm:w-60 md:w-64 lg:w-72 xl:w-80'
               }`}
               style={{
                 transition: 'width 0.3s ease-in-out'
@@ -336,7 +336,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
                       ? 'opacity-0 h-80 sm:h-80 md:h-80' 
-                      : 'opacity-100 h-32 sm:h-36 md:h-40 lg:h-44 xl:h-48'
+                      : 'opacity-100 h-24 sm:h-28 md:h-32 lg:h-36 xl:h-40'
                   }`}
                   style={{
                     borderRadius: hoveredProject === project.id ? '12px' : '6px'
