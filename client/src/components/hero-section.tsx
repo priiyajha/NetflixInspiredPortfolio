@@ -57,7 +57,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="none"
             onError={() => setVideoError(true)}
             onLoadedData={() => {
               // Ensure video starts playing with mobile-specific handling
@@ -65,7 +65,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
                 const playPromise = videoRef.current.play();
                 if (playPromise !== undefined) {
                   playPromise.catch(() => {
-                    console.log('Video autoplay prevented by browser - user interaction required');
+                    // Video autoplay prevented - silent fail
                   });
                 }
               }
@@ -74,7 +74,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
               // Ensure video plays when ready
               if (videoRef.current) {
                 videoRef.current.play().catch(() => {
-                  console.log('Video play prevented');
+                  // Video play prevented - silent fail
                 });
               }
             }}
