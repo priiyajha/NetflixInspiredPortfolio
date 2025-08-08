@@ -300,40 +300,41 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         {/* Share Dropdown Menu */}
                         {showShareMenu && (
                           <motion.div 
-                            className="absolute bottom-16 bg-black backdrop-blur-md rounded-lg p-2 w-[180px] sm:w-[200px] z-[9999] border border-white/30 shadow-2xl"
+                            className="absolute bottom-16 bg-black backdrop-blur-md rounded-lg p-1 w-[140px] sm:w-[160px] z-[9999] border border-white/30 shadow-2xl"
                             style={{
-                              left: window.innerWidth < 640 ? '-60px' : '-20px'
+                              left: window.innerWidth < 640 ? '-70px' : '-30px',
+                              bottom: '48px'
                             }}
                             initial={{ opacity: 0, scale: 0.95, y: 10 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 10 }}
                             transition={{ duration: 0.2 }}
                           >
-                            <div className="space-y-1">
+                            <div className="space-y-0.5">
                               <button
                                 onClick={copyProjectLink}
-                                className="flex items-center space-x-2 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                                className="flex items-center space-x-1.5 w-full text-left text-white hover:text-red-400 transition-colors py-1.5 px-1.5 rounded hover:bg-white/10"
                               >
                                 {copiedProject ? (
-                                  <Check className="w-4 h-4 text-green-400" />
+                                  <Check className="w-3 h-3 text-green-400" />
                                 ) : (
-                                  <Copy className="w-4 h-4" />
+                                  <Copy className="w-3 h-3" />
                                 )}
-                                <span className="text-xs sm:text-sm">
-                                  {copiedProject ? 'Link Copied!' : 'Copy Link'}
+                                <span className="text-[10px] sm:text-xs">
+                                  {copiedProject ? 'Copied!' : 'Copy'}
                                 </span>
                               </button>
                               
-                              <hr className="border-gray-600 my-1.5" />
+                              <hr className="border-gray-600 my-0.5" />
                               
                               <button
                                 onClick={() => shareOnSocial('linkedin')}
-                                className="flex items-center space-x-2 w-full text-left text-white hover:text-blue-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
+                                className="flex items-center space-x-1.5 w-full text-left text-white hover:text-blue-400 transition-colors py-1.5 px-1.5 rounded hover:bg-white/10"
                               >
-                                <div className="w-4 h-4 bg-blue-600 rounded-sm flex items-center justify-center">
-                                  <span className="text-white text-xs font-bold">in</span>
+                                <div className="w-3 h-3 bg-blue-600 rounded-sm flex items-center justify-center">
+                                  <span className="text-white text-[8px] font-bold">in</span>
                                 </div>
-                                <span className="text-xs sm:text-sm">LinkedIn</span>
+                                <span className="text-[10px] sm:text-xs">LinkedIn</span>
                               </button>
                               
                               <button
