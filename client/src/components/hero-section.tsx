@@ -52,7 +52,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
               }
             }}
           >
-            <source src="/attached_assets/1_1754491684471.mp4" type="video/mp4" />
+            <source src="/attached_assets/videoBg_1754666843775.mp4" type="video/mp4" />
           </video>
         ) : (
           // Fallback gradient background if video fails to load
