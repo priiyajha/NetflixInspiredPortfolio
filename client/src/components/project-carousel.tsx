@@ -302,11 +302,19 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 }`}
                 style={{
                   transformOrigin: 'center center',
-                  borderRadius: hoveredProject === project.id ? '12px' : '6px'
+                  borderRadius: hoveredProject === project.id ? '12px' : '6px',
+                  // Ensure cards stay centered horizontally on small screens
+                  ...(window.innerWidth < 768 && hoveredProject === project.id ? {
+                    position: 'relative',
+                    left: '50%',
+                    transform: 'translateX(-50%) scale(1.15) translateY(-15px)',
+                    zIndex: 20
+                  } : {})
                 }}
                 animate={{
-                  scale: hoveredProject === project.id ? 1.15 : 1,
-                  y: hoveredProject === project.id ? -15 : 0,
+                  scale: window.innerWidth >= 768 && hoveredProject === project.id ? 1.15 : 1,
+                  y: window.innerWidth >= 768 && hoveredProject === project.id ? -15 : 0,
+                  x: window.innerWidth < 768 && hoveredProject === project.id ? '-50%' : 0,
                 }}
                 transition={{ duration: 1.0, ease: "easeInOut" }}
               >
