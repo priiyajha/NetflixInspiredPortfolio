@@ -208,6 +208,8 @@ export default function Header() {
                     <img 
                       src="/attached_assets/farooq-headshot.png" 
                       alt="Farooq Chisty" 
+                      loading="lazy"
+                      decoding="async"
                       className="w-8 h-8 rounded object-cover"
                     />
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${profileMenuOpen ? 'rotate-180' : ''}`} />
@@ -229,6 +231,8 @@ export default function Header() {
                             <img 
                               src="/attached_assets/farooq-headshot.png" 
                               alt="Farooq Chisty" 
+                              loading="lazy"
+                              decoding="async"
                               className="w-10 h-10 rounded object-cover"
                             />
                             <div>

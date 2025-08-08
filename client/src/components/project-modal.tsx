@@ -59,7 +59,7 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                   </Button>
                 </div>
 
-                {/* Video/Image Container - Ready for video integration with autoplay loop */}
+                {/* Video/Image Container - optimized loading */}
                 {project.video ? (
                   <video
                     src={project.video}
@@ -68,11 +68,14 @@ export default function ProjectModal({ projectId, onClose }: ProjectModalProps) 
                     loop
                     muted
                     playsInline
+                    preload="metadata"
                   />
                 ) : (
                   <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-lg mb-4 sm:mb-6"
                   />
                 )}

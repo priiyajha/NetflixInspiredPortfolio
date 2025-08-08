@@ -308,7 +308,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 }}
                 transition={{ duration: 1.0, ease: "easeInOut" }}
               >
-                {/* Video background for hover state */}
+                {/* Video background for hover state - lazy load */}
                 {hoveredProject === project.id && project.video && (
                   <motion.video
                     ref={(el) => { videoRefs.current[project.id] = el; }}
@@ -317,6 +317,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     loop
                     muted
                     playsInline
+                    preload="metadata"
                     className="absolute top-0 left-0 right-0 w-full object-cover z-0"
                     style={{ 
                       height: '65%',
@@ -329,10 +330,12 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   />
                 )}
                 
-                {/* Static Image */}
+                {/* Static Image - optimized loading */}
                 <img
                   src={project.image}
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
                       ? 'opacity-0 h-80 sm:h-80 md:h-80' 

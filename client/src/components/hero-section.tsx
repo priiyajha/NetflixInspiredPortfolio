@@ -29,13 +29,14 @@ export default function HeroSection({ profile }: HeroSectionProps) {
       style={{
         backgroundColor: '#1a1a1a'
       }}>
-      {/* Background Video */}
+      {/* Background Video - optimized loading */}
       <div className="absolute inset-0">
         <video
           autoPlay
           muted
           loop
           playsInline
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover opacity-75"
         >
           <source src={backgroundVideo} type="video/mp4" />
