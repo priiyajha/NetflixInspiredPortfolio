@@ -378,12 +378,13 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   
                   {/* Share Menu */}
                   {showShareMenu === project.id && (
-                    <div className="absolute top-12 left-0 bg-black/95 backdrop-blur-md rounded-lg p-1 w-[140px] sm:w-[160px] z-50 border border-white/10 shadow-2xl"
+                    <div className="absolute top-12 left-0 bg-black/95 backdrop-blur-md rounded-lg p-1 w-[140px] sm:w-[160px] z-[9999] border border-white/10 shadow-2xl"
                       style={{
-                        top: '52px',
+                        top: window.innerWidth < 640 ? '56px' : '52px',
                         left: window.innerWidth < 640 ? '-90px' : '-30px',
                         transform: 'none'
-                      }}>
+                      }}
+                      onClick={(e) => e.stopPropagation()}>
                       <div className="space-y-0.5">
                         <button
                           onClick={(e) => copyProjectLink(project, e)}
