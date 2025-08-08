@@ -20,7 +20,7 @@ function Router() {
       <Route path="/lets-chat" component={LetsChatPage} />
       <Route path="/netflix-search" component={NetflixSearchPage} />
       <Route path="/search" component={NetflixSearchPage} />
-      <Route path="/hire-me" component={LetsChatPage} />
+      <Route path="/hire-me" component={ContactPage} />
       <Route component={NotFound} />
     </Switch>
   );
