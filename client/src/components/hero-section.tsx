@@ -15,8 +15,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
   const [, setLocation] = useLocation();
 
   const handleViewResume = () => {
-    // TODO: Replace with your Google Doc URL when uploaded
-    const resumeUrl = "https://docs.google.com/document/d/YOUR_GOOGLE_DOC_ID/edit";
+    const resumeUrl = "/attached_assets/FAROOQ%20CHISTY%20%20RESUME%202025%20%281%29_1754665051871.pdf";
     window.open(resumeUrl, "_blank");
   };
 
