@@ -57,8 +57,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
             muted
             loop
             playsInline
-            preload={isMobile ? "none" : "metadata"}
-            poster={isMobile ? "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23141414'/%3E%3C/svg%3E" : undefined}
+            preload="metadata"
             onError={() => setVideoError(true)}
             onLoadedData={() => {
               // Ensure video starts playing with mobile-specific handling
@@ -72,15 +71,15 @@ export default function HeroSection({ profile }: HeroSectionProps) {
               }
             }}
             onCanPlay={() => {
-              // For mobile devices, ensure video plays when ready
-              if (isMobile && videoRef.current) {
+              // Ensure video plays when ready
+              if (videoRef.current) {
                 videoRef.current.play().catch(() => {
-                  console.log('Mobile video play prevented');
+                  console.log('Video play prevented');
                 });
               }
             }}
             style={{
-              // Mobile optimizations
+              // Performance optimizations
               willChange: 'auto',
               transform: 'translateZ(0)', // Hardware acceleration
             }}
@@ -96,23 +95,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
             }}
           />
         )}
-        
-        {/* Mobile video play button overlay (if needed for user interaction) */}
-        {isMobile && videoRef.current?.paused && (
-          <button
-            onClick={() => {
-              if (videoRef.current) {
-                videoRef.current.play();
-              }
-            }}
-            className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm"
-            aria-label="Play background video"
-          >
-            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
-              <Play className="w-8 h-8 text-white ml-1" />
-            </div>
-          </button>
-        )}
+
         {/* Dark gradient overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/40"></div>
       </div>
