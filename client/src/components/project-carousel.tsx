@@ -27,6 +27,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
   const [copiedProject, setCopiedProject] = useState<string | null>(null);
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [touchTimeout, setTouchTimeout] = useState<NodeJS.Timeout | null>(null);
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
 
   const checkScrollability = () => {
@@ -291,6 +292,31 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   setHoverTimeout(null);
                 }
                 setHoveredProject(null);
+              }}
+              onTouchStart={() => {
+                // Clear any existing touch timeout
+                if (touchTimeout) {
+                  clearTimeout(touchTimeout);
+                }
+                // Set a 500ms long press for touch devices
+                const timeout = setTimeout(() => {
+                  setHoveredProject(project.id);
+                }, 500);
+                setTouchTimeout(timeout);
+              }}
+              onTouchEnd={() => {
+                // Clear touch timeout
+                if (touchTimeout) {
+                  clearTimeout(touchTimeout);
+                  setTouchTimeout(null);
+                }
+              }}
+              onTouchMove={() => {
+                // Cancel touch timeout if user moves finger (scrolling)
+                if (touchTimeout) {
+                  clearTimeout(touchTimeout);
+                  setTouchTimeout(null);
+                }
               }}
             >
               {/* Normal Card State */}

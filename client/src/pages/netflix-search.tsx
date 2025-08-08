@@ -15,6 +15,7 @@ export default function NetflixSearchPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [touchTimeout, setTouchTimeout] = useState<NodeJS.Timeout | null>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const profileMenuRef = useRef<HTMLDivElement>(null);
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
@@ -480,6 +481,31 @@ export default function NetflixSearchPage() {
                         setHoverTimeout(null);
                       }
                       setHoveredProject(null);
+                    }}
+                    onTouchStart={() => {
+                      // Clear any existing touch timeout
+                      if (touchTimeout) {
+                        clearTimeout(touchTimeout);
+                      }
+                      // Set a 500ms long press for touch devices
+                      const timeout = setTimeout(() => {
+                        setHoveredProject(project.id);
+                      }, 500);
+                      setTouchTimeout(timeout);
+                    }}
+                    onTouchEnd={() => {
+                      // Clear touch timeout
+                      if (touchTimeout) {
+                        clearTimeout(touchTimeout);
+                        setTouchTimeout(null);
+                      }
+                    }}
+                    onTouchMove={() => {
+                      // Cancel touch timeout if user moves finger (scrolling)
+                      if (touchTimeout) {
+                        clearTimeout(touchTimeout);
+                        setTouchTimeout(null);
+                      }
                     }}
                     style={{
                       // Ensure proper positioning for hover effects
