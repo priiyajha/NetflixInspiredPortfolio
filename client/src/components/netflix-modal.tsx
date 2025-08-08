@@ -300,13 +300,22 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         {/* Share Dropdown Menu */}
                         {showShareMenu && (
                           <motion.div 
-                            className="absolute bottom-16 left-0 bg-black backdrop-blur-md rounded-lg p-4 min-w-[220px] z-[9999] border-2 border-white/30 shadow-2xl"
+                            className="absolute bottom-16 left-0 sm:left-0 bg-black backdrop-blur-md rounded-lg p-3 sm:p-4 min-w-[200px] sm:min-w-[220px] max-w-[280px] sm:max-w-none z-[9999] border-2 border-white/30 shadow-2xl
+                                     /* Mobile positioning adjustments */
+                                     max-h-[60vh] overflow-y-auto
+                                     /* Ensure it fits on smaller screens */
+                                     transform translate-x-0 sm:translate-x-0"
+                            style={{
+                              left: window.innerWidth < 640 ? '50%' : 'auto',
+                              transform: window.innerWidth < 640 ? 'translateX(-50%)' : 'none',
+                              maxHeight: window.innerWidth < 640 ? '50vh' : 'auto'
+                            }}
                             initial={{ opacity: 0, scale: 0.95, y: 10 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 10 }}
                             transition={{ duration: 0.2 }}
                           >
-                            <div className="space-y-2">
+                            <div className="space-y-1 sm:space-y-2">
                               <button
                                 onClick={copyProjectLink}
                                 className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
