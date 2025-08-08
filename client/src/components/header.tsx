@@ -160,6 +160,14 @@ export default function Header() {
 
             {/* Right Icons */}
             <div className="flex items-center">
+              {/* Mobile Search Icon - Only visible on mobile */}
+              <button 
+                className="sm:hidden p-2 hover:bg-white/10 rounded transition-all duration-200"
+                onClick={() => setSearchOpen(true)}
+              >
+                <Search className="w-5 h-5" />
+              </button>
+
               {/* Mobile Hamburger Menu */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
