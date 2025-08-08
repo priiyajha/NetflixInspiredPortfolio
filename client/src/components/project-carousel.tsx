@@ -281,6 +281,15 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 // Set a 0.5 second delay before showing hover state
                 const timeout = setTimeout(() => {
                   setHoveredProject(project.id);
+                  // Auto-play video on hover if available
+                  const video = videoRefs.current[project.id];
+                  if (video && video.src) {
+                    video.muted = true;
+                    video.currentTime = 0;
+                    video.play().catch(() => {
+                      console.log('Video autoplay prevented on hover');
+                    });
+                  }
                 }, 500);
                 setHoverTimeout(timeout);
               }}
@@ -290,6 +299,16 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   clearTimeout(hoverTimeout);
                   setHoverTimeout(null);
                 }
+                
+                // Pause and reset video when hover ends
+                if (hoveredProject) {
+                  const video = videoRefs.current[hoveredProject];
+                  if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                  }
+                }
+                
                 setHoveredProject(null);
               }}
             >
@@ -318,7 +337,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 }}
                 transition={{ duration: 1.0, ease: "easeInOut" }}
               >
-                {/* Video background for hover state - lazy load */}
+                {/* Video background for hover state - optimized loading */}
                 {hoveredProject === project.id && project.video && (
                   <motion.video
                     ref={(el) => { videoRefs.current[project.id] = el; }}
@@ -327,16 +346,36 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     loop
                     muted
                     playsInline
-                    preload="metadata"
+                    preload="none"
+                    controls={false}
+                    disablePictureInPicture
                     className="absolute top-0 left-0 right-0 w-full object-cover z-0"
                     style={{ 
                       height: '65%',
                       borderTopLeftRadius: '12px',
-                      borderTopRightRadius: '12px'
+                      borderTopRightRadius: '12px',
+                      willChange: 'opacity'
                     }}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.4 }}
+                    onLoadStart={() => {
+                      const video = videoRefs.current[project.id];
+                      if (video) {
+                        video.muted = true;
+                        video.play().catch(() => {
+                          console.log('Video autoplay prevented');
+                        });
+                      }
+                    }}
+                    onCanPlay={() => {
+                      const video = videoRefs.current[project.id];
+                      if (video) {
+                        video.play().catch(() => {
+                          console.log('Video play prevented');
+                        });
+                      }
+                    }}
                   />
                 )}
                 
@@ -344,15 +383,17 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 <img
                   src={project.image}
                   alt={project.title}
-                  loading="lazy"
+                  loading={index < 3 ? "eager" : "lazy"}
                   decoding="async"
+
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
                       ? 'opacity-0 h-72 sm:h-76 md:h-80' 
                       : 'opacity-100 h-24 sm:h-32 md:h-24 lg:h-28 xl:h-32'
                   }`}
                   style={{
-                    borderRadius: hoveredProject === project.id ? '12px' : '6px'
+                    borderRadius: hoveredProject === project.id ? '12px' : '6px',
+                    willChange: hoveredProject === project.id ? 'opacity, height' : 'auto'
                   }}
                   draggable={false}
                 />

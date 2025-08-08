@@ -199,20 +199,42 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                     loop
                     muted={isMuted}
                     playsInline
-                    preload="metadata"
+                    preload="auto"
+                    controls={false}
+                    disablePictureInPicture
                     onError={(e) => {
                       console.warn('Failed to load project video:', project.video);
+                    }}
+                    onLoadStart={(e) => {
+                      const video = e.currentTarget;
+                      video.muted = isMuted;
+                      video.play().catch(() => {
+                        console.log('Netflix modal video autoplay prevented');
+                      });
+                    }}
+                    onCanPlay={(e) => {
+                      const video = e.currentTarget;
+                      video.play().catch(() => {
+                        console.log('Netflix modal video play prevented on canPlay');
+                      });
+                    }}
+                    style={{
+                      willChange: 'auto'
                     }}
                   />
                 ) : (
                   <img
                     src={project.image}
                     alt={project.title}
-                    loading="lazy"
+                    loading="eager"
+                    decoding="async"
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       console.warn('Failed to load project image:', project.image);
                       e.currentTarget.src = "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450";
+                    }}
+                    style={{
+                      willChange: 'auto'
                     }}
                   />
                 )}
@@ -577,12 +599,17 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                       <img
                                         src={image}
                                         alt={`${project?.title} gallery image ${currentImageIndex + index + 1}`}
+                                        loading={index < 2 ? "eager" : "lazy"}
+                                        decoding="async"
                                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-200 cursor-pointer"
                                         draggable={false}
                                         onClick={() => setSelectedImage(image)}
                                         onError={(e) => {
                                           console.warn('Failed to load gallery image:', image);
                                           e.currentTarget.style.display = 'none';
+                                        }}
+                                        style={{
+                                          willChange: 'transform'
                                         }}
                                       />
                                     </div>
