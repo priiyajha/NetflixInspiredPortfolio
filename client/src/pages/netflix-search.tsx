@@ -142,7 +142,7 @@ export default function NetflixSearchPage() {
     <>
       {/* Fixed Navigation Bar */}
       <nav className="fixed top-0 left-0 right-0 z-40 bg-[#141414] px-4 py-3">
-        <div className="flex items-center justify-between max-w-7xl mx-auto">
+        <div className="flex items-center justify-between max-w-7xl mx-auto w-full">
           {/* Logo and Navigation Links */}
           <div className="flex items-center space-x-8">
             <img 
@@ -159,6 +159,7 @@ export default function NetflixSearchPage() {
 
           </div>
 
+          {/* Search Bar - Center positioned */}
           {/* Right side items */}
           <div className="flex items-center space-x-2 sm:space-x-4">
             
@@ -172,14 +173,14 @@ export default function NetflixSearchPage() {
               </button>
             </div>
 
-            {/* Desktop Search Bar */}
-            <div className="relative hidden md:block">
-              <div className="flex items-center bg-black border border-white/20 rounded px-3 py-2">
-                <Search className="w-4 h-4 text-gray-400 mr-2" />
+            {/* Search Bar - Positioned prominently */}
+            <div className="relative flex-1 max-w-md mx-4">
+              <div className="flex items-center bg-black/80 backdrop-blur border border-white/30 rounded-lg px-4 py-2.5">
+                <Search className="w-5 h-5 text-gray-400 mr-3" />
                 <input
                   ref={searchInputRef}
                   type="text"
-                  placeholder="titles, people, genres"
+                  placeholder="Search titles, people, genres..."
                   value={searchQuery}
                   onChange={(e) => {
                     setSearchQuery(e.target.value);
@@ -189,7 +190,7 @@ export default function NetflixSearchPage() {
                       : '/netflix-search';
                     window.history.replaceState({}, '', newUrl);
                   }}
-                  className="bg-transparent text-white placeholder-gray-400 outline-none text-sm w-32 sm:w-48 md:w-64"
+                  className="bg-transparent text-white placeholder-gray-400 outline-none text-base w-full"
                 />
                 {searchQuery && (
                   <button
@@ -247,7 +248,7 @@ export default function NetflixSearchPage() {
                     {/* Menu Items */}
                     <div className="py-2">
                       <button
-                        onClick={() => handleProfileMenuClick('download-resume')}
+                        onClick={() => handleProfileAction('download-resume')}
                         className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
                       >
                         <Download className="w-5 h-5" />
@@ -255,7 +256,7 @@ export default function NetflixSearchPage() {
                       </button>
                       
                       <button
-                        onClick={() => handleProfileMenuClick('work-with-me')}
+                        onClick={() => handleProfileAction('work-with-me')}
                         className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
                       >
                         <Briefcase className="w-5 h-5" />
@@ -263,15 +264,15 @@ export default function NetflixSearchPage() {
                       </button>
                       
                       <button
-                        onClick={() => handleProfileMenuClick('invite-as-speaker')}
+                        onClick={() => handleProfileAction('invite-speaker')}
                         className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
                       >
                         <Mic className="w-5 h-5" />
-                        <span className="text-sm">Invite as a Speaker</span>
+                        <span className="text-sm">Invite as Speaker</span>
                       </button>
                       
                       <button
-                        onClick={() => handleProfileMenuClick('connect-linkedin')}
+                        onClick={() => handleProfileAction('connect-linkedin')}
                         className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
                       >
                         <Linkedin className="w-5 h-5" />
@@ -282,6 +283,34 @@ export default function NetflixSearchPage() {
                 )}
               </AnimatePresence>
             </div>
+          </div>
+        </div>
+
+        {/* Mobile Search Bar */}
+        <div className="md:hidden px-4 pb-3">
+          <div className="flex items-center bg-black/80 backdrop-blur border border-white/30 rounded-lg px-4 py-2.5">
+            <Search className="w-5 h-5 text-gray-400 mr-3" />
+            <input
+              type="text"
+              placeholder="Search projects..."
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                const newUrl = e.target.value.trim() 
+                  ? `/netflix-search?q=${encodeURIComponent(e.target.value.trim())}`
+                  : '/netflix-search';
+                window.history.replaceState({}, '', newUrl);
+              }}
+              className="bg-transparent text-white placeholder-gray-400 outline-none text-base w-full"
+            />
+            {searchQuery && (
+              <button
+                onClick={handleClearSearch}
+                className="ml-2 text-gray-400 hover:text-white transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            )}
           </div>
         </div>
 
@@ -393,7 +422,7 @@ export default function NetflixSearchPage() {
                     
                     <div className="space-y-1">
                       <button
-                        onClick={() => handleProfileMenuClick('download-resume')}
+                        onClick={() => handleProfileAction('download-resume')}
                         className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                       >
                         <Download className="w-4 h-4" />
@@ -401,7 +430,7 @@ export default function NetflixSearchPage() {
                       </button>
                       
                       <button
-                        onClick={() => handleProfileMenuClick('work-with-me')}
+                        onClick={() => handleProfileAction('work-with-me')}
                         className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                       >
                         <Briefcase className="w-4 h-4" />
@@ -409,7 +438,7 @@ export default function NetflixSearchPage() {
                       </button>
                       
                       <button
-                        onClick={() => handleProfileMenuClick('invite-speaker')}
+                        onClick={() => handleProfileAction('invite-speaker')}
                         className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                       >
                         <Mic className="w-4 h-4" />
@@ -417,7 +446,7 @@ export default function NetflixSearchPage() {
                       </button>
                       
                       <button
-                        onClick={() => handleProfileMenuClick('connect-linkedin')}
+                        onClick={() => handleProfileAction('connect-linkedin')}
                         className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                       >
                         <Linkedin className="w-4 h-4" />
