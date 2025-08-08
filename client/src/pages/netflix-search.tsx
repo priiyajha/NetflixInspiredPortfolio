@@ -138,6 +138,39 @@ export default function NetflixSearchPage() {
     setMobileMenuOpen(false);
   };
 
+  // Handle profile dropdown actions  
+  const handleProfileAction = (action: string) => {
+    setProfileMenuOpen(false);
+    
+    switch (action) {
+      case 'download-resume':
+        // Automatically download the resume
+        const link = document.createElement('a');
+        link.href = '/attached_assets/FAROOQ CHISTY  RESUME 2025 (1)_1754665051871.pdf';
+        link.download = 'Farooq_Chisty_Resume_2025.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        break;
+      case 'work-with-me':
+      case 'invite-speaker':
+        // Navigate back to home and scroll to Hire Me section
+        setLocation('/');
+        setTimeout(() => {
+          const hireMeSection = document.getElementById('hire-me');
+          if (hireMeSection) {
+            hireMeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+        break;
+      case 'connect-linkedin':
+        window.open("https://linkedin.com/in/farooqchisty", "_blank");
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <>
       {/* Fixed Navigation Bar */}
@@ -286,33 +319,7 @@ export default function NetflixSearchPage() {
           </div>
         </div>
 
-        {/* Mobile Search Bar */}
-        <div className="md:hidden px-4 pb-3">
-          <div className="flex items-center bg-black/80 backdrop-blur border border-white/30 rounded-lg px-4 py-2.5">
-            <Search className="w-5 h-5 text-gray-400 mr-3" />
-            <input
-              type="text"
-              placeholder="Search projects..."
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value);
-                const newUrl = e.target.value.trim() 
-                  ? `/netflix-search?q=${encodeURIComponent(e.target.value.trim())}`
-                  : '/netflix-search';
-                window.history.replaceState({}, '', newUrl);
-              }}
-              className="bg-transparent text-white placeholder-gray-400 outline-none text-base w-full"
-            />
-            {searchQuery && (
-              <button
-                onClick={handleClearSearch}
-                className="ml-2 text-gray-400 hover:text-white transition-colors"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            )}
-          </div>
-        </div>
+
 
         {/* Mobile Menu */}
         <AnimatePresence>
@@ -469,41 +476,47 @@ export default function NetflixSearchPage() {
             filteredProjects.length > 0 ? (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {filteredProjects.map((project, index) => (
-                  <div
+                  <motion.div
                     key={project.id}
-                    className="group cursor-pointer transition-all duration-200 ease-in-out hover:scale-105 active:scale-105"
+                    className="group cursor-pointer relative"
                     onClick={() => handleProjectClick(project.id)}
                     onTouchStart={() => {}} // Enable touch interactions
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    whileHover={{ 
+                      scale: 1.05,
+                      transition: { duration: 0.3 }
+                    }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    <div className="relative aspect-[16/9] rounded-lg overflow-hidden bg-gray-800">
+                    <div className="relative aspect-[16/9] rounded-lg overflow-hidden bg-gray-800 shadow-lg">
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-all duration-200 group-hover:opacity-75 group-active:opacity-75"
+                        className="w-full h-full object-cover transition-all duration-300 group-hover:brightness-110"
+                        loading="lazy"
                       />
                       
-
-                      
                       {/* Hover/Touch Overlay */}
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-200 flex items-center justify-center">
-                        <div className="text-center p-3">
-                          <h3 className="text-white font-semibold text-sm mb-2 line-clamp-2">{project.title}</h3>
-                          <div className="flex flex-wrap gap-1 justify-center">
-                            {project.technologies.slice(0, 3).map((tech, i) => (
-                              <span key={i} className="bg-gray-700 text-white text-xs px-2 py-1 rounded">
-                                {tech}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
+                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                        <motion.div 
+                          className="text-white text-sm font-medium px-4 py-2 bg-red-600 rounded-md backdrop-blur-sm border border-red-500"
+                          initial={{ scale: 0.8, opacity: 0 }}
+                          whileInView={{ scale: 1, opacity: 1 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          View Details
+                        </motion.div>
                       </div>
                     </div>
                     
                     {/* Project Title */}
-                    <h3 className="text-white font-medium mt-2 text-sm line-clamp-2">
-                      {project.title}
-                    </h3>
-                  </div>
+                    <div className="mt-3">
+                      <h3 className="text-white font-medium text-base group-hover:text-red-400 transition-colors duration-300">{project.title}</h3>
+                      <p className="text-gray-400 text-sm mt-1 line-clamp-2">{project.description}</p>
+                    </div>
+                  </motion.div>
                 ))}
               </div>
             ) : (
