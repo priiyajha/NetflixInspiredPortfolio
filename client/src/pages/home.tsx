@@ -62,11 +62,8 @@ export default function Home() {
         break;
       case 'work-with-me':
       case 'invite-speaker':
-        // Scroll to Hire Me section
-        const hireMeSection = document.getElementById('hire-me');
-        if (hireMeSection) {
-          hireMeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        // Navigate to Contact/Hire Me page
+        setLocation('/contact');
         break;
       case 'connect-linkedin':
         window.open("https://linkedin.com/in/farooqchisty", "_blank");

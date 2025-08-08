@@ -154,14 +154,8 @@ export default function NetflixSearchPage() {
         break;
       case 'work-with-me':
       case 'invite-speaker':
-        // Navigate back to home and scroll to Hire Me section
-        setLocation('/');
-        setTimeout(() => {
-          const hireMeSection = document.getElementById('hire-me');
-          if (hireMeSection) {
-            hireMeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        }, 100);
+        // Navigate to Contact/Hire Me page
+        setLocation('/contact');
         break;
       case 'connect-linkedin':
         window.open("https://linkedin.com/in/farooqchisty", "_blank");
