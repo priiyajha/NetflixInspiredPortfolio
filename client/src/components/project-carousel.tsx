@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Play, Plus, Share, Check, Copy, ThumbsUp, ChevronDown } from "lucide-react";
 import { Project } from "@shared/schema";
@@ -29,7 +29,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
 
-  const checkScrollability = useCallback(() => {
+  const checkScrollability = () => {
     const container = scrollRef.current;
     if (!container) return;
     
@@ -37,9 +37,9 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     setCanScrollRight(
       container.scrollLeft < container.scrollWidth - container.clientWidth
     );
-  }, []);
+  };
 
-  const scrollLeft = useCallback(() => {
+  const scrollLeft = () => {
     const container = scrollRef.current;
     if (!container) return;
     
@@ -47,9 +47,9 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     const cardWidth = window.innerWidth >= 1280 ? 276 : window.innerWidth >= 1024 ? 252 : window.innerWidth >= 768 ? 236 : 240;
     const scrollCount = window.innerWidth >= 1024 ? 5 : window.innerWidth >= 768 ? 3 : 2;
     container.scrollBy({ left: -cardWidth * scrollCount, behavior: 'smooth' });
-  }, []);
+  };
 
-  const scrollRight = useCallback(() => {
+  const scrollRight = () => {
     const container = scrollRef.current;
     if (!container) return;
     
@@ -57,7 +57,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     const cardWidth = window.innerWidth >= 1280 ? 276 : window.innerWidth >= 1024 ? 252 : window.innerWidth >= 768 ? 236 : 240;
     const scrollCount = window.innerWidth >= 1024 ? 5 : window.innerWidth >= 768 ? 3 : 2;
     container.scrollBy({ left: cardWidth * scrollCount, behavior: 'smooth' });
-  }, []);
+  };
 
   useEffect(() => {
     const container = scrollRef.current;
