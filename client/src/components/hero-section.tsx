@@ -15,7 +15,20 @@ export default function HeroSection({ profile }: HeroSectionProps) {
   const { toast } = useToast();
   const [, setLocation] = useLocation();
   const [videoError, setVideoError] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Detect mobile devices
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const handleViewResume = () => {
     const resumeUrl = "/attached_assets/FAROOQ%20CHISTY%20%20RESUME%202025%20%281%29_1754665051871.pdf";
@@ -29,7 +42,10 @@ export default function HeroSection({ profile }: HeroSectionProps) {
   return (
     <section id="home" className="relative h-screen flex items-end overflow-hidden" 
       style={{
-        backgroundColor: '#1a1a1a'
+        backgroundColor: '#1a1a1a',
+        // Mobile performance optimizations
+        contain: 'layout style paint',
+        contentVisibility: 'auto'
       }}>
       {/* Background Video or Fallback */}
       <div className="absolute inset-0">
@@ -41,15 +57,32 @@ export default function HeroSection({ profile }: HeroSectionProps) {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload={isMobile ? "none" : "metadata"}
+            poster={isMobile ? "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%23141414'/%3E%3C/svg%3E" : undefined}
             onError={() => setVideoError(true)}
             onLoadedData={() => {
-              // Ensure video starts playing
+              // Ensure video starts playing with mobile-specific handling
               if (videoRef.current) {
+                const playPromise = videoRef.current.play();
+                if (playPromise !== undefined) {
+                  playPromise.catch(() => {
+                    console.log('Video autoplay prevented by browser - user interaction required');
+                  });
+                }
+              }
+            }}
+            onCanPlay={() => {
+              // For mobile devices, ensure video plays when ready
+              if (isMobile && videoRef.current) {
                 videoRef.current.play().catch(() => {
-                  console.log('Video autoplay prevented by browser');
+                  console.log('Mobile video play prevented');
                 });
               }
+            }}
+            style={{
+              // Mobile optimizations
+              willChange: 'auto',
+              transform: 'translateZ(0)', // Hardware acceleration
             }}
           >
             <source src="/attached_assets/videoBg_1754666843775.mp4" type="video/mp4" />
@@ -62,6 +95,23 @@ export default function HeroSection({ profile }: HeroSectionProps) {
               backgroundImage: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)"
             }}
           />
+        )}
+        
+        {/* Mobile video play button overlay (if needed for user interaction) */}
+        {isMobile && videoRef.current?.paused && (
+          <button
+            onClick={() => {
+              if (videoRef.current) {
+                videoRef.current.play();
+              }
+            }}
+            className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm"
+            aria-label="Play background video"
+          >
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+              <Play className="w-8 h-8 text-white ml-1" />
+            </div>
+          </button>
         )}
         {/* Dark gradient overlay for text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/40"></div>
