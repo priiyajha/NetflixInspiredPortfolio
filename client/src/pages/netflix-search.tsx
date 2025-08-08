@@ -147,7 +147,7 @@ export default function NetflixSearchPage() {
           </div>
 
           {/* Search Bar */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-4">
             <div className="relative">
               <div className="flex items-center bg-black border border-white/20 rounded px-3 py-2">
                 <Search className="w-4 h-4 text-gray-400 mr-2" />
@@ -164,7 +164,7 @@ export default function NetflixSearchPage() {
                       : '/netflix-search';
                     window.history.replaceState({}, '', newUrl);
                   }}
-                  className="bg-transparent text-white placeholder-gray-400 outline-none text-sm w-64"
+                  className="bg-transparent text-white placeholder-gray-400 outline-none text-sm w-32 sm:w-48 md:w-64"
                 />
                 {searchQuery && (
                   <button
