@@ -300,15 +300,16 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         {/* Share Dropdown Menu */}
                         {showShareMenu && (
                           <motion.div 
-                            className="absolute bg-black/95 backdrop-blur-md rounded-lg p-1 w-[120px] xs:w-[130px] sm:w-[140px] md:w-[150px] z-[99999] border border-white/10 shadow-2xl"
+                            className="fixed bg-black/95 backdrop-blur-md rounded-lg p-1 w-[120px] xs:w-[130px] sm:w-[140px] md:w-[150px] border border-white/10 shadow-2xl"
                             style={{
-                              top: '52px',
-                              right: '0px',
-                              left: 'auto'
+                              zIndex: 999999,
+                              top: '50%',
+                              left: '50%',
+                              transform: 'translate(-50%, -50%)'
                             }}
-                            initial={{ opacity: 0, scale: 0.95, y: -10 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
                             transition={{ duration: 0.2 }}
                           >
                             <div className="space-y-0">
