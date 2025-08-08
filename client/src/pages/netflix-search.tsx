@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { type Project } from "@shared/schema";
-import { Search, X, ChevronDown, Download, Briefcase, Mic, Linkedin, Menu, Home, Folder } from "lucide-react";
+import { Search, X, ChevronDown, Download, Briefcase, Mic, Linkedin, Menu, Home, Folder, Share2, Play, Info } from "lucide-react";
 import NetflixModal from "@/components/netflix-modal";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -13,8 +13,11 @@ export default function NetflixSearchPage() {
   const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
   const [profileMenuOpen, setProfileMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const profileMenuRef = useRef<HTMLDivElement>(null);
+  const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
 
   // Get search query from URL params
   useEffect(() => {
@@ -448,41 +451,160 @@ export default function NetflixSearchPage() {
           {/* Search Results */}
           {searchQuery.trim() ? (
             filteredProjects.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 md:gap-3 lg:gap-4">
                 {filteredProjects.map((project, index) => (
-                  <div
+                  <motion.div
                     key={project.id}
-                    className="group cursor-pointer transition-all duration-200 ease-in-out hover:scale-105 active:scale-105"
+                    className="relative cursor-pointer group"
                     onClick={() => handleProjectClick(project.id)}
-                    onTouchStart={() => {}} // Enable touch interactions
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    onMouseEnter={() => {
+                      // Clear any existing timeout
+                      if (hoverTimeout) {
+                        clearTimeout(hoverTimeout);
+                      }
+                      // Set a 0.5 second delay before showing hover state
+                      const timeout = setTimeout(() => {
+                        setHoveredProject(project.id);
+                      }, 500);
+                      setHoverTimeout(timeout);
+                    }}
+                    onMouseLeave={() => {
+                      // Clear timeout and hover state
+                      if (hoverTimeout) {
+                        clearTimeout(hoverTimeout);
+                        setHoverTimeout(null);
+                      }
+                      setHoveredProject(null);
+                    }}
                   >
-                    <div className="relative aspect-[16/9] rounded-lg overflow-hidden bg-gray-800">
+                    {/* Netflix-style Card */}
+                    <motion.div 
+                      className={`relative overflow-hidden transition-all duration-300 ease-out ${
+                        hoveredProject === project.id 
+                          ? 'shadow-2xl shadow-black/50 z-20' 
+                          : 'hover:shadow-lg hover:shadow-black/30'
+                      }`}
+                      style={{
+                        transformOrigin: 'center center',
+                        borderRadius: hoveredProject === project.id ? '12px' : '6px',
+                      }}
+                      animate={{
+                        scale: hoveredProject === project.id ? 1.15 : 1,
+                        y: hoveredProject === project.id ? -15 : 0,
+                      }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                    >
+                      {/* Video background for hover state */}
+                      {hoveredProject === project.id && project.video && (
+                        <motion.video
+                          ref={(el) => { videoRefs.current[project.id] = el; }}
+                          src={project.video}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          preload="metadata"
+                          className="absolute top-0 left-0 right-0 w-full object-cover z-0"
+                          style={{ 
+                            height: '65%',
+                            borderTopLeftRadius: '12px',
+                            borderTopRightRadius: '12px'
+                          }}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.4 }}
+                        />
+                      )}
+                      
+                      {/* Static Image */}
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-all duration-200 group-hover:opacity-75 group-active:opacity-75"
+                        loading="lazy"
+                        decoding="async"
+                        className={`w-full object-cover transition-all duration-300 relative z-10 ${
+                          hoveredProject === project.id 
+                            ? 'opacity-0 h-48 sm:h-52 md:h-48 lg:h-52' 
+                            : 'opacity-100 aspect-[16/9]'
+                        }`}
+                        style={{
+                          borderRadius: hoveredProject === project.id ? '12px' : '6px'
+                        }}
+                        draggable={false}
                       />
                       
-                      {/* Hover/Touch Overlay */}
-                      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-200 flex items-center justify-center">
-                        <div className="text-center p-3">
-                          <h3 className="text-white font-semibold text-sm mb-2 line-clamp-2">{project.title}</h3>
-                          <div className="flex flex-wrap gap-1 justify-center">
+                      {/* Gradient Overlay - only for non-hover state */}
+                      {hoveredProject !== project.id && (
+                        <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/80 via-transparent to-transparent"
+                          style={{ borderRadius: '6px' }}>
+                        </div>
+                      )}
+                      
+                      {/* Hover Content Overlay */}
+                      {hoveredProject === project.id && (
+                        <motion.div
+                          className="absolute bottom-0 left-0 right-0 z-30 p-4 bg-gradient-to-t from-black/90 via-black/60 to-transparent"
+                          style={{ 
+                            borderBottomLeftRadius: '12px',
+                            borderBottomRightRadius: '12px'
+                          }}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.3, delay: 0.1 }}
+                        >
+                          {/* Action Buttons */}
+                          <div className="flex items-center gap-2 mb-3">
+                            <button 
+                              className="bg-white hover:bg-gray-200 text-black p-2 rounded-full transition-colors duration-200"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleProjectClick(project.id);
+                              }}
+                            >
+                              <Play className="w-4 h-4 fill-current" />
+                            </button>
+                            <button className="bg-gray-700/80 hover:bg-gray-600/80 text-white p-2 rounded-full transition-colors duration-200">
+                              <Share2 className="w-4 h-4" />
+                            </button>
+                            <button className="bg-gray-700/80 hover:bg-gray-600/80 text-white p-2 rounded-full transition-colors duration-200">
+                              <Info className="w-4 h-4" />
+                            </button>
+                          </div>
+                          
+                          {/* Project Info */}
+                          <h3 className="text-white font-semibold text-sm mb-2 line-clamp-2">
+                            {project.title}
+                          </h3>
+                          
+                          {/* Technologies */}
+                          <div className="flex flex-wrap gap-1 mb-2">
                             {project.technologies.slice(0, 3).map((tech, i) => (
                               <span key={i} className="bg-gray-700 text-white text-xs px-2 py-1 rounded">
                                 {tech}
                               </span>
                             ))}
                           </div>
+                          
+                          {/* Description */}
+                          <p className="text-gray-300 text-xs line-clamp-2">
+                            {project.description}
+                          </p>
+                        </motion.div>
+                      )}
+                      
+                      {/* Title for non-hover state */}
+                      {hoveredProject !== project.id && (
+                        <div className="absolute bottom-0 left-0 right-0 z-30 p-3">
+                          <h3 className="text-white font-medium text-sm line-clamp-2">
+                            {project.title}
+                          </h3>
                         </div>
-                      </div>
-                    </div>
-                    
-                    {/* Project Title */}
-                    <h3 className="text-white font-medium mt-2 text-sm line-clamp-2">
-                      {project.title}
-                    </h3>
-                  </div>
+                      )}
+                    </motion.div>
+                  </motion.div>
                 ))}
               </div>
             ) : (
