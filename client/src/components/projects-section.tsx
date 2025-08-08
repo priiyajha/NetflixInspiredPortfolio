@@ -25,7 +25,7 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
   });
 
   return (
-    <section id="projects" className="pb-16 pt-16 relative z-10">
+    <section id="projects" className="pb-16 pt-8 relative z-10">
       {/* Founded Startups - Netflix "Your Next Watch" exact positioning */}
       <motion.div
         style={{ marginBottom: '48px' }}
@@ -34,7 +34,7 @@ export default function ProjectsSection({ onProjectClick }: ProjectsSectionProps
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px', marginTop: '2rem' }}>
+        <div className="px-4 sm:px-6 md:px-12" style={{ marginBottom: '24px', marginTop: '0' }}>
           <h2 style={{ 
             fontFamily: 'Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu, sans-serif', 
             fontWeight: '500', 
