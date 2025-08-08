@@ -366,27 +366,7 @@ export default function Header() {
                   </Link>
                 </div>
 
-                {/* Mobile Icons Section */}
-                <div className="flex items-center justify-center space-x-6 pt-6 border-t border-gray-800">
-                  <button 
-                    className="p-3 hover:bg-white/10 rounded transition-all duration-200"
-                    onClick={() => {
-                      setLocation("/netflix-search");
-                      setMobileMenuOpen(false);
-                    }}
-                  >
-                    <Search className="w-6 h-6" />
-                  </button>
 
-                  <div className="flex items-center space-x-2">
-                    <img 
-                      src="/attached_assets/farooq-headshot.png" 
-                      alt="Farooq Chisty" 
-                      className="w-10 h-10 rounded object-cover"
-                    />
-                    <ChevronDown className="w-5 h-5" />
-                  </div>
-                </div>
               </nav>
             </motion.div>
           </motion.div>
