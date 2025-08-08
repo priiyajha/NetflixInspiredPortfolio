@@ -18,6 +18,7 @@ function Router() {
       <Route path="/contact" component={ContactPage} />
       <Route path="/lets-chat" component={LetsChatPage} />
       <Route path="/netflix-search" component={NetflixSearchPage} />
+      <Route path="/search" component={NetflixSearchPage} />
       <Route component={NotFound} />
     </Switch>
   );

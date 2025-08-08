@@ -338,7 +338,7 @@ export default function NetflixSearchPage() {
 
           {/* Projects Button */}
           <button
-            onClick={() => scrollToSection("projects")}
+            onClick={() => setLocation("/projects")}
             className="flex flex-col items-center py-1 px-2 hover:bg-white/10 rounded transition-all duration-200"
           >
             <Folder className="w-5 h-5 text-white mb-0.5" />
