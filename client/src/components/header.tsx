@@ -79,9 +79,14 @@ export default function Header() {
     
     switch (action) {
       case 'download-resume':
-        // Opens the same Google Doc URL as the "View Resume" button on the home page
-        const resumeUrl = "https://docs.google.com/document/d/YOUR_GOOGLE_DOC_ID/edit";
-        window.open(resumeUrl, "_blank");
+        // Download the PDF resume directly
+        const resumeUrl = "/attached_assets/FAROOQ%20CHISTY%20%20RESUME%202025%20%281%29_1754665051871.pdf";
+        const link = document.createElement('a');
+        link.href = resumeUrl;
+        link.download = "Farooq_Chisty_Resume_2025.pdf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
         break;
       case 'work-with-me':
         setLocation("/contact");
