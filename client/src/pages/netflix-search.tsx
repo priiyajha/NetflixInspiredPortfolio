@@ -151,13 +151,7 @@ export default function NetflixSearchPage() {
               onClick={() => setLocation("/")}
             />
 
-            {/* Navigation Links */}
-            <div className="hidden md:flex space-x-6 text-sm text-white">
-              <button onClick={() => setLocation("/")} className="hover:text-gray-300 transition-colors">Home</button>
-              <button onClick={() => scrollToSection("projects")} className="hover:text-gray-300 transition-colors">Projects</button>
-              <button onClick={() => scrollToSection("about")} className="hover:text-gray-300 transition-colors">About</button>
-              <button onClick={() => scrollToSection("contact")} className="hover:text-gray-300 transition-colors">Contact</button>
-            </div>
+
           </div>
 
           {/* Right side items */}
@@ -327,33 +321,7 @@ export default function NetflixSearchPage() {
                   </div>
                 </div>
 
-                {/* Mobile Navigation Links */}
-                <div className="space-y-3 pt-2">
-                  <button 
-                    onClick={() => { setLocation("/"); setMobileMenuOpen(false); }}
-                    className="block w-full text-left text-white hover:text-gray-300 transition-colors py-2"
-                  >
-                    Home
-                  </button>
-                  <button 
-                    onClick={() => scrollToSection("projects")}
-                    className="block w-full text-left text-white hover:text-gray-300 transition-colors py-2"
-                  >
-                    Projects
-                  </button>
-                  <button 
-                    onClick={() => scrollToSection("about")}
-                    className="block w-full text-left text-white hover:text-gray-300 transition-colors py-2"
-                  >
-                    About
-                  </button>
-                  <button 
-                    onClick={() => scrollToSection("contact")}
-                    className="block w-full text-left text-white hover:text-gray-300 transition-colors py-2"
-                  >
-                    Contact
-                  </button>
-                </div>
+
               </div>
             </motion.div>
           )}
