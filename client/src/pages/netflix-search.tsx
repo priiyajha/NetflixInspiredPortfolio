@@ -73,36 +73,23 @@ export default function NetflixSearchPage() {
 
   const handleClearSearch = () => {
     setSearchQuery("");
-    setFilteredProjects([]);
-    setLocation("/");
+    window.history.replaceState({}, '', '/netflix-search');
   };
 
   const handleProjectClick = (projectId: string) => {
     setSelectedProjectId(projectId);
   };
 
-  // Close profile menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (profileMenuRef.current && !profileMenuRef.current.contains(event.target as Node)) {
-        setProfileMenuOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
+  // Handle profile menu clicks
   const handleProfileMenuClick = (action: string) => {
     setProfileMenuOpen(false);
     
     switch (action) {
       case 'download-resume':
-        // Download the PDF resume directly
-        const resumeUrl = "/attached_assets/FAROOQ%20CHISTY%20%20RESUME%202025%20%281%29_1754665051871.pdf";
+        const resumeUrl = "/attached_assets/FAROOQ CHISTY  RESUME 2025 (1)_1754665051871.pdf";
         const link = document.createElement('a');
         link.href = resumeUrl;
-        link.download = "Farooq_Chisty_Resume_2025.pdf";
+        link.download = "Farooq_Chisty_Resume.pdf";
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -136,193 +123,225 @@ export default function NetflixSearchPage() {
   return (
     <>
       {/* Fixed Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-40 bg-[#141414] px-4 py-3">
-        <div className="flex items-center justify-between max-w-7xl mx-auto">
-          {/* Logo and Navigation Links */}
-          <div className="flex items-center space-x-8">
-            <img 
-              src="/attached_assets/farooq-logo.png" 
-              alt="Farooq" 
-              className="h-8 sm:h-10 md:h-12 w-auto object-contain cursor-pointer"
-              style={{ 
-                maxHeight: 'clamp(2rem, 4vw, 3rem)',
-                filter: 'brightness(1.1) contrast(1.1)'
-              }}
-              onClick={() => setLocation("/")}
-            />
-
-
-          </div>
-
-          {/* Right side items */}
-          <div className="flex items-center space-x-2 sm:space-x-4">
-            
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 hover:bg-white/10 rounded transition-all duration-200"
-              >
-                <Menu className="w-5 h-5 text-white" />
-              </button>
+      <nav className="fixed top-0 left-0 right-0 z-40 bg-[#141414]">
+        {/* Main Navigation */}
+        <div className="px-4 py-3">
+          <div className="flex items-center justify-between max-w-7xl mx-auto">
+            {/* Logo */}
+            <div className="flex items-center space-x-8">
+              <img 
+                src="/attached_assets/farooq-logo.png" 
+                alt="Farooq" 
+                className="h-8 sm:h-10 md:h-12 w-auto object-contain cursor-pointer"
+                style={{ 
+                  maxHeight: 'clamp(2rem, 4vw, 3rem)',
+                  filter: 'brightness(1.1) contrast(1.1)'
+                }}
+                onClick={() => setLocation("/")}
+              />
             </div>
 
-            {/* Desktop Search Bar */}
-            <div className="relative hidden md:block">
-              <div className="flex items-center bg-black border border-white/20 rounded px-3 py-2">
-                <Search className="w-4 h-4 text-gray-400 mr-2" />
-                <input
-                  ref={searchInputRef}
-                  type="text"
-                  placeholder="titles, people, genres"
-                  value={searchQuery}
-                  onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                    // Update URL to reflect current search
-                    const newUrl = e.target.value.trim() 
-                      ? `/netflix-search?q=${encodeURIComponent(e.target.value.trim())}`
-                      : '/netflix-search';
-                    window.history.replaceState({}, '', newUrl);
-                  }}
-                  className="bg-transparent text-white placeholder-gray-400 outline-none text-sm w-32 sm:w-48 md:w-64"
-                />
-                {searchQuery && (
-                  <button
-                    onClick={handleClearSearch}
-                    className="ml-2 text-gray-400 hover:text-white transition-colors"
-                  >
-                    <X className="w-4 h-4" />
-                  </button>
-                )}
-              </div>
-            </div>
-            
-            {/* Profile Dropdown - Hidden on Mobile */}
-            <div className="relative hidden md:block" ref={profileMenuRef}>
-              <button 
-                onClick={() => setProfileMenuOpen(!profileMenuOpen)}
-                className="flex items-center space-x-2 p-2 hover:bg-white/10 rounded transition-all duration-200"
-              >
-                <img 
-                  src="/attached_assets/farooq-headshot.png" 
-                  alt="Farooq Chisty" 
-                  loading="lazy"
-                  decoding="async"
-                  className="w-8 h-8 rounded object-cover"
-                />
-                <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${profileMenuOpen ? 'rotate-180' : ''}`} />
-              </button>
+            {/* Right side items */}
+            <div className="flex items-center space-x-2 sm:space-x-4">
               
-              {/* Profile Dropdown Menu */}
-              <AnimatePresence>
-                {profileMenuOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute right-0 top-full mt-2 w-64 bg-black/95 backdrop-blur-sm border border-gray-700 rounded-md shadow-2xl overflow-hidden z-50"
-                  >
-                    {/* Profile Section */}
-                    <div className="px-4 py-3 border-b border-gray-700">
-                      <div className="flex items-center space-x-3">
-                        <img 
-                          src="/attached_assets/farooq-headshot.png" 
-                          alt="Farooq Chisty" 
-                          loading="lazy"
-                          decoding="async"
-                          className="w-10 h-10 rounded object-cover"
-                        />
-                        <div>
-                          <p className="text-white font-medium text-sm">Farooq Chisty</p>
+              {/* Mobile Menu Button */}
+              <div className="md:hidden">
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  className="p-2 hover:bg-white/10 rounded transition-all duration-200"
+                >
+                  <Menu className="w-5 h-5 text-white" />
+                </button>
+              </div>
+
+              {/* Desktop Search Bar */}
+              <div className="relative hidden md:block">
+                <div className="flex items-center bg-black border border-white/20 rounded px-3 py-2">
+                  <Search className="w-4 h-4 text-gray-400 mr-2" />
+                  <input
+                    ref={searchInputRef}
+                    type="text"
+                    placeholder="titles, people, genres"
+                    value={searchQuery}
+                    onChange={(e) => {
+                      setSearchQuery(e.target.value);
+                      // Update URL to reflect current search
+                      const newUrl = e.target.value.trim() 
+                        ? `/netflix-search?q=${encodeURIComponent(e.target.value.trim())}`
+                        : '/netflix-search';
+                      window.history.replaceState({}, '', newUrl);
+                    }}
+                    className="bg-transparent text-white placeholder-gray-400 outline-none text-sm w-32 sm:w-48 md:w-64"
+                  />
+                  {searchQuery && (
+                    <button
+                      onClick={handleClearSearch}
+                      className="ml-2 text-gray-400 hover:text-white transition-colors"
+                    >
+                      <X className="w-4 h-4" />
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Profile Dropdown - Desktop Only */}
+              <div className="relative hidden md:block" ref={profileMenuRef}>
+                <button 
+                  onClick={() => setProfileMenuOpen(!profileMenuOpen)}
+                  className="flex items-center space-x-2 p-2 hover:bg-white/10 rounded transition-all duration-200"
+                >
+                  <img 
+                    src="/attached_assets/farooq-headshot.png" 
+                    alt="Farooq Chisty" 
+                    loading="lazy"
+                    decoding="async"
+                    className="w-8 h-8 rounded object-cover"
+                  />
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${profileMenuOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {/* Profile Dropdown Menu */}
+                <AnimatePresence>
+                  {profileMenuOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute right-0 top-full mt-2 w-64 bg-black/95 backdrop-blur-sm border border-gray-700 rounded-md shadow-2xl overflow-hidden z-50"
+                    >
+                      {/* Profile Section */}
+                      <div className="px-4 py-3 border-b border-gray-700">
+                        <div className="flex items-center space-x-3">
+                          <img 
+                            src="/attached_assets/farooq-headshot.png" 
+                            alt="Farooq Chisty" 
+                            loading="lazy"
+                            decoding="async"
+                            className="w-10 h-10 rounded object-cover"
+                          />
+                          <div>
+                            <p className="text-white font-medium text-sm">Farooq Chisty</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    
-                    {/* Menu Items */}
-                    <div className="py-2">
-                      <button
-                        onClick={() => handleProfileMenuClick('download-resume')}
-                        className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
-                      >
-                        <Download className="w-5 h-5" />
-                        <span className="text-sm">Download Resume</span>
-                      </button>
                       
-                      <button
-                        onClick={() => handleProfileMenuClick('work-with-me')}
-                        className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
-                      >
-                        <Briefcase className="w-5 h-5" />
-                        <span className="text-sm">Work with me</span>
-                      </button>
-                      
-                      <button
-                        onClick={() => handleProfileMenuClick('invite-as-speaker')}
-                        className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
-                      >
-                        <Mic className="w-5 h-5" />
-                        <span className="text-sm">Invite as a Speaker</span>
-                      </button>
-                      
-                      <button
-                        onClick={() => handleProfileMenuClick('connect-linkedin')}
-                        className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
-                      >
-                        <Linkedin className="w-5 h-5" />
-                        <span className="text-sm">Connect on LinkedIn</span>
-                      </button>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+                      {/* Menu Items */}
+                      <div className="py-2">
+                        <button
+                          onClick={() => handleProfileMenuClick('download-resume')}
+                          className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
+                        >
+                          <Download className="w-5 h-5" />
+                          <span className="text-sm">Download Resume</span>
+                        </button>
+                        
+                        <button
+                          onClick={() => handleProfileMenuClick('work-with-me')}
+                          className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
+                        >
+                          <Briefcase className="w-5 h-5" />
+                          <span className="text-sm">Work with me</span>
+                        </button>
+                        
+                        <button
+                          onClick={() => handleProfileMenuClick('invite-as-speaker')}
+                          className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
+                        >
+                          <Mic className="w-5 h-5" />
+                          <span className="text-sm">Invite as a Speaker</span>
+                        </button>
+                        
+                        <button
+                          onClick={() => handleProfileMenuClick('connect-linkedin')}
+                          className="w-full flex items-center space-x-3 px-4 py-3 text-white hover:bg-gray-800/50 transition-colors text-left"
+                        >
+                          <Linkedin className="w-5 h-5" />
+                          <span className="text-sm">Connect on LinkedIn</span>
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, x: "100%" }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: "100%" }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="md:hidden fixed top-16 right-0 z-50"
-            >
-              <div className="bg-[#141414] border border-gray-700 rounded-l-lg shadow-2xl">
-                <div className="px-6 py-6 space-y-4">
-                  {/* Mobile Navigation Links */}
-                  <button 
-                    onClick={() => { setLocation("/"); setMobileMenuOpen(false); }}
-                    className="block w-full text-right text-white hover:text-gray-300 transition-colors py-3 text-base font-medium"
-                  >
-                    Home
-                  </button>
-                  <button 
-                    onClick={() => { scrollToSection("projects"); setMobileMenuOpen(false); }}
-                    className="block w-full text-right text-white hover:text-gray-300 transition-colors py-3 text-base font-medium"
-                  >
-                    Projects
-                  </button>
-                  <button 
-                    onClick={() => { scrollToSection("contact"); setMobileMenuOpen(false); }}
-                    className="block w-full text-right text-white hover:text-gray-300 transition-colors py-3 text-base font-medium"
-                  >
-                    Let's Chat
-                  </button>
-                  <button 
-                    onClick={() => { window.open("https://linkedin.com/in/farooqchisty", "_blank"); setMobileMenuOpen(false); }}
-                    className="block w-full text-right text-white hover:text-gray-300 transition-colors py-3 text-base font-medium"
-                  >
-                    Hire Me
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        
+        {/* Mobile Search Bar - Always visible on search page */}
+        <div className="md:hidden px-4 pb-3 border-t border-gray-700/50">
+          <div className="flex items-center bg-black border border-white/20 rounded px-3 py-2">
+            <Search className="w-4 h-4 text-gray-400 mr-2" />
+            <input
+              ref={searchInputRef}
+              type="text"
+              placeholder="Search titles, people, genres..."
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                // Update URL to reflect current search
+                const newUrl = e.target.value.trim() 
+                  ? `/netflix-search?q=${encodeURIComponent(e.target.value.trim())}`
+                  : '/netflix-search';
+                window.history.replaceState({}, '', newUrl);
+              }}
+              className="bg-transparent text-white placeholder-gray-400 outline-none text-sm flex-1"
+              autoFocus
+            />
+            {searchQuery && (
+              <button
+                onClick={handleClearSearch}
+                className="ml-2 text-gray-400 hover:text-white transition-colors"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            )}
+          </div>
+        </div>
       </nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden fixed top-16 right-0 z-50"
+          >
+            <div className="bg-[#141414] border border-gray-700 rounded-l-lg shadow-2xl">
+              <div className="px-6 py-6 space-y-4">
+                {/* Mobile Navigation Links */}
+                <button 
+                  onClick={() => { setLocation("/"); setMobileMenuOpen(false); }}
+                  className="block w-full text-right text-white hover:text-gray-300 transition-colors py-3 text-base font-medium"
+                >
+                  Home
+                </button>
+                <button 
+                  onClick={() => { scrollToSection("projects"); setMobileMenuOpen(false); }}
+                  className="block w-full text-right text-white hover:text-gray-300 transition-colors py-3 text-base font-medium"
+                >
+                  Projects
+                </button>
+                <button 
+                  onClick={() => { scrollToSection("contact"); setMobileMenuOpen(false); }}
+                  className="block w-full text-right text-white hover:text-gray-300 transition-colors py-3 text-base font-medium"
+                >
+                  Let's Chat
+                </button>
+                <button 
+                  onClick={() => { window.open("https://linkedin.com/in/farooqchisty", "_blank"); setMobileMenuOpen(false); }}
+                  className="block w-full text-right text-white hover:text-gray-300 transition-colors py-3 text-base font-medium"
+                >
+                  Hire Me
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Bottom Navigation Bar - Mobile Only */}
       <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-[#141414] border-t border-gray-700">
@@ -346,7 +365,7 @@ export default function NetflixSearchPage() {
           </button>
 
           {/* Profile Button */}
-          <div className="relative">
+          <div className="relative" ref={profileMenuRef}>
             <button
               onClick={() => setProfileMenuOpen(!profileMenuOpen)}
               className="flex flex-col items-center py-1 px-2 hover:bg-white/10 rounded transition-all duration-200"
@@ -354,8 +373,6 @@ export default function NetflixSearchPage() {
               <img 
                 src="/attached_assets/farooq-headshot.png" 
                 alt="Farooq Chisty" 
-                loading="lazy"
-                decoding="async"
                 className="w-5 h-5 rounded object-cover mb-0.5"
               />
               <span className="text-xs text-white">Profile</span>
@@ -376,8 +393,6 @@ export default function NetflixSearchPage() {
                       <img 
                         src="/attached_assets/farooq-headshot.png" 
                         alt="Farooq Chisty" 
-                        loading="lazy"
-                        decoding="async"
                         className="w-12 h-12 rounded object-cover"
                       />
                       <div>
@@ -388,7 +403,7 @@ export default function NetflixSearchPage() {
                     
                     <div className="space-y-1">
                       <button
-                        onClick={() => handleProfileAction('download-resume')}
+                        onClick={() => handleProfileMenuClick('download-resume')}
                         className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                       >
                         <Download className="w-4 h-4" />
@@ -396,7 +411,7 @@ export default function NetflixSearchPage() {
                       </button>
                       
                       <button
-                        onClick={() => handleProfileAction('work-with-me')}
+                        onClick={() => handleProfileMenuClick('work-with-me')}
                         className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                       >
                         <Briefcase className="w-4 h-4" />
@@ -404,7 +419,7 @@ export default function NetflixSearchPage() {
                       </button>
                       
                       <button
-                        onClick={() => handleProfileAction('invite-speaker')}
+                        onClick={() => handleProfileMenuClick('invite-as-speaker')}
                         className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                       >
                         <Mic className="w-4 h-4" />
@@ -412,7 +427,7 @@ export default function NetflixSearchPage() {
                       </button>
                       
                       <button
-                        onClick={() => handleProfileAction('connect-linkedin')}
+                        onClick={() => handleProfileMenuClick('connect-linkedin')}
                         className="flex items-center space-x-3 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                       >
                         <Linkedin className="w-4 h-4" />
@@ -428,7 +443,7 @@ export default function NetflixSearchPage() {
       </div>
 
       {/* Main Content */}
-      <div className="min-h-screen bg-[#141414] text-white pt-20 pb-14 md:pb-0">
+      <div className="min-h-screen bg-[#141414] text-white pt-24 sm:pt-28 md:pt-24 pb-14 md:pb-0">
         <div className="max-w-7xl mx-auto px-4 py-8">
           {/* Search Results */}
           {searchQuery.trim() ? (
@@ -447,8 +462,6 @@ export default function NetflixSearchPage() {
                         alt={project.title}
                         className="w-full h-full object-cover transition-all duration-200 group-hover:opacity-75 group-active:opacity-75"
                       />
-                      
-
                       
                       {/* Hover/Touch Overlay */}
                       <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-200 flex items-center justify-center">
