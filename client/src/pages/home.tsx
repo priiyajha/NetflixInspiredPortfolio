@@ -54,7 +54,7 @@ export default function Home() {
       </div>
       
       {/* Footer Section */}
-      <footer id="footer" className="bg-black/95 border-t border-gray-800 mt-16 sm:mt-20 md:mt-24 w-screen">
+      <footer id="footer" className="bg-black/95 border-t border-gray-800 mt-8 sm:mt-10 md:mt-12 w-screen">
         <div className="w-screen px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 py-12 sm:py-14 md:py-16">
           <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6">
             
