@@ -43,9 +43,9 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     const container = scrollRef.current;
     if (!container) return;
     
-    // Responsive card scrolling - mobile: 1 card, tablet: 2-3 cards, desktop: 5 cards
-    const cardWidth = window.innerWidth >= 1280 ? 276 : window.innerWidth >= 1024 ? 252 : window.innerWidth >= 768 ? 236 : window.innerWidth >= 640 ? 220 : 200;
-    const scrollCount = window.innerWidth >= 1024 ? 5 : window.innerWidth >= 768 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+    // Responsive card scrolling - mobile: 2 cards, tablet: 3 cards, desktop: 5 cards
+    const cardWidth = window.innerWidth >= 1280 ? 276 : window.innerWidth >= 1024 ? 252 : window.innerWidth >= 768 ? 236 : 240;
+    const scrollCount = window.innerWidth >= 1024 ? 5 : window.innerWidth >= 768 ? 3 : 2;
     container.scrollBy({ left: -cardWidth * scrollCount, behavior: 'smooth' });
   };
 
@@ -53,9 +53,9 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     const container = scrollRef.current;
     if (!container) return;
     
-    // Responsive card scrolling - mobile: 1 card, tablet: 2-3 cards, desktop: 5 cards
-    const cardWidth = window.innerWidth >= 1280 ? 276 : window.innerWidth >= 1024 ? 252 : window.innerWidth >= 768 ? 236 : window.innerWidth >= 640 ? 220 : 200;
-    const scrollCount = window.innerWidth >= 1024 ? 5 : window.innerWidth >= 768 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+    // Responsive card scrolling - mobile: 2 cards, tablet: 3 cards, desktop: 5 cards
+    const cardWidth = window.innerWidth >= 1280 ? 276 : window.innerWidth >= 1024 ? 252 : window.innerWidth >= 768 ? 236 : 240;
+    const scrollCount = window.innerWidth >= 1024 ? 5 : window.innerWidth >= 768 ? 3 : 2;
     container.scrollBy({ left: cardWidth * scrollCount, behavior: 'smooth' });
   };
 
@@ -263,7 +263,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
               className={`flex-none cursor-pointer relative group ${
                 hoveredProject === project.id 
                   ? 'w-72 sm:w-76 md:w-80 lg:w-80 xl:w-80' 
-                  : 'w-40 sm:w-48 md:w-52 lg:w-60 xl:w-64'
+                  : 'w-44 sm:w-56 md:w-52 lg:w-60 xl:w-64'
               }`}
               style={{
                 transition: 'width 0.3s ease-in-out'
@@ -341,7 +341,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
                       ? 'opacity-0 h-72 sm:h-76 md:h-80' 
-                      : 'opacity-100 h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32'
+                      : 'opacity-100 h-24 sm:h-32 md:h-24 lg:h-28 xl:h-32'
                   }`}
                   style={{
                     borderRadius: hoveredProject === project.id ? '12px' : '6px'
