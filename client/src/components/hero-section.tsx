@@ -27,8 +27,21 @@ export default function HeroSection({ profile }: HeroSectionProps) {
     checkMobile();
     window.addEventListener('resize', checkMobile);
     
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+    // Force video play on component mount for better reliability
+    const timer = setTimeout(() => {
+      if (videoRef.current && !videoError) {
+        videoRef.current.muted = true;
+        videoRef.current.play().catch(() => {
+          console.log('Delayed video play attempt failed');
+        });
+      }
+    }, 500);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      clearTimeout(timer);
+    };
+  }, [videoError]);
 
   const handleViewResume = () => {
     const resumeUrl = "/attached_assets/FAROOQ%20CHISTY%20%20RESUME%202025%20%281%29_1754665051871.pdf";
@@ -57,11 +70,23 @@ export default function HeroSection({ profile }: HeroSectionProps) {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
+            controls={false}
+            disablePictureInPicture
             onError={() => setVideoError(true)}
+            onLoadStart={() => {
+              // Force play on load start for better mobile compatibility
+              if (videoRef.current) {
+                videoRef.current.muted = true;
+                videoRef.current.play().catch(() => {
+                  console.log('Video autoplay prevented by browser');
+                });
+              }
+            }}
             onLoadedData={() => {
               // Ensure video starts playing with mobile-specific handling
               if (videoRef.current) {
+                videoRef.current.muted = true;
                 const playPromise = videoRef.current.play();
                 if (playPromise !== undefined) {
                   playPromise.catch(() => {
@@ -73,8 +98,17 @@ export default function HeroSection({ profile }: HeroSectionProps) {
             onCanPlay={() => {
               // Ensure video plays when ready
               if (videoRef.current) {
+                videoRef.current.muted = true;
                 videoRef.current.play().catch(() => {
                   console.log('Video play prevented');
+                });
+              }
+            }}
+            onCanPlayThrough={() => {
+              // Additional play attempt when fully loaded
+              if (videoRef.current) {
+                videoRef.current.play().catch(() => {
+                  console.log('Video play prevented on canPlayThrough');
                 });
               }
             }}
