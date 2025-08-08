@@ -125,31 +125,32 @@ export default function Header() {
                   filter: 'brightness(1.1) contrast(1.1)'
                 }}
               />
-              <ul className="flex space-x-3 sm:space-x-4 md:space-x-6">
+              {/* Desktop Navigation - Hidden on mobile/tablet */}
+              <ul className="hidden lg:flex space-x-6">
                 <li>
                   <Link href="/">
-                    <button className="text-xs sm:text-sm hover:text-netflix-light-gray transition-colors duration-200">
+                    <button className="text-sm hover:text-netflix-light-gray transition-colors duration-200">
                       Home
                     </button>
                   </Link>
                 </li>
                 <li>
                   <Link href="/projects">
-                    <button className="text-xs sm:text-sm hover:text-netflix-light-gray transition-colors duration-200">
+                    <button className="text-sm hover:text-netflix-light-gray transition-colors duration-200">
                       Projects
                     </button>
                   </Link>
                 </li>
                 <li>
                   <Link href="/lets-chat">
-                    <button className="text-xs sm:text-sm hover:text-netflix-light-gray transition-colors duration-200">
+                    <button className="text-sm hover:text-netflix-light-gray transition-colors duration-200">
                       Let's Chat
                     </button>
                   </Link>
                 </li>
                 <li>
                   <Link href="/contact">
-                    <button className="text-xs sm:text-sm hover:text-netflix-light-gray transition-colors duration-200">
+                    <button className="text-sm hover:text-netflix-light-gray transition-colors duration-200">
                       Hire Me
                     </button>
                   </Link>
@@ -157,8 +158,20 @@ export default function Header() {
               </ul>
             </nav>
 
-            {/* Right Icons - Hidden on mobile, replaced with hamburger */}
+            {/* Right Icons */}
             <div className="flex items-center">
+              {/* Mobile Hamburger Menu */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="lg:hidden p-2 hover:bg-white/10 rounded transition-all duration-200 mr-2"
+              >
+                {mobileMenuOpen ? (
+                  <X className="w-6 h-6" />
+                ) : (
+                  <Menu className="w-6 h-6" />
+                )}
+              </button>
+
               {/* Desktop/Tablet Icons */}
               <div className="hidden md:flex items-center space-x-4">
                 {/* Embedded Search Bar */}
@@ -286,13 +299,7 @@ export default function Header() {
                 </div>
               </div>
               
-              {/* Mobile Hamburger Menu */}
-              <button 
-                className="md:hidden p-2 hover:bg-white/10 rounded transition-all duration-200"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              >
-                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-              </button>
+
             </div>
           </div>
         </div>
@@ -317,8 +324,44 @@ export default function Header() {
               transition={{ duration: 0.2 }}
             >
               <nav className="px-4 py-6">
+                {/* Mobile Navigation Items */}
+                <div className="space-y-4 mb-6">
+                  <Link href="/">
+                    <button 
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="w-full text-left text-lg font-medium text-white hover:text-netflix-red transition-colors duration-200 py-3 px-2"
+                    >
+                      Home
+                    </button>
+                  </Link>
+                  <Link href="/projects">
+                    <button 
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="w-full text-left text-lg font-medium text-white hover:text-netflix-red transition-colors duration-200 py-3 px-2"
+                    >
+                      Projects
+                    </button>
+                  </Link>
+                  <Link href="/lets-chat">
+                    <button 
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="w-full text-left text-lg font-medium text-white hover:text-netflix-red transition-colors duration-200 py-3 px-2"
+                    >
+                      Let's Chat
+                    </button>
+                  </Link>
+                  <Link href="/contact">
+                    <button 
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="w-full text-left text-lg font-medium text-white hover:text-netflix-red transition-colors duration-200 py-3 px-2"
+                    >
+                      Hire Me
+                    </button>
+                  </Link>
+                </div>
+
                 {/* Mobile Icons Section */}
-                <div className="flex items-center justify-center space-x-6 mb-6 pb-6 border-b border-gray-800">
+                <div className="flex items-center justify-center space-x-6 pt-6 border-t border-gray-800">
                   <button 
                     className="p-3 hover:bg-white/10 rounded transition-all duration-200"
                     onClick={() => {
