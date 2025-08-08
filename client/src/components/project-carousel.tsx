@@ -378,24 +378,24 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   
                   {/* Share Menu */}
                   {showShareMenu === project.id && (
-                    <div className="absolute top-12 left-0 bg-black/95 backdrop-blur-md rounded-lg p-2 w-[180px] z-50 border border-white/10 shadow-2xl"
+                    <div className="absolute top-12 left-0 bg-black/95 backdrop-blur-md rounded-lg p-2 w-[160px] sm:w-[180px] z-50 border border-white/10 shadow-2xl"
                       style={{
                         top: '48px',
-                        left: '-20px',
+                        left: window.innerWidth < 640 ? '-80px' : '-20px',
                         transform: 'none'
                       }}>
                       <div className="space-y-1">
                         <button
                           onClick={(e) => copyProjectLink(project, e)}
-                          className="flex items-center space-x-2 w-full text-left text-white hover:text-red-400 transition-colors py-1 px-2 rounded hover:bg-white/10"
+                          className="flex items-center space-x-2 w-full text-left text-white hover:text-red-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                         >
                           {copiedProject === project.id ? (
                             <Check className="w-4 h-4 text-green-400" />
                           ) : (
                             <Copy className="w-4 h-4" />
                           )}
-                          <span className="text-xs">
-                            {copiedProject === project.id ? 'Copied!' : 'Copy Link'}
+                          <span className="text-xs sm:text-sm">
+                            {copiedProject === project.id ? 'Link Copied!' : 'Copy Link'}
                           </span>
                         </button>
                         
@@ -403,52 +403,52 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                         
                         <button
                           onClick={(e) => shareOnSocial('linkedin', project, e)}
-                          className="flex items-center space-x-2 w-full text-left text-white hover:text-blue-400 transition-colors py-1 px-2 rounded hover:bg-white/10"
+                          className="flex items-center space-x-2 w-full text-left text-white hover:text-blue-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                         >
                           <div className="w-4 h-4 bg-blue-600 rounded-sm flex items-center justify-center">
                             <span className="text-white text-xs font-bold">in</span>
                           </div>
-                          <span className="text-xs">LinkedIn</span>
+                          <span className="text-xs sm:text-sm">LinkedIn</span>
                         </button>
                         
                         <button
                           onClick={(e) => shareOnSocial('twitter', project, e)}
-                          className="flex items-center space-x-2 w-full text-left text-white hover:text-blue-400 transition-colors py-1 px-2 rounded hover:bg-white/10"
+                          className="flex items-center space-x-2 w-full text-left text-white hover:text-blue-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                         >
                           <div className="w-4 h-4 bg-black rounded-sm flex items-center justify-center border border-white">
                             <span className="text-white text-xs font-bold">𝕏</span>
                           </div>
-                          <span className="text-xs">Twitter</span>
+                          <span className="text-xs sm:text-sm">Twitter</span>
                         </button>
                         
                         <button
                           onClick={(e) => shareOnSocial('whatsapp', project, e)}
-                          className="flex items-center space-x-2 w-full text-left text-white hover:text-green-400 transition-colors py-1 px-2 rounded hover:bg-white/10"
+                          className="flex items-center space-x-2 w-full text-left text-white hover:text-green-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                         >
                           <div className="w-4 h-4 bg-green-500 rounded-sm flex items-center justify-center">
                             <span className="text-white text-xs font-bold">W</span>
                           </div>
-                          <span className="text-xs">WhatsApp</span>
+                          <span className="text-xs sm:text-sm">WhatsApp</span>
                         </button>
                         
                         <button
                           onClick={(e) => shareOnSocial('telegram', project, e)}
-                          className="flex items-center space-x-2 w-full text-left text-white hover:text-blue-400 transition-colors py-1 px-2 rounded hover:bg-white/10"
+                          className="flex items-center space-x-2 w-full text-left text-white hover:text-blue-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                         >
                           <div className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
                             <span className="text-white text-xs font-bold">T</span>
                           </div>
-                          <span className="text-xs">Telegram</span>
+                          <span className="text-xs sm:text-sm">Telegram</span>
                         </button>
                         
                         <button
                           onClick={(e) => shareOnSocial('instagram', project, e)}
-                          className="flex items-center space-x-2 w-full text-left text-white hover:text-pink-400 transition-colors py-1 px-2 rounded hover:bg-white/10"
+                          className="flex items-center space-x-2 w-full text-left text-white hover:text-pink-400 transition-colors py-2 px-2 rounded hover:bg-white/10"
                         >
                           <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-sm flex items-center justify-center">
                             <span className="text-white text-xs font-bold">IG</span>
                           </div>
-                          <span className="text-xs">Instagram</span>
+                          <span className="text-xs sm:text-sm">Instagram</span>
                         </button>
                       </div>
                     </div>
