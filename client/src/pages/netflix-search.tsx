@@ -326,22 +326,22 @@ export default function NetflixSearchPage() {
 
       {/* Bottom Navigation Bar - Mobile Only */}
       <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-[#141414] border-t border-gray-700">
-        <div className="flex items-center justify-around py-2">
+        <div className="flex items-center justify-around py-1">
           {/* Home Button */}
           <button
             onClick={() => setLocation("/")}
-            className="flex flex-col items-center py-2 px-3 hover:bg-white/10 rounded transition-all duration-200"
+            className="flex flex-col items-center py-1 px-2 hover:bg-white/10 rounded transition-all duration-200"
           >
-            <Home className="w-6 h-6 text-white mb-1" />
+            <Home className="w-5 h-5 text-white mb-0.5" />
             <span className="text-xs text-white">Home</span>
           </button>
 
           {/* Projects Button */}
           <button
             onClick={() => scrollToSection("projects")}
-            className="flex flex-col items-center py-2 px-3 hover:bg-white/10 rounded transition-all duration-200"
+            className="flex flex-col items-center py-1 px-2 hover:bg-white/10 rounded transition-all duration-200"
           >
-            <Folder className="w-6 h-6 text-white mb-1" />
+            <Folder className="w-5 h-5 text-white mb-0.5" />
             <span className="text-xs text-white">Projects</span>
           </button>
 
@@ -349,14 +349,14 @@ export default function NetflixSearchPage() {
           <div className="relative">
             <button
               onClick={() => setProfileMenuOpen(!profileMenuOpen)}
-              className="flex flex-col items-center py-2 px-3 hover:bg-white/10 rounded transition-all duration-200"
+              className="flex flex-col items-center py-1 px-2 hover:bg-white/10 rounded transition-all duration-200"
             >
               <img 
                 src="/attached_assets/farooq-headshot.png" 
                 alt="Farooq Chisty" 
                 loading="lazy"
                 decoding="async"
-                className="w-6 h-6 rounded object-cover mb-1"
+                className="w-5 h-5 rounded object-cover mb-0.5"
               />
               <span className="text-xs text-white">Profile</span>
             </button>
@@ -428,7 +428,7 @@ export default function NetflixSearchPage() {
       </div>
 
       {/* Main Content */}
-      <div className="min-h-screen bg-[#141414] text-white pt-20 pb-20 md:pb-0">
+      <div className="min-h-screen bg-[#141414] text-white pt-20 pb-14 md:pb-0">
         <div className="max-w-7xl mx-auto px-4 py-8">
           {/* Search Results */}
           {searchQuery.trim() ? (
