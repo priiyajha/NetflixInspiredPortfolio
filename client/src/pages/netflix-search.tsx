@@ -455,7 +455,9 @@ export default function NetflixSearchPage() {
                 {filteredProjects.map((project, index) => (
                   <motion.div
                     key={project.id}
-                    className="relative cursor-pointer group"
+                    className={`relative cursor-pointer ${
+                      hoveredProject === project.id ? 'z-50' : 'z-10'
+                    }`}
                     onClick={() => handleProjectClick(project.id)}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -465,10 +467,10 @@ export default function NetflixSearchPage() {
                       if (hoverTimeout) {
                         clearTimeout(hoverTimeout);
                       }
-                      // Set a 0.5 second delay before showing hover state
+                      // Set a 0.3 second delay before showing hover state
                       const timeout = setTimeout(() => {
                         setHoveredProject(project.id);
-                      }, 500);
+                      }, 300);
                       setHoverTimeout(timeout);
                     }}
                     onMouseLeave={() => {
@@ -479,23 +481,29 @@ export default function NetflixSearchPage() {
                       }
                       setHoveredProject(null);
                     }}
+                    style={{
+                      // Ensure proper positioning for hover effects
+                      position: hoveredProject === project.id ? 'relative' : 'relative',
+                    }}
                   >
                     {/* Netflix-style Card */}
                     <motion.div 
                       className={`relative overflow-hidden transition-all duration-300 ease-out ${
                         hoveredProject === project.id 
-                          ? 'shadow-2xl shadow-black/50 z-20' 
+                          ? 'shadow-2xl shadow-black/50' 
                           : 'hover:shadow-lg hover:shadow-black/30'
                       }`}
                       style={{
-                        transformOrigin: 'center center',
+                        transformOrigin: 'center top',
                         borderRadius: hoveredProject === project.id ? '12px' : '6px',
+                        // Add margin for hover expansion
+                        margin: hoveredProject === project.id ? '0 10px 20px 10px' : '0',
                       }}
                       animate={{
-                        scale: hoveredProject === project.id ? 1.15 : 1,
-                        y: hoveredProject === project.id ? -15 : 0,
+                        scale: hoveredProject === project.id ? 1.25 : 1,
+                        y: hoveredProject === project.id ? -20 : 0,
                       }}
-                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      transition={{ duration: 0.4, ease: "easeInOut" }}
                     >
                       {/* Video background for hover state */}
                       {hoveredProject === project.id && project.video && (
@@ -509,13 +517,13 @@ export default function NetflixSearchPage() {
                           preload="metadata"
                           className="absolute top-0 left-0 right-0 w-full object-cover z-0"
                           style={{ 
-                            height: '65%',
+                            height: '70%',
                             borderTopLeftRadius: '12px',
                             borderTopRightRadius: '12px'
                           }}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
-                          transition={{ duration: 0.4 }}
+                          transition={{ duration: 0.3 }}
                         />
                       )}
                       
@@ -527,7 +535,7 @@ export default function NetflixSearchPage() {
                         decoding="async"
                         className={`w-full object-cover transition-all duration-300 relative z-10 ${
                           hoveredProject === project.id 
-                            ? 'opacity-0 h-48 sm:h-52 md:h-48 lg:h-52' 
+                            ? 'opacity-0 h-64 sm:h-72 md:h-64 lg:h-72' 
                             : 'opacity-100 aspect-[16/9]'
                         }`}
                         style={{
