@@ -61,10 +61,10 @@ export default function Home() {
         document.body.removeChild(link);
         break;
       case 'work-with-me':
-        setLocation("/hire-me");
+        window.open("https://linkedin.com/in/farooqchisty", "_blank");
         break;
       case 'invite-speaker':
-        setLocation("/hire-me");
+        window.open("mailto:farooqsheik52543@gmail.com?subject=Speaking Opportunity&body=Hi Farooq, I'd like to invite you as a speaker for our event.", "_blank");
         break;
       case 'connect-linkedin':
         window.open("https://linkedin.com/in/farooqchisty", "_blank");
@@ -100,22 +100,22 @@ export default function Home() {
       
       {/* Bottom Navigation Bar - Mobile Only */}
       <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden bg-[#141414] border-t border-gray-700">
-        <div className="flex items-center justify-around py-1">
+        <div className="flex items-center justify-around py-2">
           {/* Home Button */}
           <button
             onClick={() => setLocation("/")}
-            className="flex flex-col items-center py-1 px-2 hover:bg-white/10 rounded transition-all duration-200"
+            className="flex flex-col items-center py-2 px-3 hover:bg-white/10 rounded transition-all duration-200"
           >
-            <HomeIcon className="w-5 h-5 text-white mb-0.5" />
+            <HomeIcon className="w-6 h-6 text-white mb-1" />
             <span className="text-xs text-white">Home</span>
           </button>
 
           {/* Projects Button */}
           <button
-            onClick={() => setLocation("/projects")}
-            className="flex flex-col items-center py-1 px-2 hover:bg-white/10 rounded transition-all duration-200"
+            onClick={() => scrollToSection("projects")}
+            className="flex flex-col items-center py-2 px-3 hover:bg-white/10 rounded transition-all duration-200"
           >
-            <Folder className="w-5 h-5 text-white mb-0.5" />
+            <Folder className="w-6 h-6 text-white mb-1" />
             <span className="text-xs text-white">Projects</span>
           </button>
 
@@ -123,14 +123,14 @@ export default function Home() {
           <div className="relative" ref={profileMenuRef}>
             <button
               onClick={() => setProfileMenuOpen(!profileMenuOpen)}
-              className="flex flex-col items-center py-1 px-2 hover:bg-white/10 rounded transition-all duration-200"
+              className="flex flex-col items-center py-2 px-3 hover:bg-white/10 rounded transition-all duration-200"
             >
               <img 
                 src="/attached_assets/farooq-headshot.png" 
                 alt="Farooq Chisty" 
                 loading="lazy"
                 decoding="async"
-                className="w-5 h-5 rounded object-cover mb-0.5"
+                className="w-6 h-6 rounded object-cover mb-1"
               />
               <span className="text-xs text-white">Profile</span>
             </button>
@@ -201,7 +201,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative pb-14 md:pb-0">
+      <div className="relative pb-20 md:pb-0">
         <HeroSection profile={profile} />
         <div className="relative z-10" style={{ marginTop: '0rem' }}>
           <ProjectsSection onProjectClick={setSelectedProjectId} />
