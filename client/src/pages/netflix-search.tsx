@@ -108,10 +108,10 @@ export default function NetflixSearchPage() {
         document.body.removeChild(link);
         break;
       case 'work-with-me':
-        setLocation("/contact");
+        setLocation("/hire-me");
         break;
       case 'invite-as-speaker':
-        setLocation("/contact");
+        setLocation("/hire-me");
         break;
       case 'connect-linkedin':
         window.open("https://linkedin.com/in/farooqchisty", "_blank");
