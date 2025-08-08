@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Search, ChevronDown, Bell, Menu, X, User, HelpCircle, Settings, UserCog, Download, Briefcase, Mic, Linkedin } from "lucide-react";
+import { Search, ChevronDown, Menu, X, Download, Briefcase, Mic, Linkedin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, Link } from "wouter";
 
@@ -215,9 +215,7 @@ export default function Header() {
                   )}
                 </AnimatePresence>
                 
-                <button className="p-2 hover:bg-white/10 rounded transition-all duration-200">
-                  <Bell className="w-5 h-5" />
-                </button>
+
                 <div className="relative" ref={profileMenuRef}>
                   <button 
                     onClick={() => setProfileMenuOpen(!profileMenuOpen)}
@@ -371,9 +369,7 @@ export default function Header() {
                   >
                     <Search className="w-6 h-6" />
                   </button>
-                  <button className="p-3 hover:bg-white/10 rounded transition-all duration-200">
-                    <Bell className="w-6 h-6" />
-                  </button>
+
                   <div className="flex items-center space-x-2">
                     <img 
                       src="/attached_assets/farooq-headshot.png" 

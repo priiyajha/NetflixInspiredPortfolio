@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Share, Check, Copy, Play, Plus, ThumbsUp, ChevronDown, Share2 } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Plus, Share, Check, Copy, ThumbsUp, ChevronDown } from "lucide-react";
 import { Project } from "@shared/schema";
 
 interface ProjectCarouselProps {

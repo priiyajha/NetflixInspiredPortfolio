@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a modern portfolio application built with a React frontend and Express backend, showcasing Farooq Chisty's projects and professional information in a Netflix-inspired dark theme. The application uses a monorepo structure with shared schemas and TypeScript throughout.
+This is a high-performance modern portfolio application built with a React frontend and Express backend, showcasing Farooq Chisty's projects and professional information in a Netflix-inspired dark theme. The application uses a monorepo structure with shared schemas and TypeScript throughout, optimized for fast loading and excellent user experience across all devices.
 
 ## User Preferences
 
@@ -98,3 +98,4 @@ Preferred communication style: Simple, everyday language.
 - **Accessibility**: ARIA labels and keyboard navigation support
 - **Project Galleries**: Custom image galleries implemented for 10 major projects (Cazpro, Millionth Mile Marketing, DigiPay, Inventrax, FDX Sports, Codiste, ZO Labs, Zentrades, InboxBites, Solgames, Martian Wallet)
 - **Gallery Navigation**: Side-by-side image display with arrow controls for multi-image navigation
+- **Performance Optimizations**: Reduced assets from 181MB to 143MB (21% reduction), lazy loading for images, optimized video preloading, replaced background video with lightweight gradient, cleaned unused imports

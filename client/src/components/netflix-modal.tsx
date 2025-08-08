@@ -199,6 +199,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                     loop
                     muted={isMuted}
                     playsInline
+                    preload="metadata"
                     onError={(e) => {
                       console.warn('Failed to load project video:', project.video);
                     }}
@@ -207,6 +208,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                   <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       console.warn('Failed to load project image:', project.image);

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { Profile } from "@shared/schema";
 import { useLocation } from "wouter";
-import backgroundVideo from "@assets/portfolio showreel video (1)_1754596406222.mp4";
+// Background video removed to optimize performance - using image background instead
 
 interface HeroSectionProps {
   profile?: Profile;
@@ -28,27 +28,16 @@ export default function HeroSection({ profile }: HeroSectionProps) {
       style={{
         backgroundColor: '#1a1a1a'
       }}>
-      {/* Background Video - optimized loading */}
+      {/* Optimized Background - Static image for better performance */}
       <div className="absolute inset-0">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="absolute inset-0 w-full h-full object-cover opacity-75"
-        >
-          <source src={backgroundVideo} type="video/mp4" />
-          {/* Fallback background image if video fails to load */}
-          <div 
-            className="w-full h-full bg-cover bg-center"
-            style={{
-              backgroundImage: "url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080')"
-            }}
-          />
-        </video>
+        <div 
+          className="w-full h-full bg-cover bg-center"
+          style={{
+            backgroundImage: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)"
+          }}
+        />
         {/* Dark gradient overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/60 to-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/70 to-black/40"></div>
       </div>
 
       {/* Hero Content */}
