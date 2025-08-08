@@ -289,95 +289,37 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           variant="ghost"
                           size="icon"
                           className="text-white hover:bg-white/20 rounded-full border-2 border-white/70"
-                          onClick={(e) => {
+                          onClick={async (e) => {
                             e.stopPropagation();
-                            setShowShareMenu(!showShareMenu);
+                            // Copy link directly when share button is clicked
+                            const projectUrl = `${window.location.origin}/?project=${project.id}`;
+                            try {
+                              await navigator.clipboard.writeText(projectUrl);
+                              setCopiedProject(true);
+                              setTimeout(() => setCopiedProject(false), 1000);
+                            } catch (err) {
+                              // Fallback for browsers that don't support clipboard API
+                              const textArea = document.createElement('textarea');
+                              textArea.value = projectUrl;
+                              document.body.appendChild(textArea);
+                              textArea.select();
+                              document.execCommand('copy');
+                              document.body.removeChild(textArea);
+                              setCopiedProject(true);
+                              setTimeout(() => setCopiedProject(false), 1000);
+                            }
                           }}
                         >
                           <Share className="w-5 h-5" />
                         </Button>
                         
-                        {/* Share Dropdown Menu */}
-                        {showShareMenu && (
-                          <motion.div 
-                            className="absolute bottom-16 left-0 sm:left-0 bg-black backdrop-blur-md rounded-lg p-2 w-[160px] sm:w-[180px] z-[9999] border border-white/30 shadow-2xl"
-                            style={{
-                              left: window.innerWidth < 640 ? '-40px' : '0px'
-                            }}
-                            initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            <div className="space-y-1">
-                              <button
-                                onClick={copyProjectLink}
-                                className="flex items-center space-x-2 w-full text-left text-white hover:text-red-400 transition-colors py-1.5 px-2 rounded hover:bg-white/10"
-                              >
-                                {copiedProject ? (
-                                  <Check className="w-4 h-4 text-green-400" />
-                                ) : (
-                                  <Copy className="w-4 h-4" />
-                                )}
-                                <span className="text-xs sm:text-sm">
-                                  {copiedProject ? 'Copied!' : 'Copy Link'}
-                                </span>
-                              </button>
-                              
-                              <hr className="border-gray-600 my-1.5" />
-                              
-                              <button
-                                onClick={() => shareOnSocial('linkedin')}
-                                className="flex items-center space-x-2 w-full text-left text-white hover:text-blue-400 transition-colors py-1.5 px-2 rounded hover:bg-white/10"
-                              >
-                                <div className="w-4 h-4 bg-blue-600 rounded-sm flex items-center justify-center">
-                                  <span className="text-white text-xs font-bold">in</span>
-                                </div>
-                                <span className="text-xs sm:text-sm">LinkedIn</span>
-                              </button>
-                              
-                              <button
-                                onClick={() => shareOnSocial('twitter')}
-                                className="flex items-center space-x-2 w-full text-left text-white hover:text-blue-400 transition-colors py-1.5 px-2 rounded hover:bg-white/10"
-                              >
-                                <div className="w-4 h-4 bg-black rounded-sm flex items-center justify-center border border-white">
-                                  <span className="text-white text-xs font-bold">𝕏</span>
-                                </div>
-                                <span className="text-xs sm:text-sm">Twitter</span>
-                              </button>
-                              
-                              <button
-                                onClick={() => shareOnSocial('whatsapp')}
-                                className="flex items-center space-x-2 w-full text-left text-white hover:text-green-400 transition-colors py-1.5 px-2 rounded hover:bg-white/10"
-                              >
-                                <div className="w-4 h-4 bg-green-500 rounded-sm flex items-center justify-center">
-                                  <span className="text-white text-xs font-bold">W</span>
-                                </div>
-                                <span className="text-xs sm:text-sm">WhatsApp</span>
-                              </button>
-                              
-                              <button
-                                onClick={() => shareOnSocial('telegram')}
-                                className="flex items-center space-x-2 w-full text-left text-white hover:text-blue-400 transition-colors py-1.5 px-2 rounded hover:bg-white/10"
-                              >
-                                <div className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
-                                  <span className="text-white text-xs font-bold">T</span>
-                                </div>
-                                <span className="text-xs sm:text-sm">Telegram</span>
-                              </button>
-                              
-                              <button
-                                onClick={() => shareOnSocial('instagram')}
-                                className="flex items-center space-x-2 w-full text-left text-white hover:text-pink-400 transition-colors py-1.5 px-2 rounded hover:bg-white/10"
-                              >
-                                <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-sm flex items-center justify-center">
-                                  <span className="text-white text-xs font-bold">IG</span>
-                                </div>
-                                <span className="text-xs sm:text-sm">Instagram</span>
-                              </button>
-                            </div>
-                          </motion.div>
+                        {/* Copy Success Popup */}
+                        {copiedProject && (
+                          <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-green-600 text-white text-xs px-3 py-1 rounded-full z-[10000] whitespace-nowrap">
+                            Link Copied!
+                          </div>
                         )}
+
                       </div>
                     </div>
                   </div>
