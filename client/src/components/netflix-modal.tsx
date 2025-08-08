@@ -300,7 +300,10 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                         {/* Share Dropdown Menu */}
                         {showShareMenu && (
                           <motion.div 
-                            className="absolute bottom-16 left-0 bg-black backdrop-blur-md rounded-lg p-3 w-[200px] z-[9999] border-2 border-white/30 shadow-2xl"
+                            className="absolute bottom-16 left-0 sm:left-0 bg-black backdrop-blur-md rounded-lg p-2 w-[160px] sm:w-[180px] z-[9999] border border-white/30 shadow-2xl"
+                            style={{
+                              left: window.innerWidth < 640 ? '-40px' : '0px'
+                            }}
                             initial={{ opacity: 0, scale: 0.95, y: 10 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 10 }}
@@ -316,7 +319,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 ) : (
                                   <Copy className="w-4 h-4" />
                                 )}
-                                <span className="text-sm">
+                                <span className="text-xs sm:text-sm">
                                   {copiedProject ? 'Copied!' : 'Copy Link'}
                                 </span>
                               </button>
@@ -330,7 +333,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 <div className="w-4 h-4 bg-blue-600 rounded-sm flex items-center justify-center">
                                   <span className="text-white text-xs font-bold">in</span>
                                 </div>
-                                <span className="text-sm">LinkedIn</span>
+                                <span className="text-xs sm:text-sm">LinkedIn</span>
                               </button>
                               
                               <button
@@ -340,7 +343,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 <div className="w-4 h-4 bg-black rounded-sm flex items-center justify-center border border-white">
                                   <span className="text-white text-xs font-bold">𝕏</span>
                                 </div>
-                                <span className="text-sm">Twitter</span>
+                                <span className="text-xs sm:text-sm">Twitter</span>
                               </button>
                               
                               <button
@@ -350,7 +353,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 <div className="w-4 h-4 bg-green-500 rounded-sm flex items-center justify-center">
                                   <span className="text-white text-xs font-bold">W</span>
                                 </div>
-                                <span className="text-sm">WhatsApp</span>
+                                <span className="text-xs sm:text-sm">WhatsApp</span>
                               </button>
                               
                               <button
@@ -360,7 +363,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 <div className="w-4 h-4 bg-blue-500 rounded-full flex items-center justify-center">
                                   <span className="text-white text-xs font-bold">T</span>
                                 </div>
-                                <span className="text-sm">Telegram</span>
+                                <span className="text-xs sm:text-sm">Telegram</span>
                               </button>
                               
                               <button
@@ -370,7 +373,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                                 <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-sm flex items-center justify-center">
                                   <span className="text-white text-xs font-bold">IG</span>
                                 </div>
-                                <span className="text-sm">Instagram (Copy)</span>
+                                <span className="text-xs sm:text-sm">Instagram</span>
                               </button>
                             </div>
                           </motion.div>
