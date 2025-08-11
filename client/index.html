@@ -9,23 +9,33 @@
     
     <!-- Performance optimizations -->
     <meta name="theme-color" content="#000000" />
-    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     
-    <!-- Preload critical assets for faster loading -->
-    <link rel="preload" href="/attached_assets/farooq-logo.png" as="image" fetchpriority="high" />
-    <link rel="preload" href="/attached_assets/farooq-headshot.png" as="image" fetchpriority="high" />
+    <!-- Critical CSS inlined to avoid render blocking -->
+    <style>
+      /* Critical above-the-fold styles */
+      body { margin: 0; background: #000; color: #fff; font-family: system-ui, sans-serif; }
+      .hero-loading { min-height: 100vh; background: #000; display: flex; align-items: center; justify-content: center; }
+      .hero-loading::after { content: ""; width: 40px; height: 40px; border: 2px solid #333; border-top: 2px solid #e50914; border-radius: 50%; animation: spin 1s linear infinite; }
+      @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      /* Prevent flash of unstyled content */
+      #root { opacity: 0; transition: opacity 0.3s ease-in-out; }
+      #root.loaded { opacity: 1; }
+    </style>
     
-    <!-- Preload critical project images (top 5 featured) -->
+    <!-- Preload only critical assets (reduced for performance) -->
+    <link rel="preload" href="/attached_assets/farooq-logo.png" as="image" fetchpriority="high" />
+    
+    <!-- Preload critical project images (top 3 only for performance) -->
     <link rel="preload" href="/attached_assets/Cazpro_1754913612013.jpeg" as="image" fetchpriority="high" />
     <link rel="preload" href="/attached_assets/DigiPe_1754914961127.jpeg" as="image" fetchpriority="high" />
-    <link rel="preload" href="/attached_assets/InboxBites_1754914167117.jpeg" as="image" fetchpriority="high" />
     
     <!-- Resource hints for better loading -->
     <link rel="prefetch" href="/api/profile" />
     <link rel="prefetch" href="/api/projects/featured" />
     
-    <!-- Service Worker for caching -->
+    <!-- Service Worker for caching and image optimization -->
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
@@ -38,6 +48,11 @@
             });
         });
       }
+      
+      // Mark root as loaded to prevent FOUC
+      window.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('root')?.classList.add('loaded');
+      });
     </script>
     
     <!-- Open Graph meta tags for social sharing -->

@@ -89,7 +89,7 @@ export default function OptimizedImage({
         }}
         loading={loading}
         decoding="async"
-        fetchpriority={fetchpriority}
+        fetchPriority={fetchpriority}
         sizes={sizes}
         draggable={draggable}
         onLoad={handleLoad}

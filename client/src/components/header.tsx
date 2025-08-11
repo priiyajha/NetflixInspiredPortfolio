@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Search, ChevronDown, Menu, X, Download, Briefcase, Mic, Linkedin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocation, Link } from "wouter";
+import OptimizedProfileImage from "./optimized-profile-image";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -229,11 +230,9 @@ export default function Header() {
                     onClick={() => setProfileMenuOpen(!profileMenuOpen)}
                     className="flex items-center space-x-2 p-2 hover:bg-white/10 rounded transition-all duration-200"
                   >
-                    <img 
+                    <OptimizedProfileImage
                       src="/attached_assets/farooq-headshot.png" 
                       alt="Farooq Chisty" 
-                      loading="lazy"
-                      decoding="async"
                       className="w-8 h-8 rounded object-cover"
                     />
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${profileMenuOpen ? 'rotate-180' : ''}`} />
@@ -252,11 +251,9 @@ export default function Header() {
                         {/* Profile Section */}
                         <div className="px-4 py-3 border-b border-gray-700">
                           <div className="flex items-center space-x-3">
-                            <img 
+                            <OptimizedProfileImage
                               src="/attached_assets/farooq-headshot.png" 
                               alt="Farooq Chisty" 
-                              loading="lazy"
-                              decoding="async"
                               className="w-10 h-10 rounded object-cover"
                             />
                             <div>

@@ -1187,6 +1187,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             decoding="async"
                             fetchpriority="low"
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                            srcSet={`${similarProject.image}?w=400&q=80 400w, ${similarProject.image}?w=800&q=80 800w`}
                             className="w-full h-32 object-cover group-hover:opacity-0 transition-opacity duration-300"
                             style={{
                               aspectRatio: '16/9',

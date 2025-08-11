@@ -1,14 +1,17 @@
-// Service Worker for Performance Optimization
-const CACHE_NAME = 'farooq-portfolio-v1';
+// Service Worker for Performance Optimization and Image Processing
+const CACHE_NAME = 'farooq-portfolio-v2';
 const CRITICAL_ASSETS = [
   '/',
   '/src/main.tsx',
   '/src/index.css',
   '/attached_assets/farooq-logo.png',
-  '/attached_assets/farooq-headshot.png',
   '/api/profile',
   '/api/projects/featured'
 ];
+
+// Image optimization parameters
+const IMAGE_QUALITY = 85;
+const MAX_IMAGE_WIDTH = 800;
 
 // Install event - cache critical assets
 self.addEventListener('install', (event) => {

@@ -27,6 +27,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
   const [copiedProject, setCopiedProject] = useState<string | null>(null);
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const videoRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
 
   const checkScrollability = () => {
@@ -39,13 +40,19 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     );
   };
 
+  // Cache responsive values to prevent repeated DOM queries
+  const getScrollParams = () => {
+    const width = window.innerWidth;
+    const cardWidth = width >= 1280 ? 276 : width >= 1024 ? 252 : width >= 768 ? 236 : 240;
+    const scrollCount = width >= 1024 ? 5 : width >= 768 ? 3 : 2;
+    return { cardWidth, scrollCount };
+  };
+
   const scrollLeft = () => {
     const container = scrollRef.current;
     if (!container) return;
     
-    // Responsive card scrolling - mobile: 2 cards, tablet: 3 cards, desktop: 5 cards
-    const cardWidth = window.innerWidth >= 1280 ? 276 : window.innerWidth >= 1024 ? 252 : window.innerWidth >= 768 ? 236 : 240;
-    const scrollCount = window.innerWidth >= 1024 ? 5 : window.innerWidth >= 768 ? 3 : 2;
+    const { cardWidth, scrollCount } = getScrollParams();
     container.scrollBy({ left: -cardWidth * scrollCount, behavior: 'smooth' });
   };
 
@@ -53,9 +60,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     const container = scrollRef.current;
     if (!container) return;
     
-    // Responsive card scrolling - mobile: 2 cards, tablet: 3 cards, desktop: 5 cards
-    const cardWidth = window.innerWidth >= 1280 ? 276 : window.innerWidth >= 1024 ? 252 : window.innerWidth >= 768 ? 236 : 240;
-    const scrollCount = window.innerWidth >= 1024 ? 5 : window.innerWidth >= 768 ? 3 : 2;
+    const { cardWidth, scrollCount } = getScrollParams();
     container.scrollBy({ left: cardWidth * scrollCount, behavior: 'smooth' });
   };
 
@@ -63,10 +68,19 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
     const container = scrollRef.current;
     if (!container) return;
 
+    // Cache mobile state to prevent repeated window.innerWidth calls (reduces forced reflows)
+    const updateMobileState = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    updateMobileState();
+
     checkScrollability();
     
     const handleScroll = () => checkScrollability();
-    const handleResize = () => checkScrollability();
+    const handleResize = () => {
+      updateMobileState();
+      checkScrollability();
+    };
     
     container.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
@@ -303,8 +317,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 style={{
                   transformOrigin: 'center center',
                   borderRadius: hoveredProject === project.id ? '12px' : '6px',
-                  // Ensure cards stay centered horizontally on small screens
-                  ...(window.innerWidth < 768 && hoveredProject === project.id ? {
+                  // Ensure cards stay centered horizontally on small screens (cached window width)
+                  ...(isMobile && hoveredProject === project.id ? {
                     position: 'relative',
                     left: '50%',
                     transform: 'translateX(-50%) scale(1.15) translateY(-15px)',
@@ -312,9 +326,9 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   } : {})
                 }}
                 animate={{
-                  scale: window.innerWidth >= 768 && hoveredProject === project.id ? 1.15 : 1,
-                  y: window.innerWidth >= 768 && hoveredProject === project.id ? -15 : 0,
-                  x: window.innerWidth < 768 && hoveredProject === project.id ? '-50%' : 0,
+                  scale: !isMobile && hoveredProject === project.id ? 1.15 : 1,
+                  y: !isMobile && hoveredProject === project.id ? -15 : 0,
+                  x: isMobile && hoveredProject === project.id ? '-50%' : 0,
                 }}
                 transition={{ duration: 1.0, ease: "easeInOut" }}
               >
@@ -328,7 +342,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     muted
                     playsInline
                     preload="none"
-                    loading="lazy"
+
                     className="absolute top-0 left-0 right-0 w-full object-cover z-0"
                     style={{ 
                       height: '65%',
@@ -348,8 +362,9 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   alt={project.title}
                   loading={index < 5 ? "eager" : "lazy"}
                   decoding="async"
-                  fetchpriority={index < 3 ? "high" : "low"}
-                  sizes="(max-width: 768px) 240px, (max-width: 1024px) 252px, (max-width: 1280px) 276px, 276px"
+                  fetchPriority={index < 3 ? "high" : "low"}
+                  sizes="(max-width: 768px) 240px, (max-width: 1024px) 252px, 276px"
+                  srcSet={`${project.image}?w=240&q=85 240w, ${project.image}?w=252&q=85 252w, ${project.image}?w=276&q=85 276w`}
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
                       ? 'opacity-0 h-72 sm:h-76 md:h-80' 
