@@ -214,7 +214,7 @@ class MemStorage implements IStorage {
         id: "18",
         title: "GEOptimer",
         description: "Founder and builder of GEOptimer, a micro-SaaS that scores and audits website content for LLM/AI engine visibility—think SEO for AI, not just search. Enter a URL, get a GEO Score, action-packed report, and clear next steps in seconds. Built for growth-obsessed marketers.",
-        image: "/attached_assets/ChatGPT Image Aug 6, 2025, 06_28_25 PM_1754485881863.png",
+        image: "/attached_assets/GEOptimer_1754915993193.jpeg",
         video: "/attached_assets/12_1754497096211.mp4",
         gallery: [],
         technologies: ["Replit", "Supabase", "Node.js", "Cursor", "Cloud Code", "custom scripts"],
