@@ -91,7 +91,7 @@ class MemStorage implements IStorage {
         description: "Head of Growth at FDX Sports, scaling India's premier sports equipment platform. Built growth systems that drove 400% user acquisition, optimized conversion funnels, and established partnerships that expanded market reach across multiple sports categories.",
         image: "/attached_assets/FD_1754915223801.jpeg",
         video: "/attached_assets/5_1754499213095.mov",
-        gallery: ["/attached_assets/5_1_1754501640391.png", "/attached_assets/5_2_1754501645428.png", "/attached_assets/5_3_1754501652249.png"],
+        gallery: ["/attached_assets/5_1_1754915349881.jpeg", "/attached_assets/5_2_1754915353185.jpeg", "/attached_assets/5_3_1754915356711.jpeg"],
         technologies: ["Shopify", "Google Ads", "Meta Ads", "Klaviyo", "SMSBump"],
         category: "fulltime",
         liveUrl: "https://fdxsports.com",
