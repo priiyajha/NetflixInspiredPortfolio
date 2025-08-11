@@ -70,7 +70,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
             controls={false}
             disablePictureInPicture
             onError={() => setVideoError(true)}

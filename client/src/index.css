@@ -42,10 +42,34 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
     font-family: 'Inter', system-ui, sans-serif;
+    /* Performance optimizations */
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   html {
     scroll-behavior: smooth;
+    /* Performance optimizations */
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Critical CSS for above-the-fold content */
+  .hero-container {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  /* Image optimization CSS */
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  /* Reduce layout shifts */
+  video, img {
+    aspect-ratio: attr(width) / attr(height);
   }
 }
 
@@ -179,5 +203,58 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  /* Performance optimization utilities */
+  .gpu-accelerated {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  .lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .lazy-image.loaded {
+    opacity: 1;
+  }
+
+  /* Netflix-style animations - optimized */
+  .project-card {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  .project-card:hover {
+    transform: scale(1.05) translateZ(0);
+  }
+
+  /* Custom shadows */
+  .netflix-shadow {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .netflix-shadow-lg {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Reduce CLS (Cumulative Layout Shift) */
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+
+  /* Optimize critical path rendering */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }

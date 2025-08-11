@@ -7,9 +7,38 @@
     <meta name="description" content="AI Generalist | Vibe Marketer | Growth Marketer" />
     <title>Farooq's Portfolio</title>
     
+    <!-- Performance optimizations -->
+    <meta name="theme-color" content="#000000" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
     <!-- Preload critical assets for faster loading -->
-    <link rel="preload" href="/attached_assets/farooq-logo.png" as="image" />
-    <link rel="preload" href="/attached_assets/farooq-headshot.png" as="image" />
+    <link rel="preload" href="/attached_assets/farooq-logo.png" as="image" fetchpriority="high" />
+    <link rel="preload" href="/attached_assets/farooq-headshot.png" as="image" fetchpriority="high" />
+    
+    <!-- Preload critical project images (top 5 featured) -->
+    <link rel="preload" href="/attached_assets/Cazpro_1754913612013.jpeg" as="image" fetchpriority="high" />
+    <link rel="preload" href="/attached_assets/DigiPe_1754914961127.jpeg" as="image" fetchpriority="high" />
+    <link rel="preload" href="/attached_assets/InboxBites_1754914167117.jpeg" as="image" fetchpriority="high" />
+    
+    <!-- Resource hints for better loading -->
+    <link rel="prefetch" href="/api/profile" />
+    <link rel="prefetch" href="/api/projects/featured" />
+    
+    <!-- Service Worker for caching -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
     
     <!-- Open Graph meta tags for social sharing -->
     <meta property="og:title" content="Farooq's Portfolio" />

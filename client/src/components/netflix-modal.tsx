@@ -1169,6 +1169,12 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               loop
                               muted
                               playsInline
+                              preload="none"
+                              loading="lazy"
+                              style={{
+                                aspectRatio: '16/9',
+                                objectFit: 'cover'
+                              }}
                               onError={(e) => {
                                 console.warn('Failed to load similar project video:', similarProject.video);
                               }}
@@ -1177,7 +1183,15 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           <img
                             src={similarProject.image}
                             alt={similarProject.title}
+                            loading="lazy"
+                            decoding="async"
+                            fetchpriority="low"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             className="w-full h-32 object-cover group-hover:opacity-0 transition-opacity duration-300"
+                            style={{
+                              aspectRatio: '16/9',
+                              objectFit: 'cover'
+                            }}
                             onError={(e) => {
                               console.warn('Failed to load similar project image:', similarProject.image);
                               e.currentTarget.src = "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450";

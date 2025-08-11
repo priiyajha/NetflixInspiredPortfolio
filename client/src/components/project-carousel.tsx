@@ -318,7 +318,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 }}
                 transition={{ duration: 1.0, ease: "easeInOut" }}
               >
-                {/* Video background for hover state - lazy load */}
+                {/* Video background for hover state - optimized loading */}
                 {hoveredProject === project.id && project.video && (
                   <motion.video
                     ref={(el) => { videoRefs.current[project.id] = el; }}
@@ -327,12 +327,14 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     loop
                     muted
                     playsInline
-                    preload="metadata"
+                    preload="none"
+                    loading="lazy"
                     className="absolute top-0 left-0 right-0 w-full object-cover z-0"
                     style={{ 
                       height: '65%',
                       borderTopLeftRadius: '12px',
-                      borderTopRightRadius: '12px'
+                      borderTopRightRadius: '12px',
+                      aspectRatio: '16/9'
                     }}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -340,19 +342,23 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   />
                 )}
                 
-                {/* Static Image - optimized loading */}
+                {/* Static Image - optimized with responsive sizing and modern format hints */}
                 <img
                   src={project.image}
                   alt={project.title}
-                  loading="lazy"
+                  loading={index < 5 ? "eager" : "lazy"}
                   decoding="async"
+                  fetchpriority={index < 3 ? "high" : "low"}
+                  sizes="(max-width: 768px) 240px, (max-width: 1024px) 252px, (max-width: 1280px) 276px, 276px"
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
                       ? 'opacity-0 h-72 sm:h-76 md:h-80' 
                       : 'opacity-100 h-24 sm:h-32 md:h-24 lg:h-28 xl:h-32'
                   }`}
                   style={{
-                    borderRadius: hoveredProject === project.id ? '12px' : '6px'
+                    borderRadius: hoveredProject === project.id ? '12px' : '6px',
+                    aspectRatio: '16/9',
+                    objectFit: 'cover'
                   }}
                   draggable={false}
                 />
