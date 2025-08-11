@@ -184,7 +184,7 @@ class MemStorage implements IStorage {
         description: "Headed marketing at Martian Wallet, scaling installs by 50%, landing 400K+ new users, and doubling DApp transaction volumes from $1.2B to $2B. Launched a DApp that hit $1M daily volume in a month, forged 50+ partnerships, and kept the Web3 world buzzing.",
         image: "/attached_assets/Martin-W_1754915638509.jpeg",
         video: "/attached_assets/11_1754497873112.mov",
-        gallery: ["/attached_assets/11_1_1754502120116.png", "/attached_assets/11_2_1754502126239.png"],
+        gallery: ["/attached_assets/11_1_1754915721715.jpeg", "/attached_assets/11_2_1754915725194.jpeg"],
         technologies: ["Aptos/Sui ecosystem", "DApp platform", "Chrome extension", "Discord", "Google Analytics"],
         category: "fulltime",
         liveUrl: "",
