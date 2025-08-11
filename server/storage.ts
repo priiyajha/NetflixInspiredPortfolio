@@ -56,14 +56,14 @@ class MemStorage implements IStorage {
       // Full-time Gigs
       {
         id: "3",
-        title: "DigiPay",
-        description: "Joined DigiPay as Head of Growth, scaling their fintech platform from startup to market leader. Drove user acquisition, optimized conversion funnels, and built growth systems that delivered consistent month-over-month expansion in the competitive digital payments space.",
-        image: "/attached_assets/ChatGPT Image Aug 6, 2025, 12_08_50 AM_1754451183603.png",
+        title: "DigiPe",
+        description: "Joined DigiPe as Head of Growth, scaling their fintech platform from startup to market leader. Drove user acquisition, optimized conversion funnels, and built growth systems that delivered consistent month-over-month expansion in the competitive digital payments space.",
+        image: "/attached_assets/DigiPe_1754914961127.jpeg",
         video: "/attached_assets/3_1754492376019.mp4",
         gallery: ["/attached_assets/Digi_1754587050958.png", "/attached_assets/3_2_1754587056641.png", "/attached_assets/3_3_1754587061002.png", "/attached_assets/3_4_1754587065707.png"],
         technologies: ["CleverTap", "AppsFlyer", "Amplitude", "Google Firebase", "Google Analytics", "SEMrush", "Branch.io"],
         category: "fulltime",
-        liveUrl: "https://digipay.com",
+        liveUrl: "https://digipe.com",
         githubUrl: "",
         featured: "true",
         status: "live",
@@ -660,7 +660,7 @@ class MemStorage implements IStorage {
         features: [
           "45-minute keynote presentation",
           "Live audience of 1200+ growth professionals",
-          "Real case studies from FDX Sports and DigiPay",
+          "Real case studies from FDX Sports and DigiPe",
           "Interactive growth framework demonstration",
           "Performance marketing deep dive",
           "Scaling strategies for different business models",
