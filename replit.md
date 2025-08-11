@@ -89,7 +89,14 @@ Preferred communication style: Simple, everyday language.
   2. ESBuild compiles server code to single file
   3. Static assets served from Express
 - **Database**: Drizzle migrations for schema management
-- **Environment Variables**: Database URL and production configuration
+- **Environment Variables**: 
+  - `NODE_ENV=production` (required)
+  - `SESSION_SECRET` (required for session management)
+  - `DATABASE_URL` (required for database connection)
+  - `FRONTEND_URL` (required for CORS configuration)
+  - `PORT` (defaults to 5000)
+- **Session Management**: Express-session with secure configuration for production
+- **Error Handling**: Graceful startup error handling with detailed logging
 
 ### Notable Implementation Details
 - **Replit Integration**: Special handling for Replit development environment
