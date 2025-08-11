@@ -431,7 +431,7 @@ class MemStorage implements IStorage {
         id: "25",
         title: "AGENTSY",
         description: "Sold over $2M in digital products via AGENTSY—performance marketing funnels at scale. Ran campaigns on Facebook/Google, moved 20L+ INR in 6 months, sold e-books, templates, and downloadables. Built funnels, ran the stack, shipped results.",
-        image: "/attached_assets/ChatGPT Image Aug 6, 2025, 01_29_22 AM_1754451990543.png",
+        image: "/attached_assets/Agentsy_1754916226315.jpeg",
         video: "/attached_assets/19_1754500081499.mp4",
         gallery: [],
         technologies: ["ClickFunnels", "Hotcart", "Shopify", "WordPress", "Facebook Ads", "Google Ads", "GTM"],
