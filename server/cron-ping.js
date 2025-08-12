@@ -1,4 +1,4 @@
-// External cron job script to ping your Render service
+c// External cron job script to ping your Render service
 // This can be used with external cron services like cron-job.org or GitHub Actions
 
 const SERVICE_URL = process.env.RENDER_SERVICE_URL || 'https://your-service.onrender.com';
