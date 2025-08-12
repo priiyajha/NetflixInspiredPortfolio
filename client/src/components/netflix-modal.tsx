@@ -600,539 +600,89 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
 
                     {/* Right Column - Project Details (1/3 width) */}
                     <div className="w-full lg:w-1/3 pl-0 lg:pl-0 mt-8 lg:mt-0 space-y-6">
-                      {/* Tech Stacks - For Cazpro, Millionth Mile Marketing, DigiPay, Inventrax, FDX Sports, Codiste, ZO Labs, Zentrades, InboxBites, Solgames, Martian Wallet, GEOptimer, Growth Opportunity Agent, Reply Agent, Internal Linking Agent, Content Automation, Blog Automation, Lead Generator Agent, and AGENTSY */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)" || project.title === "AGENTSY") && (
+                      {/* Tech Stack - Using dynamic project data */}
+                      {project.technologies && Array.isArray(project.technologies) && project.technologies.length > 0 && (
                         <div>
-                          <h4 className="font-medium text-white mb-3">
-                            {project.title === "Cazpro" ? "Tech Stacks:" : "Tech Stack:"}
-                          </h4>
+                          <h4 className="font-medium text-white mb-3">Tech Stack:</h4>
                           <div className="flex flex-wrap gap-2">
-                            {project.title === "Cazpro" ? (
-                              ["Shopify", "PHP", "HTML", "SEMrush", "Google Ads", "Meta Ads", "Klaviyo", "MailChimp"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "Millionth Mile Marketing" ? (
-                              ["Google Ads", "Meta Ads", "SEMrush", "Ahrefs", "Mailchimp", "HubSpot", "WordPress"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "DigiPay" ? (
-                              ["CleverTap", "AppsFlyer", "Amplitude", "Google Firebase", "Google Analytics", "SEMrush", "Branch.io"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "Inventrax" ? (
-                              ["SEMrush", "Backlinko.io", "Ahrefs", "Google Analytics", "Google Search Console"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "FDX Sports" ? (
-                              ["Shopify", "Google Ads", "Meta Ads", "Klaviyo", "SMSBump"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "Codiste" ? (
-                              ["Apollo", "LeadDino", "Phantom Buster", "Ahrefs", "Google Analytics", "Notion"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "ZO Labs" ? (
-                              ["HubSpot", "ActiveCampaign", "Firebase Studio", "AppsFlyer", "AppRadar", "WebEngage", "Discord", "Twitter", "Telegram", "Instagram"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "Zentrades" ? (
-                              ["Programmatic SEO", "Google Analytics", "CRM", "Marketing Attribution"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "InboxBites" ? (
-                              ["Repl.it Cloud Code", "Gmail API", "PWA", "JavaScript"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "Solgames" ? (
-                              ["Solana", "Web3 Tools", "Discord", "Telegram"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "GEOptimer" ? (
-                              ["Replit", "Supabase", "Node.js", "Cursor", "Cloud Code", "custom scripts"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "Growth Opportunity Agent" ? (
-                              ["Replit", "Node.js", "Cloud Code", "Cursor", "custom logic"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "Reply Agent (Auto-Commenter)" ? (
-                              ["Replit", "Cursor", "Cloud Code", "custom scripts"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "Internal Linking Agent" ? (
-                              ["Replicate", "Node.js", "React.js", "Cloud Code", "custom logic"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "Content Automation (Reddit → LinkedIn)" ? (
-                              ["N8n", "RapidAPI", "CMS", "Reddit API", "LinkedIn API"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "Blog Automation (Purple City MCP)" ? (
-                              ["n8n", "Purple City MCP", "RSS feeds", "CMS"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)" ? (
-                              ["N8n", "platform APIs", "dashboard (custom)"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : project.title === "AGENTSY" ? (
-                              ["ClickFunnels", "Hotcart", "Shopify", "WordPress", "Facebook Ads", "Google Ads", "GTM"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            ) : (
-                              ["Aptos/Sui Ecosystem", "DApp Platform", "Chrome Extension", "Discord", "Google Analytics"].map((tech) => (
-                                <span 
-                                  key={tech}
-                                  className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
-                                >
-                                  {tech}
-                                </span>
-                              ))
-                            )}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Skills - For all projects with custom structure */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)" || project.title === "AGENTSY") && (
-                        <div>
-                          <h4 className="font-medium text-white mb-2">Skills:</h4>
-                          <p className="text-gray-400">
-                            {project.title === "Cazpro"
-                              ? "D2C marketing, social media, performance marketing, B2C, SEO, email marketing, analytics"
-                              : project.title === "Millionth Mile Marketing"
-                              ? "Growth marketing, B2B sales, team building, media buying, analytics, design thinking"
-                              : project.title === "DigiPay"
-                              ? "B2B marketing, field ops, performance marketing, attribution, mobile marketing, onboarding, analytics"
-                              : project.title === "Inventrax"
-                              ? "Programmatic SEO, CRO, lead magnets, email automation, blog marketing"
-                              : project.title === "FDX Sports"
-                              ? "Performance marketing, CRO, funnel building, D2C marketing, UGC, email/SMS automation"
-                              : project.title === "Codiste"
-                              ? "Social, organic, B2B, programmatic SEO, copywriting, analytics, process optimization"
-                              : project.title === "ZO Labs"
-                              ? "Growth marketing, product management, AI automation, community building, partnerships"
-                              : project.title === "Zentrades"
-                              ? "Technical SEO, inbound marketing, funnel building, marketing analytics, team leadership"
-                              : project.title === "InboxBites"
-                              ? "Product management, coding, AI/ML logic, UI/UX, GTM, content processing"
-                              : project.title === "Solgames"
-                              ? "Growth marketing, community building, Web3 strategy, hackathon ops, program management"
-                              : project.title === "GEOptimer"
-                              ? "AI SEO, product management, SaaS engineering, growth analytics, reporting"
-                              : project.title === "Growth Opportunity Agent"
-                              ? "Growth analysis, automation, product design, digital strategy"
-                              : project.title === "Reply Agent (Auto-Commenter)"
-                              ? "Automation, headless browser ops, prompt engineering, multi-channel growth"
-                              : project.title === "Internal Linking Agent"
-                              ? "SEO automation, React development, SaaS engineering, content strategy"
-                              : project.title === "Content Automation (Reddit → LinkedIn)"
-                              ? "Automation, scraping, prompt engineering, workflow design"
-                              : project.title === "Blog Automation (Purple City MCP)"
-                              ? "Content automation, API integration, workflow building"
-                              : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
-                              ? "Lead scraping, automation, enrichment, workflow engineering"
-                              : project.title === "AGENTSY"
-                              ? "Performance marketing, funnel building, digital sales, analytics"
-                              : "Web3 marketing, community ops, DApp growth, partnerships, content, BD"
-                            }
-                          </p>
-                        </div>
-                      )}
-
-                      {/* Goal - For all projects with custom structure */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)" || project.title === "AGENTSY") && (
-                        <div>
-                          <h4 className="font-medium text-white mb-2">Goal:</h4>
-                          <p className="text-gray-400">
-                            {project.title === "Cazpro"
-                              ? "Build and scale a leading college-focused merch brand, drive high-velocity sales, achieve profitable exit"
-                              : project.title === "Millionth Mile Marketing"
-                              ? "Land marquee clients, drive high revenue growth, build a leading regional agency"
-                              : project.title === "DigiPay"
-                              ? "Drive B2B installs, scale revenue, build top-tier marketing org"
-                              : project.title === "Inventrax"
-                              ? "Boost organic traffic, rank for Northstar keywords, generate high-quality B2B leads"
-                              : project.title === "FDX Sports"
-                              ? "10x sales, optimize for scale, automate funnel, drive international growth"
-                              : project.title === "Codiste"
-                              ? "Build a high-output marketing org, automate lead gen, optimize funnel"
-                              : project.title === "ZO Labs"
-                              ? "Scale installs, community, and organic traffic, land strategic partnerships"
-                              : project.title === "Zentrades" 
-                              ? "Scale high-quality B2B leads, boost organic traffic, optimize funnel stages"
-                              : project.title === "InboxBites"
-                              ? "Turn newsletters into actionable micro-insights, deliver value via PWA"
-                              : project.title === "Solgames"
-                              ? "Enable Web2-to-Web3 game transition, build dev/gamer ecosystem, MVP + community"
-                              : project.title === "Martian Wallet"
-                              ? "Grow user base, launch DApp, increase transaction volume, build global partnerships"
-                              : project.title === "GEOptimer"
-                              ? "Optimize websites for generative engine visibility and citations"
-                              : project.title === "Growth Opportunity Agent"
-                              ? "Unlock growth channels for startups instantly"
-                              : project.title === "Reply Agent (Auto-Commenter)"
-                              ? "Automate replies for inbound, outreach, and community engagement at scale"
-                              : project.title === "Internal Linking Agent"
-                              ? "Drive internal linking + AI visibility for resource-constrained sites"
-                              : project.title === "Content Automation (Reddit → LinkedIn)"
-                              ? "Turn Reddit trends into LinkedIn-ready content, automate ideation"
-                              : project.title === "Blog Automation (Purple City MCP)"
-                              ? "Automate discovery and repurposing of trending content for blogs"
-                              : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
-                              ? "Automate discovery + outreach for B2B leads"
-                              : project.title === "AGENTSY"
-                              ? "Scale digital product sales via paid channels"
-                              : "Grow user base, launch DApp, increase transaction volume, build global partnerships"
-                            }
-                          </p>
-                        </div>
-                      )}
-
-                      {/* Director - For non-custom structured projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet" && project.title !== "GEOptimer" && project.title !== "Growth Opportunity Agent" && project.title !== "Reply Agent (Auto-Commenter)" && project.title !== "Internal Linking Agent" && project.title !== "Content Automation (Reddit → LinkedIn)" && project.title !== "Blog Automation (Purple City MCP)" && project.title !== "Lead Generator Agent (LinkedIn, Twitter, Reddit)" && project.title !== "AGENTSY") && (
-                        <div>
-                          <h4 className="font-medium text-white mb-2">Director:</h4>
-                          <p className="text-gray-400">Farooq Chisty</p>
-                        </div>
-                      )}
-
-                      {/* Cast - For non-custom structured projects */}
-                      {(project.title !== "Cazpro" && project.title !== "Millionth Mile Marketing" && project.title !== "DigiPay" && project.title !== "Inventrax" && project.title !== "FDX Sports" && project.title !== "Codiste" && project.title !== "ZO Labs" && project.title !== "Zentrades" && project.title !== "InboxBites" && project.title !== "Solgames" && project.title !== "Martian Wallet" && project.title !== "GEOptimer" && project.title !== "Growth Opportunity Agent" && project.title !== "Reply Agent (Auto-Commenter)" && project.title !== "Internal Linking Agent" && project.title !== "Content Automation (Reddit → LinkedIn)" && project.title !== "Blog Automation (Purple City MCP)" && project.title !== "Lead Generator Agent (LinkedIn, Twitter, Reddit)" && project.title !== "AGENTSY") && (
-                        <div>
-                          <h4 className="font-medium text-white mb-2">Cast:</h4>
-                          <p className="text-gray-400">Solo Builder Team</p>
-                        </div>
-                      )}
-
-
-
-                      {/* KPIs - For custom structured projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)" || project.title === "AGENTSY") && (
-                        <div>
-                          <h4 className="font-medium text-white mb-2">KPIs:</h4>
-                          <p className="text-gray-400">
-                            {project.title === "Cazpro"
-                              ? "Monthly sales, order volume, organic growth rate, website traffic, campaign ROI"
-                              : project.title === "Millionth Mile Marketing"
-                              ? "Client acquisition, revenue, ad spend managed, team size, media features"
-                              : project.title === "DigiPay"
-                              ? "App downloads, revenue growth, team size, lead volume, merchant activation"
-                              : project.title === "Inventrax"
-                              ? "Organic traffic growth, keyword ranking, lead volume, conversion rates"
-                              : project.title === "FDX Sports"
-                              ? "Monthly sales, ROAS, AOV, cart conversion rate, organic growth"
-                              : project.title === "Codiste"
-                              ? "Team output, sales response rate, lead volume, organic traffic"
-                              : project.title === "ZO Labs"
-                              ? "App installs, community growth, landing pages shipped, partnerships closed"
-                              : project.title === "Zentrades"
-                              ? "MQLs/month, traffic growth, MQL-to-demo ratio, landing pages shipped"
-                              : project.title === "InboxBites"
-                              ? "Waitlist signups, engagement rate, feature completion, MVP timeline"
-                              : project.title === "Solgames"
-                              ? "Community size, hackathon apps, MVP delivery, funding raised"
-                              : project.title === "Martian Wallet"
-                              ? "Installs, active users, partnerships, transaction volume, community growth"
-                              : project.title === "GEOptimer"
-                              ? "GEO Score, report depth, user activation, actionable insights delivered"
-                              : project.title === "Growth Opportunity Agent"
-                              ? "Growth opps surfaced, activation rate, time-to-value"
-                              : project.title === "Reply Agent (Auto-Commenter)"
-                              ? "Replies/day, engagement, conversion rate, waitlist signups"
-                              : project.title === "Internal Linking Agent"
-                              ? "Pages optimized, time-to-optimize, user retention"
-                              : project.title === "Content Automation (Reddit → LinkedIn)"
-                              ? "Posts generated, engagement rate, review-to-post time"
-                              : project.title === "Blog Automation (Purple City MCP)"
-                              ? "Articles sourced, posts published, time saved per post"
-                              : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
-                              ? "Profiles scraped, leads enriched, time saved"
-                              : project.title === "AGENTSY"
-                              ? "Revenue, funnel conversion, ad spend ROI"
-                              : "User acquisition, transaction volume, partnership deals, DApp engagement"
-                            }
-                          </p>
-                        </div>
-                      )}
-
-                      {/* Results - For custom structured projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)" || project.title === "AGENTSY") && (
-                        <div>
-                          <h4 className="font-medium text-white mb-2">Results:</h4>
-                          <p className="text-gray-400">
-                            {project.title === "Cazpro"
-                              ? "2.5M INR sales in 15 months, 200+ daily orders in 3 months, successful exit"
-                              : project.title === "Millionth Mile Marketing"
-                              ? "$180K revenue in 2 years, 40+ clients (60% overseas), 10+ media features, top 5 agency recognition"
-                              : project.title === "DigiPay"
-                              ? "$4M to $80M revenue, 30K B2B app installs, 500K merchant downloads, built team from 1 to 28"
-                              : project.title === "Inventrax"
-                              ? "600% traffic growth, ranked top 1-2 for 3 keywords, lead volume surge"
-                              : project.title === "FDX Sports"
-                              ? "$10K to $120K/month sales, $500K+ ad spend, AOV up 2.5x"
-                              : project.title === "Codiste"
-                              ? "4x team output, 2.5x sales response, full-stack process automation"
-                              : project.title === "ZO Labs"
-                              ? "180K installs, 100K+ community, 10K+ agents, 120+ partnerships, 50+ IRL events"
-                              : project.title === "Zentrades"
-                              ? "MQLs 9→60/month, 125% traffic growth, 3x demo conversion, 5000+ landing pages"
-                              : project.title === "InboxBites"
-                              ? "MVP built in 6 weeks, 200+ waitlisters, 60% solo-coded, live waitlist"
-                              : project.title === "Solgames"
-                              ? "3K devs/gamers, $150K seed, Solana hackathon top 10, 1K+ hackathon apps"
-                              : project.title === "Martian Wallet"
-                              ? "1M+ installs, $2B+ volume, 400K new users, 50+ partnerships, $1M DApp daily"
-                              : project.title === "GEOptimer"
-                              ? "Comprehensive reports in seconds, instant action items, live MVP"
-                              : project.title === "Growth Opportunity Agent"
-                              ? "Opportunities delivered in real time, MVP ready, beta users onboard"
-                              : project.title === "Reply Agent (Auto-Commenter)"
-                              ? "150 auto-comments/day, Product Hunt launch scheduled, early demand"
-                              : project.title === "Internal Linking Agent"
-                              ? "Live in September, beta user waitlist, agent workflow ready"
-                              : project.title === "Content Automation (Reddit → LinkedIn)"
-                              ? "Automated 100% of LinkedIn pipeline, human QA in loop, next step: SaaS"
-                              : project.title === "Blog Automation (Purple City MCP)"
-                              ? "Deployed flow, InboxBites blog launch pending"
-                              : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
-                              ? "60% lead gen time saved, dashboarded leads, live beta"
-                              : project.title === "AGENTSY"
-                              ? "$2M+ sales, 20L+ INR in 6 months, high-volume funnel ops"
-                              : "50K+ users, 10K+ transactions, 20+ partnerships, global adoption across 30+ countries"
-                            }
-                          </p>
-                        </div>
-                      )}
-
-                      {/* Engagement Type for custom structured projects, Role for others */}
-                      <div>
-                        <h4 className="font-medium text-white mb-2">
-                          {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)" || project.title === "AGENTSY") ? "Engagement Type:" : "Role:"}
-                        </h4>
-                        <p className="text-gray-400">
-                          {project.title === "Cazpro" 
-                            ? "Founder (Full Time)" 
-                            : project.title === "Millionth Mile Marketing"
-                            ? "Co-founder, Head of Growth (Full Time)"
-                            : project.title === "DigiPay"
-                            ? "Head of Marketing (Full Time)"
-                            : project.title === "Inventrax"
-                            ? "Consultant (Freelance)"
-                            : project.title === "FDX Sports"
-                            ? "Consultant (Freelance)"
-                            : project.title === "Codiste"
-                            ? "Fractional CMO (Consulting)"
-                            : project.title === "ZO Labs"
-                            ? "Head of Growth (Full Time)"
-                            : project.title === "Zentrades"
-                            ? "Consultant (Freelance)"
-                            : project.title === "InboxBites"
-                            ? "Founder (Side Hustle/MicroSaaS)"
-                            : project.title === "Solgames"
-                            ? "Head of Growth, Co-founder"
-                            : project.title === "Martian Wallet"
-                            ? "Head of Marketing (Full Time)"
-                            : project.title === "GEOptimer"
-                            ? "Founder (Solo Builder)"
-                            : project.title === "Growth Opportunity Agent"
-                            ? "Founder (Micro-SaaS)"
-                            : project.title === "Reply Agent (Auto-Commenter)"
-                            ? "Founder (Micro-SaaS)"
-                            : project.title === "Internal Linking Agent"
-                            ? "Founder (Micro-SaaS)"
-                            : project.title === "Content Automation (Reddit → LinkedIn)"
-                            ? "Founder/Operator"
-                            : project.title === "Blog Automation (Purple City MCP)"
-                            ? "Founder/Builder"
-                            : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
-                            ? "Founder (Micro-SaaS)"
-                            : project.title === "AGENTSY"
-                            ? "Founder (Solo)"
-                            : "Solo Builder + Marketer"}
-                        </p>
-                      </div>
-
-                      {/* Period - For custom structured projects */}
-                      {(project.title === "Cazpro" || project.title === "Millionth Mile Marketing" || project.title === "DigiPay" || project.title === "Inventrax" || project.title === "FDX Sports" || project.title === "Codiste" || project.title === "ZO Labs" || project.title === "Zentrades" || project.title === "InboxBites" || project.title === "Solgames" || project.title === "Martian Wallet" || project.title === "GEOptimer" || project.title === "Growth Opportunity Agent" || project.title === "Reply Agent (Auto-Commenter)" || project.title === "Internal Linking Agent" || project.title === "Content Automation (Reddit → LinkedIn)" || project.title === "Blog Automation (Purple City MCP)" || project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)" || project.title === "AGENTSY") && (
-                        <div>
-                          <h4 className="font-medium text-white mb-2">Period:</h4>
-                          <p className="text-gray-400">
-                            {project.title === "Cazpro"
-                              ? "May 2014 – Dec 2015"
-                              : project.title === "Millionth Mile Marketing"
-                              ? "2017 – Dec 2019"
-                              : project.title === "DigiPay"
-                              ? "Dec 2019 – Sep 2021"
-                              : project.title === "Inventrax"
-                              ? "2022"
-                              : project.title === "FDX Sports"
-                              ? "2023"
-                              : project.title === "Codiste"
-                              ? "2024"
-                              : project.title === "ZO Labs"
-                              ? "Jan 2024 – Aug 2025"
-                              : project.title === "Zentrades"
-                              ? "2023"
-                              : project.title === "InboxBites"
-                              ? "2024"
-                              : project.title === "Solgames"
-                              ? "Nov 2022 – May 2023"
-                              : project.title === "Martian Wallet"
-                              ? "May 2023 – Jan 2024"
-                              : project.title === "GEOptimer"
-                              ? "2025 – ongoing"
-                              : project.title === "Growth Opportunity Agent"
-                              ? "2025 – ongoing"
-                              : project.title === "Reply Agent (Auto-Commenter)"
-                              ? "2025 – ongoing"
-                              : project.title === "Internal Linking Agent"
-                              ? "2025 – ongoing"
-                              : project.title === "Content Automation (Reddit → LinkedIn)"
-                              ? "2025 – ongoing"
-                              : project.title === "Blog Automation (Purple City MCP)"
-                              ? "2025 – ongoing"
-                              : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
-                              ? "2025 – ongoing"
-                              : project.title === "AGENTSY"
-                              ? "2025 – ongoing"
-                              : "2024"
-                            }
-                          </p>
-                        </div>
-                      )}
-
-                      {/* Results - For non-custom structured projects */}
-                      {(false) && (
-                        <div>
-                          <h4 className="font-medium text-white mb-2">Results:</h4>
-                          <p className="text-gray-400">
-                            {project.title === "FDX Sports"
-                              ? "$10K to $120K/month sales, $500K+ ad spend, AOV up 2.5x"
-                              : project.title === "Codiste"
-                              ? "4x team output, 2.5x sales response, full-stack process automation"
-                              : project.title === "Zentrades"
-                              ? "MQLs 9→60/month, 125% traffic growth, 3x demo conversion, 5000+ landing pages"
-                              : project.title === "InboxBites"
-                              ? "MVP built in 6 weeks, 200+ waitlisters, 60% solo-coded, live waitlist"
-                              : project.title === "Solgames"
-                              ? "3K devs/gamers, $150K seed, Solana hackathon top 10, 1K+ hackathon apps"
-                              : project.title === "Martian Wallet"
-                              ? "1M+ installs, $2B+ volume, 400K new users, 50+ partnerships, $1M DApp daily"
-                              : "180K installs, 100K+ community, 10K+ agents, 120+ partnerships, 50+ IRL events"}
-                          </p>
-                        </div>
-                      )}
-
-                      {/* Technologies - For non-custom structured projects */}
-                      {(false) && (
-                        <div>
-                          <h4 className="font-medium text-white mb-3">Technologies:</h4>
-                          <div className="flex flex-wrap gap-2">
-                            {project.technologies.slice(0, 8).map((tech) => (
+                            {project.technologies.map((tech) => (
                               <span 
                                 key={tech}
                                 className="rounded-full border border-white text-white px-3 py-1 text-sm inline-block"
                               >
-                                {tech === "React & Next.js" ? "React" : 
-                                 tech === "Node.js & Express" ? "Node.js" :
-                                 tech === "PostgreSQL" ? "PostgreSQL" :
-                                 tech === "MongoDB" ? "MongoDB" : tech}
+                                {tech}
                               </span>
                             ))}
                           </div>
                         </div>
                       )}
+
+
+                      {/* Skills - Using dynamic project data */}
+                      {project.skills && Array.isArray(project.skills) && project.skills.length > 0 && (
+                        <div>
+                          <h4 className="font-medium text-white mb-2">Skills:</h4>
+                          <p className="text-gray-400">
+                            {project.skills.join(", ")}
+                          </p>
+                        </div>
+                      )}
+
+                      {/* Goal - Using dynamic project data */}
+                      {project.goal && (
+                        <div>
+                          <h4 className="font-medium text-white mb-2">Goal:</h4>
+                          <p className="text-gray-400">
+                            {project.goal}
+                          </p>
+                        </div>
+                      )}
+
+
+
+
+
+                      {/* KPIs - Using dynamic project data */}
+                      {project.kpis && Array.isArray(project.kpis) && project.kpis.length > 0 && (
+                        <div>
+                          <h4 className="font-medium text-white mb-2">KPIs:</h4>
+                          <p className="text-gray-400">
+                            {project.kpis.join(", ")}
+                          </p>
+                        </div>
+                      )}
+
+                      {/* Results - Using dynamic project data */}
+                      {project.results && (
+                        <div>
+                          <h4 className="font-medium text-white mb-2">Results:</h4>
+                          <p className="text-gray-400">
+                            {project.results}
+                          </p>
+                        </div>
+                      )}
+
+                      {/* Engagement Type - Using dynamic project data */}
+                      {project.engagementType && (
+                        <div>
+                          <h4 className="font-medium text-white mb-2">Engagement Type:</h4>
+                          <p className="text-gray-400">
+                            {project.engagementType}
+                          </p>
+                        </div>
+                      )}
+
+                      {/* Period - Using dynamic project data */}
+                      {project.period && (
+                        <div>
+                          <h4 className="font-medium text-white mb-2">Period:</h4>
+                          <p className="text-gray-400">
+                            {project.period}
+                          </p>
+                        </div>
+                      )}
+
+
 
 
                     </div>
