@@ -77,12 +77,12 @@ class MemStorage implements IStorage {
           "Customer support and dispute resolution",
           "Compliance with banking regulations and KYC"
         ],
-        skills: ["Growth marketing", "fintech strategy", "user acquisition", "conversion optimization", "team leadership"],
-        goal: "Scale user base and transaction volume in competitive fintech market",
-        kpis: ["User acquisition", "transaction volume", "conversion rate", "retention rate"],
-        results: "500% user growth, $50M+ monthly volume, 40% improved conversion, 85% retention",
-        engagementType: "Head of Growth (Full Time)",
-        period: "2023 – 2024"
+        skills: ["B2B marketing", "field ops", "performance marketing", "attribution", "mobile marketing", "onboarding", "analytics"],
+        goal: "Drive B2B installs, scale revenue, build top-tier marketing org",
+        kpis: ["App downloads", "revenue growth", "team size", "lead volume", "merchant activation"],
+        results: "$4M to $80M revenue, 30K B2B app installs, 500K merchant downloads, built team from 1 to 28",
+        engagementType: "Head of Marketing (Full Time)",
+        period: "Dec 2019 – Sep 2021"
       },
       
       {
@@ -732,8 +732,8 @@ class MemStorage implements IStorage {
       description: insertProject.description,
       image: insertProject.image,
       video: insertProject.video || null,
-      gallery: insertProject.gallery || [],
-      technologies: Array.isArray(insertProject.technologies) ? insertProject.technologies : [],
+      gallery: Array.isArray(insertProject.gallery) ? [...insertProject.gallery] : [],
+      technologies: Array.isArray(insertProject.technologies) ? [...insertProject.technologies] : [],
       category: insertProject.category,
       liveUrl: insertProject.liveUrl || null,
       githubUrl: insertProject.githubUrl || null,
