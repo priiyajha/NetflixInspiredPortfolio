@@ -1,27 +1,98 @@
-name: Keep Render Service Alive
+name: Keep Render Service Always Running
 
 on:
   schedule:
-    # Ping every 14 minutes (cron expression: minute hour day month day-of-week)
-    - cron: '*/14 * * * *'
+    # Ping every 13 minutes to prevent Render free tier sleep (14 min timeout)
+    - cron: '*/13 * * * *'
   workflow_dispatch: # Allow manual trigger
+  push:
+    branches: [ main ]
+
+env:
+  RENDER_SERVICE_URL: ${{ secrets.RENDER_SERVICE_URL || 'https://portfolio-backend.onrender.com' }}
 
 jobs:
-  ping:
+  keep-alive:
     runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     
     steps:
-    - name: Ping Render Service
+    - name: Enhanced Health Check
       run: |
-        echo "Pinging Render service..."
-        RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" ${{ secrets.RENDER_SERVICE_URL }}/api/health)
+        echo "🔄 Starting enhanced health check..."
+        echo "📍 Target: $RENDER_SERVICE_URL"
+        echo "⏰ Timestamp: $(date -u)"
         
-        if [ $RESPONSE -eq 200 ]; then
-          echo "✅ Service is alive (HTTP $RESPONSE)"
+        # Multiple retry attempts with backoff
+        MAX_ATTEMPTS=5
+        DELAY=8
+        SUCCESS=false
+        
+        for i in $(seq 1 $MAX_ATTEMPTS); do
+          echo "🔍 Health check attempt $i/$MAX_ATTEMPTS"
+          
+          # Comprehensive health check with timeout and user agent
+          RESPONSE=$(curl -s -f --max-time 25 \
+            -w "HTTP_CODE:%{http_code}|TIME:%{time_total}|SIZE:%{size_download}" \
+            -H "User-Agent: GitHub-Actions-KeepAlive/2.0" \
+            -H "Accept: application/json" \
+            "$RENDER_SERVICE_URL/api/health" 2>/dev/null)
+          
+          if [ $? -eq 0 ] && echo "$RESPONSE" | grep -q "HTTP_CODE:200"; then
+            TIME=$(echo "$RESPONSE" | grep -o "TIME:[0-9.]*" | cut -d: -f2)
+            SIZE=$(echo "$RESPONSE" | grep -o "SIZE:[0-9]*" | cut -d: -f2)
+            echo "✅ Service is healthy! Response time: ${TIME}s, Size: ${SIZE}bytes"
+            SUCCESS=true
+            break
+          else
+            HTTP_CODE=$(echo "$RESPONSE" | grep -o "HTTP_CODE:[0-9]*" | cut -d: -f2)
+            echo "⚠️ Attempt $i failed (HTTP: ${HTTP_CODE:-'timeout'})"
+            
+            if [ $i -lt $MAX_ATTEMPTS ]; then
+              echo "⏳ Waiting ${DELAY}s before retry..."
+              sleep $DELAY
+              DELAY=$((DELAY + 2)) # Exponential backoff
+            fi
+          fi
+        done
+        
+        if [ "$SUCCESS" = "true" ]; then
+          echo "🎉 Keep-alive successful - service is running!"
         else
-          echo "❌ Service ping failed (HTTP $RESPONSE)"
+          echo "🚨 All attempts failed - service may need attention"
+          echo "🔧 Trying wake-up ping..."
+          curl -s --max-time 30 "$RENDER_SERVICE_URL" || true
           exit 1
         fi
-      
-    - name: Log timestamp
-      run: echo "Last ping at $(date -u)"
+
+    - name: Service Status Report
+      if: always()
+      run: |
+        echo "📊 Service Status Report"
+        echo "======================="
+        echo "🔗 Service URL: $RENDER_SERVICE_URL"
+        echo "⏰ Check completed: $(date -u)"
+        echo "🔄 Next check in ~13 minutes"
+        echo "📈 Uptime maintained by GitHub Actions"
+
+  deploy-notification:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+    - name: Deployment Status Check
+      run: |
+        echo "🚀 New deployment detected on main branch"
+        echo "⏳ Allowing 60s for deployment to complete..."
+        sleep 60
+        
+        # Check if service is responding after deployment
+        for i in {1..8}; do
+          if curl -f -s --max-time 20 "$RENDER_SERVICE_URL/api/health" > /dev/null 2>&1; then
+            echo "✅ Post-deployment health check passed!"
+            break
+          else
+            echo "⏳ Deployment in progress... (attempt $i/8)"
+            sleep 15
+          fi
+        done

@@ -2,17 +2,34 @@ services:
   - type: web
     name: portfolio-backend
     env: node
-    buildCommand: npm run build:server
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm run build:server
     startCommand: npm run start:server
+    healthCheckPath: /api/health
     envVars:
       - key: NODE_ENV
         value: production
+      - key: PORT
+        value: 10000
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://your-project.vercel.app
       - key: DATABASE_URL
         fromDatabase:
           name: portfolio-db
           property: connectionString
+    # Auto-deploy from main branch
+    autoDeploy: true
+    # Keep service running
+    numInstances: 1
 
 databases:
   - name: portfolio-db
     databaseName: portfolio
     user: portfolio_user
+    region: oregon
+    plan: free
+    # Automatic backups
+    backupRetentionDays: 7

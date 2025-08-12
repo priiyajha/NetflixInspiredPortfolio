@@ -155,10 +155,156 @@ npm run db:push
 ## Cost Estimate:
 - **Vercel**: Free tier (generous limits)
 - **Render**: Free tier for backend + database
+- **GitHub Actions**: Free tier (2000 minutes/month)
 - **Total**: $0/month for small projects
 
+## Always-Running Setup
+
+### Method 1: GitHub Actions Keep-Alive (Recommended)
+The included GitHub workflow automatically pings your service every 13 minutes:
+
+1. **Set GitHub Secrets**:
+   - Go to your repository → Settings → Secrets and Variables → Actions
+   - Add: `RENDER_SERVICE_URL` = `https://your-service.onrender.com`
+
+2. **Workflow Features**:
+   - Automatic keep-alive pings every 13 minutes
+   - Enhanced health checks with retry logic
+   - Deployment monitoring on main branch pushes
+   - Detailed logging and status reports
+
+### Method 2: External Cron Services
+Use third-party services like cron-job.org or UptimeRobot:
+
+1. **Setup External Ping**:
+   - URL: `https://your-service.onrender.com/api/health`
+   - Interval: Every 13 minutes
+   - Method: GET
+   - Expected Response: 200 OK
+
+### Method 3: Self-Hosted Keep-Alive
+Run the keep-alive service on your own server:
+
+```bash
+# Install dependencies
+npm install
+
+# Run keep-alive service
+node server/keep-alive.js
+```
+
+## Production Monitoring
+
+### Health Check Endpoints
+- **Health**: `GET /api/health`
+- **Projects**: `GET /api/projects`
+- **Profile**: `GET /api/profile`
+
+### Monitoring Setup
+1. **Uptime Monitoring**: Use UptimeRobot or Pingdom
+2. **Error Tracking**: Set up Sentry or LogRocket
+3. **Performance**: Use Vercel Analytics
+4. **Logs**: Monitor Render deployment logs
+
+### Auto-Scaling Configuration
+```yaml
+# render.yaml - Production settings
+services:
+  - type: web
+    name: portfolio-backend
+    plan: starter  # Upgrade for better performance
+    minInstances: 1
+    maxInstances: 3
+    scaling:
+      cpuPercent: 70
+      memoryPercent: 80
+```
+
+## Deployment Checklist
+
+### Pre-Deployment
+- [ ] Update environment variables in Render
+- [ ] Set FRONTEND_URL to Vercel domain
+- [ ] Configure DATABASE_URL connection
+- [ ] Set SESSION_SECRET for security
+- [ ] Test health endpoints locally
+
+### Post-Deployment  
+- [ ] Verify all API endpoints respond correctly
+- [ ] Check database connectivity
+- [ ] Test frontend-backend communication
+- [ ] Confirm CORS settings work
+- [ ] Monitor first 24 hours of uptime
+
+### Ongoing Maintenance
+- [ ] Monitor GitHub Actions keep-alive workflow
+- [ ] Check Render service logs weekly  
+- [ ] Update dependencies monthly
+- [ ] Backup database regularly
+- [ ] Review performance metrics
+
+## Troubleshooting Always-Running Setup
+
+### Common Issues:
+1. **GitHub Actions Failing**:
+   - Check repository secrets are set correctly
+   - Verify RENDER_SERVICE_URL format
+   - Review workflow logs for errors
+
+2. **Service Still Sleeping**:
+   - Confirm ping interval is < 14 minutes
+   - Check health endpoint responds correctly
+   - Verify Render service is not paused
+
+3. **High Response Times**:
+   - Render free tier has cold start delays
+   - Consider upgrading to Starter plan ($7/month)
+   - Optimize application startup time
+
+### Debug Commands:
+```bash
+# Test health endpoint
+curl -v https://your-service.onrender.com/api/health
+
+# Check deployment logs
+render logs your-service
+
+# Monitor GitHub Actions
+# Go to repository → Actions → Keep Render Service Always Running
+```
+
+## Scaling to Production
+
+### When to Upgrade Render Plan:
+- Consistent traffic (100+ requests/day)
+- Need faster response times (< 2s)
+- Want auto-scaling capabilities
+- Require 99.9% uptime SLA
+
+### Vercel Pro Features:
+- Custom domains with advanced DNS
+- Higher bandwidth limits
+- Analytics and monitoring
+- Serverless function improvements
+
+### Database Scaling:
+- Monitor connection limits (20 on free tier)
+- Consider connection pooling for high traffic
+- Set up read replicas for better performance
+- Regular backup and disaster recovery
+
+## Security Checklist
+
+- [ ] Enable HTTPS (automatic on both platforms)
+- [ ] Set secure session cookies in production
+- [ ] Configure proper CORS origins
+- [ ] Use environment variables for secrets
+- [ ] Enable rate limiting for API endpoints
+- [ ] Regular security updates for dependencies
+
 ## Next Steps:
-1. Set up monitoring and alerts
-2. Configure backup strategies
-3. Set up CI/CD pipelines
-4. Add SSL certificates (automatic on both platforms)
+1. Set up comprehensive monitoring and alerts
+2. Configure automated backup strategies  
+3. Implement CI/CD pipelines for testing
+4. Add performance optimization
+5. Plan for traffic scaling
