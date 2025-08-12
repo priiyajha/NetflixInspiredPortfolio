@@ -170,9 +170,9 @@ class MemStorage implements IStorage {
           "Scalable cloud infrastructure for agent hosting",
           "Comprehensive documentation and learning resources"
         ],
-        skills: ["AI platform growth", "community building", "partnership development", "growth marketing", "team leadership"],
+        skills: ["Growth marketing", "product management", "AI automation", "community building", "partnerships"],
         goal: "Scale installs, community, and organic traffic, land strategic partnerships",
-        kpis: ["Installs", "community size", "agent deployments", "partnerships", "organic traffic"],
+        kpis: ["App installs", "community growth", "landing pages shipped", "partnerships closed"],
         results: "180K installs, 100K+ community, 10K+ agents, 120+ partnerships, 50+ IRL events",
         engagementType: "Head of Growth (Full Time)",
         period: "Jan 2024 – Aug 2025"
