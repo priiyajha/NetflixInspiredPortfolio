@@ -378,7 +378,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     objectPosition: project.title === "Content Automation (Reddit → LinkedIn)" 
                       ? 'center 25%' 
                       : project.title === "Internal Linking Agent"
-                      ? 'center 10%'
+                      ? 'center 5%'
                       : 'center center'
                   }}
                   draggable={false}
