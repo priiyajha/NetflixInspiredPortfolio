@@ -24,6 +24,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
   const { data: project, isLoading } = useQuery<Project>({
     queryKey: ["/api/projects", projectId],
     enabled: !!projectId,
+    staleTime: 0, // Always fetch fresh data
+    refetchOnMount: true,
   });
 
   // Reset image index and selected image when project changes
@@ -34,6 +36,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
 
   const { data: featuredProjects = [] } = useQuery<Project[]>({
     queryKey: ["/api/projects/featured"],
+    staleTime: 0, // Always fetch fresh data
+    refetchOnMount: true,
   });
 
   // Filter out current project from "More Like This" and limit to 6
