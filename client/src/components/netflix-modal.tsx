@@ -741,7 +741,42 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             className="w-full h-32 object-cover group-hover:opacity-0 transition-opacity duration-300"
                             style={{
                               aspectRatio: '16/9',
-                              objectFit: 'cover'
+                              objectFit: 'cover',
+                              objectPosition: similarProject.title === "Content Automation (Reddit → LinkedIn)" 
+                                ? 'center 20%' 
+                                : similarProject.title === "Internal Linking Agent"
+                                ? 'center 80%'
+                                : similarProject.title === "InboxBites"
+                                ? 'center 5%'
+                                : similarProject.title === "DigiPe"
+                                ? 'center 80%'
+                                : similarProject.title === "Solgames"
+                                ? 'center 5%'
+                                : similarProject.title === "GEOptimer"
+                                ? 'center 80%'
+                                : similarProject.title === "Cazpro"
+                                ? 'center 15%'
+                                : similarProject.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
+                                ? 'center 90%'
+                                : similarProject.title === "AGENTSY"
+                                ? 'center 10%'
+                                : similarProject.title === "Blog Automation (Perplexity MCP)"
+                                ? 'center 25%'
+                                : similarProject.title === "FDX Sports"
+                                ? 'center 20%'
+                                : similarProject.title === "Inventrax"
+                                ? 'center 75%'
+                                : similarProject.title === "Growth Opportunity Agent"
+                                ? 'center 30%'
+                                : similarProject.title === "Zentrades"
+                                ? 'center 25%'
+                                : similarProject.title === "Reply Agent (Auto-Commenter)"
+                                ? 'center 40%'
+                                : similarProject.title === "Millionth Mile Marketing"
+                                ? 'center 30%'
+                                : similarProject.title === "Codiste"
+                                ? 'center 25%'
+                                : 'center center'
                             }}
                             onError={(e) => {
                               console.warn('Failed to load similar project image:', similarProject.image);
