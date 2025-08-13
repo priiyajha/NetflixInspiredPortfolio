@@ -358,13 +358,13 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 
                 {/* Static Image - optimized with responsive sizing and modern format hints */}
                 <img
-                  src={project.image}
+                  src={`${project.image}?v=${Date.now()}`}
                   alt={project.title}
                   loading={index < 5 ? "eager" : "lazy"}
                   decoding="async"
                   fetchPriority={index < 3 ? "high" : "low"}
                   sizes="(max-width: 768px) 240px, (max-width: 1024px) 252px, 276px"
-                  srcSet={`${project.image}?w=240&q=85 240w, ${project.image}?w=252&q=85 252w, ${project.image}?w=276&q=85 276w`}
+                  srcSet={`${project.image}?w=240&q=85&v=${Date.now()} 240w, ${project.image}?w=252&q=85&v=${Date.now()} 252w, ${project.image}?w=276&q=85&v=${Date.now()} 276w`}
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
                       ? 'opacity-0 h-72 sm:h-76 md:h-80' 

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
+import { queryClient } from "@/lib/queryClient";
 import { Project } from "@shared/schema";
 import { Button } from "./ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -32,6 +33,9 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
   useEffect(() => {
     setCurrentImageIndex(0);
     setSelectedImage(null);
+    
+    // Invalidate featured projects cache to ensure fresh thumbnails
+    queryClient.invalidateQueries({ queryKey: ["/api/projects/featured"] });
   }, [projectId]);
 
   const { data: featuredProjects = [] } = useQuery<Project[]>({
@@ -735,13 +739,13 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             />
                           )}
                           <img
-                            src={similarProject.image}
+                            src={`${similarProject.image}?v=${Date.now()}`}
                             alt={similarProject.title}
                             loading="lazy"
                             decoding="async"
                             fetchpriority="low"
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            srcSet={`${similarProject.image}?w=400&q=80 400w, ${similarProject.image}?w=800&q=80 800w`}
+                            srcSet={`${similarProject.image}?w=400&q=80&v=${Date.now()} 400w, ${similarProject.image}?w=800&q=80&v=${Date.now()} 800w`}
                             className="w-full h-32 object-cover group-hover:opacity-0 transition-opacity duration-300"
                             style={{
                               aspectRatio: '16/9',
