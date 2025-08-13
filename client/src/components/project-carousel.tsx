@@ -358,13 +358,13 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                 
                 {/* Static Image - optimized with responsive sizing and modern format hints */}
                 <img
-                  src={`${project.image}?bust=${Date.now()}_${Math.random().toString(36).substr(2, 9)}`}
+                  src={`${project.image}?nuclear=${Date.now()}_${Math.random()}`}
                   alt={project.title}
                   loading={index < 5 ? "eager" : "lazy"}
                   decoding="async"
                   fetchPriority={index < 3 ? "high" : "low"}
                   sizes="(max-width: 768px) 240px, (max-width: 1024px) 252px, 276px"
-                  srcSet={`${project.image}?w=240&q=85&bust=${Date.now()}_${Math.random().toString(36).substr(2, 9)} 240w, ${project.image}?w=252&q=85&bust=${Date.now()}_${Math.random().toString(36).substr(2, 9)} 252w, ${project.image}?w=276&q=85&bust=${Date.now()}_${Math.random().toString(36).substr(2, 9)} 276w`}
+                  srcSet={`${project.image}?w=240&nuclear=${Date.now()}_${Math.random()} 240w, ${project.image}?w=252&nuclear=${Date.now()}_${Math.random()} 252w, ${project.image}?w=276&nuclear=${Date.now()}_${Math.random()} 276w`}
                   className={`w-full object-cover transition-all duration-300 relative z-10 ${
                     hoveredProject === project.id 
                       ? 'opacity-0 h-72 sm:h-76 md:h-80' 

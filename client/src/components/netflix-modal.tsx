@@ -48,8 +48,34 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
     .filter(p => p.id !== projectId)
     .slice(0, 6);
 
-  // Force fresh cache-busting by using current time + random
-  const getCacheBustUrl = (imageUrl: string) => `${imageUrl}?bust=${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  // Create a unique cache-busting key that changes every time modal opens
+  const [cacheBuster] = useState(() => `${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
+  
+  // Force image reload by manipulating DOM directly
+  useEffect(() => {
+    if (moreLikeThisProjects.length > 0) {
+      const timer = setTimeout(() => {
+        // Force all thumbnail images to reload with new URLs
+        const thumbnailImages = document.querySelectorAll('[data-thumbnail-refresh]');
+        thumbnailImages.forEach((img) => {
+          const htmlImg = img as HTMLImageElement;
+          const originalSrc = htmlImg.getAttribute('data-original-src');
+          if (originalSrc) {
+            // Nuclear approach: remove from DOM, recreate with fresh src
+            const parent = htmlImg.parentNode;
+            const newImg = htmlImg.cloneNode(true) as HTMLImageElement;
+            newImg.src = `${originalSrc}?nuclear=${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+            
+            // Remove old image and insert new one
+            htmlImg.remove();
+            parent?.appendChild(newImg);
+          }
+        });
+      }, 100);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [moreLikeThisProjects, projectId]);
 
   const handleProjectClick = (newProjectId: string) => {
     if (onProjectSwitch) {
@@ -741,14 +767,16 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             />
                           )}
                           <img
-                            src={getCacheBustUrl(similarProject.image)}
+                            src={`${similarProject.image}?refresh=${cacheBuster}`}
+                            data-thumbnail-refresh="true"
+                            data-original-src={similarProject.image}
                             alt={similarProject.title}
                             loading="lazy"
                             decoding="async"
                             fetchPriority="low"
 
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            srcSet={`${getCacheBustUrl(similarProject.image)} 400w, ${getCacheBustUrl(similarProject.image)} 800w`}
+                            srcSet={`${similarProject.image}?refresh=${cacheBuster}&w=400 400w, ${similarProject.image}?refresh=${cacheBuster}&w=800 800w`}
                             className="w-full h-32 object-cover group-hover:opacity-0 transition-opacity duration-300"
                             style={{
                               aspectRatio: '16/9',
