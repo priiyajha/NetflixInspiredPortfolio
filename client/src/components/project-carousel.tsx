@@ -373,7 +373,11 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                   style={{
                     borderRadius: hoveredProject === project.id ? '12px' : '6px',
                     aspectRatio: '16/9',
-                    objectFit: 'cover'
+                    objectFit: 'cover',
+                    // Position the image to show the text for Content Automation project
+                    objectPosition: project.title === "Content Automation (Reddit → LinkedIn)" 
+                      ? 'center 25%' 
+                      : 'center center'
                   }}
                   draggable={false}
                 />
