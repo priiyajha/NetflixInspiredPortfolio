@@ -408,7 +408,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                       : project.title === "Millionth Mile Marketing"
                       ? 'center 30%'
                       : project.title === "Cazpro"
-                      ? 'center -30%'
+                      ? 'center -40%'
                       : project.title === "DigiPe"
                       ? 'center 80%'
                       : 'center center'
