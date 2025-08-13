@@ -376,7 +376,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                     objectFit: 'cover',
                     // Position the image to show the text for specific projects
                     objectPosition: project.title === "Content Automation (Reddit → LinkedIn)" 
-                      ? 'center 15%' 
+                      ? 'center 30%' 
                       : project.title === "Internal Linking Agent"
                       ? 'center 80%'
                       : project.title === "InboxBites"
