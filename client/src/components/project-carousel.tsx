@@ -380,7 +380,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                       : project.title === "Internal Linking Agent"
                       ? 'center 5%'
                       : project.title === "InboxBites"
-                      ? 'center 20%'
+                      ? 'center 25%'
                       : 'center center'
                   }}
                   draggable={false}
