@@ -87,12 +87,14 @@ app.use((req, res, next) => {
   try {
     const server = await registerRoutes(app);
 
-    // Serve static assets from attached_assets directory with no-cache headers
+    // Serve static assets from attached_assets directory with aggressive no-cache headers
     app.use('/attached_assets', (req, res, next) => {
-      // Add no-cache headers for attached assets to force fresh loads
-      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      // Add the most aggressive no-cache headers possible
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate, private, max-age=0');
       res.setHeader('Pragma', 'no-cache');
-      res.setHeader('Expires', '0');
+      res.setHeader('Expires', '-1');
+      res.setHeader('ETag', '');
+      res.setHeader('Last-Modified', '');
       next();
     }, express.static(path.join(process.cwd(), 'attached_assets')));
 

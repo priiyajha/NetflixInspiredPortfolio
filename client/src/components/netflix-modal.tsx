@@ -48,25 +48,13 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
     .filter(p => p.id !== projectId)
     .slice(0, 6);
 
-  // Add a useEffect to force image refresh
-  useEffect(() => {
-    if (moreLikeThisProjects.length > 0) {
-      // Small delay to ensure DOM is updated
-      const timer = setTimeout(() => {
-        // Force refresh all images in "More Like This" section
-        const images = document.querySelectorAll('[data-similar-project-image]');
-        images.forEach((img) => {
-          const htmlImg = img as HTMLImageElement;
-          if (htmlImg.dataset.originalSrc) {
-            const newUrl = `${htmlImg.dataset.originalSrc}?fresh=${Date.now()}&r=${Math.random()}`;
-            htmlImg.src = newUrl;
-          }
-        });
-      }, 100);
-      
-      return () => clearTimeout(timer);
-    }
-  }, [moreLikeThisProjects, projectId]);
+  // Create a stable cache-busting timestamp per session
+  const [cacheBustId] = useState(() => Date.now());
+  
+  // Create cache-busting URL for images
+  const getCacheBustedUrl = (imageUrl: string, additionalParams = '') => {
+    return `${imageUrl}?v=${cacheBustId}&cb=${Math.floor(Date.now() / 1000)}${additionalParams}`;
+  };
 
   const handleProjectClick = (newProjectId: string) => {
     if (onProjectSwitch) {
@@ -758,15 +746,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             />
                           )}
                           <img
-                            src={`${similarProject.image}?v=${Math.random()}&cache=no&t=${Date.now()}`}
+                            src={getCacheBustedUrl(similarProject.image)}
                             alt={similarProject.title}
                             loading="lazy"
                             decoding="async"
                             fetchPriority="low"
-                            data-similar-project-image="true"
-                            data-original-src={similarProject.image}
+
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            srcSet={`${similarProject.image}?w=400&q=80&v=${Math.random()}&cache=no&t=${Date.now()} 400w, ${similarProject.image}?w=800&q=80&v=${Math.random()}&cache=no&t=${Date.now()} 800w`}
+                            srcSet={`${getCacheBustedUrl(similarProject.image, '&w=400&q=80')} 400w, ${getCacheBustedUrl(similarProject.image, '&w=800&q=80')} 800w`}
                             className="w-full h-32 object-cover group-hover:opacity-0 transition-opacity duration-300"
                             style={{
                               aspectRatio: '16/9',
