@@ -370,7 +370,7 @@ class MemStorage implements IStorage {
         title: "Blog Automation (Perplexity MCP)",
         description: "Built a flow to auto-repurpose trending articles via perplexity MCP and RSS, turning them into original blog posts with a human-in-the-loop review. All powered by n8n and will soon power InboxBites' blog at scale.",
         image: "/attached_assets/ba (1)_1755114571891.jpeg",
-        video: "/attached_assets/17_1754499849424.mp4",
+        video: "/attached_assets/ba_v_1755114691913.mp4",
         gallery: [],
         technologies: ["n8n", "Perplexity MCP", "RSS feeds", "CMS"],
         category: "sidehustle",
