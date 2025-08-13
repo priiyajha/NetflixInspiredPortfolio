@@ -48,14 +48,6 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
     .filter(p => p.id !== projectId)
     .slice(0, 6);
 
-  // Create a stable cache-busting timestamp per session
-  const [cacheBustId] = useState(() => Date.now());
-  
-  // Create cache-busting URL for images
-  const getCacheBustedUrl = (imageUrl: string, additionalParams = '') => {
-    return `${imageUrl}?v=${cacheBustId}&cb=${Math.floor(Date.now() / 1000)}${additionalParams}`;
-  };
-
   const handleProjectClick = (newProjectId: string) => {
     if (onProjectSwitch) {
       onProjectSwitch(newProjectId);
@@ -746,14 +738,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             />
                           )}
                           <img
-                            src={getCacheBustedUrl(similarProject.image)}
+                            src={`${similarProject.image}?v=${Date.now()}&cb=${Math.floor(Date.now() / 1000)}`}
                             alt={similarProject.title}
                             loading="lazy"
                             decoding="async"
                             fetchPriority="low"
 
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            srcSet={`${getCacheBustedUrl(similarProject.image, '&w=400&q=80')} 400w, ${getCacheBustedUrl(similarProject.image, '&w=800&q=80')} 800w`}
+                            srcSet={`${similarProject.image}?w=400&q=80&v=${Date.now()}&cb=${Math.floor(Date.now() / 1000)} 400w, ${similarProject.image}?w=800&q=80&v=${Date.now()}&cb=${Math.floor(Date.now() / 1000)} 800w`}
                             className="w-full h-32 object-cover group-hover:opacity-0 transition-opacity duration-300"
                             style={{
                               aspectRatio: '16/9',
