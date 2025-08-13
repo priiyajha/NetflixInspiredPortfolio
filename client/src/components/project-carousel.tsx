@@ -397,6 +397,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                       ? 'center 0%'
                       : project.title === "FDX Sports"
                       ? 'center 20%'
+                      : project.title === "Inventrax"
+                      ? 'center 75%'
                       : 'center center'
                   }}
                   draggable={false}
