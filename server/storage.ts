@@ -26,7 +26,7 @@ class MemStorage implements IStorage {
         id: "1",
         title: "Cazpro",
         description: "Built and scaled Cazpro, a D2C college merch brand, from a dorm room idea at 17 to a 2.5M INR sales machine in 15 months. Survived near shutdowns, sold to a local industrialist, and handled everything from code to partnerships. Hustled hard, shipped harder.",
-        image: "/attached_assets/Cazpro_1755111152726.jpeg",
+        image: "/attached_assets/Cazpro 2_1755112735827.jpeg",
         video: "/attached_assets/1_1754491684471.mp4",
         gallery: ["/attached_assets/1_1_1754913832087.jpeg", "/attached_assets/1_2_1754913836591.jpeg"],
         technologies: ["CleverTap", "AppsFlyer", "Amplitude", "Google Firebase", "Google Analytics", "SEMrush", "Branch.io"],
