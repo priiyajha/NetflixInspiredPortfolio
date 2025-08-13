@@ -307,7 +307,7 @@ class MemStorage implements IStorage {
         id: "21",
         title: "Internal Linking Agent",
         description: "Launching a plug-and-play internal linking agent for founders strapped on SEO budgets—instantly optimize content for search and LLMs. Built on Node.js, React, and custom logic, delivers fast actionable traffic/visibility gains. Shipping first week of September.",
-        image: "/attached_assets/InternalLA_1754916097516.jpeg",
+        image: "/attached_assets/InternalLA_1755104029826.jpeg",
         video: "/attached_assets/15_1754499301804.mp4",
         gallery: [],
         technologies: ["Replicate", "Node.js", "React.js", "Cloud Code", "custom logic"],
