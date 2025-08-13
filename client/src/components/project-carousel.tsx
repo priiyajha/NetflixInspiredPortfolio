@@ -404,7 +404,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                       : project.title === "Zentrades"
                       ? 'center 25%'
                       : project.title === "Reply Agent (Auto-Commenter)"
-                      ? 'center 85%'
+                      ? 'center 40%'
                       : project.title === "Millionth Mile Marketing"
                       ? 'center 30%'
                       : project.title === "Cazpro"
