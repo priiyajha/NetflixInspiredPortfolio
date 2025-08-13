@@ -48,11 +48,6 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
     .filter(p => p.id !== projectId)
     .slice(0, 6);
 
-  // Debug logging
-  console.log('Featured projects count:', featuredProjects.length);
-  console.log('More Like This projects count:', moreLikeThisProjects.length);
-  console.log('Current project ID:', projectId);
-  
   // Add a useEffect to force image refresh
   useEffect(() => {
     if (moreLikeThisProjects.length > 0) {
