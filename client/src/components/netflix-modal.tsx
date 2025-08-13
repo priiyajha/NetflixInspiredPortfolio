@@ -486,14 +486,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                           ? "Launching a plug-and-play internal linking agent for founders strapped on SEO budgets."
                           : project.title === "Content Automation (Reddit → LinkedIn)"
                           ? "Automated my LinkedIn content pipeline by scraping Reddit for trending AI/agent pain points."
-                          : project.title === "Blog Automation (Purple City MCP)"
-                          ? "Built a flow to auto-repurpose trending articles via Purple City MCP and RSS."
+                          : project.title === "Blog Automation (Perplexity MCP)"
+                          ? "Built a flow to auto-repurpose trending articles via Perplexity MCP and RSS."
                           : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
                           ? "Created an agent to scrape, filter, and funnel target profiles talking about specific pain points."
                           : project.title === "AGENTSY"
                           ? "Sold over $2M in digital products via AGENTSY—performance marketing funnels at scale."
                           : project.title === "Reply Agent (Auto-Commenter)"
-                          ? "Complex processes now run seamlessly."
+                          ? "Engineering a Reply Agent that auto-generates and posts targeted replies across LinkedIn, Twitter, and Reddit."
                           : "Complex processes now run seamlessly."
                         }
                       </h2>
