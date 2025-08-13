@@ -727,7 +727,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               muted
                               playsInline
                               preload="none"
-                              loading="lazy"
+
                               style={{
                                 aspectRatio: '16/9',
                                 objectFit: 'cover'
@@ -742,7 +742,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             alt={similarProject.title}
                             loading="lazy"
                             decoding="async"
-                            fetchpriority="low"
+                            fetchPriority="low"
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                             srcSet={`${similarProject.image}?w=400&q=80&cache=bust&t=20250813 400w, ${similarProject.image}?w=800&q=80&cache=bust&t=20250813 800w`}
                             className="w-full h-32 object-cover group-hover:opacity-0 transition-opacity duration-300"
