@@ -401,6 +401,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                       ? 'center 75%'
                       : project.title === "Growth Opportunity Agent"
                       ? 'center 30%'
+                      : project.title === "Zentrades"
+                      ? 'center 25%'
                       : 'center center'
                   }}
                   draggable={false}

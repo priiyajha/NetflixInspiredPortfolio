@@ -586,7 +586,7 @@ class MemStorage implements IStorage {
         id: "13",
         title: "Zentrades",
         description: "Dropped into Zentrades as a marketing consultant, rewired their inbound engine, and took MQLs from single digits to 60 a month in 4 months. Built programmatic SEO systems, optimized conversion funnels, and delivered measurable growth that transformed their lead generation.",
-        image: "/attached_assets/Zentrades_1754916312665.jpeg",
+        image: "/attached_assets/Zentrades_1755107805039.jpeg",
         video: "/attached_assets/8_1754494894057.mp4",
         gallery: ["/attached_assets/8_1_1754916459658.jpeg", "/attached_assets/8_2_1754916464956.jpeg"],
         technologies: ["Programmatic SEO", "Google Analytics", "CRM", "marketing attribution tools"],
