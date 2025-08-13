@@ -404,7 +404,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                       : project.title === "Zentrades"
                       ? 'center 25%'
                       : project.title === "Reply Agent (Auto-Commenter)"
-                      ? 'center 20%'
+                      ? 'center 70%'
                       : 'center center'
                   }}
                   draggable={false}
