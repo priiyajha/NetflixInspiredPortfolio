@@ -36,7 +36,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
   }, [projectId]);
 
   const { data: featuredProjects = [] } = useQuery<Project[]>({
-    queryKey: ["/api/projects/featured", projectId], // Include projectId to force new query
+    queryKey: ["/api/projects/featured"], // Fixed: Remove projectId from query key
     staleTime: 0, // Always fetch fresh data
     refetchOnMount: true,
     refetchOnWindowFocus: true,
@@ -47,6 +47,11 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
   const moreLikeThisProjects = featuredProjects
     .filter(p => p.id !== projectId)
     .slice(0, 6);
+
+  // Debug logging
+  console.log('Featured projects count:', featuredProjects.length);
+  console.log('More Like This projects count:', moreLikeThisProjects.length);
+  console.log('Current project ID:', projectId);
 
   const handleProjectClick = (newProjectId: string) => {
     if (onProjectSwitch) {
