@@ -394,7 +394,7 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                       : project.title === "AGENTSY"
                       ? 'center 10%'
                       : project.title === "Blog Automation (Perplexity MCP)"
-                      ? 'center 0%'
+                      ? 'center 25%'
                       : project.title === "FDX Sports"
                       ? 'center 20%'
                       : project.title === "Inventrax"
