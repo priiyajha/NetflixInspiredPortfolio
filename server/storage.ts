@@ -58,7 +58,7 @@ class MemStorage implements IStorage {
         id: "3",
         title: "DigiPe",
         description: "Joined DigiPe as Head of Growth, scaling their fintech platform from startup to market leader. Drove user acquisition, optimized conversion funnels, and built growth systems that delivered consistent month-over-month expansion in the competitive digital payments space.",
-        image: "/attached_assets/DigiPe_1754914961127.jpeg",
+        image: "/attached_assets/DigiPe_1755105484629.jpeg",
         video: "/attached_assets/3_1754492376019.mp4",
         gallery: ["/attached_assets/3_1_1754915141952.jpeg", "/attached_assets/3_2_1754915146922.jpeg", "/attached_assets/3_3_1754915150153.jpeg", "/attached_assets/3_4_1754915153234.jpeg"],
         technologies: ["CleverTap", "AppsFlyer", "Amplitude", "Google Firebase", "Google Analytics", "SEMrush", "Branch.io"],
