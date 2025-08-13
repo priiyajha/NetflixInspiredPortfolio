@@ -367,7 +367,7 @@ class MemStorage implements IStorage {
 
       {
         id: "23",
-        title: "Blog Automation (Purple City MCP)",
+        title: "Blog Automation (Perplexity MCP)",
         description: "Built a flow to auto-repurpose trending articles via Purple City MCP and RSS, turning them into original blog posts with a human-in-the-loop review. All powered by n8n and will soon power InboxBites' blog at scale.",
         image: "/attached_assets/BlogAuto_1754916159539.jpeg",
         video: "/attached_assets/17_1754499849424.mp4",
