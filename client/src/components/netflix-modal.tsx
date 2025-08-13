@@ -52,6 +52,26 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
   console.log('Featured projects count:', featuredProjects.length);
   console.log('More Like This projects count:', moreLikeThisProjects.length);
   console.log('Current project ID:', projectId);
+  
+  // Add a useEffect to force image refresh
+  useEffect(() => {
+    if (moreLikeThisProjects.length > 0) {
+      // Small delay to ensure DOM is updated
+      const timer = setTimeout(() => {
+        // Force refresh all images in "More Like This" section
+        const images = document.querySelectorAll('[data-similar-project-image]');
+        images.forEach((img) => {
+          const htmlImg = img as HTMLImageElement;
+          if (htmlImg.dataset.originalSrc) {
+            const newUrl = `${htmlImg.dataset.originalSrc}?fresh=${Date.now()}&r=${Math.random()}`;
+            htmlImg.src = newUrl;
+          }
+        });
+      }, 100);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [moreLikeThisProjects, projectId]);
 
   const handleProjectClick = (newProjectId: string) => {
     if (onProjectSwitch) {
@@ -743,13 +763,15 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             />
                           )}
                           <img
-                            src={`${similarProject.image}?cache=bust&t=20250813`}
+                            src={`${similarProject.image}?v=${Math.random()}&cache=no&t=${Date.now()}`}
                             alt={similarProject.title}
                             loading="lazy"
                             decoding="async"
                             fetchPriority="low"
+                            data-similar-project-image="true"
+                            data-original-src={similarProject.image}
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            srcSet={`${similarProject.image}?w=400&q=80&cache=bust&t=20250813 400w, ${similarProject.image}?w=800&q=80&cache=bust&t=20250813 800w`}
+                            srcSet={`${similarProject.image}?w=400&q=80&v=${Math.random()}&cache=no&t=${Date.now()} 400w, ${similarProject.image}?w=800&q=80&v=${Math.random()}&cache=no&t=${Date.now()} 800w`}
                             className="w-full h-32 object-cover group-hover:opacity-0 transition-opacity duration-300"
                             style={{
                               aspectRatio: '16/9',
