@@ -391,6 +391,8 @@ export default function ProjectCarousel({ projects, onProjectClick }: ProjectCar
                       ? 'center 80%'
                       : project.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
                       ? 'center 90%'
+                      : project.title === "AGENTSY"
+                      ? 'center 20%'
                       : 'center center'
                   }}
                   draggable={false}
