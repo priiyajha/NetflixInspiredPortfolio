@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
-import { queryClient } from "@/lib/queryClient";
 import { Project } from "@shared/schema";
 import { Button } from "./ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -25,8 +24,6 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
   const { data: project, isLoading } = useQuery<Project>({
     queryKey: ["/api/projects", projectId],
     enabled: !!projectId,
-    staleTime: 0, // Always fetch fresh data
-    refetchOnMount: true,
   });
 
   // Reset image index and selected image when project changes
@@ -36,46 +33,13 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
   }, [projectId]);
 
   const { data: featuredProjects = [] } = useQuery<Project[]>({
-    queryKey: ["/api/projects/featured"], // Fixed: Remove projectId from query key
-    staleTime: 0, // Always fetch fresh data
-    refetchOnMount: true,
-    refetchOnWindowFocus: true,
-    retry: false,
+    queryKey: ["/api/projects/featured"],
   });
 
   // Filter out current project from "More Like This" and limit to 6
   const moreLikeThisProjects = featuredProjects
     .filter(p => p.id !== projectId)
     .slice(0, 6);
-
-  // Create a unique cache-busting key that changes every time modal opens
-  const [cacheBuster] = useState(() => `${Date.now()}_${Math.random().toString(36).substr(2, 9)}`);
-  
-  // Force image reload by manipulating DOM directly
-  useEffect(() => {
-    if (moreLikeThisProjects.length > 0) {
-      const timer = setTimeout(() => {
-        // Force all thumbnail images to reload with new URLs
-        const thumbnailImages = document.querySelectorAll('[data-thumbnail-refresh]');
-        thumbnailImages.forEach((img) => {
-          const htmlImg = img as HTMLImageElement;
-          const originalSrc = htmlImg.getAttribute('data-original-src');
-          if (originalSrc) {
-            // Nuclear approach: remove from DOM, recreate with fresh src
-            const parent = htmlImg.parentNode;
-            const newImg = htmlImg.cloneNode(true) as HTMLImageElement;
-            newImg.src = `${originalSrc}?nuclear=${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-            
-            // Remove old image and insert new one
-            htmlImg.remove();
-            parent?.appendChild(newImg);
-          }
-        });
-      }, 100);
-      
-      return () => clearTimeout(timer);
-    }
-  }, [moreLikeThisProjects, projectId]);
 
   const handleProjectClick = (newProjectId: string) => {
     if (onProjectSwitch) {
@@ -756,7 +720,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                               muted
                               playsInline
                               preload="none"
-
+                              loading="lazy"
                               style={{
                                 aspectRatio: '16/9',
                                 objectFit: 'cover'
@@ -767,55 +731,17 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             />
                           )}
                           <img
-                            src={`${similarProject.image}?refresh=${cacheBuster}`}
-                            data-thumbnail-refresh="true"
-                            data-original-src={similarProject.image}
+                            src={similarProject.image}
                             alt={similarProject.title}
                             loading="lazy"
                             decoding="async"
-                            fetchPriority="low"
-
+                            fetchpriority="low"
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            srcSet={`${similarProject.image}?refresh=${cacheBuster}&w=400 400w, ${similarProject.image}?refresh=${cacheBuster}&w=800 800w`}
+                            srcSet={`${similarProject.image}?w=400&q=80 400w, ${similarProject.image}?w=800&q=80 800w`}
                             className="w-full h-32 object-cover group-hover:opacity-0 transition-opacity duration-300"
                             style={{
                               aspectRatio: '16/9',
-                              objectFit: 'cover',
-                              objectPosition: similarProject.title === "Content Automation (Reddit → LinkedIn)" 
-                                ? 'center 20%' 
-                                : similarProject.title === "Internal Linking Agent"
-                                ? 'center 80%'
-                                : similarProject.title === "InboxBites"
-                                ? 'center 5%'
-                                : similarProject.title === "DigiPe"
-                                ? 'center 80%'
-                                : similarProject.title === "Solgames"
-                                ? 'center 5%'
-                                : similarProject.title === "GEOptimer"
-                                ? 'center 80%'
-                                : similarProject.title === "Cazpro"
-                                ? 'center 15%'
-                                : similarProject.title === "Lead Generator Agent (LinkedIn, Twitter, Reddit)"
-                                ? 'center 90%'
-                                : similarProject.title === "AGENTSY"
-                                ? 'center 10%'
-                                : similarProject.title === "Blog Automation (Perplexity MCP)"
-                                ? 'center 25%'
-                                : similarProject.title === "FDX Sports"
-                                ? 'center 20%'
-                                : similarProject.title === "Inventrax"
-                                ? 'center 75%'
-                                : similarProject.title === "Growth Opportunity Agent"
-                                ? 'center 30%'
-                                : similarProject.title === "Zentrades"
-                                ? 'center 25%'
-                                : similarProject.title === "Reply Agent (Auto-Commenter)"
-                                ? 'center 40%'
-                                : similarProject.title === "Millionth Mile Marketing"
-                                ? 'center 30%'
-                                : similarProject.title === "Codiste"
-                                ? 'center 25%'
-                                : 'center center'
+                              objectFit: 'cover'
                             }}
                             onError={(e) => {
                               console.warn('Failed to load similar project image:', similarProject.image);
