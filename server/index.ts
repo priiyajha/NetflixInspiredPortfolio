@@ -87,8 +87,14 @@ app.use((req, res, next) => {
   try {
     const server = await registerRoutes(app);
 
-    // Serve static assets from attached_assets directory before Vite middleware
-    app.use('/attached_assets', express.static(path.join(process.cwd(), 'attached_assets')));
+    // Serve static assets from attached_assets directory with no-cache headers
+    app.use('/attached_assets', (req, res, next) => {
+      // Add no-cache headers for attached assets to force fresh loads
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
+      next();
+    }, express.static(path.join(process.cwd(), 'attached_assets')));
 
     app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
       const status = err.status || err.statusCode || 500;
