@@ -48,10 +48,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
     .filter(p => p.id !== projectId)
     .slice(0, 6);
 
-  // Create stable cache-busting timestamp that doesn't change on re-renders
-  const cacheBustTimestamp = useState(() => Date.now())[0];
-  
-
+  // Force fresh cache-busting by using current time + random
+  const getCacheBustUrl = (imageUrl: string) => `${imageUrl}?bust=${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 
   const handleProjectClick = (newProjectId: string) => {
     if (onProjectSwitch) {
@@ -743,14 +741,14 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             />
                           )}
                           <img
-                            src={`${similarProject.image}?v=${cacheBustTimestamp}`}
+                            src={getCacheBustUrl(similarProject.image)}
                             alt={similarProject.title}
                             loading="lazy"
                             decoding="async"
                             fetchPriority="low"
 
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            srcSet={`${similarProject.image}?w=400&q=80&v=${cacheBustTimestamp} 400w, ${similarProject.image}?w=800&q=80&v=${cacheBustTimestamp} 800w`}
+                            srcSet={`${getCacheBustUrl(similarProject.image)} 400w, ${getCacheBustUrl(similarProject.image)} 800w`}
                             className="w-full h-32 object-cover group-hover:opacity-0 transition-opacity duration-300"
                             style={{
                               aspectRatio: '16/9',

@@ -87,16 +87,25 @@ app.use((req, res, next) => {
   try {
     const server = await registerRoutes(app);
 
-    // Serve static assets from attached_assets directory with aggressive no-cache headers
+    // Serve static assets from attached_assets directory with nuclear cache-busting
     app.use('/attached_assets', (req, res, next) => {
-      // Add the most aggressive no-cache headers possible
-      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate, private, max-age=0');
+      // Nuclear cache-busting - disable ALL caching
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate, private, max-age=0, s-maxage=0');
       res.setHeader('Pragma', 'no-cache');
-      res.setHeader('Expires', '-1');
-      res.setHeader('ETag', '');
-      res.setHeader('Last-Modified', '');
+      res.setHeader('Expires', '0');
+      res.setHeader('Surrogate-Control', 'no-store');
+      res.removeHeader('ETag');
+      res.removeHeader('Last-Modified');
+      // Force fresh response
+      res.setHeader('Vary', '*');
       next();
-    }, express.static(path.join(process.cwd(), 'attached_assets')));
+    }, express.static(path.join(process.cwd(), 'attached_assets'), {
+      etag: false,
+      lastModified: false,
+      maxAge: 0,
+      immutable: false,
+      cacheControl: false
+    }));
 
     app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
       const status = err.status || err.statusCode || 500;
