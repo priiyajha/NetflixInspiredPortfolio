@@ -18,6 +18,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [copiedProject, setCopiedProject] = useState(false);
+  const [modalKey, setModalKey] = useState(0);
   const imageScrollRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
@@ -30,6 +31,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
   useEffect(() => {
     setCurrentImageIndex(0);
     setSelectedImage(null);
+    setModalKey(prev => prev + 1); // Force thumbnail refresh
   }, [projectId]);
 
   const { data: featuredProjects = [] } = useQuery<Project[]>({
@@ -696,7 +698,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                       {moreLikeThisProjects.map((similarProject) => (
                         <div
-                          key={similarProject.id}
+                          key={`${similarProject.id}-${modalKey}`}
                           className="bg-[#2F2F2F] rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 group relative"
                           onClick={() => {
                             // First scroll to the video section to highlight the background video
