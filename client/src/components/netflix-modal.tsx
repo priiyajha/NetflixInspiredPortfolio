@@ -68,10 +68,30 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
     return basePath + "?cb=" + cacheBreaker;
   };
 
-  // Filter out current project from "More Like This" and limit to 6
-  const moreLikeThisProjects = featuredProjects
-    .filter(p => p.id !== projectId)
-    .slice(0, 6);
+  // Custom "More Like This" selection - replace specific projects
+  const getMoreLikeThisProjects = () => {
+    // Define replacement mapping
+    const replacements: Record<string, string> = {
+      "1": "21", // Cazpro -> Internal Linking Agent
+      "3": "24", // DigiPe -> Lead Generator Agent
+      "12": "25", // Codiste -> AGENTSY
+      "17": "4"  // Martian Wallet -> Inventrax
+    };
+    
+    return featuredProjects
+      .map(project => {
+        // If this project should be replaced, find the replacement
+        if (replacements[project.id]) {
+          const replacementProject = featuredProjects.find(p => p.id === replacements[project.id]);
+          return replacementProject || project;
+        }
+        return project;
+      })
+      .filter(p => p.id !== projectId) // Filter out current project
+      .slice(0, 6);
+  };
+  
+  const moreLikeThisProjects = getMoreLikeThisProjects();
 
   const handleProjectClick = (newProjectId: string) => {
     if (onProjectSwitch) {
