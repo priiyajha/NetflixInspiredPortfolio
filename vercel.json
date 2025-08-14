@@ -1,16 +1,15 @@
 {
-  "builds": [
-    {
-      "src": "client/index.html",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "client/dist"
-      }
-    }
-  ],
-  "buildCommand": "npm run build",
+  "buildCommand": "vite build",
   "outputDirectory": "client/dist",
+  "installCommand": "npm install",
+  "framework": "vite",
   "env": {
-    "VITE_API_URL": "@api_url"
-  }
+    "VITE_API_URL": "https://portfolio-farooq-backend.onrender.com"
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
