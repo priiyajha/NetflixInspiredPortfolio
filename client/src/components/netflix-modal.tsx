@@ -38,6 +38,33 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
     queryKey: ["/api/projects/featured"],
   });
 
+  // Static thumbnail mapping for "More Like This" section
+  const getThumbnailPath = (projectId: string, title: string): string => {
+    const thumbnailMap: Record<string, string> = {
+      "1": "/attached_assets/Cazpro 2_1755112735827.jpeg", // Cazpro
+      "2": "/attached_assets/MMM_1755110463225.jpeg", // Millionth Mile Marketing
+      "3": "/attached_assets/dp_1755111654957.jpeg", // DigiPe
+      "4": "/attached_assets/Inventrax_1754916342697.jpeg", // Inventrax
+      "8": "/attached_assets/FD_1754915223801.jpeg", // FDX Sports
+      "11": "/attached_assets/Zo-Labs_1754915521507.jpeg", // Zo Labs
+      "12": "/attached_assets/Codiste_1755112942332.jpeg", // Codiste
+      "13": "/attached_assets/Zentrades_1755107805039.jpeg", // Zentrades
+      "15": "/attached_assets/Inboxbites_1755104402481.png", // InboxBites
+      "16": "/attached_assets/Solgames_1755105321545.jpeg", // Solgames
+      "17": "/attached_assets/MW_1755105374146.jpeg", // Martian Wallet
+      "18": "/attached_assets/GEOptimer_1754915993193.jpeg", // GEOptimer
+      "19": "/attached_assets/GOA_1755107653390.jpeg", // Growth Opportunity Agent
+      "20": "/attached_assets/ra (1)_1755114425581.jpeg", // Reply Agent (Auto-Commenter)
+      "21": "/attached_assets/InternalLA_1755108242866.jpeg", // Internal Linking Agent
+      "22": "/attached_assets/Ca_1755112260596.jpeg", // Content Automation (Reddit → LinkedIn)
+      "23": "/attached_assets/ba (1)_1755114571891.jpeg", // Blog Automation (Perplexity MCP)
+      "24": "/attached_assets/LeadGenAg_1754916199494.jpeg", // Lead Generator Agent
+      "25": "/attached_assets/Agentsy_1754916226315.jpeg" // AGENTSY
+    };
+    
+    return thumbnailMap[projectId] || "/default-thumbnail.jpg";
+  };
+
   // Filter out current project from "More Like This" and limit to 6
   const moreLikeThisProjects = featuredProjects
     .filter(p => p.id !== projectId)
@@ -733,7 +760,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             />
                           )}
                           <img
-                            src={`${similarProject.image}?v=${Date.now()}`}
+                            src={getThumbnailPath(similarProject.id, similarProject.title)}
                             alt={similarProject.title}
                             loading="lazy"
                             decoding="async"
