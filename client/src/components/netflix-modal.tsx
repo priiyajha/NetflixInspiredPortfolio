@@ -19,6 +19,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [copiedProject, setCopiedProject] = useState(false);
   const [modalKey, setModalKey] = useState(0);
+  const [cacheBreaker, setCacheBreaker] = useState(Date.now());
   const imageScrollRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
@@ -32,6 +33,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
     setCurrentImageIndex(0);
     setSelectedImage(null);
     setModalKey(prev => prev + 1); // Force thumbnail refresh
+    setCacheBreaker(Date.now()); // Force cache refresh
   }, [projectId]);
 
   const { data: featuredProjects = [] } = useQuery<Project[]>({
@@ -62,7 +64,8 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
       "25": "/attached_assets/Agentsy_1754916226315.jpeg" // AGENTSY
     };
     
-    return thumbnailMap[projectId] || "/default-thumbnail.jpg";
+    const basePath = thumbnailMap[projectId] || "/default-thumbnail.jpg";
+    return basePath + "?cb=" + cacheBreaker;
   };
 
   // Filter out current project from "More Like This" and limit to 6
