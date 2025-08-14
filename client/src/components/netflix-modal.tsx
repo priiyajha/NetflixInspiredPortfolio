@@ -19,7 +19,7 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [copiedProject, setCopiedProject] = useState(false);
   const [modalKey, setModalKey] = useState(0);
-  const [cacheBreaker, setCacheBreaker] = useState(Date.now());
+  const [cacheBreaker, setCacheBreaker] = useState(Date.now() + 99999);
   const imageScrollRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
@@ -788,15 +788,13 @@ export default function NetflixModal({ projectId, onClose, onProjectSwitch }: Ne
                             loading="lazy"
                             decoding="async"
                             fetchPriority="low"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                            srcSet={`${similarProject.image}?w=400&q=80 400w, ${similarProject.image}?w=800&q=80 800w`}
                             className="w-full h-32 object-cover group-hover:opacity-0 transition-opacity duration-300"
                             style={{
                               aspectRatio: '16/9',
                               objectFit: 'cover'
                             }}
                             onError={(e) => {
-                              console.warn('Failed to load similar project image:', similarProject.image);
+                              console.warn('Failed to load similar project thumbnail:', getThumbnailPath(similarProject.id, similarProject.title));
                               e.currentTarget.src = "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450";
                             }}
                           />
