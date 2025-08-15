@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Smith - Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'netflix-red': '#E50914',
+                        'netflix-black': '#000000',
+                        'netflix-dark': '#141414',
+                        'netflix-gray': '#B3B3B3'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body class="bg-netflix-black text-white font-inter">
+    <!-- @COMPONENT: Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-netflix-black to-transparent transition-all duration-300" id="header">
+        <div class="container mx-auto px-6 py-4">
+            <nav class="flex items-center justify-between">
+                <div class="flex items-center space-x-8">
+                    <div class="text-2xl font-bold text-netflix-red">JS</div>
+                    <ul class="hidden md:flex space-x-6">
+                        <li><a href="#home" class="hover:text-netflix-red transition-colors duration-200">Home</a></li>
+                        <li><a href="#projects" class="hover:text-netflix-red transition-colors duration-200">Projects</a></li>
+                        <li><a href="#contact" class="hover:text-netflix-red transition-colors duration-200">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Search projects..." class="bg-netflix-dark border border-gray-600 rounded px-3 py-1 text-sm w-64 focus:outline-none focus:border-netflix-red" id="searchInput">
+                        <i class="fas fa-search absolute right-3 top-2 text-netflix-gray"></i>
+                    </div>
+                </div>
+                <button class="md:hidden text-white" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+    <!-- @END_COMPONENT: Header -->
+
+    <!-- @COMPONENT: Hero Section -->
+    <section id="home" class="relative h-screen overflow-hidden">
+        <!-- Background video placeholder -->
+        <div class="absolute inset-0 bg-gradient-to-r from-netflix-black via-transparent to-netflix-black opacity-60 z-10"></div>
+        <!-- Coding workspace background image -->
+        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080" 
+             alt="Modern coding workspace with multiple monitors" 
+             class="absolute inset-0 w-full h-full object-cover" />
+        
+        <div class="relative z-20 h-full flex items-end pb-20">
+            <div class="container mx-auto px-6">
+                <div class="max-w-2xl">
+                    <h1 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">
+                        Full Stack <span class="text-netflix-red">Developer</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 text-netflix-gray leading-relaxed">
+                        Crafting exceptional digital experiences with modern web technologies. 
+                        Specializing in React, Node.js, and cloud architecture.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-netflix-red hover:bg-red-700 px-8 py-3 rounded font-semibold transition-all duration-200 transform hover:scale-105">
+                            <i class="fas fa-play mr-2"></i>View My Work
+                        </button>
+                        <button class="bg-gray-600 bg-opacity-70 hover:bg-opacity-90 px-8 py-3 rounded font-semibold transition-all duration-200 transform hover:scale-105">
+                            <i class="fas fa-info-circle mr-2"></i>More Info
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: Featured Projects Section -->
+    <section id="projects" class="py-16 bg-netflix-black">
+        <div class="px-6">
+            <h2 class="text-3xl font-bold mb-8">Featured Projects</h2>
+            <div class="relative">
+                <div class="flex space-x-4 overflow-x-auto scrollbar-hide pb-4" id="featuredCarousel">
+                    <!-- Project 1 -->
+                    <div class="flex-none w-80 bg-netflix-dark rounded-lg overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105 hover:z-10 project-card" data-project="ecommerce">
+                        <!-- E-commerce dashboard screenshot -->
+                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450" 
+                             alt="E-commerce dashboard interface" class="w-full h-48 object-cover" />
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">E-Commerce Platform</h3>
+                            <p class="text-netflix-gray text-sm mb-3">Full-stack marketplace with React, Node.js, and MongoDB</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-netflix-red px-2 py-1 text-xs rounded">React</span>
+                                <span class="bg-gray-600 px-2 py-1 text-xs rounded">Node.js</span>
+                                <span class="bg-gray-600 px-2 py-1 text-xs rounded">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="flex-none w-80 bg-netflix-dark rounded-lg overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105 hover:z-10 project-card" data-project="dashboard">
+                        <!-- Analytics dashboard -->
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450" 
+                             alt="Analytics dashboard with charts and graphs" class="w-full h-48 object-cover" />
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">Analytics Dashboard</h3>
+                            <p class="text-netflix-gray text-sm mb-3">Real-time data visualization with D3.js and React</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-netflix-red px-2 py-1 text-xs rounded">React</span>
+                                <span class="bg-gray-600 px-2 py-1 text-xs rounded">D3.js</span>
+                                <span class="bg-gray-600 px-2 py-1 text-xs rounded">PostgreSQL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="flex-none w-80 bg-netflix-dark rounded-lg overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105 hover:z-10 project-card" data-project="mobile">
+                        <!-- Mobile app design -->
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450" 
+                             alt="Mobile app interface design mockup" class="w-full h-48 object-cover" />
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">Mobile Banking App</h3>
+                            <p class="text-netflix-gray text-sm mb-3">Cross-platform mobile app with React Native</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-netflix-red px-2 py-1 text-xs rounded">React Native</span>
+                                <span class="bg-gray-600 px-2 py-1 text-xs rounded">TypeScript</span>
+                                <span class="bg-gray-600 px-2 py-1 text-xs rounded">Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="flex-none w-80 bg-netflix-dark rounded-lg overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105 hover:z-10 project-card" data-project="ai">
+                        <!-- AI/ML visualization -->
+                        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450" 
+                             alt="AI and machine learning data visualization" class="w-full h-48 object-cover" />
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">AI Content Generator</h3>
+                            <p class="text-netflix-gray text-sm mb-3">Machine learning powered content creation tool</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-netflix-red px-2 py-1 text-xs rounded">Python</span>
+                                <span class="bg-gray-600 px-2 py-1 text-xs rounded">TensorFlow</span>
+                                <span class="bg-gray-600 px-2 py-1 text-xs rounded">FastAPI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Featured Projects Section -->
+
+    <!-- @COMPONENT: Web Development Projects -->
+    <section class="py-16 bg-netflix-black">
+        <div class="px-6">
+            <h2 class="text-3xl font-bold mb-8">Web Development</h2>
+            <div class="relative">
+                <div class="flex space-x-4 overflow-x-auto scrollbar-hide pb-4" id="webDevCarousel">
+                    <!-- Web Project 1 -->
+                    <div class="flex-none w-80 bg-netflix-dark rounded-lg overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105 hover:z-10 project-card" data-project="blog">
+                        <!-- Blog platform -->
+                        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450" 
+                             alt="Modern blog website design" class="w-full h-48 object-cover" />
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">Tech Blog Platform</h3>
+                            <p class="text-netflix-gray text-sm mb-3">Modern blogging platform with CMS capabilities</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-netflix-red px-2 py-1 text-xs rounded">Next.js</span>
+                                <span class="bg-gray-600 px-2 py-1 text-xs rounded">Prisma</span>
+                                <span class="bg-gray-600 px-2 py-1 text-xs rounded">Tailwind</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web Project 2 -->
+                    <div class="flex-none w-80 bg-netflix-dark rounded-lg overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105 hover:z-10 project-card" data-project="saas">
+                        <!-- SaaS application -->
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450" 
+                             alt="SaaS application dashboard interface" class="w-full h-48 object-cover" />
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">Project Management SaaS</h3>
+                            <p class="text-netflix-gray text-sm mb-3">Collaborative project management tool</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-netflix-red px-2 py-1 text-xs rounded">Vue.js</span>
+                                <span class="bg-gray-600 px-2 py-1 text-xs rounded">Express</span>
+                                <span class="bg-gray-600 px-2 py-1 text-xs rounded">MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web Project 3 -->
+                    <div class="flex-none w-80 bg-netflix-dark rounded-lg overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105 hover:z-10 project-card" data-project="portfolio">
+                        <!-- Portfolio website -->
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450" 
+                             alt="Creative portfolio website design" class="w-full h-48 object-cover" />
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">Creative Agency Website</h3>
+                            <p class="text-netflix-gray text-sm mb-3">Award-winning agency portfolio with animations</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-netflix-red px-2 py-1 text-xs rounded">React</span>
+                                <span class="bg-gray-600 px-2 py-1 text-xs rounded">Framer Motion</span>
+                                <span class="bg-gray-600 px-2 py-1 text-xs rounded">Sanity</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web Project 4 -->
+                    <div class="flex-none w-80 bg-netflix-dark rounded-lg overflow-hidden cursor-pointer transform transition-all duration-300 hover:scale-105 hover:z-10 project-card" data-project="social">
+                        <!-- Social platform -->
+                        <img src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450" 
+                             alt="Social media platform interface" class="w-full h-48 object-cover" />
+                        <div class="p-4">
+                            <h3 class="text-xl font-semibold mb-2">Social Learning Platform</h3>
+                            <p class="text-netflix-gray text-sm mb-3">Educational social network for developers</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-netflix-red px-2 py-1 text-xs rounded">React</span>
+                                <span class="bg-gray-600 px-2 py-1 text-xs rounded">GraphQL</span>
+                                <span class="bg-gray-600 px-2 py-1 text-xs rounded">AWS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Web Development Projects -->
+
+    <!-- @COMPONENT: About Section -->
+    <section class="py-20 bg-netflix-dark">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <!-- Professional headshot -->
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800" 
+                         alt="Professional headshot of John Smith" 
+                         class="rounded-lg shadow-2xl w-full max-w-md mx-auto" />
+                </div>
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">About <span class="text-netflix-red">Me</span></h2>
+                    <p class="text-lg text-netflix-gray mb-6 leading-relaxed">
+                        I'm a passionate full-stack developer with over 5 years of experience creating 
+                        scalable web applications and digital solutions. My expertise spans modern 
+                        JavaScript frameworks, cloud architecture, and user experience design.
+                    </p>
+                    <p class="text-lg text-netflix-gray mb-8 leading-relaxed">
+                        When I'm not coding, you'll find me exploring new technologies, contributing 
+                        to open-source projects, or sharing knowledge through technical writing and 
+                        mentoring.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-netflix-red font-semibold mb-2">Frontend</h4>
+                            <ul class="text-netflix-gray space-y-1">
+                                <li>React / Next.js</li>
+                                <li>TypeScript</li>
+                                <li>Tailwind CSS</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-netflix-red font-semibold mb-2">Backend</h4>
+                            <ul class="text-netflix-gray space-y-1">
+                                <li>Node.js / Express</li>
+                                <li>Python / FastAPI</li>
+                                <li>PostgreSQL / MongoDB</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: About Section -->
+
+    <!-- @COMPONENT: Footer -->
+    <footer id="contact" class="bg-netflix-black py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold mb-4">Let's Work Together</h3>
+                <p class="text-netflix-gray mb-6">Ready to bring your ideas to life? Let's discuss your next project.</p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 mb-8">
+                <a href="mailto:john.smith@example.com" class="flex items-center text-netflix-gray hover:text-netflix-red transition-colors">
+                    📧 john.smith@example.com
+                </a>
+                <a href="tel:+1234567890" class="flex items-center text-netflix-gray hover:text-netflix-red transition-colors">
+                    📞 +1 (234) 567-8900
+                </a>
+                <span class="flex items-center text-netflix-gray">
+                    📍 San Francisco, CA
+                </span>
+            </div>
+
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-netflix-gray hover:text-netflix-red transition-colors text-xl">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-netflix-gray hover:text-netflix-red transition-colors text-xl">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="text-netflix-gray hover:text-netflix-red transition-colors text-xl">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-netflix-gray hover:text-netflix-red transition-colors text-xl">
+                    <i class="fab fa-dribbble"></i>
+                </a>
+            </div>
+
+            <div class="text-center text-netflix-gray text-sm">
+                <p>&copy; 2024 John Smith. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <!-- @COMPONENT: Project Modal -->
+    <div id="projectModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center p-4">
+        <div class="bg-netflix-dark rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="relative">
+                <button id="closeModal" class="absolute top-4 right-4 text-white hover:text-netflix-red text-2xl z-10">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div id="modalContent">
+                    <!-- Dynamic content will be inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- @END_COMPONENT: Project Modal -->
+
+    <style>
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 10px 30px rgba(229, 9, 20, 0.3);
+        }
+    </style>
+
+    <script>
+        (function() {
+            // Header scroll effect
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('header');
+                if (window.scrollY > 100) {
+                    header.classList.add('bg-netflix-black');
+                    header.classList.remove('bg-gradient-to-b', 'from-netflix-black', 'to-transparent');
+                } else {
+                    header.classList.remove('bg-netflix-black');
+                    header.classList.add('bg-gradient-to-b', 'from-netflix-black', 'to-transparent');
+                }
+            });
+
+            // Project modal functionality
+            const projectCards = document.querySelectorAll('.project-card');
+            const modal = document.getElementById('projectModal');
+            const modalContent = document.getElementById('modalContent');
+            const closeModal = document.getElementById('closeModal');
+
+            const projectData = {
+                ecommerce: {
+                    title: 'E-Commerce Platform',
+                    image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600',
+                    description: 'A comprehensive e-commerce solution built with modern web technologies. Features include user authentication, product catalog, shopping cart, payment integration, and admin dashboard.',
+                    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe API', 'AWS'],
+                    features: ['User Authentication', 'Product Management', 'Payment Processing', 'Order Tracking', 'Admin Dashboard'],
+                    github: '#',
+                    live: '#'
+                },
+                dashboard: {
+                    title: 'Analytics Dashboard',
+                    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600',
+                    description: 'Real-time analytics dashboard with interactive charts and data visualization. Processes large datasets and provides actionable insights for business intelligence.',
+                    technologies: ['React', 'D3.js', 'PostgreSQL', 'Redis', 'Docker'],
+                    features: ['Real-time Data', 'Interactive Charts', 'Export Functionality', 'Custom Filters', 'Mobile Responsive'],
+                    github: '#',
+                    live: '#'
+                }
+            };
+
+            projectCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const projectId = this.dataset.project;
+                    const project = projectData[projectId];
+                    
+                    if (project) {
+                        modalContent.innerHTML = `
+                            <img src="${project.image}" alt="${project.title}" class="w-full h-64 object-cover rounded-t-lg">
+                            <div class="p-8">
+                                <h2 class="text-3xl font-bold mb-4">${project.title}</h2>
+                                <p class="text-netflix-gray mb-6 leading-relaxed">${project.description}</p>
+                                
+                                <div class="mb-6">
+                                    <h3 class="text-xl font-semibold mb-3 text-netflix-red">Technologies Used</h3>
+                                    <div class="flex flex-wrap gap-2">
+                                        ${project.technologies.map(tech => `<span class="bg-gray-600 px-3 py-1 rounded text-sm">${tech}</span>`).join('')}
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <h3 class="text-xl font-semibold mb-3 text-netflix-red">Key Features</h3>
+                                    <ul class="list-disc list-inside text-netflix-gray space-y-1">
+                                        ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                                    </ul>
+                                </div>
+                                
+                                <div class="flex space-x-4">
+                                    <a href="${project.github}" class="bg-netflix-red hover:bg-red-700 px-6 py-2 rounded transition-colors">
+                                        <i class="fab fa-github mr-2"></i>View Code
+                                    </a>
+                                    <a href="${project.live}" class="bg-gray-600 hover:bg-gray-700 px-6 py-2 rounded transition-colors">
+                                        <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                                    </a>
+                                </div>
+                            </div>
+                        `;
+                        modal.classList.remove('hidden');
+                        modal.classList.add('flex');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            });
+
+            closeModal.addEventListener('click', function() {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            });
+
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Search functionality
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase();
+                const projectCards = document.querySelectorAll('.project-card');
+                
+                projectCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+                    const technologies = Array.from(card.querySelectorAll('span')).map(span => span.textContent.toLowerCase()).join(' ');
+                    
+                    if (title.includes(query) || description.includes(query) || technologies.includes(query)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = query === '' ? 'block' : 'none';
+                    }
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileMenu = document.getElementById('mobileMenu');
+            // TODO: Implement mobile menu functionality
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Infinite scroll simulation for carousels
+            const carousels = document.querySelectorAll('[id$="Carousel"]');
+            carousels.forEach(carousel => {
+                carousel.addEventListener('scroll', function() {
+                    // TODO: Implement infinite scroll logic for seamless carousel experience
+                    const { scrollLeft, scrollWidth, clientWidth } = this;
+                    if (scrollLeft + clientWidth >= scrollWidth - 10) {
+                        // Near end - could clone first items and append
+                    }
+                    if (scrollLeft <= 10) {
+                        // Near start - could clone last items and prepend
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

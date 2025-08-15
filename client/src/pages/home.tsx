@@ -54,8 +54,8 @@ export default function Home() {
       case 'download-resume':
         // Create a temporary link to download the resume
         const link = document.createElement('a');
-        link.href = '/attached_assets/FAROOQ CHISTY  RESUME 2025 (1)_1754665051871.pdf';
-        link.download = 'Farooq_Chisty_Resume_2025.pdf';
+        link.href = '#';
+        link.download = '#';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -224,8 +224,8 @@ export default function Home() {
                 </div>
                 <div className="flex items-center space-x-3 text-gray-300 hover:text-white transition-colors">
                   <Phone className="w-4 h-4 flex-shrink-0" />
-                  <a href="tel:+919878167456" className="text-xs sm:text-sm">
-                    +91-9878167456
+                  <a href="tel:+919xxxxxxx" className="text-xs sm:text-sm">
+                    +91-987xxxxxxx
                   </a>
                 </div>
               </div>

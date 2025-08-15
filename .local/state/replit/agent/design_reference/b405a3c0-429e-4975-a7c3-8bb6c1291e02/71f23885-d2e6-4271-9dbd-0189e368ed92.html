@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Thompson - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'netflix-black': '#141414',
+                    'netflix-dark': '#221f1f',
+                    'netflix-red': '#E50914',
+                    'netflix-gray': '#333333',
+                    'netflix-light-gray': '#B3B3B3'
+                },
+                fontFamily: {
+                    'netflix': ['Inter', 'system-ui', 'sans-serif']
+                }
+            }
+        }
+    };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .carousel-container {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+        .project-card:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+        .hero-background {
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.8), rgba(229, 9, 20, 0.1));
+        }
+    </style>
+</head>
+<body class="bg-netflix-black text-white font-netflix">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-netflix-black to-transparent px-6 py-4">
+        <nav class="flex items-center justify-between max-w-7xl mx-auto">
+            <div class="flex items-center space-x-8">
+                <h1 class="text-2xl font-bold text-netflix-red">Alex Thompson</h1>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#projects" class="hover:text-netflix-light-gray transition-colors">Projects</a>
+                    <a href="#contact" class="hover:text-netflix-light-gray transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <!-- Search Icon -->
+                <button id="searchBtn" class="hover:text-netflix-red transition-colors">
+                    <i class="fas fa-search text-lg"></i>
+                </button>
+                <!-- Mobile Menu -->
+                <button id="mobileMenuBtn" class="md:hidden hover:text-netflix-red transition-colors">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Search Bar (Initially Hidden) -->
+        <div id="searchBar" class="hidden mt-4 max-w-7xl mx-auto">
+            <input type="text" placeholder="Search projects..." class="w-full bg-netflix-dark text-white px-4 py-2 rounded border border-netflix-gray focus:border-netflix-red outline-none">
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden mt-4 bg-netflix-dark rounded p-4">
+            <a href="#projects" class="block py-2 hover:text-netflix-red transition-colors">Projects</a>
+            <a href="#contact" class="block py-2 hover:text-netflix-red transition-colors">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center hero-background">
+        <!-- Modern minimalist workspace with laptop and design tools -->
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080'); background-size: cover; background-position: center;" class="absolute inset-0"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-6">
+            <div class="max-w-2xl">
+                <h2 class="text-6xl md:text-8xl font-bold mb-6 leading-tight">
+                    Full-Stack
+                    <span class="text-netflix-red">Developer</span>
+                </h2>
+                <p class="text-xl md:text-2xl text-netflix-light-gray mb-8 leading-relaxed">
+                    Crafting exceptional digital experiences with modern technologies and innovative design solutions.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-netflix-red hover:bg-red-700 text-white px-8 py-4 rounded font-semibold transition-all duration-300 transform hover:scale-105">
+                        View My Work
+                    </button>
+                    <button class="border border-white text-white hover:bg-white hover:text-netflix-black px-8 py-4 rounded font-semibold transition-all duration-300">
+                        Download Resume
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-2xl text-netflix-light-gray"></i>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="projects" class="py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-3xl font-bold mb-8">Featured Projects</h3>
+            <div class="carousel-container flex overflow-x-auto space-x-6 pb-4" style="scroll-behavior: smooth;">
+                <!-- E-commerce platform with modern interface -->
+                <div class="project-card flex-none w-80 bg-netflix-dark rounded-lg overflow-hidden transition-transform duration-300 hover:shadow-2xl" data-mock="true">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450" alt="E-commerce Platform" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2" data-bind="project.title">E-Commerce Platform</h4>
+                        <p class="text-netflix-light-gray mb-4" data-bind="project.description">Full-stack React application with payment integration</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-netflix-red text-xs px-2 py-1 rounded">React</span>
+                            <span class="bg-netflix-red text-xs px-2 py-1 rounded">Node.js</span>
+                            <span class="bg-netflix-red text-xs px-2 py-1 rounded">MongoDB</span>
+                        </div>
+                        <button class="text-netflix-red hover:underline" data-event="click:openProjectModal">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Modern mobile app design showcase -->
+                <div class="project-card flex-none w-80 bg-netflix-dark rounded-lg overflow-hidden transition-transform duration-300 hover:shadow-2xl" data-mock="true">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450" alt="Mobile App Design" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Mobile Banking App</h4>
+                        <p class="text-netflix-light-gray mb-4">Secure financial app with intuitive user experience</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-netflix-red text-xs px-2 py-1 rounded">React Native</span>
+                            <span class="bg-netflix-red text-xs px-2 py-1 rounded">TypeScript</span>
+                            <span class="bg-netflix-red text-xs px-2 py-1 rounded">Firebase</span>
+                        </div>
+                        <button class="text-netflix-red hover:underline">View Details</button>
+                    </div>
+                </div>
+
+                <!-- Data visualization dashboard -->
+                <div class="project-card flex-none w-80 bg-netflix-dark rounded-lg overflow-hidden transition-transform duration-300 hover:shadow-2xl" data-mock="true">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450" alt="Analytics Dashboard" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Analytics Dashboard</h4>
+                        <p class="text-netflix-light-gray mb-4">Real-time data visualization platform</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-netflix-red text-xs px-2 py-1 rounded">Vue.js</span>
+                            <span class="bg-netflix-red text-xs px-2 py-1 rounded">D3.js</span>
+                            <span class="bg-netflix-red text-xs px-2 py-1 rounded">Python</span>
+                        </div>
+                        <button class="text-netflix-red hover:underline">View Details</button>
+                    </div>
+                </div>
+
+                <!-- AI-powered web application -->
+                <div class="project-card flex-none w-80 bg-netflix-dark rounded-lg overflow-hidden transition-transform duration-300 hover:shadow-2xl" data-mock="true">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450" alt="AI Application" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">AI Content Generator</h4>
+                        <p class="text-netflix-light-gray mb-4">Machine learning powered content creation tool</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-netflix-red text-xs px-2 py-1 rounded">Python</span>
+                            <span class="bg-netflix-red text-xs px-2 py-1 rounded">TensorFlow</span>
+                            <span class="bg-netflix-red text-xs px-2 py-1 rounded">Flask</span>
+                        </div>
+                        <button class="text-netflix-red hover:underline">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web Development Projects -->
+    <section class="py-16 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h3 class="text-3xl font-bold mb-8">Web Development</h3>
+            <div class="carousel-container flex overflow-x-auto space-x-6 pb-4">
+                <!-- @MAP: webProjects.map(project => ( -->
+                <!-- Social media platform interface -->
+                <div class="project-card flex-none w-80 bg-netflix-dark rounded-lg overflow-hidden transition-transform duration-300 hover:shadow-2xl" data-mock="true">
+                    <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450" alt="Social Platform" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Social Media Platform</h4>
+                        <p class="text-netflix-light-gray mb-4">Modern social networking application</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-netflix-gray text-xs px-2 py-1 rounded">React</span>
+                            <span class="bg-netflix-gray text-xs px-2 py-1 rounded">GraphQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio website design -->
+                <div class="project-card flex-none w-80 bg-netflix-dark rounded-lg overflow-hidden transition-transform duration-300 hover:shadow-2xl" data-mock="true">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450" alt="Portfolio Website" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Portfolio Website</h4>
+                        <p class="text-netflix-light-gray mb-4">Responsive personal portfolio design</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-netflix-gray text-xs px-2 py-1 rounded">Next.js</span>
+                            <span class="bg-netflix-gray text-xs px-2 py-1 rounded">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-learning platform -->
+                <div class="project-card flex-none w-80 bg-netflix-dark rounded-lg overflow-hidden transition-transform duration-300 hover:shadow-2xl" data-mock="true">
+                    <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450" alt="E-learning Platform" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">E-Learning Platform</h4>
+                        <p class="text-netflix-light-gray mb-4">Interactive online learning system</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-netflix-gray text-xs px-2 py-1 rounded">Angular</span>
+                            <span class="bg-netflix-gray text-xs px-2 py-1 rounded">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cryptocurrency tracking app -->
+                <div class="project-card flex-none w-80 bg-netflix-dark rounded-lg overflow-hidden transition-transform duration-300 hover:shadow-2xl" data-mock="true">
+                    <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=450" alt="Crypto Tracker" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold mb-2">Crypto Tracker</h4>
+                        <p class="text-netflix-light-gray mb-4">Real-time cryptocurrency monitoring</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-netflix-gray text-xs px-2 py-1 rounded">React</span>
+                            <span class="bg-netflix-gray text-xs px-2 py-1 rounded">APIs</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- @END_MAP )) -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 px-6 bg-netflix-dark">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <!-- Professional headshot in modern office setting -->
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800" alt="Alex Thompson - Professional Headshot" class="rounded-lg shadow-2xl w-full max-w-md mx-auto" data-mock-image="true">
+                </div>
+                <div>
+                    <h3 class="text-4xl font-bold mb-6">About Me</h3>
+                    <p class="text-lg text-netflix-light-gray mb-6 leading-relaxed" data-mock="true">
+                        I'm a passionate full-stack developer with over 5 years of experience creating exceptional digital experiences. My expertise spans modern JavaScript frameworks, cloud technologies, and UI/UX design principles.
+                    </p>
+                    <p class="text-lg text-netflix-light-gray mb-8 leading-relaxed" data-mock="true">
+                        When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or mentoring aspiring developers in the community.
+                    </p>
+                    
+                    <!-- Skills Grid -->
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">Frontend</h4>
+                            <ul class="space-y-2 text-netflix-light-gray">
+                                <li>React & Next.js</li>
+                                <li>Vue.js & Nuxt.js</li>
+                                <li>TypeScript</li>
+                                <li>Tailwind CSS</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-semibold mb-3">Backend</h4>
+                            <ul class="space-y-2 text-netflix-light-gray">
+                                <li>Node.js & Express</li>
+                                <li>Python & Django</li>
+                                <li>PostgreSQL & MongoDB</li>
+                                <li>AWS & Docker</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-4xl font-bold mb-8">Let's Work Together</h3>
+            <p class="text-xl text-netflix-light-gray mb-12" data-mock="true">
+                Ready to bring your next project to life? I'd love to hear about your ideas and discuss how we can collaborate.
+            </p>
+            
+            <!-- Contact Cards -->
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Clean modern workspace with computer setup -->
+                <div class="bg-netflix-dark p-8 rounded-lg hover:bg-netflix-gray transition-colors">
+                    <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Modern Workspace" class="w-full h-40 object-cover rounded mb-4">
+                    <h4 class="text-xl font-semibold mb-2">Collaboration</h4>
+                    <p class="text-netflix-light-gray">Let's discuss your project requirements and timeline</p>
+                </div>
+                
+                <!-- Professional headshot for consultation -->
+                <div class="bg-netflix-dark p-8 rounded-lg hover:bg-netflix-gray transition-colors">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Professional Consultation" class="w-full h-40 object-cover rounded mb-4">
+                    <h4 class="text-xl font-semibold mb-2">Consultation</h4>
+                    <p class="text-netflix-light-gray">Free initial consultation to explore possibilities</p>
+                </div>
+                
+                <!-- Tech workspace with multiple monitors -->
+                <div class="bg-netflix-dark p-8 rounded-lg hover:bg-netflix-gray transition-colors">
+                    <img src="https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300" alt="Development Workspace" class="w-full h-40 object-cover rounded mb-4">
+                    <h4 class="text-xl font-semibold mb-2">Development</h4>
+                    <p class="text-netflix-light-gray">Full-stack development and technical expertise</p>
+                </div>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="flex justify-center space-x-8">
+                <a href="#" class="text-netflix-light-gray hover:text-netflix-red transition-colors text-2xl">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="text-netflix-light-gray hover:text-netflix-red transition-colors text-2xl">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="text-netflix-light-gray hover:text-netflix-red transition-colors text-2xl">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-netflix-light-gray hover:text-netflix-red transition-colors text-2xl">
+                    <i class="fab fa-dribbble"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-netflix-dark py-8 px-6 border-t border-netflix-gray">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 text-netflix-light-gray">
+                <span data-mock="true">alex.thompson@email.com</span>
+                <span class="hidden md:inline">|</span>
+                <span data-mock="true">+1 (555) 123-4567</span>
+                <span class="hidden md:inline">|</span>
+                <span data-mock="true">San Francisco, CA</span>
+            </div>
+            <div class="text-center mt-6 text-sm text-netflix-light-gray">
+                <p data-mock="true">&copy; 2024 Alex Thompson. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Detail Modal -->
+    <div id="projectModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+        <div class="bg-netflix-dark rounded-lg max-w-4xl w-full max-h-90vh overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-3xl font-bold" data-bind="selectedProject.title">Project Title</h3>
+                    <button id="closeModal" class="text-netflix-light-gray hover:text-white text-2xl">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <!-- Professional workspace with design elements -->
+                <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600" alt="Project Detail" class="w-full h-64 object-cover rounded-lg mb-6" data-mock-image="true">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-4">Project Overview</h4>
+                        <p class="text-netflix-light-gray mb-6" data-mock="true">
+                            Detailed description of the project, its goals, challenges, and the solutions implemented. This includes the technical approach, design decisions, and outcomes achieved.
+                        </p>
+                        <h4 class="text-xl font-semibold mb-4">Key Features</h4>
+                        <ul class="list-disc list-inside text-netflix-light-gray space-y-2" data-mock="true">
+                            <li>Responsive design across all devices</li>
+                            <li>Real-time data synchronization</li>
+                            <li>Advanced search and filtering</li>
+                            <li>User authentication and authorization</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-4">Technologies Used</h4>
+                        <div class="flex flex-wrap gap-2 mb-6" data-mock="true">
+                            <span class="bg-netflix-red text-xs px-3 py-1 rounded">React</span>
+                            <span class="bg-netflix-red text-xs px-3 py-1 rounded">Node.js</span>
+                            <span class="bg-netflix-red text-xs px-3 py-1 rounded">MongoDB</span>
+                            <span class="bg-netflix-red text-xs px-3 py-1 rounded">AWS</span>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-4">Links</h4>
+                        <div class="space-y-3">
+                            <a href="#" class="block text-netflix-red hover:underline">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="#" class="block text-netflix-red hover:underline">
+                                <i class="fab fa-github mr-2"></i>Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading State -->
+    <div id="loadingSpinner" class="hidden fixed inset-0 bg-netflix-black bg-opacity-75 z-50 flex items-center justify-center">
+        <div class="text-center">
+            <div class="animate-spin rounded-full h-16 w-16 border-4 border-netflix-red border-t-transparent mx-auto mb-4"></div>
+            <p class="text-netflix-light-gray">Loading...</p>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        // TODO: Implement business logic, API calls, or state management
+        
+        // Search functionality
+        const searchBtn = document.getElementById('searchBtn');
+        const searchBar = document.getElementById('searchBar');
+        
+        searchBtn.addEventListener('click', function() {
+            searchBar.classList.toggle('hidden');
+            if (!searchBar.classList.contains('hidden')) {
+                searchBar.querySelector('input').focus();
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Project modal functionality
+        const projectModal = document.getElementById('projectModal');
+        const closeModal = document.getElementById('closeModal');
+        
+        document.querySelectorAll('[data-event="click:openProjectModal"]').forEach(button => {
+            button.addEventListener('click', function() {
+                projectModal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        closeModal.addEventListener('click', function() {
+            projectModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        projectModal.addEventListener('click', function(e) {
+            if (e.target === projectModal) {
+                projectModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Carousel scroll buttons (could be added)
+        // TODO: Add prev/next buttons for carousels on larger screens
+        
+        // Header background opacity on scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(20, 20, 20, 0.95)';
+            } else {
+                header.style.backgroundColor = 'transparent';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe project cards for scroll animations
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Filter functionality placeholder
+        // TODO: Implement project filtering by technology/category
+        
+        // Search functionality placeholder
+        const searchInput = searchBar.querySelector('input');
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            // TODO: Filter projects based on search term
+            console.log('Searching for:', searchTerm);
+        });
+    })();
+    </script>
+</body>
+</html>

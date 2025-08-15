@@ -1,3 +1,4 @@
+import * as React from "react";
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -12,30 +13,30 @@ import NetflixSearchPage from "@/pages/netflix-search";
 import NotFound from "@/pages/not-found";
 
 function Router() {
-  return (
-    <Switch>
-      <Route path="/" component={Home} />
-      <Route path="/projects" component={ProjectsPage} />
-      <Route path="/contact" component={ContactPage} />
-      <Route path="/lets-chat" component={LetsChatPage} />
-      <Route path="/netflix-search" component={NetflixSearchPage} />
-      <Route component={NotFound} />
-    </Switch>
-  );
+    return (
+        <Switch>
+            <Route path="/" component={Home} />
+            <Route path="/projects" component={ProjectsPage} />
+            <Route path="/contact" component={ContactPage} />
+            <Route path="/lets-chat" component={LetsChatPage} />
+            <Route path="/netflix-search" component={NetflixSearchPage} />
+            <Route component={NotFound} />
+        </Switch>
+    );
 }
 
 function App() {
-  // Monitor performance for optimization
-  usePerformanceObserver();
-  
-  return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
-    </QueryClientProvider>
-  );
+    // Monitor performance for optimization
+    usePerformanceObserver();
+
+    return (
+        <QueryClientProvider client={queryClient}>
+            <TooltipProvider>
+                <Toaster />
+                <Router />
+            </TooltipProvider>
+        </QueryClientProvider>
+    );
 }
 
 export default App;
